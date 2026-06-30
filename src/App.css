@@ -77,6 +77,24 @@ h1 {
   font-weight: 500;
 }
 
+.reveal-btn {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-family: var(--sans);
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+
+  .card:hover & {
+    opacity: 1;
+  }
+}
+
 .answer-input {
   width: 100%;
   max-width: 812px;

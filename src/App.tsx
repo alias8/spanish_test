@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from 'react'
+import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
 import { type NumberEntry, SCREENS } from './data'
 import Card from './Card'
@@ -45,9 +45,16 @@ export default function App() {
     inputRef.current?.focus()
   }
 
+  const handleReveal = useCallback((value: number) => {
+    setRevealedByScreen(prev => ({
+      ...prev,
+      [screenIndex]: new Set(prev[screenIndex]).add(value),
+    }))
+  }, [screenIndex])
+
   function renderColumn(numbers: NumberEntry[]) {
     return numbers.map(({ value, spanish }) => (
-      <Card key={value} value={value} spanish={spanish} isRevealed={revealed.has(value)} />
+      <Card key={value} value={value} spanish={spanish} isRevealed={revealed.has(value)} onReveal={handleReveal} />
     ))
   }
 
