@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo, memo } from 'react'
 import './App.css'
 
 type NumberEntry = { value: number; spanish: string }
@@ -115,6 +115,17 @@ function normalize(s: string) {
   return s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 }
 
+const Card = memo(({ value, spanish, isRevealed }: {
+  value: number
+  spanish: string
+  isRevealed: boolean
+}) => (
+  <div className={`card ${isRevealed ? 'revealed' : ''}`}>
+    <span className="numeral">{value}</span>
+    <span className="word">{isRevealed ? spanish : '?'}</span>
+  </div>
+))
+
 export default function App() {
   const [screenIndex, setScreenIndex] = useState(0)
   const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>(
@@ -124,7 +135,7 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
-  const screenNumbers = [...screen.col1, ...screen.col2]
+  const screenNumbers = useMemo(() => [...screen.col1, ...screen.col2], [screen])
   const revealed = revealedByScreen[screenIndex]
   const complete = revealed.size === screenNumbers.length
 
@@ -153,15 +164,9 @@ export default function App() {
   }
 
   function renderColumn(numbers: NumberEntry[]) {
-    return numbers.map(({ value, spanish }) => {
-      const isRevealed = revealed.has(value)
-      return (
-        <div key={value} className={`card ${isRevealed ? 'revealed' : ''}`}>
-          <span className="numeral">{value}</span>
-          <span className="word">{isRevealed ? spanish : '?'}</span>
-        </div>
-      )
-    })
+    return numbers.map(({ value, spanish }) => (
+      <Card key={value} value={value} spanish={spanish} isRevealed={revealed.has(value)} />
+    ))
   }
 
   return (
