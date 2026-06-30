@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react'
 import './App.css'
 
-const NUMBERS: { value: number; spanish: string }[] = [
+type NumberEntry = { value: number; spanish: string }
+
+const ALL_NUMBERS: NumberEntry[] = [
   { value: 1,  spanish: 'uno' },
   { value: 2,  spanish: 'dos' },
   { value: 3,  spanish: 'tres' },
@@ -22,33 +24,73 @@ const NUMBERS: { value: number; spanish: string }[] = [
   { value: 18, spanish: 'dieciocho' },
   { value: 19, spanish: 'diecinueve' },
   { value: 20, spanish: 'veinte' },
+  { value: 21, spanish: 'veintiuno' },
+  { value: 22, spanish: 'veintidós' },
+  { value: 23, spanish: 'veintitrés' },
+  { value: 24, spanish: 'veinticuatro' },
+  { value: 25, spanish: 'veinticinco' },
+  { value: 26, spanish: 'veintiséis' },
+  { value: 27, spanish: 'veintisiete' },
+  { value: 28, spanish: 'veintiocho' },
+  { value: 29, spanish: 'veintinueve' },
+  { value: 30, spanish: 'treinta' },
+  { value: 31, spanish: 'treinta y uno' },
+  { value: 32, spanish: 'treinta y dos' },
+  { value: 33, spanish: 'treinta y tres' },
+  { value: 34, spanish: 'treinta y cuatro' },
+  { value: 35, spanish: 'treinta y cinco' },
+  { value: 36, spanish: 'treinta y seis' },
+  { value: 37, spanish: 'treinta y siete' },
+  { value: 38, spanish: 'treinta y ocho' },
+  { value: 39, spanish: 'treinta y nueve' },
+  { value: 40, spanish: 'cuarenta' },
 ]
 
-const COL1 = NUMBERS.slice(0, 10)
-const COL2 = NUMBERS.slice(10)
+const SCREENS = [
+  { label: 'Screen 1', col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
+  { label: 'Screen 2', col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
+]
 
 function normalize(s: string) {
   return s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 }
 
 export default function App() {
-  const [revealed, setRevealed] = useState<Set<number>>(new Set())
+  const [screenIndex, setScreenIndex] = useState(0)
+  const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>({ 0: new Set(), 1: new Set() })
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const complete = revealed.size === NUMBERS.length
+  const screen = SCREENS[screenIndex]
+  const screenNumbers = [...screen.col1, ...screen.col2]
+  const revealed = revealedByScreen[screenIndex]
+  const complete = revealed.size === screenNumbers.length
+
+  function switchScreen(index: number) {
+    setScreenIndex(index)
+    setInput('')
+    setTimeout(() => inputRef.current?.focus(), 0)
+  }
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value)
-
-    const match = NUMBERS.find(n => normalize(n.spanish) === normalize(e.target.value) && !revealed.has(n.value))
+    const match = screenNumbers.find(n => normalize(n.spanish) === normalize(e.target.value) && !revealed.has(n.value))
     if (match) {
-      setRevealed(prev => new Set(prev).add(match.value))
+      setRevealedByScreen(prev => ({
+        ...prev,
+        [screenIndex]: new Set(prev[screenIndex]).add(match.value),
+      }))
       setInput('')
     }
   }
 
-  function renderColumn(numbers: typeof NUMBERS) {
+  function reset() {
+    setRevealedByScreen(prev => ({ ...prev, [screenIndex]: new Set() }))
+    setInput('')
+    inputRef.current?.focus()
+  }
+
+  function renderColumn(numbers: NumberEntry[]) {
     return numbers.map(({ value, spanish }) => {
       const isRevealed = revealed.has(value)
       return (
@@ -61,37 +103,49 @@ export default function App() {
   }
 
   return (
-    <div className="app">
-      <h1>Spanish Numbers</h1>
-      <p className="subtitle">Type each number in Spanish to reveal it</p>
+    <div className="layout">
+      <div className="app">
+        <h1>Spanish Numbers</h1>
+        <p className="subtitle">Type each number in Spanish to reveal it</p>
 
-      <div className="columns">
-        <div className="grid">{renderColumn(COL1)}</div>
-        <div className="grid">{renderColumn(COL2)}</div>
+        <div className="columns">
+          <div className="grid">{renderColumn(screen.col1)}</div>
+          <div className="grid">{renderColumn(screen.col2)}</div>
+        </div>
+
+        {complete ? (
+          <div className="complete">
+            <span>¡Perfecto! You got all 20!</span>
+            <button onClick={reset}>Play again</button>
+          </div>
+        ) : (
+          <input
+            ref={inputRef}
+            className="answer-input"
+            type="text"
+            value={input}
+            onChange={handleInput}
+            placeholder="Type a Spanish number..."
+            autoFocus
+            autoComplete="off"
+            spellCheck={false}
+          />
+        )}
+
+        <p className="progress">{revealed.size} / {screenNumbers.length}</p>
       </div>
 
-      {complete ? (
-        <div className="complete">
-          <span>¡Perfecto! You got all 20!</span>
-          <button onClick={() => { setRevealed(new Set()); inputRef.current?.focus() }}>
-            Play again
+      <nav className="screen-nav">
+        {SCREENS.map((s, i) => (
+          <button
+            key={i}
+            className={`nav-btn ${i === screenIndex ? 'active' : ''}`}
+            onClick={() => switchScreen(i)}
+          >
+            {s.label}
           </button>
-        </div>
-      ) : (
-        <input
-          ref={inputRef}
-          className="answer-input"
-          type="text"
-          value={input}
-          onChange={handleInput}
-          placeholder="Type a Spanish number..."
-          autoFocus
-          autoComplete="off"
-          spellCheck={false}
-        />
-      )}
-
-      <p className="progress">{revealed.size} / {NUMBERS.length}</p>
+        ))}
+      </nav>
     </div>
   )
 }
