@@ -126,6 +126,29 @@ const THOUSANDS: NumberEntry[] = [
   { value: 10000, spanish: 'diez mil' },
 ]
 
+const YEARS: NumberEntry[] = [
+  { value: 1000, spanish: 'mil' },
+  { value: 1492, spanish: 'mil cuatrocientos noventa y dos' },
+  { value: 1776, spanish: 'mil setecientos setenta y seis' },
+  { value: 1815, spanish: 'mil ochocientos quince' },
+  { value: 1900, spanish: 'mil novecientos' },
+  { value: 1914, spanish: 'mil novecientos catorce' },
+  { value: 1939, spanish: 'mil novecientos treinta y nueve' },
+  { value: 1945, spanish: 'mil novecientos cuarenta y cinco' },
+  { value: 1960, spanish: 'mil novecientos sesenta' },
+  { value: 1969, spanish: 'mil novecientos sesenta y nueve' },
+  { value: 1975, spanish: 'mil novecientos setenta y cinco' },
+  { value: 1980, spanish: 'mil novecientos ochenta' },
+  { value: 1985, spanish: 'mil novecientos ochenta y cinco' },
+  { value: 1990, spanish: 'mil novecientos noventa' },
+  { value: 1995, spanish: 'mil novecientos noventa y cinco' },
+  { value: 1999, spanish: 'mil novecientos noventa y nueve' },
+  { value: 2000, spanish: 'dos mil' },
+  { value: 2010, spanish: 'dos mil diez' },
+  { value: 2024, spanish: 'dos mil veinticuatro' },
+  { value: 2050, spanish: 'dos mil cincuenta' },
+]
+
 export const SCREENS = [
   { label: '1 – 20',      col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
   { label: '21 – 40',     col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
@@ -134,4 +157,5 @@ export const SCREENS = [
   { label: '121 – 140',   col1: HUNDREDS.slice(21, 31),    col2: HUNDREDS.slice(31, 41) },
   { label: 'Hundreds',    col1: ROUND_HUNDREDS,            col2: [] as NumberEntry[] },
   { label: 'Thousands',   col1: THOUSANDS,                 col2: [] as NumberEntry[] },
+  { label: 'Years',       col1: YEARS.slice(0, 10),        col2: YEARS.slice(10) },
 ]

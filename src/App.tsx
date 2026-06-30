@@ -7,7 +7,7 @@ import { normalize } from './utils'
 export default function App() {
   const [screenIndex, setScreenIndex] = useState(0)
   const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>(
-    { 0: new Set(), 1: new Set(), 2: new Set(), 3: new Set(), 4: new Set(), 5: new Set(), 6: new Set() }
+    { 0: new Set(), 1: new Set(), 2: new Set(), 3: new Set(), 4: new Set(), 5: new Set(), 6: new Set(), 7: new Set() }
   )
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
