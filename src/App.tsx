@@ -135,9 +135,12 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
-  const screenNumbers = useMemo(() => [...screen.col1, ...screen.col2], [screen])
+  const screenMap = useMemo(
+    () => new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n])),
+    [screen]
+  )
   const revealed = revealedByScreen[screenIndex]
-  const complete = revealed.size === screenNumbers.length
+  const complete = revealed.size === screenMap.size
 
   function switchScreen(index: number) {
     setScreenIndex(index)
@@ -147,7 +150,8 @@ export default function App() {
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value)
-    const match = screenNumbers.find(n => normalize(n.spanish) === normalize(e.target.value) && !revealed.has(n.value))
+    const match = screenMap.get(normalize(e.target.value))
+    if (match && revealed.has(match.value)) return
     if (match) {
       setRevealedByScreen(prev => ({
         ...prev,
@@ -183,7 +187,7 @@ export default function App() {
         <div className="bottom-area">
           {complete ? (
             <div className="complete">
-              <span>¡Perfecto! You got all {screenNumbers.length}!</span>
+              <span>¡Perfecto! You got all {screenMap.size}!</span>
               <button onClick={reset}>Play again</button>
             </div>
           ) : (
@@ -201,7 +205,7 @@ export default function App() {
           )}
         </div>
 
-        <p className="progress">{revealed.size} / {screenNumbers.length}</p>
+        <p className="progress">{revealed.size} / {screenMap.size}</p>
       </div>
 
       <nav className="screen-nav">
