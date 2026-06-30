@@ -46,9 +46,23 @@ const ALL_NUMBERS: NumberEntry[] = [
   { value: 40, spanish: 'cuarenta' },
 ]
 
+const TENS: NumberEntry[] = [
+  { value: 10,  spanish: 'diez' },
+  { value: 20,  spanish: 'veinte' },
+  { value: 30,  spanish: 'treinta' },
+  { value: 40,  spanish: 'cuarenta' },
+  { value: 50,  spanish: 'cincuenta' },
+  { value: 60,  spanish: 'sesenta' },
+  { value: 70,  spanish: 'setenta' },
+  { value: 80,  spanish: 'ochenta' },
+  { value: 90,  spanish: 'noventa' },
+  { value: 100, spanish: 'cien' },
+]
+
 const SCREENS = [
   { label: 'Screen 1', col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
   { label: 'Screen 2', col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
+  { label: 'Screen 3', col1: TENS,                      col2: [] as NumberEntry[] },
 ]
 
 function normalize(s: string) {
@@ -57,7 +71,9 @@ function normalize(s: string) {
 
 export default function App() {
   const [screenIndex, setScreenIndex] = useState(0)
-  const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>({ 0: new Set(), 1: new Set() })
+  const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>(
+    { 0: new Set(), 1: new Set(), 2: new Set() }
+  )
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -110,27 +126,29 @@ export default function App() {
 
         <div className="columns">
           <div className="grid">{renderColumn(screen.col1)}</div>
-          <div className="grid">{renderColumn(screen.col2)}</div>
+          {screen.col2.length > 0 && <div className="grid">{renderColumn(screen.col2)}</div>}
         </div>
 
-        {complete ? (
-          <div className="complete">
-            <span>¡Perfecto! You got all 20!</span>
-            <button onClick={reset}>Play again</button>
-          </div>
-        ) : (
-          <input
-            ref={inputRef}
-            className="answer-input"
-            type="text"
-            value={input}
-            onChange={handleInput}
-            placeholder="Type a Spanish number..."
-            autoFocus
-            autoComplete="off"
-            spellCheck={false}
-          />
-        )}
+        <div className="bottom-area">
+          {complete ? (
+            <div className="complete">
+              <span>¡Perfecto! You got all {screenNumbers.length}!</span>
+              <button onClick={reset}>Play again</button>
+            </div>
+          ) : (
+            <input
+              ref={inputRef}
+              className="answer-input"
+              type="text"
+              value={input}
+              onChange={handleInput}
+              placeholder="Type a Spanish number..."
+              autoFocus
+              autoComplete="off"
+              spellCheck={false}
+            />
+          )}
+        </div>
 
         <p className="progress">{revealed.size} / {screenNumbers.length}</p>
       </div>
@@ -138,7 +156,7 @@ export default function App() {
       <nav className="screen-nav">
         {SCREENS.map((s, i) => (
           <button
-            key={i}
+            key={s.label}
             className={`nav-btn ${i === screenIndex ? 'active' : ''}`}
             onClick={() => switchScreen(i)}
           >

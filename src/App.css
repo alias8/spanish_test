@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 40px 0;
+  box-sizing: border-box;
 }
 
 .app {
@@ -93,6 +95,15 @@ h1 {
   &:focus {
     border-color: var(--accent);
   }
+}
+
+.bottom-area {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .progress {
