@@ -100,10 +100,38 @@ const HUNDREDS: NumberEntry[] = [
   { value: 140, spanish: 'ciento cuarenta' },
 ]
 
+const ROUND_HUNDREDS: NumberEntry[] = [
+  { value: 100,  spanish: 'cien' },
+  { value: 200,  spanish: 'doscientos' },
+  { value: 300,  spanish: 'trescientos' },
+  { value: 400,  spanish: 'cuatrocientos' },
+  { value: 500,  spanish: 'quinientos' },
+  { value: 600,  spanish: 'seiscientos' },
+  { value: 700,  spanish: 'setecientos' },
+  { value: 800,  spanish: 'ochocientos' },
+  { value: 900,  spanish: 'novecientos' },
+  { value: 1000, spanish: 'mil' },
+]
+
+const THOUSANDS: NumberEntry[] = [
+  { value: 1000,  spanish: 'mil' },
+  { value: 2000,  spanish: 'dos mil' },
+  { value: 3000,  spanish: 'tres mil' },
+  { value: 4000,  spanish: 'cuatro mil' },
+  { value: 5000,  spanish: 'cinco mil' },
+  { value: 6000,  spanish: 'seis mil' },
+  { value: 7000,  spanish: 'siete mil' },
+  { value: 8000,  spanish: 'ocho mil' },
+  { value: 9000,  spanish: 'nueve mil' },
+  { value: 10000, spanish: 'diez mil' },
+]
+
 export const SCREENS = [
-  { label: 'Screen 1', col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
-  { label: 'Screen 2', col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
-  { label: 'Screen 3', col1: TENS,                      col2: [] as NumberEntry[] },
-  { label: 'Screen 4', col1: HUNDREDS.slice(1, 11),     col2: HUNDREDS.slice(11, 21) },
-  { label: 'Screen 5', col1: HUNDREDS.slice(21, 31),    col2: HUNDREDS.slice(31, 41) },
+  { label: '1 – 20',      col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
+  { label: '21 – 40',     col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
+  { label: 'Tens',        col1: TENS,                      col2: [] as NumberEntry[] },
+  { label: '101 – 120',   col1: HUNDREDS.slice(1, 11),     col2: HUNDREDS.slice(11, 21) },
+  { label: '121 – 140',   col1: HUNDREDS.slice(21, 31),    col2: HUNDREDS.slice(31, 41) },
+  { label: 'Hundreds',    col1: ROUND_HUNDREDS,            col2: [] as NumberEntry[] },
+  { label: 'Thousands',   col1: THOUSANDS,                 col2: [] as NumberEntry[] },
 ]
