@@ -20,13 +20,17 @@ h1 {
   margin: 0 0 16px;
 }
 
+.columns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
 .grid {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 100%;
-  max-width: 340px;
-  margin-bottom: 20px;
+  width: 220px;
 }
 
 .card {
@@ -67,7 +71,7 @@ h1 {
 
 .answer-input {
   width: 100%;
-  max-width: 340px;
+  max-width: 452px;
   padding: 10px 18px;
   font-size: 1.1rem;
   font-family: var(--sans);

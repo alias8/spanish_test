@@ -2,17 +2,34 @@ import { useState, useRef } from 'react'
 import './App.css'
 
 const NUMBERS: { value: number; spanish: string }[] = [
-  { value: 10, spanish: 'diez' },
-  { value: 9,  spanish: 'nueve' },
-  { value: 8,  spanish: 'ocho' },
-  { value: 7,  spanish: 'siete' },
-  { value: 6,  spanish: 'seis' },
-  { value: 5,  spanish: 'cinco' },
-  { value: 4,  spanish: 'cuatro' },
-  { value: 3,  spanish: 'tres' },
-  { value: 2,  spanish: 'dos' },
   { value: 1,  spanish: 'uno' },
+  { value: 2,  spanish: 'dos' },
+  { value: 3,  spanish: 'tres' },
+  { value: 4,  spanish: 'cuatro' },
+  { value: 5,  spanish: 'cinco' },
+  { value: 6,  spanish: 'seis' },
+  { value: 7,  spanish: 'siete' },
+  { value: 8,  spanish: 'ocho' },
+  { value: 9,  spanish: 'nueve' },
+  { value: 10, spanish: 'diez' },
+  { value: 11, spanish: 'once' },
+  { value: 12, spanish: 'doce' },
+  { value: 13, spanish: 'trece' },
+  { value: 14, spanish: 'catorce' },
+  { value: 15, spanish: 'quince' },
+  { value: 16, spanish: 'dieciséis' },
+  { value: 17, spanish: 'diecisiete' },
+  { value: 18, spanish: 'dieciocho' },
+  { value: 19, spanish: 'diecinueve' },
+  { value: 20, spanish: 'veinte' },
 ]
+
+const COL1 = NUMBERS.slice(0, 10)
+const COL2 = NUMBERS.slice(10)
+
+function normalize(s: string) {
+  return s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+}
 
 export default function App() {
   const [revealed, setRevealed] = useState<Set<number>>(new Set())
@@ -22,14 +39,25 @@ export default function App() {
   const complete = revealed.size === NUMBERS.length
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const val = e.target.value.trim().toLowerCase()
     setInput(e.target.value)
 
-    const match = NUMBERS.find(n => n.spanish === val && !revealed.has(n.value))
+    const match = NUMBERS.find(n => normalize(n.spanish) === normalize(e.target.value) && !revealed.has(n.value))
     if (match) {
       setRevealed(prev => new Set(prev).add(match.value))
       setInput('')
     }
+  }
+
+  function renderColumn(numbers: typeof NUMBERS) {
+    return numbers.map(({ value, spanish }) => {
+      const isRevealed = revealed.has(value)
+      return (
+        <div key={value} className={`card ${isRevealed ? 'revealed' : ''}`}>
+          <span className="numeral">{value}</span>
+          <span className="word">{isRevealed ? spanish : '?'}</span>
+        </div>
+      )
+    })
   }
 
   return (
@@ -37,21 +65,14 @@ export default function App() {
       <h1>Spanish Numbers</h1>
       <p className="subtitle">Type each number in Spanish to reveal it</p>
 
-      <div className="grid">
-        {NUMBERS.map(({ value, spanish }) => {
-          const isRevealed = revealed.has(value)
-          return (
-            <div key={value} className={`card ${isRevealed ? 'revealed' : ''}`}>
-              <span className="numeral">{value}</span>
-              <span className="word">{isRevealed ? spanish : '?'}</span>
-            </div>
-          )
-        })}
+      <div className="columns">
+        <div className="grid">{renderColumn(COL1)}</div>
+        <div className="grid">{renderColumn(COL2)}</div>
       </div>
 
       {complete ? (
         <div className="complete">
-          <span>¡Perfecto! You got all 10!</span>
+          <span>¡Perfecto! You got all 20!</span>
           <button onClick={() => { setRevealed(new Set()); inputRef.current?.focus() }}>
             Play again
           </button>
