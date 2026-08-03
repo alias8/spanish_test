@@ -1,5 +1,11 @@
 export type NumberEntry = { value: number; spanish: string }
 
+export type ConjugationEntry = { id: string; stem: string; ending: string }
+export type ConjugationRow = { pronoun: string; cells: ConjugationEntry[] }
+export type NumberScreen = { kind: 'numbers'; label: string; col1: NumberEntry[]; col2: NumberEntry[] }
+export type ConjugationScreen = { kind: 'conjugation'; label: string; description: string; verbs: string[]; rows: ConjugationRow[] }
+export type Screen = NumberScreen | ConjugationScreen
+
 const ALL_NUMBERS: NumberEntry[] = [
   { value: 1,  spanish: 'uno' },
   { value: 2,  spanish: 'dos' },
@@ -172,14 +178,82 @@ const TRICKY_HUNDREDS: NumberEntry[] = [
   { value: 999, spanish: 'novecientos noventa y nueve' },
 ]
 
-export const SCREENS = [
-  { label: '1 – 20',      col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
-  { label: '21 – 40',     col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
-  { label: 'Tens',        col1: TENS,                      col2: [] as NumberEntry[] },
-  { label: '101 – 120',   col1: HUNDREDS.slice(1, 11),     col2: HUNDREDS.slice(11, 21) },
-  { label: '121 – 140',   col1: HUNDREDS.slice(21, 31),    col2: HUNDREDS.slice(31, 41) },
-  { label: 'Hundreds',    col1: ROUND_HUNDREDS,            col2: [] as NumberEntry[] },
-  { label: 'Thousands',   col1: THOUSANDS,                 col2: [] as NumberEntry[] },
-  { label: 'Tricky 100s', col1: TRICKY_HUNDREDS.slice(0, 10), col2: TRICKY_HUNDREDS.slice(10) },
-  { label: 'Years',       col1: YEARS.slice(0, 10),        col2: YEARS.slice(10) },
+const CONJUGATION_VERBS = [
+  { infinitive: 'hablar', stem: 'habl' },
+  { infinitive: 'comer', stem: 'com' },
+  { infinitive: 'vivir', stem: 'viv' },
+]
+
+const PRONOUNS = ['yo', 'tú', 'él, usted', 'nosotros', 'ellos, ustedes']
+
+function buildConjugationRows(tenseKey: string, endings: string[][]): ConjugationRow[] {
+  return PRONOUNS.map((pronoun, rowIndex) => ({
+    pronoun,
+    cells: CONJUGATION_VERBS.map((verb, columnIndex) => ({
+      id: `${tenseKey}-${rowIndex}-${columnIndex}`,
+      stem: verb.stem,
+      ending: endings[rowIndex][columnIndex],
+    })),
+  }))
+}
+
+const PRESENT_ENDINGS = [
+  ['o', 'o', 'o'],
+  ['as', 'es', 'es'],
+  ['a', 'e', 'e'],
+  ['amos', 'emos', 'imos'],
+  ['an', 'en', 'en'],
+]
+
+const PRETERITE_ENDINGS = [
+  ['é', 'í', 'í'],
+  ['aste', 'iste', 'iste'],
+  ['ó', 'ió', 'ió'],
+  ['amos', 'imos', 'imos'],
+  ['aron', 'ieron', 'ieron'],
+]
+
+const IMPERFECT_ENDINGS = [
+  ['aba', 'ía', 'ía'],
+  ['abas', 'ías', 'ías'],
+  ['aba', 'ía', 'ía'],
+  ['ábamos', 'íamos', 'íamos'],
+  ['aban', 'ían', 'ían'],
+]
+
+const CONJUGATION_SCREENS: ConjugationScreen[] = [
+  {
+    kind: 'conjugation',
+    label: 'Present Tense',
+    description: 'The present tense describes actions happening right now or that happen regularly.',
+    verbs: CONJUGATION_VERBS.map(v => v.infinitive),
+    rows: buildConjugationRows('present', PRESENT_ENDINGS),
+  },
+  {
+    kind: 'conjugation',
+    label: 'Preterite',
+    description: 'The preterite describes completed actions in the past with a clear beginning and end.',
+    verbs: CONJUGATION_VERBS.map(v => v.infinitive),
+    rows: buildConjugationRows('preterite', PRETERITE_ENDINGS),
+  },
+  {
+    kind: 'conjugation',
+    label: 'Imperfect',
+    description: 'The imperfect describes ongoing, repeated, or background actions in the past.',
+    verbs: CONJUGATION_VERBS.map(v => v.infinitive),
+    rows: buildConjugationRows('imperfect', IMPERFECT_ENDINGS),
+  },
+]
+
+export const SCREENS: Screen[] = [
+  { kind: 'numbers', label: '1 – 20',      col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
+  { kind: 'numbers', label: '21 – 40',     col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
+  { kind: 'numbers', label: 'Tens',        col1: TENS,                      col2: [] as NumberEntry[] },
+  { kind: 'numbers', label: '101 – 120',   col1: HUNDREDS.slice(1, 11),     col2: HUNDREDS.slice(11, 21) },
+  { kind: 'numbers', label: '121 – 140',   col1: HUNDREDS.slice(21, 31),    col2: HUNDREDS.slice(31, 41) },
+  { kind: 'numbers', label: 'Hundreds',    col1: ROUND_HUNDREDS,            col2: [] as NumberEntry[] },
+  { kind: 'numbers', label: 'Thousands',   col1: THOUSANDS,                 col2: [] as NumberEntry[] },
+  { kind: 'numbers', label: 'Tricky 100s', col1: TRICKY_HUNDREDS.slice(0, 10), col2: TRICKY_HUNDREDS.slice(10) },
+  { kind: 'numbers', label: 'Years',       col1: YEARS.slice(0, 10),        col2: YEARS.slice(10) },
+  ...CONJUGATION_SCREENS,
 ]

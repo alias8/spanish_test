@@ -114,6 +114,80 @@ h1 {
   }
 }
 
+.conj-table {
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  margin-bottom: 20px;
+}
+
+.conj-table th {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+  text-align: left;
+  padding: 0 20px 6px;
+}
+
+.conj-table th.verb-heading {
+  font-size: 1.4rem;
+}
+
+.conj-table td {
+  padding: 4px 20px;
+}
+
+.conj-table td.pronoun {
+  font-size: 1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.conj-cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.conj-cell.revealed {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.stem {
+  font-size: 1.2rem;
+  color: var(--text-h);
+  letter-spacing: 0.5px;
+}
+
+.ending {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.ending-input {
+  font-size: 1.2rem;
+  font-family: var(--sans);
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+  outline: none;
+  padding: 0 2px;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
 .bottom-area {
   height: 90px;
   display: flex;

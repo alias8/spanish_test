@@ -2,23 +2,28 @@ import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
 import { type NumberEntry, SCREENS } from './data'
 import Card from './Card'
+import ConjugationTable from './ConjugationTable'
 import { normalize } from './utils'
 
 export default function App() {
   const [screenIndex, setScreenIndex] = useState(0)
-  const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<number>>>(
-    { 0: new Set(), 1: new Set(), 2: new Set(), 3: new Set(), 4: new Set(), 5: new Set(), 6: new Set(), 7: new Set(), 8: new Set() }
+  const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<string>>>(
+    () => Object.fromEntries(SCREENS.map((_, index) => [index, new Set<string>()]))
   )
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
-  const screenMap = useMemo(
-    () => new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n])),
-    [screen]
-  )
+  const numberScreenMap = useMemo(() => {
+    if (screen.kind !== 'numbers') return null
+    return new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n]))
+  }, [screen])
+
   const revealed = revealedByScreen[screenIndex]
-  const complete = revealed.size === screenMap.size
+  const totalCount = screen.kind === 'numbers'
+    ? numberScreenMap!.size
+    : screen.rows.reduce((sum, row) => sum + row.cells.length, 0)
+  const complete = revealed.size === totalCount
 
   function switchScreen(index: number) {
     setScreenIndex(index)
@@ -28,12 +33,12 @@ export default function App() {
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value)
-    const match = screenMap.get(normalize(e.target.value))
-    if (match && revealed.has(match.value)) return
+    const match = numberScreenMap?.get(normalize(e.target.value))
+    if (match && revealed.has(String(match.value))) return
     if (match) {
       setRevealedByScreen(prev => ({
         ...prev,
-        [screenIndex]: new Set(prev[screenIndex]).add(match.value),
+        [screenIndex]: new Set(prev[screenIndex]).add(String(match.value)),
       }))
       setInput('')
     }
@@ -45,37 +50,51 @@ export default function App() {
     inputRef.current?.focus()
   }
 
-  const handleReveal = useCallback((value: number) => {
+  const handleReveal = useCallback((id: string) => {
     setRevealedByScreen(prev => ({
       ...prev,
-      [screenIndex]: new Set(prev[screenIndex]).add(value),
+      [screenIndex]: new Set(prev[screenIndex]).add(id),
     }))
   }, [screenIndex])
 
   function renderColumn(numbers: NumberEntry[]) {
     return numbers.map(({ value, spanish }) => (
-      <Card key={value} value={value} spanish={spanish} isRevealed={revealed.has(value)} onReveal={handleReveal} />
+      <Card
+        key={value}
+        value={value}
+        spanish={spanish}
+        isRevealed={revealed.has(String(value))}
+        onReveal={v => handleReveal(String(v))}
+      />
     ))
   }
 
   return (
     <div className="layout">
       <div className="app">
-        <h1>Spanish Numbers</h1>
-        <p className="subtitle">Type each number in Spanish to reveal it</p>
+        <h1>{screen.kind === 'numbers' ? 'Spanish Numbers' : screen.label}</h1>
+        <p className="subtitle">
+          {screen.kind === 'numbers'
+            ? 'Type each number in Spanish to reveal it'
+            : screen.description}
+        </p>
 
-        <div className="columns">
-          <div className="grid">{renderColumn(screen.col1)}</div>
-          {screen.col2.length > 0 && <div className="grid">{renderColumn(screen.col2)}</div>}
-        </div>
+        {screen.kind === 'numbers' ? (
+          <div className="columns">
+            <div className="grid">{renderColumn(screen.col1)}</div>
+            {screen.col2.length > 0 && <div className="grid">{renderColumn(screen.col2)}</div>}
+          </div>
+        ) : (
+          <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
+        )}
 
         <div className="bottom-area">
           {complete ? (
             <div className="complete">
-              <span>¡Perfecto! You got all {screenMap.size}!</span>
+              <span>¡Perfecto! You got all {totalCount}!</span>
               <button onClick={reset}>Play again</button>
             </div>
-          ) : (
+          ) : screen.kind === 'numbers' ? (
             <input
               ref={inputRef}
               className="answer-input"
@@ -87,18 +106,18 @@ export default function App() {
               autoComplete="off"
               spellCheck={false}
             />
-          )}
+          ) : null}
         </div>
 
-        <p className="progress">{revealed.size} / {screenMap.size}</p>
+        <p className="progress">{revealed.size} / {totalCount}</p>
       </div>
 
       <nav className="screen-nav">
-        {SCREENS.map((s, i) => (
+        {SCREENS.map((s, index) => (
           <button
             key={s.label}
-            className={`nav-btn ${i === screenIndex ? 'active' : ''}`}
-            onClick={() => switchScreen(i)}
+            className={`nav-btn ${index === screenIndex ? 'active' : ''}`}
+            onClick={() => switchScreen(index)}
           >
             {s.label}
           </button>
