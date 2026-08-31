@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { VerbEntry } from './verbs'
+import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
 export default function VerbLookup({ verbs, query, onQueryChange }: {
@@ -74,9 +74,9 @@ function VerbDetail({ verb }: { verb: VerbEntry }) {
             </tr>
           </thead>
           <tbody>
-            {verb.infinitiveForms.map(row => (
-              <tr key={row.item}>
-                <td>{row.item}</td>
+            {verb.infinitiveForms.map((row, i) => (
+              <tr key={INFINITIVE_ITEMS[i]}>
+                <td>{INFINITIVE_ITEMS[i]}</td>
                 <td>{row.spanish}</td>
                 <td className="english">{row.english}</td>
               </tr>
@@ -85,46 +85,49 @@ function VerbDetail({ verb }: { verb: VerbEntry }) {
         </table>
       </div>
 
-      {verb.tenses.map(tense => (
-        <div className="verb-box" key={tense.name}>
-          <h3>{label} in the {tense.name}</h3>
-          {tense.description && (
-            <p className="verb-summary">
-              {tense.description}
-              {tense.example && (
-                <> For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".</>
-              )}
-              {' '}In Spanish, known as "{tense.spanishName}".
-            </p>
-          )}
-          <table className="verb-table">
-            <thead>
-              <tr>
-                <th>Pronoun</th>
-                <th>Spanish</th>
-                <th>English</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tense.forms.map(form => (
-                <tr key={form.pronoun}>
-                  <td>{form.pronoun}</td>
-                  <td>
-                    {form.spanish}
-                    {form.irregular && <span className="irregular-dot" />}
-                  </td>
-                  <td className="english">{form.english}</td>
+      {verb.tenses.map((tense, i) => {
+        const meta = TENSE_META[i]
+        return (
+          <div className="verb-box" key={meta.name}>
+            <h3>{label} in the {meta.name}</h3>
+            {tense.description && (
+              <p className="verb-summary">
+                {tense.description}
+                {tense.example && (
+                  <> For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".</>
+                )}
+                {' '}In Spanish, known as "{meta.spanishName}".
+              </p>
+            )}
+            <table className="verb-table">
+              <thead>
+                <tr>
+                  <th>Pronoun</th>
+                  <th>Spanish</th>
+                  <th>English</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          {tense.forms.some(f => f.irregular) && (
-            <p className="verb-footnote">
-              The red dot (<span className="irregular-dot" />) above denotes an irregular conjugation.
-            </p>
-          )}
-        </div>
-      ))}
+              </thead>
+              <tbody>
+                {tense.forms.map((form, j) => (
+                  <tr key={VERB_PRONOUNS[j]}>
+                    <td>{VERB_PRONOUNS[j]}</td>
+                    <td>
+                      {form.spanish}
+                      {form.irregular && <span className="irregular-dot" />}
+                    </td>
+                    <td className="english">{form.english}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {tense.forms.some(f => f.irregular) && (
+              <p className="verb-footnote">
+                The red dot (<span className="irregular-dot" />) above denotes an irregular conjugation.
+              </p>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }

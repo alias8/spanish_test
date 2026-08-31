@@ -2,21 +2,28 @@
 export type ConjugationEntry = { id: string; stem: string; ending: string }
 export type ConjugationRow = { pronoun: string; cells: ConjugationEntry[] }
 export type ConjugationScreen = { kind: 'conjugation'; label: string; description: string; verbs: string[]; rows: ConjugationRow[] }
-export type VerbForm = { pronoun: string; spanish: string; english: string; irregular?: boolean }
+// Shared labels — every verb's data is positional against these instead of repeating the labels per-verb.
+export const VERB_PRONOUNS = ['Yo', 'Tú', 'Ella / Él / Usted', 'Nosotras / Nosotros', 'Ellas / Ellos / Ustedes'] as const
+export const INFINITIVE_ITEMS = ['Infinitive', 'Past participle', 'Gerund'] as const
+export const TENSE_META = [
+    { name: 'Indicative Present', spanishName: 'El Presente' },
+    { name: 'Indicative Preterite', spanishName: 'El Pretérito Indefinido' },
+    { name: 'Indicative Imperfect', spanishName: 'El Pretérito Imperfecto' },
+] as const
+
+export type VerbForm = { spanish: string; english: string; irregular?: boolean }
 export type VerbTense = {
-    name: string
-    spanishName: string
     description?: string
     example?: { spanish: string; english: string }
-    forms: VerbForm[]
+    forms: VerbForm[] // aligned with PRONOUNS by index
 }
-export type VerbInfoRow = { item: string; spanish: string; english: string }
+export type VerbInfoRow = { spanish: string; english: string }
 export type VerbEntry = {
     infinitive: string
     translation: string
     summary?: string
-    infinitiveForms: VerbInfoRow[]
-    tenses: VerbTense[]
+    infinitiveForms: VerbInfoRow[] // aligned with INFINITIVE_ITEMS by index
+    tenses: VerbTense[] // aligned with TENSE_META by index
 }
 export type VerbLookupScreen = { kind: 'verbs'; label: string }
 
@@ -93,48 +100,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to be',
         summary: 'Ser is the Spanish verb "to be". It is generally used to portray permanent situations, for example: I am from Spain, he is a profesor, she is tall, this watch is my mother\'s etc. You\'ll find that this particular verb is one of the most versatile out there, but also hugely irregular, following almost no rules. Ser is not to be confused with Estar, also meaning "to be", but used for different situations.',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'ser', english: 'to be (permanent)' },
-            { item: 'Past participle', spanish: 'sido', english: 'been' },
-            { item: 'Gerund', spanish: 'siendo', english: 'being' },
+            { spanish: 'ser', english: 'to be (permanent)' },
+            { spanish: 'sido', english: 'been' },
+            { spanish: 'siendo', english: 'being' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of ser is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'soy estudiante', english: 'I am a student' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'soy', english: 'I am', irregular: true },
-                    { pronoun: 'Tú', spanish: 'eres', english: 'you are', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'es', english: 's/he is', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'somos', english: 'we are', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'son', english: 'they are', irregular: true },
+                    { spanish: 'soy', english: 'I am', irregular: true },
+                    { spanish: 'eres', english: 'you are', irregular: true },
+                    { spanish: 'es', english: 's/he is', irregular: true },
+                    { spanish: 'somos', english: 'we are', irregular: true },
+                    { spanish: 'son', english: 'they are', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of ser is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'fui estudiante', english: 'I was a student' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'fui', english: 'I was', irregular: true },
-                    { pronoun: 'Tú', spanish: 'fuiste', english: 'you were', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'fue', english: 's/he was', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'fuimos', english: 'we were', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'fueron', english: 'they were', irregular: true },
+                    { spanish: 'fui', english: 'I was', irregular: true },
+                    { spanish: 'fuiste', english: 'you were', irregular: true },
+                    { spanish: 'fue', english: 's/he was', irregular: true },
+                    { spanish: 'fuimos', english: 'we were', irregular: true },
+                    { spanish: 'fueron', english: 'they were', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of ser is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'era estudiante', english: 'I used to be a student' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'era', english: 'I used to be', irregular: true },
-                    { pronoun: 'Tú', spanish: 'eras', english: 'you used to be', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'era', english: 's/he used to be', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'éramos', english: 'we used to be', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'eran', english: 'they used to be', irregular: true },
+                    { spanish: 'era', english: 'I used to be', irregular: true },
+                    { spanish: 'eras', english: 'you used to be', irregular: true },
+                    { spanish: 'era', english: 's/he used to be', irregular: true },
+                    { spanish: 'éramos', english: 'we used to be', irregular: true },
+                    { spanish: 'eran', english: 'they used to be', irregular: true },
                 ],
             },
         ],
@@ -144,48 +145,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to be',
         summary: 'Estar is another Spanish verb which means "to be". In contrast to Ser, Estar is generally used to portray more temporary feelings or situations. For example: I am not at home, you are angry, she is at the concert, this cake is delicious, we are singing a song, this restaurant is very popular. This is an important and versatile verb that you will use in everyday life. Estar is also irregular in most cases, meaning you will need to learn the conjugations off by heart.',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'estar', english: 'to be (temporary)' },
-            { item: 'Past participle', spanish: 'estado', english: 'been' },
-            { item: 'Gerund', spanish: 'estando', english: 'being' },
+            { spanish: 'estar', english: 'to be (temporary)' },
+            { spanish: 'estado', english: 'been' },
+            { spanish: 'estando', english: 'being' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of estar is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'estoy cansado', english: 'I am tired' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'estoy', english: 'I am', irregular: true },
-                    { pronoun: 'Tú', spanish: 'estás', english: 'you are', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'está', english: 's/he is', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'estamos', english: 'we are' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'están', english: 'they are', irregular: true },
+                    { spanish: 'estoy', english: 'I am', irregular: true },
+                    { spanish: 'estás', english: 'you are', irregular: true },
+                    { spanish: 'está', english: 's/he is', irregular: true },
+                    { spanish: 'estamos', english: 'we are' },
+                    { spanish: 'están', english: 'they are', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of estar is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'estuve cansado', english: 'I was tired' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'estuve', english: 'I was', irregular: true },
-                    { pronoun: 'Tú', spanish: 'estuviste', english: 'you were', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'estuvo', english: 's/he was', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'estuvimos', english: 'we were', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'estuvieron', english: 'they were', irregular: true },
+                    { spanish: 'estuve', english: 'I was', irregular: true },
+                    { spanish: 'estuviste', english: 'you were', irregular: true },
+                    { spanish: 'estuvo', english: 's/he was', irregular: true },
+                    { spanish: 'estuvimos', english: 'we were', irregular: true },
+                    { spanish: 'estuvieron', english: 'they were', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of estar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'estaba cansado', english: 'I used to be tired' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'estaba', english: 'I used to be' },
-                    { pronoun: 'Tú', spanish: 'estabas', english: 'you used to be' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'estaba', english: 's/he used to be' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'estábamos', english: 'we used to be' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'estaban', english: 'they used to be' },
+                    { spanish: 'estaba', english: 'I used to be' },
+                    { spanish: 'estabas', english: 'you used to be' },
+                    { spanish: 'estaba', english: 's/he used to be' },
+                    { spanish: 'estábamos', english: 'we used to be' },
+                    { spanish: 'estaban', english: 'they used to be' },
                 ],
             },
         ],
@@ -195,48 +190,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to have',
         summary: 'Tener is the Spanish verb "to have". It is an extremely useful verb and is largely irregular when conjugating. It is important to note that in Spanish, tener is used to portray a person\'s age; for example: "tengo 21 años". This literally translates to "I have 21 years". Another common use for Tener is to indicate an obligation, for example: "tengo que irme a casa" - "I have to go home". It is always followed by "que" to indicate this type of obligation or "must".',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'tener', english: 'to have' },
-            { item: 'Past participle', spanish: 'tenido', english: 'had' },
-            { item: 'Gerund', spanish: 'teniendo', english: 'having' },
+            { spanish: 'tener', english: 'to have' },
+            { spanish: 'tenido', english: 'had' },
+            { spanish: 'teniendo', english: 'having' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of tener is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'tengo un gato gris', english: 'I have a grey cat' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'tengo', english: 'I have', irregular: true },
-                    { pronoun: 'Tú', spanish: 'tienes', english: 'you have', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'tiene', english: 's/he has', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'tenemos', english: 'we have' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'tienen', english: 'they have', irregular: true },
+                    { spanish: 'tengo', english: 'I have', irregular: true },
+                    { spanish: 'tienes', english: 'you have', irregular: true },
+                    { spanish: 'tiene', english: 's/he has', irregular: true },
+                    { spanish: 'tenemos', english: 'we have' },
+                    { spanish: 'tienen', english: 'they have', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of tener is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'tuve un gato gris', english: 'I had a grey cat' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'tuve', english: 'I had', irregular: true },
-                    { pronoun: 'Tú', spanish: 'tuviste', english: 'you had', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'tuvo', english: 's/he had', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'tuvimos', english: 'we had', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'tuvieron', english: 'they had', irregular: true },
+                    { spanish: 'tuve', english: 'I had', irregular: true },
+                    { spanish: 'tuviste', english: 'you had', irregular: true },
+                    { spanish: 'tuvo', english: 's/he had', irregular: true },
+                    { spanish: 'tuvimos', english: 'we had', irregular: true },
+                    { spanish: 'tuvieron', english: 'they had', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of tener is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'tenía un gato gris', english: 'I used to have a grey cat' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'tenía', english: 'I used to have' },
-                    { pronoun: 'Tú', spanish: 'tenías', english: 'you used to have' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'tenía', english: 's/he used to have' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'teníamos', english: 'we used to have' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'tenían', english: 'they used to have' },
+                    { spanish: 'tenía', english: 'I used to have' },
+                    { spanish: 'tenías', english: 'you used to have' },
+                    { spanish: 'tenía', english: 's/he used to have' },
+                    { spanish: 'teníamos', english: 'we used to have' },
+                    { spanish: 'tenían', english: 'they used to have' },
                 ],
             },
         ],
@@ -246,48 +235,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to go',
         summary: 'Ir is the Spanish verb "to go", and is one of the most common irregular verbs in Spanish. It is used in various contexts like "I go to school", "you went to Mexico on holiday", "we are going to the concert on Saturday".',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'ir', english: 'to go' },
-            { item: 'Past participle', spanish: 'ido', english: 'gone' },
-            { item: 'Gerund', spanish: 'yendo', english: 'going' },
+            { spanish: 'ir', english: 'to go' },
+            { spanish: 'ido', english: 'gone' },
+            { spanish: 'yendo', english: 'going' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of ir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'voy al supermercado todos los sábados', english: 'I go to the supermarket every Saturday' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'voy', english: 'I go', irregular: true },
-                    { pronoun: 'Tú', spanish: 'vas', english: 'you go', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'va', english: 's/he goes', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vamos', english: 'we go', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'van', english: 'they go', irregular: true },
+                    { spanish: 'voy', english: 'I go', irregular: true },
+                    { spanish: 'vas', english: 'you go', irregular: true },
+                    { spanish: 'va', english: 's/he goes', irregular: true },
+                    { spanish: 'vamos', english: 'we go', irregular: true },
+                    { spanish: 'van', english: 'they go', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of ir is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'fui al supermercado todos los sábados', english: 'I went to the supermarket every Saturday' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'fui', english: 'I went', irregular: true },
-                    { pronoun: 'Tú', spanish: 'fuiste', english: 'you went', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'fue', english: 's/he went', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'fuimos', english: 'we went', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'fueron', english: 'they went', irregular: true },
+                    { spanish: 'fui', english: 'I went', irregular: true },
+                    { spanish: 'fuiste', english: 'you went', irregular: true },
+                    { spanish: 'fue', english: 's/he went', irregular: true },
+                    { spanish: 'fuimos', english: 'we went', irregular: true },
+                    { spanish: 'fueron', english: 'they went', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of ir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'iba al supermercado todos los sábados', english: 'I used to go to the supermarket every Saturday' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'iba', english: 'I used to go', irregular: true },
-                    { pronoun: 'Tú', spanish: 'ibas', english: 'you used to go', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'iba', english: 's/he used to go', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'íbamos', english: 'we used to go', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'iban', english: 'they used to go', irregular: true },
+                    { spanish: 'iba', english: 'I used to go', irregular: true },
+                    { spanish: 'ibas', english: 'you used to go', irregular: true },
+                    { spanish: 'iba', english: 's/he used to go', irregular: true },
+                    { spanish: 'íbamos', english: 'we used to go', irregular: true },
+                    { spanish: 'iban', english: 'they used to go', irregular: true },
                 ],
             },
         ],
@@ -297,48 +280,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to do, to make',
         summary: 'Hacer is the Spanish verb meaning "to do / to make". It is extremely versatile, and one common use is to express the weather or time. In this sense, it is different from English, whereby we would use "to be". For example: "hace frío" is how to say "it is cold", which directly translates to "it makes cold".',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'hacer', english: 'to do, to make' },
-            { item: 'Past participle', spanish: 'hecho', english: 'done' },
-            { item: 'Gerund', spanish: 'haciendo', english: 'doing' },
+            { spanish: 'hacer', english: 'to do, to make' },
+            { spanish: 'hecho', english: 'done' },
+            { spanish: 'haciendo', english: 'doing' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of hacer is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'hago los deberes después de cenar', english: 'I do my homework after dinner' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'hago', english: 'I do', irregular: true },
-                    { pronoun: 'Tú', spanish: 'haces', english: 'you do', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'hace', english: 's/he does', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'hacemos', english: 'we do' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'hacen', english: 'they do', irregular: true },
+                    { spanish: 'hago', english: 'I do', irregular: true },
+                    { spanish: 'haces', english: 'you do', irregular: true },
+                    { spanish: 'hace', english: 's/he does', irregular: true },
+                    { spanish: 'hacemos', english: 'we do' },
+                    { spanish: 'hacen', english: 'they do', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of hacer is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'hice los deberes después de cenar', english: 'I did my homework after dinner' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'hice', english: 'I did', irregular: true },
-                    { pronoun: 'Tú', spanish: 'hiciste', english: 'you did', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'hizo', english: 's/he did', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'hicimos', english: 'we did', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'hicieron', english: 'they did', irregular: true },
+                    { spanish: 'hice', english: 'I did', irregular: true },
+                    { spanish: 'hiciste', english: 'you did', irregular: true },
+                    { spanish: 'hizo', english: 's/he did', irregular: true },
+                    { spanish: 'hicimos', english: 'we did', irregular: true },
+                    { spanish: 'hicieron', english: 'they did', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of hacer is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'hacía los deberes después de cenar', english: 'I used to do my homework after dinner' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'hacía', english: 'I used to do' },
-                    { pronoun: 'Tú', spanish: 'hacías', english: 'you used to do' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'hacía', english: 's/he used to do' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'hacíamos', english: 'we used to do' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'hacían', english: 'they used to do' },
+                    { spanish: 'hacía', english: 'I used to do' },
+                    { spanish: 'hacías', english: 'you used to do' },
+                    { spanish: 'hacía', english: 's/he used to do' },
+                    { spanish: 'hacíamos', english: 'we used to do' },
+                    { spanish: 'hacían', english: 'they used to do' },
                 ],
             },
         ],
@@ -348,48 +325,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to have (helper verb)',
         summary: 'Haber is the Spanish verb meaning "to have". It is a very unique verb in that it is used in compound tenses as an auxiliary, meaning that is comes before the main verb in the sentence and is used to set the main verbs\' tense or mood. For example: He estado (I have been), hemos comido (we have eaten). It is also very commonly used as an impersonal verb, to say "there is / there are". For example: Hay mucho chocolate en el armario. (There is a lot of chocolate in the press).',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'haber', english: 'to have (helper verb)' },
-            { item: 'Past participle', spanish: 'habido', english: 'had' },
-            { item: 'Gerund', spanish: 'habiendo', english: 'having' },
+            { spanish: 'haber', english: 'to have (helper verb)' },
+            { spanish: 'habido', english: 'had' },
+            { spanish: 'habiendo', english: 'having' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'As an auxiliary verb, haber in the indicative present is used to form the "indicative present perfect" tense.',
                 example: { spanish: 'he escrito la carta', english: 'I have written the letter' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'he', english: 'I have', irregular: true },
-                    { pronoun: 'Tú', spanish: 'has', english: 'you have', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'ha', english: 's/he has', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'hemos', english: 'we have', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'han', english: 'they have', irregular: true },
+                    { spanish: 'he', english: 'I have', irregular: true },
+                    { spanish: 'has', english: 'you have', irregular: true },
+                    { spanish: 'ha', english: 's/he has', irregular: true },
+                    { spanish: 'hemos', english: 'we have', irregular: true },
+                    { spanish: 'han', english: 'they have', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'Because haber is an auxiliary verb used to form compound conjugations, it is rarely used alone in this tense — except in the impersonal form, meaning "there was / there were".',
                 example: { spanish: 'hubo una fiesta anoche', english: 'there was a party last night' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'hube', english: 'I had', irregular: true },
-                    { pronoun: 'Tú', spanish: 'hubiste', english: 'you had', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'hubo', english: 's/he had', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'hubimos', english: 'we had', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'hubieron', english: 'they had', irregular: true },
+                    { spanish: 'hube', english: 'I had', irregular: true },
+                    { spanish: 'hubiste', english: 'you had', irregular: true },
+                    { spanish: 'hubo', english: 's/he had', irregular: true },
+                    { spanish: 'hubimos', english: 'we had', irregular: true },
+                    { spanish: 'hubieron', english: 'they had', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'As an auxiliary verb, haber in the indicative imperfect is used to form the "indicative past perfect" tense.',
                 example: { spanish: 'había escrito la carta', english: 'I had written the letter' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'había', english: 'I had' },
-                    { pronoun: 'Tú', spanish: 'habías', english: 'you had' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'había', english: 's/he had' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'habíamos', english: 'we had' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'habían', english: 'they had' },
+                    { spanish: 'había', english: 'I had' },
+                    { spanish: 'habías', english: 'you had' },
+                    { spanish: 'había', english: 's/he had' },
+                    { spanish: 'habíamos', english: 'we had' },
+                    { spanish: 'habían', english: 'they had' },
                 ],
             },
         ],
@@ -399,48 +370,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to see, to watch',
         summary: 'Ver is the Spanish verb "to see". It is mostly irregular, so endings must be learned by heart. Ver can be used for a number of reasons, the most basic "to see", for example: "Veo un coche". It can also be used to describe "watching" a movie or tv show, asking a person if they have "seen" a particular movie or object, or to notice something.',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'ver', english: 'to see, to watch' },
-            { item: 'Past participle', spanish: 'visto', english: 'seen' },
-            { item: 'Gerund', spanish: 'viendo', english: 'seeing' },
+            { spanish: 'ver', english: 'to see, to watch' },
+            { spanish: 'visto', english: 'seen' },
+            { spanish: 'viendo', english: 'seeing' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of ver is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'veo fantasmas', english: 'I see ghosts' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'veo', english: 'I see', irregular: true },
-                    { pronoun: 'Tú', spanish: 'ves', english: 'you see', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 've', english: 's/he sees', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vemos', english: 'we see' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'ven', english: 'they see', irregular: true },
+                    { spanish: 'veo', english: 'I see', irregular: true },
+                    { spanish: 'ves', english: 'you see', irregular: true },
+                    { spanish: 've', english: 's/he sees', irregular: true },
+                    { spanish: 'vemos', english: 'we see' },
+                    { spanish: 'ven', english: 'they see', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of ver is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'vi fantasmas', english: 'I saw ghosts' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'vi', english: 'I saw', irregular: true },
-                    { pronoun: 'Tú', spanish: 'viste', english: 'you saw', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'vio', english: 's/he saw', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vimos', english: 'we saw', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'vieron', english: 'they saw', irregular: true },
+                    { spanish: 'vi', english: 'I saw', irregular: true },
+                    { spanish: 'viste', english: 'you saw', irregular: true },
+                    { spanish: 'vio', english: 's/he saw', irregular: true },
+                    { spanish: 'vimos', english: 'we saw', irregular: true },
+                    { spanish: 'vieron', english: 'they saw', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of ver is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'veía fantasmas', english: 'I used to see ghosts' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'veía', english: 'I used to see', irregular: true },
-                    { pronoun: 'Tú', spanish: 'veías', english: 'you used to see', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'veía', english: 's/he used to see', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'veíamos', english: 'we used to see', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'veían', english: 'they used to see', irregular: true },
+                    { spanish: 'veía', english: 'I used to see', irregular: true },
+                    { spanish: 'veías', english: 'you used to see', irregular: true },
+                    { spanish: 'veía', english: 's/he used to see', irregular: true },
+                    { spanish: 'veíamos', english: 'we used to see', irregular: true },
+                    { spanish: 'veían', english: 'they used to see', irregular: true },
                 ],
             },
         ],
@@ -450,48 +415,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to come',
         summary: 'Venir is the Spanish verb meaning "to come". Similar verbs to venir include: llegar (to arrive).',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'venir', english: 'to come' },
-            { item: 'Past participle', spanish: 'venido', english: 'come' },
-            { item: 'Gerund', spanish: 'viniendo', english: 'coming' },
+            { spanish: 'venir', english: 'to come' },
+            { spanish: 'venido', english: 'come' },
+            { spanish: 'viniendo', english: 'coming' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of venir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'vengo a casa', english: 'I come home' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'vengo', english: 'I come', irregular: true },
-                    { pronoun: 'Tú', spanish: 'vienes', english: 'you come', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'viene', english: 's/he comes', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'venimos', english: 'we come' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'vienen', english: 'they come', irregular: true },
+                    { spanish: 'vengo', english: 'I come', irregular: true },
+                    { spanish: 'vienes', english: 'you come', irregular: true },
+                    { spanish: 'viene', english: 's/he comes', irregular: true },
+                    { spanish: 'venimos', english: 'we come' },
+                    { spanish: 'vienen', english: 'they come', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of venir is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'vine a casa', english: 'I came home' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'vine', english: 'I came', irregular: true },
-                    { pronoun: 'Tú', spanish: 'viniste', english: 'you came', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'vino', english: 's/he came', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vinimos', english: 'we came', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'vinieron', english: 'they came', irregular: true },
+                    { spanish: 'vine', english: 'I came', irregular: true },
+                    { spanish: 'viniste', english: 'you came', irregular: true },
+                    { spanish: 'vino', english: 's/he came', irregular: true },
+                    { spanish: 'vinimos', english: 'we came', irregular: true },
+                    { spanish: 'vinieron', english: 'they came', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of venir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'venía a casa', english: 'I used to come home' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'venía', english: 'I used to come' },
-                    { pronoun: 'Tú', spanish: 'venías', english: 'you used to come' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'venía', english: 's/he used to come' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'veníamos', english: 'we used to come' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'venían', english: 'they used to come' },
+                    { spanish: 'venía', english: 'I used to come' },
+                    { spanish: 'venías', english: 'you used to come' },
+                    { spanish: 'venía', english: 's/he used to come' },
+                    { spanish: 'veníamos', english: 'we used to come' },
+                    { spanish: 'venían', english: 'they used to come' },
                 ],
             },
         ],
@@ -501,48 +460,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to live',
         summary: 'Vivir is the Spanish verb for "to live". It is a regular IR verb, and one of the most popular 100 Spanish verbs.',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'vivir', english: 'to live' },
-            { item: 'Past participle', spanish: 'vivido', english: 'lived' },
-            { item: 'Gerund', spanish: 'viviendo', english: 'living' },
+            { spanish: 'vivir', english: 'to live' },
+            { spanish: 'vivido', english: 'lived' },
+            { spanish: 'viviendo', english: 'living' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of vivir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'vivo cerca de mi hermana', english: 'I live close to my sister' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'vivo', english: 'I live' },
-                    { pronoun: 'Tú', spanish: 'vives', english: 'you live' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'vive', english: 's/he lives' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vivimos', english: 'we live' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'viven', english: 'they live' },
+                    { spanish: 'vivo', english: 'I live' },
+                    { spanish: 'vives', english: 'you live' },
+                    { spanish: 'vive', english: 's/he lives' },
+                    { spanish: 'vivimos', english: 'we live' },
+                    { spanish: 'viven', english: 'they live' },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of vivir is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'viví cerca de mi hermana', english: 'I lived close to my sister' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'viví', english: 'I lived' },
-                    { pronoun: 'Tú', spanish: 'viviste', english: 'you lived' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'vivió', english: 's/he lived' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vivimos', english: 'we lived' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'vivieron', english: 'they lived' },
+                    { spanish: 'viví', english: 'I lived' },
+                    { spanish: 'viviste', english: 'you lived' },
+                    { spanish: 'vivió', english: 's/he lived' },
+                    { spanish: 'vivimos', english: 'we lived' },
+                    { spanish: 'vivieron', english: 'they lived' },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of vivir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'vivía cerca de mi hermana', english: 'I used to live close to my sister' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'vivía', english: 'I used to live' },
-                    { pronoun: 'Tú', spanish: 'vivías', english: 'you used to live' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'vivía', english: 's/he used to live' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'vivíamos', english: 'we used to live' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'vivían', english: 'they used to live' },
+                    { spanish: 'vivía', english: 'I used to live' },
+                    { spanish: 'vivías', english: 'you used to live' },
+                    { spanish: 'vivía', english: 's/he used to live' },
+                    { spanish: 'vivíamos', english: 'we used to live' },
+                    { spanish: 'vivían', english: 'they used to live' },
                 ],
             },
         ],
@@ -552,48 +505,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to be able to / can',
         summary: 'Poder is the Spanish verb meaning "to be able to / to can". This verb can be used to ask for permission, e.g. ¿Podría usar el baño?, or to express tolerance for something "No puedo más", meaning "I can\'t do any more". In its purist form, it is used to express capability to do something. For example: "Mi hermano puede nadar 1 kilómetro sin parar" - "My brother can swim 1km without stopping".',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'poder', english: 'to be able to / can' },
-            { item: 'Past participle', spanish: 'podido', english: 'been able to' },
-            { item: 'Gerund', spanish: 'pudiendo', english: 'being able to' },
+            { spanish: 'poder', english: 'to be able to / can' },
+            { spanish: 'podido', english: 'been able to' },
+            { spanish: 'pudiendo', english: 'being able to' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of poder is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'puedo hablar español', english: 'I am able to speak Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'puedo', english: 'I am able to', irregular: true },
-                    { pronoun: 'Tú', spanish: 'puedes', english: 'you are able to', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'puede', english: 's/he is able to', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'podemos', english: 'we are able to' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'pueden', english: 'they are able to', irregular: true },
+                    { spanish: 'puedo', english: 'I am able to', irregular: true },
+                    { spanish: 'puedes', english: 'you are able to', irregular: true },
+                    { spanish: 'puede', english: 's/he is able to', irregular: true },
+                    { spanish: 'podemos', english: 'we are able to' },
+                    { spanish: 'pueden', english: 'they are able to', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of poder is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'pude hablar español', english: 'I was able to speak Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'pude', english: 'I was able to', irregular: true },
-                    { pronoun: 'Tú', spanish: 'pudiste', english: 'you were able to', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'pudo', english: 's/he was able to', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'pudimos', english: 'we were able to', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'pudieron', english: 'they were able to', irregular: true },
+                    { spanish: 'pude', english: 'I was able to', irregular: true },
+                    { spanish: 'pudiste', english: 'you were able to', irregular: true },
+                    { spanish: 'pudo', english: 's/he was able to', irregular: true },
+                    { spanish: 'pudimos', english: 'we were able to', irregular: true },
+                    { spanish: 'pudieron', english: 'they were able to', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of poder is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'podía hablar español', english: 'I used to be able to speak Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'podía', english: 'I used to be able to' },
-                    { pronoun: 'Tú', spanish: 'podías', english: 'you used to be able to' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'podía', english: 's/he used to be able to' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'podíamos', english: 'we used to be able to' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'podían', english: 'they used to be able to' },
+                    { spanish: 'podía', english: 'I used to be able to' },
+                    { spanish: 'podías', english: 'you used to be able to' },
+                    { spanish: 'podía', english: 's/he used to be able to' },
+                    { spanish: 'podíamos', english: 'we used to be able to' },
+                    { spanish: 'podían', english: 'they used to be able to' },
                 ],
             },
         ],
@@ -603,48 +550,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to know (things)',
         summary: 'Saber is the Spanish verb meaning "to know" (things). It is mostly used to portray knowledge - for example: "I speak Spanish" and "I know all the capital cities in Europe". It can also be used to express taste; for example: "The cake tastes like chocolate and orange". Saber is not to be confused with Conocer, also meaning "to know" but used in different situations.',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'saber', english: 'to know (things)' },
-            { item: 'Past participle', spanish: 'sabido', english: 'known' },
-            { item: 'Gerund', spanish: 'sabiendo', english: 'knowing' },
+            { spanish: 'saber', english: 'to know (things)' },
+            { spanish: 'sabido', english: 'known' },
+            { spanish: 'sabiendo', english: 'knowing' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of saber is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'sé español', english: 'I know Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'sé', english: 'I know', irregular: true },
-                    { pronoun: 'Tú', spanish: 'sabes', english: 'you know' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'sabe', english: 's/he knows' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'sabemos', english: 'we know' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'saben', english: 'they know' },
+                    { spanish: 'sé', english: 'I know', irregular: true },
+                    { spanish: 'sabes', english: 'you know' },
+                    { spanish: 'sabe', english: 's/he knows' },
+                    { spanish: 'sabemos', english: 'we know' },
+                    { spanish: 'saben', english: 'they know' },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of saber is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'supe español', english: 'I knew Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'supe', english: 'I knew', irregular: true },
-                    { pronoun: 'Tú', spanish: 'supiste', english: 'you knew', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'supo', english: 's/he knew', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'supimos', english: 'we knew', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'supieron', english: 'they knew', irregular: true },
+                    { spanish: 'supe', english: 'I knew', irregular: true },
+                    { spanish: 'supiste', english: 'you knew', irregular: true },
+                    { spanish: 'supo', english: 's/he knew', irregular: true },
+                    { spanish: 'supimos', english: 'we knew', irregular: true },
+                    { spanish: 'supieron', english: 'they knew', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of saber is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'sabía español', english: 'I used to know Spanish' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'sabía', english: 'I used to know' },
-                    { pronoun: 'Tú', spanish: 'sabías', english: 'you used to know' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'sabía', english: 's/he used to know' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'sabíamos', english: 'we used to know' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'sabían', english: 'they used to know' },
+                    { spanish: 'sabía', english: 'I used to know' },
+                    { spanish: 'sabías', english: 'you used to know' },
+                    { spanish: 'sabía', english: 's/he used to know' },
+                    { spanish: 'sabíamos', english: 'we used to know' },
+                    { spanish: 'sabían', english: 'they used to know' },
                 ],
             },
         ],
@@ -654,48 +595,42 @@ export const VERBS: VerbEntry[] = [
         translation: 'to say, to tell',
         summary: 'Decir is the Spanish verb meaning "to say / to tell". For example: "What did you say?" or "I swear to tell the truth". In Spain, it is used when answering the phone - you will hear "¿Diga?" meaning "hello" or "¡Digame!", literally translating to "tell me". It can also be used to express rumours and opinions - "they say it\'s going to rain all next week" and "What do you say, will we go on holidays in June?"',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'decir', english: 'to say, to tell' },
-            { item: 'Past participle', spanish: 'dicho', english: 'said' },
-            { item: 'Gerund', spanish: 'diciendo', english: 'saying' },
+            { spanish: 'decir', english: 'to say, to tell' },
+            { spanish: 'dicho', english: 'said' },
+            { spanish: 'diciendo', english: 'saying' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of decir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
                 example: { spanish: 'digo hola al profesor', english: 'I say hello to the teacher' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'digo', english: 'I say', irregular: true },
-                    { pronoun: 'Tú', spanish: 'dices', english: 'you say', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'dice', english: 's/he says', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'decimos', english: 'we say' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'dicen', english: 'they say', irregular: true },
+                    { spanish: 'digo', english: 'I say', irregular: true },
+                    { spanish: 'dices', english: 'you say', irregular: true },
+                    { spanish: 'dice', english: 's/he says', irregular: true },
+                    { spanish: 'decimos', english: 'we say' },
+                    { spanish: 'dicen', english: 'they say', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of decir is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'dije hola al profesor', english: 'I said hello to the teacher' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'dije', english: 'I said', irregular: true },
-                    { pronoun: 'Tú', spanish: 'dijiste', english: 'you said', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'dijo', english: 's/he said', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'dijimos', english: 'we said', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'dijeron', english: 'they said', irregular: true },
+                    { spanish: 'dije', english: 'I said', irregular: true },
+                    { spanish: 'dijiste', english: 'you said', irregular: true },
+                    { spanish: 'dijo', english: 's/he said', irregular: true },
+                    { spanish: 'dijimos', english: 'we said', irregular: true },
+                    { spanish: 'dijeron', english: 'they said', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of decir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'decía hola al profesor', english: 'I used to say hello to the teacher' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'decía', english: 'I used to say' },
-                    { pronoun: 'Tú', spanish: 'decías', english: 'you used to say' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'decía', english: 's/he used to say' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'decíamos', english: 'we used to say' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'decían', english: 'they used to say' },
+                    { spanish: 'decía', english: 'I used to say' },
+                    { spanish: 'decías', english: 'you used to say' },
+                    { spanish: 'decía', english: 's/he used to say' },
+                    { spanish: 'decíamos', english: 'we used to say' },
+                    { spanish: 'decían', english: 'they used to say' },
                 ],
             },
         ],
@@ -705,62 +640,54 @@ export const VERBS: VerbEntry[] = [
         translation: 'to give',
         summary: 'Dar is the Spanish verb "to give". It is a very versatile verb, with many meanings and uses. For example: "Dame las llaves" - "Give me the keys", "dar las gracias" - "to give thanks", to express fear "Me da miedo" - "It scares me" as well as to perform an action "dar un paseo" - "to go for a walk".',
         infinitiveForms: [
-            { item: 'Infinitive', spanish: 'dar', english: 'to give' },
-            { item: 'Past participle', spanish: 'dado', english: 'given' },
-            { item: 'Gerund', spanish: 'dando', english: 'giving' },
+            { spanish: 'dar', english: 'to give' },
+            { spanish: 'dado', english: 'given' },
+            { spanish: 'dando', english: 'giving' },
         ],
         tenses: [
             {
-                name: 'Indicative Present',
-                spanishName: 'El Presente',
                 description: 'The Indicative Present of dar is used to talk about situations, events or thoughts that are happening now or in the near future.',
                 example: { spanish: 'doy regalos a mis hermanos', english: 'I give presents to my siblings' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'doy', english: 'I give', irregular: true },
-                    { pronoun: 'Tú', spanish: 'das', english: 'you give', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'da', english: 's/he gives', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'damos', english: 'we give' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'dan', english: 'they give', irregular: true },
+                    { spanish: 'doy', english: 'I give', irregular: true },
+                    { spanish: 'das', english: 'you give', irregular: true },
+                    { spanish: 'da', english: 's/he gives', irregular: true },
+                    { spanish: 'damos', english: 'we give' },
+                    { spanish: 'dan', english: 'they give', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Preterite',
-                spanishName: 'El Pretérito Indefinido',
                 description: 'The Indicative Preterite of dar is used to talk about actions completed in the past, at a specific point in time.',
                 example: { spanish: 'di regalos a mis hermanos', english: 'I gave presents to my siblings' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'di', english: 'I gave', irregular: true },
-                    { pronoun: 'Tú', spanish: 'diste', english: 'you gave', irregular: true },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'dio', english: 's/he gave', irregular: true },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'dimos', english: 'we gave', irregular: true },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'dieron', english: 'they gave', irregular: true },
+                    { spanish: 'di', english: 'I gave', irregular: true },
+                    { spanish: 'diste', english: 'you gave', irregular: true },
+                    { spanish: 'dio', english: 's/he gave', irregular: true },
+                    { spanish: 'dimos', english: 'we gave', irregular: true },
+                    { spanish: 'dieron', english: 'they gave', irregular: true },
                 ],
             },
             {
-                name: 'Indicative Imperfect',
-                spanishName: 'El Pretérito Imperfecto',
                 description: 'The Indicative Imperfect of dar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
                 example: { spanish: 'daba regalos a mis hermanos', english: 'I used to give presents to my siblings' },
                 forms: [
-                    { pronoun: 'Yo', spanish: 'daba', english: 'I used to give' },
-                    { pronoun: 'Tú', spanish: 'dabas', english: 'you used to give' },
-                    { pronoun: 'Ella / Él / Usted', spanish: 'daba', english: 's/he used to give' },
-                    { pronoun: 'Nosotras / Nosotros', spanish: 'dábamos', english: 'we used to give' },
-                    { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'daban', english: 'they used to give' },
+                    { spanish: 'daba', english: 'I used to give' },
+                    { spanish: 'dabas', english: 'you used to give' },
+                    { spanish: 'daba', english: 's/he used to give' },
+                    { spanish: 'dábamos', english: 'we used to give' },
+                    { spanish: 'daban', english: 'they used to give' },
                 ],
             },
         ],
     },
 ]
 
-type SimpleForm = [pronoun: string, spanish: string, english: string, irregular?: boolean]
+type SimpleForm = [spanish: string, english: string, irregular?: boolean]
 
-function buildTense(name: string, spanishName: string, forms: SimpleForm[]): VerbTense {
+function buildTense(forms: SimpleForm[]): VerbTense {
     return {
-        name,
-        spanishName,
-        forms: forms.map(([pronoun, spanish, english, irregular]) => (
-            irregular ? { pronoun, spanish, english, irregular: true } : { pronoun, spanish, english }
+        forms: forms.map(([spanish, english, irregular]) => (
+            irregular ? { spanish, english, irregular: true } : { spanish, english }
         )),
     }
 }
@@ -768,7 +695,7 @@ function buildTense(name: string, spanishName: string, forms: SimpleForm[]): Ver
 function simpleVerb(
     infinitive: string,
     translation: string,
-    infinitiveForms: [string, string, string][],
+    infinitiveForms: [string, string][],
     present: SimpleForm[],
     preterite: SimpleForm[],
     imperfect: SimpleForm[],
@@ -776,1275 +703,1271 @@ function simpleVerb(
     return {
         infinitive,
         translation,
-        infinitiveForms: infinitiveForms.map(([item, spanish, english]) => ({ item, spanish, english })),
-        tenses: [
-            buildTense('Indicative Present', 'El Presente', present),
-            buildTense('Indicative Preterite', 'El Pretérito Indefinido', preterite),
-            buildTense('Indicative Imperfect', 'El Pretérito Imperfecto', imperfect),
-        ],
+        infinitiveForms: infinitiveForms.map(([spanish, english]) => ({ spanish, english })),
+        tenses: [buildTense(present), buildTense(preterite), buildTense(imperfect)],
     }
 }
 
 const BULK_VERBS: VerbEntry[] = [
     simpleVerb('llegar', 'to arrive', [
-        ['Infinitive', 'llegar', 'to arrive'], ['Past participle', 'llegado', 'arrived'], ['Gerund', 'llegando', 'arriving'],
+        ['llegar', 'to arrive'], ['llegado', 'arrived'], ['llegando', 'arriving'],
     ], [
-        ['Yo', 'llego', 'I arrive'], ['Tú', 'llegas', 'you arrive'], ['Ella / Él / Usted', 'llega', 's/he arrives'],
-        ['Nosotras / Nosotros', 'llegamos', 'we arrive'], ['Ellas / Ellos / Ustedes', 'llegan', 'they arrive'],
+        ['llego', 'I arrive'], ['llegas', 'you arrive'], ['llega', 's/he arrives'],
+        ['llegamos', 'we arrive'], ['llegan', 'they arrive'],
     ], [
-        ['Yo', 'llegué', 'I arrived', true], ['Tú', 'llegaste', 'you arrived'], ['Ella / Él / Usted', 'llegó', 's/he arrived'],
-        ['Nosotras / Nosotros', 'llegamos', 'we arrived'], ['Ellas / Ellos / Ustedes', 'llegaron', 'they arrived'],
+        ['llegué', 'I arrived', true], ['llegaste', 'you arrived'], ['llegó', 's/he arrived'],
+        ['llegamos', 'we arrived'], ['llegaron', 'they arrived'],
     ], [
-        ['Yo', 'llegaba', 'I used to arrive'], ['Tú', 'llegabas', 'you used to arrive'], ['Ella / Él / Usted', 'llegaba', 's/he used to arrive'],
-        ['Nosotras / Nosotros', 'llegábamos', 'we used to arrive'], ['Ellas / Ellos / Ustedes', 'llegaban', 'they used to arrive'],
+        ['llegaba', 'I used to arrive'], ['llegabas', 'you used to arrive'], ['llegaba', 's/he used to arrive'],
+        ['llegábamos', 'we used to arrive'], ['llegaban', 'they used to arrive'],
     ]),
     simpleVerb('llevar', 'to carry, to take, to wear', [
-        ['Infinitive', 'llevar', 'to carry'], ['Past participle', 'llevado', 'carried'], ['Gerund', 'llevando', 'carrying'],
+        ['llevar', 'to carry'], ['llevado', 'carried'], ['llevando', 'carrying'],
     ], [
-        ['Yo', 'llevo', 'I carry'], ['Tú', 'llevas', 'you carry'], ['Ella / Él / Usted', 'lleva', 's/he carries'],
-        ['Nosotras / Nosotros', 'llevamos', 'we carry'], ['Ellas / Ellos / Ustedes', 'llevan', 'they carry'],
+        ['llevo', 'I carry'], ['llevas', 'you carry'], ['lleva', 's/he carries'],
+        ['llevamos', 'we carry'], ['llevan', 'they carry'],
     ], [
-        ['Yo', 'llevé', 'I carried'], ['Tú', 'llevaste', 'you carried'], ['Ella / Él / Usted', 'llevó', 's/he carried'],
-        ['Nosotras / Nosotros', 'llevamos', 'we carried'], ['Ellas / Ellos / Ustedes', 'llevaron', 'they carried'],
+        ['llevé', 'I carried'], ['llevaste', 'you carried'], ['llevó', 's/he carried'],
+        ['llevamos', 'we carried'], ['llevaron', 'they carried'],
     ], [
-        ['Yo', 'llevaba', 'I used to carry'], ['Tú', 'llevabas', 'you used to carry'], ['Ella / Él / Usted', 'llevaba', 's/he used to carry'],
-        ['Nosotras / Nosotros', 'llevábamos', 'we used to carry'], ['Ellas / Ellos / Ustedes', 'llevaban', 'they used to carry'],
+        ['llevaba', 'I used to carry'], ['llevabas', 'you used to carry'], ['llevaba', 's/he used to carry'],
+        ['llevábamos', 'we used to carry'], ['llevaban', 'they used to carry'],
     ]),
     simpleVerb('llamar', 'to call', [
-        ['Infinitive', 'llamar', 'to call'], ['Past participle', 'llamado', 'called'], ['Gerund', 'llamando', 'calling'],
+        ['llamar', 'to call'], ['llamado', 'called'], ['llamando', 'calling'],
     ], [
-        ['Yo', 'llamo', 'I call'], ['Tú', 'llamas', 'you call'], ['Ella / Él / Usted', 'llama', 's/he calls'],
-        ['Nosotras / Nosotros', 'llamamos', 'we call'], ['Ellas / Ellos / Ustedes', 'llaman', 'they call'],
+        ['llamo', 'I call'], ['llamas', 'you call'], ['llama', 's/he calls'],
+        ['llamamos', 'we call'], ['llaman', 'they call'],
     ], [
-        ['Yo', 'llamé', 'I called'], ['Tú', 'llamaste', 'you called'], ['Ella / Él / Usted', 'llamó', 's/he called'],
-        ['Nosotras / Nosotros', 'llamamos', 'we called'], ['Ellas / Ellos / Ustedes', 'llamaron', 'they called'],
+        ['llamé', 'I called'], ['llamaste', 'you called'], ['llamó', 's/he called'],
+        ['llamamos', 'we called'], ['llamaron', 'they called'],
     ], [
-        ['Yo', 'llamaba', 'I used to call'], ['Tú', 'llamabas', 'you used to call'], ['Ella / Él / Usted', 'llamaba', 's/he used to call'],
-        ['Nosotras / Nosotros', 'llamábamos', 'we used to call'], ['Ellas / Ellos / Ustedes', 'llamaban', 'they used to call'],
+        ['llamaba', 'I used to call'], ['llamabas', 'you used to call'], ['llamaba', 's/he used to call'],
+        ['llamábamos', 'we used to call'], ['llamaban', 'they used to call'],
     ]),
     simpleVerb('ponerse', 'to put on', [
-        ['Infinitive', 'ponerse', 'to put on'], ['Past participle', 'puesto', 'put on'], ['Gerund', 'poniendo', 'putting on'],
+        ['ponerse', 'to put on'], ['puesto', 'put on'], ['poniendo', 'putting on'],
     ], [
-        ['Yo', 'me pongo', 'I put on', true], ['Tú', 'te pones', 'you put on'], ['Ella / Él / Usted', 'se pone', 's/he puts on'],
-        ['Nosotras / Nosotros', 'nos ponemos', 'we put on'], ['Ellas / Ellos / Ustedes', 'se ponen', 'they put on'],
+        ['me pongo', 'I put on', true], ['te pones', 'you put on'], ['se pone', 's/he puts on'],
+        ['nos ponemos', 'we put on'], ['se ponen', 'they put on'],
     ], [
-        ['Yo', 'me puse', 'I put on', true], ['Tú', 'te pusiste', 'you put on'], ['Ella / Él / Usted', 'se puso', 's/he put on'],
-        ['Nosotras / Nosotros', 'nos pusimos', 'we put on'], ['Ellas / Ellos / Ustedes', 'se pusieron', 'they put on'],
+        ['me puse', 'I put on', true], ['te pusiste', 'you put on'], ['se puso', 's/he put on'],
+        ['nos pusimos', 'we put on'], ['se pusieron', 'they put on'],
     ], [
-        ['Yo', 'me ponía', 'I used to put on'], ['Tú', 'te ponías', 'you used to put on'], ['Ella / Él / Usted', 'se ponía', 's/he used to put on'],
-        ['Nosotras / Nosotros', 'nos poníamos', 'we used to put on'], ['Ellas / Ellos / Ustedes', 'se ponían', 'they used to put on'],
+        ['me ponía', 'I used to put on'], ['te ponías', 'you used to put on'], ['se ponía', 's/he used to put on'],
+        ['nos poníamos', 'we used to put on'], ['se ponían', 'they used to put on'],
     ]),
     simpleVerb('perder', 'to lose', [
-        ['Infinitive', 'perder', 'to lose'], ['Past participle', 'perdido', 'lost'], ['Gerund', 'perdiendo', 'losing'],
+        ['perder', 'to lose'], ['perdido', 'lost'], ['perdiendo', 'losing'],
     ], [
-        ['Yo', 'pierdo', 'I lose', true], ['Tú', 'pierdes', 'you lose', true], ['Ella / Él / Usted', 'pierde', 's/he loses', true],
-        ['Nosotras / Nosotros', 'perdemos', 'we lose'], ['Ellas / Ellos / Ustedes', 'pierden', 'they lose', true],
+        ['pierdo', 'I lose', true], ['pierdes', 'you lose', true], ['pierde', 's/he loses', true],
+        ['perdemos', 'we lose'], ['pierden', 'they lose', true],
     ], [
-        ['Yo', 'perdí', 'I lost'], ['Tú', 'perdiste', 'you lost'], ['Ella / Él / Usted', 'perdió', 's/he lost'],
-        ['Nosotras / Nosotros', 'perdimos', 'we lost'], ['Ellas / Ellos / Ustedes', 'perdieron', 'they lost'],
+        ['perdí', 'I lost'], ['perdiste', 'you lost'], ['perdió', 's/he lost'],
+        ['perdimos', 'we lost'], ['perdieron', 'they lost'],
     ], [
-        ['Yo', 'perdía', 'I used to lose'], ['Tú', 'perdías', 'you used to lose'], ['Ella / Él / Usted', 'perdía', 's/he used to lose'],
-        ['Nosotras / Nosotros', 'perdíamos', 'we used to lose'], ['Ellas / Ellos / Ustedes', 'perdían', 'they used to lose'],
+        ['perdía', 'I used to lose'], ['perdías', 'you used to lose'], ['perdía', 's/he used to lose'],
+        ['perdíamos', 'we used to lose'], ['perdían', 'they used to lose'],
     ]),
     simpleVerb('probar', 'to try, to taste, to test', [
-        ['Infinitive', 'probar', 'to try'], ['Past participle', 'probado', 'tried'], ['Gerund', 'probando', 'trying'],
+        ['probar', 'to try'], ['probado', 'tried'], ['probando', 'trying'],
     ], [
-        ['Yo', 'pruebo', 'I try', true], ['Tú', 'pruebas', 'you try', true], ['Ella / Él / Usted', 'prueba', 's/he tries', true],
-        ['Nosotras / Nosotros', 'probamos', 'we try'], ['Ellas / Ellos / Ustedes', 'prueban', 'they try', true],
+        ['pruebo', 'I try', true], ['pruebas', 'you try', true], ['prueba', 's/he tries', true],
+        ['probamos', 'we try'], ['prueban', 'they try', true],
     ], [
-        ['Yo', 'probé', 'I tried'], ['Tú', 'probaste', 'you tried'], ['Ella / Él / Usted', 'probó', 's/he tried'],
-        ['Nosotras / Nosotros', 'probamos', 'we tried'], ['Ellas / Ellos / Ustedes', 'probaron', 'they tried'],
+        ['probé', 'I tried'], ['probaste', 'you tried'], ['probó', 's/he tried'],
+        ['probamos', 'we tried'], ['probaron', 'they tried'],
     ], [
-        ['Yo', 'probaba', 'I used to try'], ['Tú', 'probabas', 'you used to try'], ['Ella / Él / Usted', 'probaba', 's/he used to try'],
-        ['Nosotras / Nosotros', 'probábamos', 'we used to try'], ['Ellas / Ellos / Ustedes', 'probaban', 'they used to try'],
+        ['probaba', 'I used to try'], ['probabas', 'you used to try'], ['probaba', 's/he used to try'],
+        ['probábamos', 'we used to try'], ['probaban', 'they used to try'],
     ]),
     simpleVerb('conocer', 'to know (people, places)', [
-        ['Infinitive', 'conocer', 'to know'], ['Past participle', 'conocido', 'known'], ['Gerund', 'conociendo', 'knowing'],
+        ['conocer', 'to know'], ['conocido', 'known'], ['conociendo', 'knowing'],
     ], [
-        ['Yo', 'conozco', 'I know', true], ['Tú', 'conoces', 'you know'], ['Ella / Él / Usted', 'conoce', 's/he knows'],
-        ['Nosotras / Nosotros', 'conocemos', 'we know'], ['Ellas / Ellos / Ustedes', 'conocen', 'they know'],
+        ['conozco', 'I know', true], ['conoces', 'you know'], ['conoce', 's/he knows'],
+        ['conocemos', 'we know'], ['conocen', 'they know'],
     ], [
-        ['Yo', 'conocí', 'I knew'], ['Tú', 'conociste', 'you knew'], ['Ella / Él / Usted', 'conoció', 's/he knew'],
-        ['Nosotras / Nosotros', 'conocimos', 'we knew'], ['Ellas / Ellos / Ustedes', 'conocieron', 'they knew'],
+        ['conocí', 'I knew'], ['conociste', 'you knew'], ['conoció', 's/he knew'],
+        ['conocimos', 'we knew'], ['conocieron', 'they knew'],
     ], [
-        ['Yo', 'conocía', 'I used to know'], ['Tú', 'conocías', 'you used to know'], ['Ella / Él / Usted', 'conocía', 's/he used to know'],
-        ['Nosotras / Nosotros', 'conocíamos', 'we used to know'], ['Ellas / Ellos / Ustedes', 'conocían', 'they used to know'],
+        ['conocía', 'I used to know'], ['conocías', 'you used to know'], ['conocía', 's/he used to know'],
+        ['conocíamos', 'we used to know'], ['conocían', 'they used to know'],
     ]),
     simpleVerb('sentirse', 'to feel', [
-        ['Infinitive', 'sentirse', 'to feel'], ['Past participle', 'sentido', 'felt'], ['Gerund', 'sintiendo', 'feeling'],
+        ['sentirse', 'to feel'], ['sentido', 'felt'], ['sintiendo', 'feeling'],
     ], [
-        ['Yo', 'me siento', 'I feel', true], ['Tú', 'te sientes', 'you feel', true], ['Ella / Él / Usted', 'se siente', 's/he feels', true],
-        ['Nosotras / Nosotros', 'nos sentimos', 'we feel'], ['Ellas / Ellos / Ustedes', 'se sienten', 'they feel', true],
+        ['me siento', 'I feel', true], ['te sientes', 'you feel', true], ['se siente', 's/he feels', true],
+        ['nos sentimos', 'we feel'], ['se sienten', 'they feel', true],
     ], [
-        ['Yo', 'me sentí', 'I felt', true], ['Tú', 'te sentiste', 'you felt', true], ['Ella / Él / Usted', 'se sintió', 's/he felt', true],
-        ['Nosotras / Nosotros', 'nos sentimos', 'we felt'], ['Ellas / Ellos / Ustedes', 'se sintieron', 'they felt', true],
+        ['me sentí', 'I felt', true], ['te sentiste', 'you felt', true], ['se sintió', 's/he felt', true],
+        ['nos sentimos', 'we felt'], ['se sintieron', 'they felt', true],
     ], [
-        ['Yo', 'me sentía', 'I used to feel'], ['Tú', 'te sentías', 'you used to feel'], ['Ella / Él / Usted', 'se sentía', 's/he used to feel'],
-        ['Nosotras / Nosotros', 'nos sentíamos', 'we used to feel'], ['Ellas / Ellos / Ustedes', 'se sentían', 'they used to feel'],
+        ['me sentía', 'I used to feel'], ['te sentías', 'you used to feel'], ['se sentía', 's/he used to feel'],
+        ['nos sentíamos', 'we used to feel'], ['se sentían', 'they used to feel'],
     ]),
     simpleVerb('sentarse', 'to sit (oneself)', [
-        ['Infinitive', 'sentarse', 'to sit'], ['Past participle', 'sentado', 'sat'], ['Gerund', 'sentando', 'sitting'],
+        ['sentarse', 'to sit'], ['sentado', 'sat'], ['sentando', 'sitting'],
     ], [
-        ['Yo', 'me siento', 'I sit', true], ['Tú', 'te sientas', 'you sit', true], ['Ella / Él / Usted', 'se sienta', 's/he sits', true],
-        ['Nosotras / Nosotros', 'nos sentamos', 'we sit'], ['Ellas / Ellos / Ustedes', 'se sientan', 'they sit', true],
+        ['me siento', 'I sit', true], ['te sientas', 'you sit', true], ['se sienta', 's/he sits', true],
+        ['nos sentamos', 'we sit'], ['se sientan', 'they sit', true],
     ], [
-        ['Yo', 'me senté', 'I sat'], ['Tú', 'te sentaste', 'you sat'], ['Ella / Él / Usted', 'se sentó', 's/he sat'],
-        ['Nosotras / Nosotros', 'nos sentamos', 'we sat'], ['Ellas / Ellos / Ustedes', 'se sentaron', 'they sat'],
+        ['me senté', 'I sat'], ['te sentaste', 'you sat'], ['se sentó', 's/he sat'],
+        ['nos sentamos', 'we sat'], ['se sentaron', 'they sat'],
     ], [
-        ['Yo', 'me sentaba', 'I used to sit'], ['Tú', 'te sentabas', 'you used to sit'], ['Ella / Él / Usted', 'se sentaba', 's/he used to sit'],
-        ['Nosotras / Nosotros', 'nos sentábamos', 'we used to sit'], ['Ellas / Ellos / Ustedes', 'se sentaban', 'they used to sit'],
+        ['me sentaba', 'I used to sit'], ['te sentabas', 'you used to sit'], ['se sentaba', 's/he used to sit'],
+        ['nos sentábamos', 'we used to sit'], ['se sentaban', 'they used to sit'],
     ]),
     simpleVerb('encantar', 'to love, to enchant', [
-        ['Infinitive', 'encantar', 'to love, to enchant'], ['Past participle', 'encantado', 'loved'], ['Gerund', 'encantando', 'loving'],
+        ['encantar', 'to love, to enchant'], ['encantado', 'loved'], ['encantando', 'loving'],
     ], [
-        ['Yo', 'me encanta / me encantan', 'I love'], ['Tú', 'te encanta / te encantan', 'you love'], ['Ella / Él / Usted', 'le encanta / le encantan', 's/he loves'],
-        ['Nosotras / Nosotros', 'nos encanta / nos encantan', 'we love'], ['Ellas / Ellos / Ustedes', 'les encanta / les encantan', 'they love'],
+        ['me encanta / me encantan', 'I love'], ['te encanta / te encantan', 'you love'], ['le encanta / le encantan', 's/he loves'],
+        ['nos encanta / nos encantan', 'we love'], ['les encanta / les encantan', 'they love'],
     ], [
-        ['Yo', 'me encantó / me encantaron', 'I loved'], ['Tú', 'te encantó / te encantaron', 'you loved'], ['Ella / Él / Usted', 'le encantó / le encantaron', 's/he loved'],
-        ['Nosotras / Nosotros', 'nos encantó / nos encantaron', 'we loved'], ['Ellas / Ellos / Ustedes', 'les encantó / les encantaron', 'they loved'],
+        ['me encantó / me encantaron', 'I loved'], ['te encantó / te encantaron', 'you loved'], ['le encantó / le encantaron', 's/he loved'],
+        ['nos encantó / nos encantaron', 'we loved'], ['les encantó / les encantaron', 'they loved'],
     ], [
-        ['Yo', 'me encantaba / me encantaban', 'I used to love'], ['Tú', 'te encantaba / te encantaban', 'you used to love'], ['Ella / Él / Usted', 'le encantaba / le encantaban', 's/he used to love'],
-        ['Nosotras / Nosotros', 'nos encantaba / nos encantaban', 'we used to love'], ['Ellas / Ellos / Ustedes', 'les encantaba / les encantaban', 'they used to love'],
+        ['me encantaba / me encantaban', 'I used to love'], ['te encantaba / te encantaban', 'you used to love'], ['le encantaba / le encantaban', 's/he used to love'],
+        ['nos encantaba / nos encantaban', 'we used to love'], ['les encantaba / les encantaban', 'they used to love'],
     ]),
     simpleVerb('gustar', 'to like, to be pleasing to', [
-        ['Infinitive', 'gustar', 'to like'], ['Past participle', 'gustado', 'liked'], ['Gerund', 'gustando', 'liking'],
+        ['gustar', 'to like'], ['gustado', 'liked'], ['gustando', 'liking'],
     ], [
-        ['Yo', 'me gusta / me gustan', 'I like'], ['Tú', 'te gusta / te gustan', 'you like'], ['Ella / Él / Usted', 'le gusta / le gustan', 's/he likes'],
-        ['Nosotras / Nosotros', 'nos gusta / nos gustan', 'we like'], ['Ellas / Ellos / Ustedes', 'les gusta / les gustan', 'they like'],
+        ['me gusta / me gustan', 'I like'], ['te gusta / te gustan', 'you like'], ['le gusta / le gustan', 's/he likes'],
+        ['nos gusta / nos gustan', 'we like'], ['les gusta / les gustan', 'they like'],
     ], [
-        ['Yo', 'me gustó / me gustaron', 'I liked'], ['Tú', 'te gustó / te gustaron', 'you liked'], ['Ella / Él / Usted', 'le gustó / le gustaron', 's/he liked'],
-        ['Nosotras / Nosotros', 'nos gustó / nos gustaron', 'we liked'], ['Ellas / Ellos / Ustedes', 'les gustó / les gustaron', 'they liked'],
+        ['me gustó / me gustaron', 'I liked'], ['te gustó / te gustaron', 'you liked'], ['le gustó / le gustaron', 's/he liked'],
+        ['nos gustó / nos gustaron', 'we liked'], ['les gustó / les gustaron', 'they liked'],
     ], [
-        ['Yo', 'me gustaba / me gustaban', 'I used to like'], ['Tú', 'te gustaba / te gustaban', 'you used to like'], ['Ella / Él / Usted', 'le gustaba / le gustaban', 's/he used to like'],
-        ['Nosotras / Nosotros', 'nos gustaba / nos gustaban', 'we used to like'], ['Ellas / Ellos / Ustedes', 'les gustaba / les gustaban', 'they used to like'],
+        ['me gustaba / me gustaban', 'I used to like'], ['te gustaba / te gustaban', 'you used to like'], ['le gustaba / le gustaban', 's/he used to like'],
+        ['nos gustaba / nos gustaban', 'we used to like'], ['les gustaba / les gustaban', 'they used to like'],
     ]),
     simpleVerb('amar', 'to love', [
-        ['Infinitive', 'amar', 'to love'], ['Past participle', 'amado', 'loved'], ['Gerund', 'amando', 'loving'],
+        ['amar', 'to love'], ['amado', 'loved'], ['amando', 'loving'],
     ], [
-        ['Yo', 'amo', 'I love'], ['Tú', 'amas', 'you love'], ['Ella / Él / Usted', 'ama', 's/he loves'],
-        ['Nosotras / Nosotros', 'amamos', 'we love'], ['Ellas / Ellos / Ustedes', 'aman', 'they love'],
+        ['amo', 'I love'], ['amas', 'you love'], ['ama', 's/he loves'],
+        ['amamos', 'we love'], ['aman', 'they love'],
     ], [
-        ['Yo', 'amé', 'I loved'], ['Tú', 'amaste', 'you loved'], ['Ella / Él / Usted', 'amó', 's/he loved'],
-        ['Nosotras / Nosotros', 'amamos', 'we loved'], ['Ellas / Ellos / Ustedes', 'amaron', 'they loved'],
+        ['amé', 'I loved'], ['amaste', 'you loved'], ['amó', 's/he loved'],
+        ['amamos', 'we loved'], ['amaron', 'they loved'],
     ], [
-        ['Yo', 'amaba', 'I used to love'], ['Tú', 'amabas', 'you used to love'], ['Ella / Él / Usted', 'amaba', 's/he used to love'],
-        ['Nosotras / Nosotros', 'amábamos', 'we used to love'], ['Ellas / Ellos / Ustedes', 'amaban', 'they used to love'],
+        ['amaba', 'I used to love'], ['amabas', 'you used to love'], ['amaba', 's/he used to love'],
+        ['amábamos', 'we used to love'], ['amaban', 'they used to love'],
     ]),
     simpleVerb('acordarse', 'to remember', [
-        ['Infinitive', 'acordarse', 'to remember'], ['Past participle', 'acordado', 'remembered'], ['Gerund', 'acordando', 'remembering'],
+        ['acordarse', 'to remember'], ['acordado', 'remembered'], ['acordando', 'remembering'],
     ], [
-        ['Yo', 'me acuerdo', 'I remember', true], ['Tú', 'te acuerdas', 'you remember', true], ['Ella / Él / Usted', 'se acuerda', 's/he remembers', true],
-        ['Nosotras / Nosotros', 'nos acordamos', 'we remember'], ['Ellas / Ellos / Ustedes', 'se acuerdan', 'they remember', true],
+        ['me acuerdo', 'I remember', true], ['te acuerdas', 'you remember', true], ['se acuerda', 's/he remembers', true],
+        ['nos acordamos', 'we remember'], ['se acuerdan', 'they remember', true],
     ], [
-        ['Yo', 'me acordé', 'I remembered'], ['Tú', 'te acordaste', 'you remembered'], ['Ella / Él / Usted', 'se acordó', 's/he remembered'],
-        ['Nosotras / Nosotros', 'nos acordamos', 'we remembered'], ['Ellas / Ellos / Ustedes', 'se acordaron', 'they remembered'],
+        ['me acordé', 'I remembered'], ['te acordaste', 'you remembered'], ['se acordó', 's/he remembered'],
+        ['nos acordamos', 'we remembered'], ['se acordaron', 'they remembered'],
     ], [
-        ['Yo', 'me acordaba', 'I used to remember'], ['Tú', 'te acordabas', 'you used to remember'], ['Ella / Él / Usted', 'se acordaba', 's/he used to remember'],
-        ['Nosotras / Nosotros', 'nos acordábamos', 'we used to remember'], ['Ellas / Ellos / Ustedes', 'se acordaban', 'they used to remember'],
+        ['me acordaba', 'I used to remember'], ['te acordabas', 'you used to remember'], ['se acordaba', 's/he used to remember'],
+        ['nos acordábamos', 'we used to remember'], ['se acordaban', 'they used to remember'],
     ]),
     simpleVerb('acostarse', 'to go to bed, to lie down', [
-        ['Infinitive', 'acostarse', 'to go to bed'], ['Past participle', 'acostado', 'gone to bed'], ['Gerund', 'acostando', 'going to bed'],
+        ['acostarse', 'to go to bed'], ['acostado', 'gone to bed'], ['acostando', 'going to bed'],
     ], [
-        ['Yo', 'me acuesto', 'I go to bed', true], ['Tú', 'te acuestas', 'you go to bed', true], ['Ella / Él / Usted', 'se acuesta', 's/he goes to bed', true],
-        ['Nosotras / Nosotros', 'nos acostamos', 'we go to bed'], ['Ellas / Ellos / Ustedes', 'se acuestan', 'they go to bed', true],
+        ['me acuesto', 'I go to bed', true], ['te acuestas', 'you go to bed', true], ['se acuesta', 's/he goes to bed', true],
+        ['nos acostamos', 'we go to bed'], ['se acuestan', 'they go to bed', true],
     ], [
-        ['Yo', 'me acosté', 'I went to bed'], ['Tú', 'te acostaste', 'you went to bed'], ['Ella / Él / Usted', 'se acostó', 's/he went to bed'],
-        ['Nosotras / Nosotros', 'nos acostamos', 'we went to bed'], ['Ellas / Ellos / Ustedes', 'se acostaron', 'they went to bed'],
+        ['me acosté', 'I went to bed'], ['te acostaste', 'you went to bed'], ['se acostó', 's/he went to bed'],
+        ['nos acostamos', 'we went to bed'], ['se acostaron', 'they went to bed'],
     ], [
-        ['Yo', 'me acostaba', 'I used to go to bed'], ['Tú', 'te acostabas', 'you used to go to bed'], ['Ella / Él / Usted', 'se acostaba', 's/he used to go to bed'],
-        ['Nosotras / Nosotros', 'nos acostábamos', 'we used to go to bed'], ['Ellas / Ellos / Ustedes', 'se acostaban', 'they used to go to bed'],
+        ['me acostaba', 'I used to go to bed'], ['te acostabas', 'you used to go to bed'], ['se acostaba', 's/he used to go to bed'],
+        ['nos acostábamos', 'we used to go to bed'], ['se acostaban', 'they used to go to bed'],
     ]),
     simpleVerb('volver', 'to return', [
-        ['Infinitive', 'volver', 'to return'], ['Past participle', 'vuelto', 'returned'], ['Gerund', 'volviendo', 'returning'],
+        ['volver', 'to return'], ['vuelto', 'returned'], ['volviendo', 'returning'],
     ], [
-        ['Yo', 'vuelvo', 'I return', true], ['Tú', 'vuelves', 'you return', true], ['Ella / Él / Usted', 'vuelve', 's/he returns', true],
-        ['Nosotras / Nosotros', 'volvemos', 'we return'], ['Ellas / Ellos / Ustedes', 'vuelven', 'they return', true],
+        ['vuelvo', 'I return', true], ['vuelves', 'you return', true], ['vuelve', 's/he returns', true],
+        ['volvemos', 'we return'], ['vuelven', 'they return', true],
     ], [
-        ['Yo', 'volví', 'I returned'], ['Tú', 'volviste', 'you returned'], ['Ella / Él / Usted', 'volvió', 's/he returned'],
-        ['Nosotras / Nosotros', 'volvimos', 'we returned'], ['Ellas / Ellos / Ustedes', 'volvieron', 'they returned'],
+        ['volví', 'I returned'], ['volviste', 'you returned'], ['volvió', 's/he returned'],
+        ['volvimos', 'we returned'], ['volvieron', 'they returned'],
     ], [
-        ['Yo', 'volvía', 'I used to return'], ['Tú', 'volvías', 'you used to return'], ['Ella / Él / Usted', 'volvía', 's/he used to return'],
-        ['Nosotras / Nosotros', 'volvíamos', 'we used to return'], ['Ellas / Ellos / Ustedes', 'volvían', 'they used to return'],
+        ['volvía', 'I used to return'], ['volvías', 'you used to return'], ['volvía', 's/he used to return'],
+        ['volvíamos', 'we used to return'], ['volvían', 'they used to return'],
     ]),
     simpleVerb('empezar', 'to start, to begin', [
-        ['Infinitive', 'empezar', 'to start'], ['Past participle', 'empezado', 'started'], ['Gerund', 'empezando', 'starting'],
+        ['empezar', 'to start'], ['empezado', 'started'], ['empezando', 'starting'],
     ], [
-        ['Yo', 'empiezo', 'I start', true], ['Tú', 'empiezas', 'you start', true], ['Ella / Él / Usted', 'empieza', 's/he starts', true],
-        ['Nosotras / Nosotros', 'empezamos', 'we start'], ['Ellas / Ellos / Ustedes', 'empiezan', 'they start', true],
+        ['empiezo', 'I start', true], ['empiezas', 'you start', true], ['empieza', 's/he starts', true],
+        ['empezamos', 'we start'], ['empiezan', 'they start', true],
     ], [
-        ['Yo', 'empecé', 'I started', true], ['Tú', 'empezaste', 'you started'], ['Ella / Él / Usted', 'empezó', 's/he started'],
-        ['Nosotras / Nosotros', 'empezamos', 'we started'], ['Ellas / Ellos / Ustedes', 'empezaron', 'they started'],
+        ['empecé', 'I started', true], ['empezaste', 'you started'], ['empezó', 's/he started'],
+        ['empezamos', 'we started'], ['empezaron', 'they started'],
     ], [
-        ['Yo', 'empezaba', 'I used to start'], ['Tú', 'empezabas', 'you used to start'], ['Ella / Él / Usted', 'empezaba', 's/he used to start'],
-        ['Nosotras / Nosotros', 'empezábamos', 'we used to start'], ['Ellas / Ellos / Ustedes', 'empezaban', 'they used to start'],
+        ['empezaba', 'I used to start'], ['empezabas', 'you used to start'], ['empezaba', 's/he used to start'],
+        ['empezábamos', 'we used to start'], ['empezaban', 'they used to start'],
     ]),
     simpleVerb('comenzar', 'to start, to commence', [
-        ['Infinitive', 'comenzar', 'to start'], ['Past participle', 'comenzado', 'started'], ['Gerund', 'comenzando', 'starting'],
+        ['comenzar', 'to start'], ['comenzado', 'started'], ['comenzando', 'starting'],
     ], [
-        ['Yo', 'comienzo', 'I start', true], ['Tú', 'comienzas', 'you start', true], ['Ella / Él / Usted', 'comienza', 's/he starts', true],
-        ['Nosotras / Nosotros', 'comenzamos', 'we start'], ['Ellas / Ellos / Ustedes', 'comienzan', 'they start', true],
+        ['comienzo', 'I start', true], ['comienzas', 'you start', true], ['comienza', 's/he starts', true],
+        ['comenzamos', 'we start'], ['comienzan', 'they start', true],
     ], [
-        ['Yo', 'comencé', 'I started', true], ['Tú', 'comenzaste', 'you started'], ['Ella / Él / Usted', 'comenzó', 's/he started'],
-        ['Nosotras / Nosotros', 'comenzamos', 'we started'], ['Ellas / Ellos / Ustedes', 'comenzaron', 'they started'],
+        ['comencé', 'I started', true], ['comenzaste', 'you started'], ['comenzó', 's/he started'],
+        ['comenzamos', 'we started'], ['comenzaron', 'they started'],
     ], [
-        ['Yo', 'comenzaba', 'I used to start'], ['Tú', 'comenzabas', 'you used to start'], ['Ella / Él / Usted', 'comenzaba', 's/he used to start'],
-        ['Nosotras / Nosotros', 'comenzábamos', 'we used to start'], ['Ellas / Ellos / Ustedes', 'comenzaban', 'they used to start'],
+        ['comenzaba', 'I used to start'], ['comenzabas', 'you used to start'], ['comenzaba', 's/he used to start'],
+        ['comenzábamos', 'we used to start'], ['comenzaban', 'they used to start'],
     ]),
     simpleVerb('aprender', 'to learn', [
-        ['Infinitive', 'aprender', 'to learn'], ['Past participle', 'aprendido', 'learnt'], ['Gerund', 'aprendiendo', 'learning'],
+        ['aprender', 'to learn'], ['aprendido', 'learnt'], ['aprendiendo', 'learning'],
     ], [
-        ['Yo', 'aprendo', 'I learn'], ['Tú', 'aprendes', 'you learn'], ['Ella / Él / Usted', 'aprende', 's/he learns'],
-        ['Nosotras / Nosotros', 'aprendemos', 'we learn'], ['Ellas / Ellos / Ustedes', 'aprenden', 'they learn'],
+        ['aprendo', 'I learn'], ['aprendes', 'you learn'], ['aprende', 's/he learns'],
+        ['aprendemos', 'we learn'], ['aprenden', 'they learn'],
     ], [
-        ['Yo', 'aprendí', 'I learnt'], ['Tú', 'aprendiste', 'you learnt'], ['Ella / Él / Usted', 'aprendió', 's/he learnt'],
-        ['Nosotras / Nosotros', 'aprendimos', 'we learnt'], ['Ellas / Ellos / Ustedes', 'aprendieron', 'they learnt'],
+        ['aprendí', 'I learnt'], ['aprendiste', 'you learnt'], ['aprendió', 's/he learnt'],
+        ['aprendimos', 'we learnt'], ['aprendieron', 'they learnt'],
     ], [
-        ['Yo', 'aprendía', 'I used to learn'], ['Tú', 'aprendías', 'you used to learn'], ['Ella / Él / Usted', 'aprendía', 's/he used to learn'],
-        ['Nosotras / Nosotros', 'aprendíamos', 'we used to learn'], ['Ellas / Ellos / Ustedes', 'aprendían', 'they used to learn'],
+        ['aprendía', 'I used to learn'], ['aprendías', 'you used to learn'], ['aprendía', 's/he used to learn'],
+        ['aprendíamos', 'we used to learn'], ['aprendían', 'they used to learn'],
     ]),
     simpleVerb('enseñar', 'to teach, to show', [
-        ['Infinitive', 'enseñar', 'to teach'], ['Past participle', 'enseñado', 'taught'], ['Gerund', 'enseñando', 'teaching'],
+        ['enseñar', 'to teach'], ['enseñado', 'taught'], ['enseñando', 'teaching'],
     ], [
-        ['Yo', 'enseño', 'I teach'], ['Tú', 'enseñas', 'you teach'], ['Ella / Él / Usted', 'enseña', 's/he teaches'],
-        ['Nosotras / Nosotros', 'enseñamos', 'we teach'], ['Ellas / Ellos / Ustedes', 'enseñan', 'they teach'],
+        ['enseño', 'I teach'], ['enseñas', 'you teach'], ['enseña', 's/he teaches'],
+        ['enseñamos', 'we teach'], ['enseñan', 'they teach'],
     ], [
-        ['Yo', 'enseñé', 'I taught'], ['Tú', 'enseñaste', 'you taught'], ['Ella / Él / Usted', 'enseñó', 's/he taught'],
-        ['Nosotras / Nosotros', 'enseñamos', 'we taught'], ['Ellas / Ellos / Ustedes', 'enseñaron', 'they taught'],
+        ['enseñé', 'I taught'], ['enseñaste', 'you taught'], ['enseñó', 's/he taught'],
+        ['enseñamos', 'we taught'], ['enseñaron', 'they taught'],
     ], [
-        ['Yo', 'enseñaba', 'I used to teach'], ['Tú', 'enseñabas', 'you used to teach'], ['Ella / Él / Usted', 'enseñaba', 's/he used to teach'],
-        ['Nosotras / Nosotros', 'enseñábamos', 'we used to teach'], ['Ellas / Ellos / Ustedes', 'enseñaban', 'they used to teach'],
+        ['enseñaba', 'I used to teach'], ['enseñabas', 'you used to teach'], ['enseñaba', 's/he used to teach'],
+        ['enseñábamos', 'we used to teach'], ['enseñaban', 'they used to teach'],
     ]),
     simpleVerb('invitar', 'to invite', [
-        ['Infinitive', 'invitar', 'to invite'], ['Past participle', 'invitado', 'invited'], ['Gerund', 'invitando', 'inviting'],
+        ['invitar', 'to invite'], ['invitado', 'invited'], ['invitando', 'inviting'],
     ], [
-        ['Yo', 'invito', 'I invite'], ['Tú', 'invitas', 'you invite'], ['Ella / Él / Usted', 'invita', 's/he invites'],
-        ['Nosotras / Nosotros', 'invitamos', 'we invite'], ['Ellas / Ellos / Ustedes', 'invitan', 'they invite'],
+        ['invito', 'I invite'], ['invitas', 'you invite'], ['invita', 's/he invites'],
+        ['invitamos', 'we invite'], ['invitan', 'they invite'],
     ], [
-        ['Yo', 'invité', 'I invited'], ['Tú', 'invitaste', 'you invited'], ['Ella / Él / Usted', 'invitó', 's/he invited'],
-        ['Nosotras / Nosotros', 'invitamos', 'we invited'], ['Ellas / Ellos / Ustedes', 'invitaron', 'they invited'],
+        ['invité', 'I invited'], ['invitaste', 'you invited'], ['invitó', 's/he invited'],
+        ['invitamos', 'we invited'], ['invitaron', 'they invited'],
     ], [
-        ['Yo', 'invitaba', 'I used to invite'], ['Tú', 'invitabas', 'you used to invite'], ['Ella / Él / Usted', 'invitaba', 's/he used to invite'],
-        ['Nosotras / Nosotros', 'invitábamos', 'we used to invite'], ['Ellas / Ellos / Ustedes', 'invitaban', 'they used to invite'],
+        ['invitaba', 'I used to invite'], ['invitabas', 'you used to invite'], ['invitaba', 's/he used to invite'],
+        ['invitábamos', 'we used to invite'], ['invitaban', 'they used to invite'],
     ]),
     simpleVerb('salir', 'to leave, to go out', [
-        ['Infinitive', 'salir', 'to leave, to go out'], ['Past participle', 'salido', 'left'], ['Gerund', 'saliendo', 'leaving'],
+        ['salir', 'to leave, to go out'], ['salido', 'left'], ['saliendo', 'leaving'],
     ], [
-        ['Yo', 'salgo', 'I leave', true], ['Tú', 'sales', 'you leave'], ['Ella / Él / Usted', 'sale', 's/he leaves'],
-        ['Nosotras / Nosotros', 'salimos', 'we leave'], ['Ellas / Ellos / Ustedes', 'salen', 'they leave'],
+        ['salgo', 'I leave', true], ['sales', 'you leave'], ['sale', 's/he leaves'],
+        ['salimos', 'we leave'], ['salen', 'they leave'],
     ], [
-        ['Yo', 'salí', 'I left'], ['Tú', 'saliste', 'you left'], ['Ella / Él / Usted', 'salió', 's/he left'],
-        ['Nosotras / Nosotros', 'salimos', 'we left'], ['Ellas / Ellos / Ustedes', 'salieron', 'they left'],
+        ['salí', 'I left'], ['saliste', 'you left'], ['salió', 's/he left'],
+        ['salimos', 'we left'], ['salieron', 'they left'],
     ], [
-        ['Yo', 'salía', 'I used to leave'], ['Tú', 'salías', 'you used to leave'], ['Ella / Él / Usted', 'salía', 's/he used to leave'],
-        ['Nosotras / Nosotros', 'salíamos', 'we used to leave'], ['Ellas / Ellos / Ustedes', 'salían', 'they used to leave'],
+        ['salía', 'I used to leave'], ['salías', 'you used to leave'], ['salía', 's/he used to leave'],
+        ['salíamos', 'we used to leave'], ['salían', 'they used to leave'],
     ]),
     simpleVerb('quedarse', 'to stay', [
-        ['Infinitive', 'quedarse', 'to stay'], ['Past participle', 'quedado', 'stayed'], ['Gerund', 'quedando', 'staying'],
+        ['quedarse', 'to stay'], ['quedado', 'stayed'], ['quedando', 'staying'],
     ], [
-        ['Yo', 'me quedo', 'I stay'], ['Tú', 'te quedas', 'you stay'], ['Ella / Él / Usted', 'se queda', 's/he stays'],
-        ['Nosotras / Nosotros', 'nos quedamos', 'we stay'], ['Ellas / Ellos / Ustedes', 'se quedan', 'they stay'],
+        ['me quedo', 'I stay'], ['te quedas', 'you stay'], ['se queda', 's/he stays'],
+        ['nos quedamos', 'we stay'], ['se quedan', 'they stay'],
     ], [
-        ['Yo', 'me quedé', 'I stayed'], ['Tú', 'te quedaste', 'you stayed'], ['Ella / Él / Usted', 'se quedó', 's/he stayed'],
-        ['Nosotras / Nosotros', 'nos quedamos', 'we stayed'], ['Ellas / Ellos / Ustedes', 'se quedaron', 'they stayed'],
+        ['me quedé', 'I stayed'], ['te quedaste', 'you stayed'], ['se quedó', 's/he stayed'],
+        ['nos quedamos', 'we stayed'], ['se quedaron', 'they stayed'],
     ], [
-        ['Yo', 'me quedaba', 'I used to stay'], ['Tú', 'te quedabas', 'you used to stay'], ['Ella / Él / Usted', 'se quedaba', 's/he used to stay'],
-        ['Nosotras / Nosotros', 'nos quedábamos', 'we used to stay'], ['Ellas / Ellos / Ustedes', 'se quedaban', 'they used to stay'],
+        ['me quedaba', 'I used to stay'], ['te quedabas', 'you used to stay'], ['se quedaba', 's/he used to stay'],
+        ['nos quedábamos', 'we used to stay'], ['se quedaban', 'they used to stay'],
     ]),
     simpleVerb('quedar', 'to remain, to be left, to meet up', [
-        ['Infinitive', 'quedar', 'to remain'], ['Past participle', 'quedado', 'remained'], ['Gerund', 'quedando', 'remaining'],
+        ['quedar', 'to remain'], ['quedado', 'remained'], ['quedando', 'remaining'],
     ], [
-        ['Yo', 'quedo', 'I remain'], ['Tú', 'quedas', 'you remain'], ['Ella / Él / Usted', 'queda', 's/he remains'],
-        ['Nosotras / Nosotros', 'quedamos', 'we remain'], ['Ellas / Ellos / Ustedes', 'quedan', 'they remain'],
+        ['quedo', 'I remain'], ['quedas', 'you remain'], ['queda', 's/he remains'],
+        ['quedamos', 'we remain'], ['quedan', 'they remain'],
     ], [
-        ['Yo', 'quedé', 'I remained'], ['Tú', 'quedaste', 'you remained'], ['Ella / Él / Usted', 'quedó', 's/he remained'],
-        ['Nosotras / Nosotros', 'quedamos', 'we remained'], ['Ellas / Ellos / Ustedes', 'quedaron', 'they remained'],
+        ['quedé', 'I remained'], ['quedaste', 'you remained'], ['quedó', 's/he remained'],
+        ['quedamos', 'we remained'], ['quedaron', 'they remained'],
     ], [
-        ['Yo', 'quedaba', 'I used to remain'], ['Tú', 'quedabas', 'you used to remain'], ['Ella / Él / Usted', 'quedaba', 's/he used to remain'],
-        ['Nosotras / Nosotros', 'quedábamos', 'we used to remain'], ['Ellas / Ellos / Ustedes', 'quedaban', 'they used to remain'],
+        ['quedaba', 'I used to remain'], ['quedabas', 'you used to remain'], ['quedaba', 's/he used to remain'],
+        ['quedábamos', 'we used to remain'], ['quedaban', 'they used to remain'],
     ]),
     simpleVerb('enojarse', 'to get angry, to get annoyed', [
-        ['Infinitive', 'enojarse', 'to get angry'], ['Past participle', 'enojado', 'gotten angry'], ['Gerund', 'enojando', 'getting angry'],
+        ['enojarse', 'to get angry'], ['enojado', 'gotten angry'], ['enojando', 'getting angry'],
     ], [
-        ['Yo', 'me enojo', 'I get angry'], ['Tú', 'te enojas', 'you get angry'], ['Ella / Él / Usted', 'se enoja', 's/he gets angry'],
-        ['Nosotras / Nosotros', 'nos enojamos', 'we get angry'], ['Ellas / Ellos / Ustedes', 'se enojan', 'they get angry'],
+        ['me enojo', 'I get angry'], ['te enojas', 'you get angry'], ['se enoja', 's/he gets angry'],
+        ['nos enojamos', 'we get angry'], ['se enojan', 'they get angry'],
     ], [
-        ['Yo', 'me enojé', 'I got angry'], ['Tú', 'te enojaste', 'you got angry'], ['Ella / Él / Usted', 'se enojó', 's/he got angry'],
-        ['Nosotras / Nosotros', 'nos enojamos', 'we got angry'], ['Ellas / Ellos / Ustedes', 'se enojaron', 'they got angry'],
+        ['me enojé', 'I got angry'], ['te enojaste', 'you got angry'], ['se enojó', 's/he got angry'],
+        ['nos enojamos', 'we got angry'], ['se enojaron', 'they got angry'],
     ], [
-        ['Yo', 'me enojaba', 'I used to get angry'], ['Tú', 'te enojabas', 'you used to get angry'], ['Ella / Él / Usted', 'se enojaba', 's/he used to get angry'],
-        ['Nosotras / Nosotros', 'nos enojábamos', 'we used to get angry'], ['Ellas / Ellos / Ustedes', 'se enojaban', 'they used to get angry'],
+        ['me enojaba', 'I used to get angry'], ['te enojabas', 'you used to get angry'], ['se enojaba', 's/he used to get angry'],
+        ['nos enojábamos', 'we used to get angry'], ['se enojaban', 'they used to get angry'],
     ]),
     simpleVerb('enfadarse', 'to get angry, to get annoyed', [
-        ['Infinitive', 'enfadarse', 'to get angry'], ['Past participle', 'enfadado', 'gotten angry'], ['Gerund', 'enfadando', 'getting angry'],
+        ['enfadarse', 'to get angry'], ['enfadado', 'gotten angry'], ['enfadando', 'getting angry'],
     ], [
-        ['Yo', 'me enfado', 'I get angry'], ['Tú', 'te enfadas', 'you get angry'], ['Ella / Él / Usted', 'se enfada', 's/he gets angry'],
-        ['Nosotras / Nosotros', 'nos enfadamos', 'we get angry'], ['Ellas / Ellos / Ustedes', 'se enfadan', 'they get angry'],
+        ['me enfado', 'I get angry'], ['te enfadas', 'you get angry'], ['se enfada', 's/he gets angry'],
+        ['nos enfadamos', 'we get angry'], ['se enfadan', 'they get angry'],
     ], [
-        ['Yo', 'me enfadé', 'I got angry'], ['Tú', 'te enfadaste', 'you got angry'], ['Ella / Él / Usted', 'se enfadó', 's/he got angry'],
-        ['Nosotras / Nosotros', 'nos enfadamos', 'we got angry'], ['Ellas / Ellos / Ustedes', 'se enfadaron', 'they got angry'],
+        ['me enfadé', 'I got angry'], ['te enfadaste', 'you got angry'], ['se enfadó', 's/he got angry'],
+        ['nos enfadamos', 'we got angry'], ['se enfadaron', 'they got angry'],
     ], [
-        ['Yo', 'me enfadaba', 'I used to get angry'], ['Tú', 'te enfadabas', 'you used to get angry'], ['Ella / Él / Usted', 'se enfadaba', 's/he used to get angry'],
-        ['Nosotras / Nosotros', 'nos enfadábamos', 'we used to get angry'], ['Ellas / Ellos / Ustedes', 'se enfadaban', 'they used to get angry'],
+        ['me enfadaba', 'I used to get angry'], ['te enfadabas', 'you used to get angry'], ['se enfadaba', 's/he used to get angry'],
+        ['nos enfadábamos', 'we used to get angry'], ['se enfadaban', 'they used to get angry'],
     ]),
     simpleVerb('dormirse', 'to fall asleep', [
-        ['Infinitive', 'dormirse', 'to fall asleep'], ['Past participle', 'dormido', 'fallen asleep'], ['Gerund', 'durmiendo', 'falling asleep'],
+        ['dormirse', 'to fall asleep'], ['dormido', 'fallen asleep'], ['durmiendo', 'falling asleep'],
     ], [
-        ['Yo', 'me duermo', 'I fall asleep', true], ['Tú', 'te duermes', 'you fall asleep', true], ['Ella / Él / Usted', 'se duerme', 's/he falls asleep', true],
-        ['Nosotras / Nosotros', 'nos dormimos', 'we fall asleep'], ['Ellas / Ellos / Ustedes', 'se duermen', 'they fall asleep', true],
+        ['me duermo', 'I fall asleep', true], ['te duermes', 'you fall asleep', true], ['se duerme', 's/he falls asleep', true],
+        ['nos dormimos', 'we fall asleep'], ['se duermen', 'they fall asleep', true],
     ], [
-        ['Yo', 'me dormí', 'I fell asleep'], ['Tú', 'te dormiste', 'you fell asleep'], ['Ella / Él / Usted', 'se durmió', 's/he fell asleep', true],
-        ['Nosotras / Nosotros', 'nos dormimos', 'we fell asleep'], ['Ellas / Ellos / Ustedes', 'se durmieron', 'they fell asleep', true],
+        ['me dormí', 'I fell asleep'], ['te dormiste', 'you fell asleep'], ['se durmió', 's/he fell asleep', true],
+        ['nos dormimos', 'we fell asleep'], ['se durmieron', 'they fell asleep', true],
     ], [
-        ['Yo', 'me dormía', 'I used to fall asleep'], ['Tú', 'te dormías', 'you used to fall asleep'], ['Ella / Él / Usted', 'se dormía', 's/he used to fall asleep'],
-        ['Nosotras / Nosotros', 'nos dormíamos', 'we used to fall asleep'], ['Ellas / Ellos / Ustedes', 'se dormían', 'they used to fall asleep'],
+        ['me dormía', 'I used to fall asleep'], ['te dormías', 'you used to fall asleep'], ['se dormía', 's/he used to fall asleep'],
+        ['nos dormíamos', 'we used to fall asleep'], ['se dormían', 'they used to fall asleep'],
     ]),
     simpleVerb('levantarse', 'to get up, to stand up', [
-        ['Infinitive', 'levantarse', 'to get up'], ['Past participle', 'levantado', 'gotten up'], ['Gerund', 'levantando', 'getting up'],
+        ['levantarse', 'to get up'], ['levantado', 'gotten up'], ['levantando', 'getting up'],
     ], [
-        ['Yo', 'me levanto', 'I get up'], ['Tú', 'te levantas', 'you get up'], ['Ella / Él / Usted', 'se levanta', 's/he gets up'],
-        ['Nosotras / Nosotros', 'nos levantamos', 'we get up'], ['Ellas / Ellos / Ustedes', 'se levantan', 'they get up'],
+        ['me levanto', 'I get up'], ['te levantas', 'you get up'], ['se levanta', 's/he gets up'],
+        ['nos levantamos', 'we get up'], ['se levantan', 'they get up'],
     ], [
-        ['Yo', 'me levanté', 'I got up'], ['Tú', 'te levantaste', 'you got up'], ['Ella / Él / Usted', 'se levantó', 's/he got up'],
-        ['Nosotras / Nosotros', 'nos levantamos', 'we got up'], ['Ellas / Ellos / Ustedes', 'se levantaron', 'they got up'],
+        ['me levanté', 'I got up'], ['te levantaste', 'you got up'], ['se levantó', 's/he got up'],
+        ['nos levantamos', 'we got up'], ['se levantaron', 'they got up'],
     ], [
-        ['Yo', 'me levantaba', 'I used to get up'], ['Tú', 'te levantabas', 'you used to get up'], ['Ella / Él / Usted', 'se levantaba', 's/he used to get up'],
-        ['Nosotras / Nosotros', 'nos levantábamos', 'we used to get up'], ['Ellas / Ellos / Ustedes', 'se levantaban', 'they used to get up'],
+        ['me levantaba', 'I used to get up'], ['te levantabas', 'you used to get up'], ['se levantaba', 's/he used to get up'],
+        ['nos levantábamos', 'we used to get up'], ['se levantaban', 'they used to get up'],
     ]),
     simpleVerb('ducharse', 'to shower (oneself)', [
-        ['Infinitive', 'ducharse', 'to shower'], ['Past participle', 'duchado', 'showered'], ['Gerund', 'duchando', 'showering'],
+        ['ducharse', 'to shower'], ['duchado', 'showered'], ['duchando', 'showering'],
     ], [
-        ['Yo', 'me ducho', 'I shower'], ['Tú', 'te duchas', 'you shower'], ['Ella / Él / Usted', 'se ducha', 's/he showers'],
-        ['Nosotras / Nosotros', 'nos duchamos', 'we shower'], ['Ellas / Ellos / Ustedes', 'se duchan', 'they shower'],
+        ['me ducho', 'I shower'], ['te duchas', 'you shower'], ['se ducha', 's/he showers'],
+        ['nos duchamos', 'we shower'], ['se duchan', 'they shower'],
     ], [
-        ['Yo', 'me duché', 'I showered'], ['Tú', 'te duchaste', 'you showered'], ['Ella / Él / Usted', 'se duchó', 's/he showered'],
-        ['Nosotras / Nosotros', 'nos duchamos', 'we showered'], ['Ellas / Ellos / Ustedes', 'se ducharon', 'they showered'],
+        ['me duché', 'I showered'], ['te duchaste', 'you showered'], ['se duchó', 's/he showered'],
+        ['nos duchamos', 'we showered'], ['se ducharon', 'they showered'],
     ], [
-        ['Yo', 'me duchaba', 'I used to shower'], ['Tú', 'te duchabas', 'you used to shower'], ['Ella / Él / Usted', 'se duchaba', 's/he used to shower'],
-        ['Nosotras / Nosotros', 'nos duchábamos', 'we used to shower'], ['Ellas / Ellos / Ustedes', 'se duchaban', 'they used to shower'],
+        ['me duchaba', 'I used to shower'], ['te duchabas', 'you used to shower'], ['se duchaba', 's/he used to shower'],
+        ['nos duchábamos', 'we used to shower'], ['se duchaban', 'they used to shower'],
     ]),
     simpleVerb('lavarse', 'to wash (oneself)', [
-        ['Infinitive', 'lavarse', 'to wash'], ['Past participle', 'lavado', 'washed'], ['Gerund', 'lavando', 'washing'],
+        ['lavarse', 'to wash'], ['lavado', 'washed'], ['lavando', 'washing'],
     ], [
-        ['Yo', 'me lavo', 'I wash'], ['Tú', 'te lavas', 'you wash'], ['Ella / Él / Usted', 'se lava', 's/he washes'],
-        ['Nosotras / Nosotros', 'nos lavamos', 'we wash'], ['Ellas / Ellos / Ustedes', 'se lavan', 'they wash'],
+        ['me lavo', 'I wash'], ['te lavas', 'you wash'], ['se lava', 's/he washes'],
+        ['nos lavamos', 'we wash'], ['se lavan', 'they wash'],
     ], [
-        ['Yo', 'me lavé', 'I washed'], ['Tú', 'te lavaste', 'you washed'], ['Ella / Él / Usted', 'se lavó', 's/he washed'],
-        ['Nosotras / Nosotros', 'nos lavamos', 'we washed'], ['Ellas / Ellos / Ustedes', 'se lavaron', 'they washed'],
+        ['me lavé', 'I washed'], ['te lavaste', 'you washed'], ['se lavó', 's/he washed'],
+        ['nos lavamos', 'we washed'], ['se lavaron', 'they washed'],
     ], [
-        ['Yo', 'me lavaba', 'I used to wash'], ['Tú', 'te lavabas', 'you used to wash'], ['Ella / Él / Usted', 'se lavaba', 's/he used to wash'],
-        ['Nosotras / Nosotros', 'nos lavábamos', 'we used to wash'], ['Ellas / Ellos / Ustedes', 'se lavaban', 'they used to wash'],
+        ['me lavaba', 'I used to wash'], ['te lavabas', 'you used to wash'], ['se lavaba', 's/he used to wash'],
+        ['nos lavábamos', 'we used to wash'], ['se lavaban', 'they used to wash'],
     ]),
     simpleVerb('olvidarse', 'to forget', [
-        ['Infinitive', 'olvidarse', 'to forget'], ['Past participle', 'olvidado', 'forgotten'], ['Gerund', 'olvidando', 'forgetting'],
+        ['olvidarse', 'to forget'], ['olvidado', 'forgotten'], ['olvidando', 'forgetting'],
     ], [
-        ['Yo', 'me olvido', 'I forget'], ['Tú', 'te olvidas', 'you forget'], ['Ella / Él / Usted', 'se olvida', 's/he forgets'],
-        ['Nosotras / Nosotros', 'nos olvidamos', 'we forget'], ['Ellas / Ellos / Ustedes', 'se olvidan', 'they forget'],
+        ['me olvido', 'I forget'], ['te olvidas', 'you forget'], ['se olvida', 's/he forgets'],
+        ['nos olvidamos', 'we forget'], ['se olvidan', 'they forget'],
     ], [
-        ['Yo', 'me olvidé', 'I forgot'], ['Tú', 'te olvidaste', 'you forgot'], ['Ella / Él / Usted', 'se olvidó', 's/he forgot'],
-        ['Nosotras / Nosotros', 'nos olvidamos', 'we forgot'], ['Ellas / Ellos / Ustedes', 'se olvidaron', 'they forgot'],
+        ['me olvidé', 'I forgot'], ['te olvidaste', 'you forgot'], ['se olvidó', 's/he forgot'],
+        ['nos olvidamos', 'we forgot'], ['se olvidaron', 'they forgot'],
     ], [
-        ['Yo', 'me olvidaba', 'I used to forget'], ['Tú', 'te olvidabas', 'you used to forget'], ['Ella / Él / Usted', 'se olvidaba', 's/he used to forget'],
-        ['Nosotras / Nosotros', 'nos olvidábamos', 'we used to forget'], ['Ellas / Ellos / Ustedes', 'se olvidaban', 'they used to forget'],
+        ['me olvidaba', 'I used to forget'], ['te olvidabas', 'you used to forget'], ['se olvidaba', 's/he used to forget'],
+        ['nos olvidábamos', 'we used to forget'], ['se olvidaban', 'they used to forget'],
     ]),
     simpleVerb('despertarse', 'to wake up', [
-        ['Infinitive', 'despertarse', 'to wake up'], ['Past participle', 'despertado', 'woken'], ['Gerund', 'despertando', 'waking'],
+        ['despertarse', 'to wake up'], ['despertado', 'woken'], ['despertando', 'waking'],
     ], [
-        ['Yo', 'me despierto', 'I wake', true], ['Tú', 'te despiertas', 'you wake', true], ['Ella / Él / Usted', 'se despierta', 's/he wakes', true],
-        ['Nosotras / Nosotros', 'nos despertamos', 'we wake'], ['Ellas / Ellos / Ustedes', 'se despiertan', 'they wake', true],
+        ['me despierto', 'I wake', true], ['te despiertas', 'you wake', true], ['se despierta', 's/he wakes', true],
+        ['nos despertamos', 'we wake'], ['se despiertan', 'they wake', true],
     ], [
-        ['Yo', 'me desperté', 'I woke'], ['Tú', 'te despertaste', 'you woke'], ['Ella / Él / Usted', 'se despertó', 's/he woke'],
-        ['Nosotras / Nosotros', 'nos despertamos', 'we woke'], ['Ellas / Ellos / Ustedes', 'se despertaron', 'they woke'],
+        ['me desperté', 'I woke'], ['te despertaste', 'you woke'], ['se despertó', 's/he woke'],
+        ['nos despertamos', 'we woke'], ['se despertaron', 'they woke'],
     ], [
-        ['Yo', 'me despertaba', 'I used to wake'], ['Tú', 'te despertabas', 'you used to wake'], ['Ella / Él / Usted', 'se despertaba', 's/he used to wake'],
-        ['Nosotras / Nosotros', 'nos despertábamos', 'we used to wake'], ['Ellas / Ellos / Ustedes', 'se despertaban', 'they used to wake'],
+        ['me despertaba', 'I used to wake'], ['te despertabas', 'you used to wake'], ['se despertaba', 's/he used to wake'],
+        ['nos despertábamos', 'we used to wake'], ['se despertaban', 'they used to wake'],
     ]),
     simpleVerb('preocuparse', 'to worry, to concern', [
-        ['Infinitive', 'preocuparse', 'to worry'], ['Past participle', 'preocupado', 'worried'], ['Gerund', 'preocupando', 'worrying'],
+        ['preocuparse', 'to worry'], ['preocupado', 'worried'], ['preocupando', 'worrying'],
     ], [
-        ['Yo', 'me preocupo', 'I worry'], ['Tú', 'te preocupas', 'you worry'], ['Ella / Él / Usted', 'se preocupa', 's/he worries'],
-        ['Nosotras / Nosotros', 'nos preocupamos', 'we worry'], ['Ellas / Ellos / Ustedes', 'se preocupan', 'they worry'],
+        ['me preocupo', 'I worry'], ['te preocupas', 'you worry'], ['se preocupa', 's/he worries'],
+        ['nos preocupamos', 'we worry'], ['se preocupan', 'they worry'],
     ], [
-        ['Yo', 'me preocupé', 'I worried'], ['Tú', 'te preocupaste', 'you worried'], ['Ella / Él / Usted', 'se preocupó', 's/he worried'],
-        ['Nosotras / Nosotros', 'nos preocupamos', 'we worried'], ['Ellas / Ellos / Ustedes', 'se preocuparon', 'they worried'],
+        ['me preocupé', 'I worried'], ['te preocupaste', 'you worried'], ['se preocupó', 's/he worried'],
+        ['nos preocupamos', 'we worried'], ['se preocuparon', 'they worried'],
     ], [
-        ['Yo', 'me preocupaba', 'I used to worry'], ['Tú', 'te preocupabas', 'you used to worry'], ['Ella / Él / Usted', 'se preocupaba', 's/he used to worry'],
-        ['Nosotras / Nosotros', 'nos preocupábamos', 'we used to worry'], ['Ellas / Ellos / Ustedes', 'se preocupaban', 'they used to worry'],
+        ['me preocupaba', 'I used to worry'], ['te preocupabas', 'you used to worry'], ['se preocupaba', 's/he used to worry'],
+        ['nos preocupábamos', 'we used to worry'], ['se preocupaban', 'they used to worry'],
     ]),
     simpleVerb('aburrirse', 'to get bored', [
-        ['Infinitive', 'aburrirse', 'to get bored'], ['Past participle', 'aburrido', 'gotten bored'], ['Gerund', 'aburriendo', 'getting bored'],
+        ['aburrirse', 'to get bored'], ['aburrido', 'gotten bored'], ['aburriendo', 'getting bored'],
     ], [
-        ['Yo', 'me aburro', 'I get bored'], ['Tú', 'te aburres', 'you get bored'], ['Ella / Él / Usted', 'se aburre', 's/he gets bored'],
-        ['Nosotras / Nosotros', 'nos aburrimos', 'we get bored'], ['Ellas / Ellos / Ustedes', 'se aburren', 'they get bored'],
+        ['me aburro', 'I get bored'], ['te aburres', 'you get bored'], ['se aburre', 's/he gets bored'],
+        ['nos aburrimos', 'we get bored'], ['se aburren', 'they get bored'],
     ], [
-        ['Yo', 'me aburrí', 'I got bored'], ['Tú', 'te aburriste', 'you got bored'], ['Ella / Él / Usted', 'se aburrió', 's/he got bored'],
-        ['Nosotras / Nosotros', 'nos aburrimos', 'we got bored'], ['Ellas / Ellos / Ustedes', 'se aburrieron', 'they got bored'],
+        ['me aburrí', 'I got bored'], ['te aburriste', 'you got bored'], ['se aburrió', 's/he got bored'],
+        ['nos aburrimos', 'we got bored'], ['se aburrieron', 'they got bored'],
     ], [
-        ['Yo', 'me aburría', 'I used to get bored'], ['Tú', 'te aburrías', 'you used to get bored'], ['Ella / Él / Usted', 'se aburría', 's/he used to get bored'],
-        ['Nosotras / Nosotros', 'nos aburríamos', 'we used to get bored'], ['Ellas / Ellos / Ustedes', 'se aburrían', 'they used to get bored'],
+        ['me aburría', 'I used to get bored'], ['te aburrías', 'you used to get bored'], ['se aburría', 's/he used to get bored'],
+        ['nos aburríamos', 'we used to get bored'], ['se aburrían', 'they used to get bored'],
     ]),
     simpleVerb('divertirse', 'to enjoy (oneself), to have fun', [
-        ['Infinitive', 'divertirse', 'to enjoy oneself'], ['Past participle', 'divertido', 'enjoyed'], ['Gerund', 'divirtiendo', 'enjoying'],
+        ['divertirse', 'to enjoy oneself'], ['divertido', 'enjoyed'], ['divirtiendo', 'enjoying'],
     ], [
-        ['Yo', 'me divierto', 'I enjoy', true], ['Tú', 'te diviertes', 'you enjoy', true], ['Ella / Él / Usted', 'se divierte', 's/he enjoys', true],
-        ['Nosotras / Nosotros', 'nos divertimos', 'we enjoy'], ['Ellas / Ellos / Ustedes', 'se divierten', 'they enjoy', true],
+        ['me divierto', 'I enjoy', true], ['te diviertes', 'you enjoy', true], ['se divierte', 's/he enjoys', true],
+        ['nos divertimos', 'we enjoy'], ['se divierten', 'they enjoy', true],
     ], [
-        ['Yo', 'me divertí', 'I enjoyed'], ['Tú', 'te divertiste', 'you enjoyed'], ['Ella / Él / Usted', 'se divirtió', 's/he enjoyed', true],
-        ['Nosotras / Nosotros', 'nos divertimos', 'we enjoyed'], ['Ellas / Ellos / Ustedes', 'se divirtieron', 'they enjoyed', true],
+        ['me divertí', 'I enjoyed'], ['te divertiste', 'you enjoyed'], ['se divirtió', 's/he enjoyed', true],
+        ['nos divertimos', 'we enjoyed'], ['se divirtieron', 'they enjoyed', true],
     ], [
-        ['Yo', 'me divertía', 'I used to enjoy'], ['Tú', 'te divertías', 'you used to enjoy'], ['Ella / Él / Usted', 'se divertía', 's/he used to enjoy'],
-        ['Nosotras / Nosotros', 'nos divertíamos', 'we used to enjoy'], ['Ellas / Ellos / Ustedes', 'se divertían', 'they used to enjoy'],
+        ['me divertía', 'I used to enjoy'], ['te divertías', 'you used to enjoy'], ['se divertía', 's/he used to enjoy'],
+        ['nos divertíamos', 'we used to enjoy'], ['se divertían', 'they used to enjoy'],
     ]),
     simpleVerb('cepillarse', 'to brush (oneself)', [
-        ['Infinitive', 'cepillarse', 'to brush'], ['Past participle', 'cepillado', 'brushed'], ['Gerund', 'cepillando', 'brushing'],
+        ['cepillarse', 'to brush'], ['cepillado', 'brushed'], ['cepillando', 'brushing'],
     ], [
-        ['Yo', 'me cepillo', 'I brush'], ['Tú', 'te cepillas', 'you brush'], ['Ella / Él / Usted', 'se cepilla', 's/he brushes'],
-        ['Nosotras / Nosotros', 'nos cepillamos', 'we brush'], ['Ellas / Ellos / Ustedes', 'se cepillan', 'they brush'],
+        ['me cepillo', 'I brush'], ['te cepillas', 'you brush'], ['se cepilla', 's/he brushes'],
+        ['nos cepillamos', 'we brush'], ['se cepillan', 'they brush'],
     ], [
-        ['Yo', 'me cepillé', 'I brushed'], ['Tú', 'te cepillaste', 'you brushed'], ['Ella / Él / Usted', 'se cepilló', 's/he brushed'],
-        ['Nosotras / Nosotros', 'nos cepillamos', 'we brushed'], ['Ellas / Ellos / Ustedes', 'se cepillaron', 'they brushed'],
+        ['me cepillé', 'I brushed'], ['te cepillaste', 'you brushed'], ['se cepilló', 's/he brushed'],
+        ['nos cepillamos', 'we brushed'], ['se cepillaron', 'they brushed'],
     ], [
-        ['Yo', 'me cepillaba', 'I used to brush'], ['Tú', 'te cepillabas', 'you used to brush'], ['Ella / Él / Usted', 'se cepillaba', 's/he used to brush'],
-        ['Nosotras / Nosotros', 'nos cepillábamos', 'we used to brush'], ['Ellas / Ellos / Ustedes', 'se cepillaban', 'they used to brush'],
+        ['me cepillaba', 'I used to brush'], ['te cepillabas', 'you used to brush'], ['se cepillaba', 's/he used to brush'],
+        ['nos cepillábamos', 'we used to brush'], ['se cepillaban', 'they used to brush'],
     ]),
     simpleVerb('encontrarse', 'to find (oneself), to be located', [
-        ['Infinitive', 'encontrarse', 'to find oneself'], ['Past participle', 'encontrado', 'found'], ['Gerund', 'encontrando', 'finding'],
+        ['encontrarse', 'to find oneself'], ['encontrado', 'found'], ['encontrando', 'finding'],
     ], [
-        ['Yo', 'me encuentro', 'I find', true], ['Tú', 'te encuentras', 'you find', true], ['Ella / Él / Usted', 'se encuentra', 's/he finds', true],
-        ['Nosotras / Nosotros', 'nos encontramos', 'we find'], ['Ellas / Ellos / Ustedes', 'se encuentran', 'they find', true],
+        ['me encuentro', 'I find', true], ['te encuentras', 'you find', true], ['se encuentra', 's/he finds', true],
+        ['nos encontramos', 'we find'], ['se encuentran', 'they find', true],
     ], [
-        ['Yo', 'me encontré', 'I found'], ['Tú', 'te encontraste', 'you found'], ['Ella / Él / Usted', 'se encontró', 's/he found'],
-        ['Nosotras / Nosotros', 'nos encontramos', 'we found'], ['Ellas / Ellos / Ustedes', 'se encontraron', 'they found'],
+        ['me encontré', 'I found'], ['te encontraste', 'you found'], ['se encontró', 's/he found'],
+        ['nos encontramos', 'we found'], ['se encontraron', 'they found'],
     ], [
-        ['Yo', 'me encontraba', 'I used to find'], ['Tú', 'te encontrabas', 'you used to find'], ['Ella / Él / Usted', 'se encontraba', 's/he used to find'],
-        ['Nosotras / Nosotros', 'nos encontrábamos', 'we used to find'], ['Ellas / Ellos / Ustedes', 'se encontraban', 'they used to find'],
+        ['me encontraba', 'I used to find'], ['te encontrabas', 'you used to find'], ['se encontraba', 's/he used to find'],
+        ['nos encontrábamos', 'we used to find'], ['se encontraban', 'they used to find'],
     ]),
     simpleVerb('cuidarse', 'to look after (oneself)', [
-        ['Infinitive', 'cuidarse', 'to look after oneself'], ['Past participle', 'cuidado', 'looked after'], ['Gerund', 'cuidando', 'looking after'],
+        ['cuidarse', 'to look after oneself'], ['cuidado', 'looked after'], ['cuidando', 'looking after'],
     ], [
-        ['Yo', 'me cuido', 'I look after'], ['Tú', 'te cuidas', 'you look after'], ['Ella / Él / Usted', 'se cuida', 's/he looks after'],
-        ['Nosotras / Nosotros', 'nos cuidamos', 'we look after'], ['Ellas / Ellos / Ustedes', 'se cuidan', 'they look after'],
+        ['me cuido', 'I look after'], ['te cuidas', 'you look after'], ['se cuida', 's/he looks after'],
+        ['nos cuidamos', 'we look after'], ['se cuidan', 'they look after'],
     ], [
-        ['Yo', 'me cuidé', 'I looked after'], ['Tú', 'te cuidaste', 'you looked after'], ['Ella / Él / Usted', 'se cuidó', 's/he looked after'],
-        ['Nosotras / Nosotros', 'nos cuidamos', 'we looked after'], ['Ellas / Ellos / Ustedes', 'se cuidaron', 'they looked after'],
+        ['me cuidé', 'I looked after'], ['te cuidaste', 'you looked after'], ['se cuidó', 's/he looked after'],
+        ['nos cuidamos', 'we looked after'], ['se cuidaron', 'they looked after'],
     ], [
-        ['Yo', 'me cuidaba', 'I used to look after'], ['Tú', 'te cuidabas', 'you used to look after'], ['Ella / Él / Usted', 'se cuidaba', 's/he used to look after'],
-        ['Nosotras / Nosotros', 'nos cuidábamos', 'we used to look after'], ['Ellas / Ellos / Ustedes', 'se cuidaban', 'they used to look after'],
+        ['me cuidaba', 'I used to look after'], ['te cuidabas', 'you used to look after'], ['se cuidaba', 's/he used to look after'],
+        ['nos cuidábamos', 'we used to look after'], ['se cuidaban', 'they used to look after'],
     ]),
     simpleVerb('casarse', 'to marry', [
-        ['Infinitive', 'casarse', 'to marry'], ['Past participle', 'casado', 'married'], ['Gerund', 'casando', 'marrying'],
+        ['casarse', 'to marry'], ['casado', 'married'], ['casando', 'marrying'],
     ], [
-        ['Yo', 'me caso', 'I marry'], ['Tú', 'te casas', 'you marry'], ['Ella / Él / Usted', 'se casa', 's/he marries'],
-        ['Nosotras / Nosotros', 'nos casamos', 'we marry'], ['Ellas / Ellos / Ustedes', 'se casan', 'they marry'],
+        ['me caso', 'I marry'], ['te casas', 'you marry'], ['se casa', 's/he marries'],
+        ['nos casamos', 'we marry'], ['se casan', 'they marry'],
     ], [
-        ['Yo', 'me casé', 'I married'], ['Tú', 'te casaste', 'you married'], ['Ella / Él / Usted', 'se casó', 's/he married'],
-        ['Nosotras / Nosotros', 'nos casamos', 'we married'], ['Ellas / Ellos / Ustedes', 'se casaron', 'they married'],
+        ['me casé', 'I married'], ['te casaste', 'you married'], ['se casó', 's/he married'],
+        ['nos casamos', 'we married'], ['se casaron', 'they married'],
     ], [
-        ['Yo', 'me casaba', 'I used to marry'], ['Tú', 'te casabas', 'you used to marry'], ['Ella / Él / Usted', 'se casaba', 's/he used to marry'],
-        ['Nosotras / Nosotros', 'nos casábamos', 'we used to marry'], ['Ellas / Ellos / Ustedes', 'se casaban', 'they used to marry'],
+        ['me casaba', 'I used to marry'], ['te casabas', 'you used to marry'], ['se casaba', 's/he used to marry'],
+        ['nos casábamos', 'we used to marry'], ['se casaban', 'they used to marry'],
     ]),
     simpleVerb('vestirse', 'to dress (oneself), to get dressed', [
-        ['Infinitive', 'vestirse', 'to dress'], ['Past participle', 'vestido', 'dressed'], ['Gerund', 'vistiendo', 'dressing'],
+        ['vestirse', 'to dress'], ['vestido', 'dressed'], ['vistiendo', 'dressing'],
     ], [
-        ['Yo', 'me visto', 'I dress', true], ['Tú', 'te vistes', 'you dress', true], ['Ella / Él / Usted', 'se viste', 's/he dresses', true],
-        ['Nosotras / Nosotros', 'nos vestimos', 'we dress'], ['Ellas / Ellos / Ustedes', 'se visten', 'they dress', true],
+        ['me visto', 'I dress', true], ['te vistes', 'you dress', true], ['se viste', 's/he dresses', true],
+        ['nos vestimos', 'we dress'], ['se visten', 'they dress', true],
     ], [
-        ['Yo', 'me vestí', 'I dressed'], ['Tú', 'te vestiste', 'you dressed'], ['Ella / Él / Usted', 'se vistió', 's/he dressed', true],
-        ['Nosotras / Nosotros', 'nos vestimos', 'we dressed'], ['Ellas / Ellos / Ustedes', 'se vistieron', 'they dressed', true],
+        ['me vestí', 'I dressed'], ['te vestiste', 'you dressed'], ['se vistió', 's/he dressed', true],
+        ['nos vestimos', 'we dressed'], ['se vistieron', 'they dressed', true],
     ], [
-        ['Yo', 'me vestía', 'I used to dress'], ['Tú', 'te vestías', 'you used to dress'], ['Ella / Él / Usted', 'se vestía', 's/he used to dress'],
-        ['Nosotras / Nosotros', 'nos vestíamos', 'we used to dress'], ['Ellas / Ellos / Ustedes', 'se vestían', 'they used to dress'],
+        ['me vestía', 'I used to dress'], ['te vestías', 'you used to dress'], ['se vestía', 's/he used to dress'],
+        ['nos vestíamos', 'we used to dress'], ['se vestían', 'they used to dress'],
     ]),
     simpleVerb('querer', 'to want, to love', [
-        ['Infinitive', 'querer', 'to want, to love'], ['Past participle', 'querido', 'wanted'], ['Gerund', 'queriendo', 'wanting'],
+        ['querer', 'to want, to love'], ['querido', 'wanted'], ['queriendo', 'wanting'],
     ], [
-        ['Yo', 'quiero', 'I want', true], ['Tú', 'quieres', 'you want', true], ['Ella / Él / Usted', 'quiere', 's/he wants', true],
-        ['Nosotras / Nosotros', 'queremos', 'we want'], ['Ellas / Ellos / Ustedes', 'quieren', 'they want', true],
+        ['quiero', 'I want', true], ['quieres', 'you want', true], ['quiere', 's/he wants', true],
+        ['queremos', 'we want'], ['quieren', 'they want', true],
     ], [
-        ['Yo', 'quise', 'I wanted', true], ['Tú', 'quisiste', 'you wanted', true], ['Ella / Él / Usted', 'quiso', 's/he wanted', true],
-        ['Nosotras / Nosotros', 'quisimos', 'we wanted', true], ['Ellas / Ellos / Ustedes', 'quisieron', 'they wanted', true],
+        ['quise', 'I wanted', true], ['quisiste', 'you wanted', true], ['quiso', 's/he wanted', true],
+        ['quisimos', 'we wanted', true], ['quisieron', 'they wanted', true],
     ], [
-        ['Yo', 'quería', 'I used to want'], ['Tú', 'querías', 'you used to want'], ['Ella / Él / Usted', 'quería', 's/he used to want'],
-        ['Nosotras / Nosotros', 'queríamos', 'we used to want'], ['Ellas / Ellos / Ustedes', 'querían', 'they used to want'],
+        ['quería', 'I used to want'], ['querías', 'you used to want'], ['quería', 's/he used to want'],
+        ['queríamos', 'we used to want'], ['querían', 'they used to want'],
     ]),
     simpleVerb('entender', 'to understand', [
-        ['Infinitive', 'entender', 'to understand'], ['Past participle', 'entendido', 'understood'], ['Gerund', 'entendiendo', 'understanding'],
+        ['entender', 'to understand'], ['entendido', 'understood'], ['entendiendo', 'understanding'],
     ], [
-        ['Yo', 'entiendo', 'I understand', true], ['Tú', 'entiendes', 'you understand', true], ['Ella / Él / Usted', 'entiende', 's/he understands', true],
-        ['Nosotras / Nosotros', 'entendemos', 'we understand'], ['Ellas / Ellos / Ustedes', 'entienden', 'they understand', true],
+        ['entiendo', 'I understand', true], ['entiendes', 'you understand', true], ['entiende', 's/he understands', true],
+        ['entendemos', 'we understand'], ['entienden', 'they understand', true],
     ], [
-        ['Yo', 'entendí', 'I understood'], ['Tú', 'entendiste', 'you understood'], ['Ella / Él / Usted', 'entendió', 's/he understood'],
-        ['Nosotras / Nosotros', 'entendimos', 'we understood'], ['Ellas / Ellos / Ustedes', 'entendieron', 'they understood'],
+        ['entendí', 'I understood'], ['entendiste', 'you understood'], ['entendió', 's/he understood'],
+        ['entendimos', 'we understood'], ['entendieron', 'they understood'],
     ], [
-        ['Yo', 'entendía', 'I used to understand'], ['Tú', 'entendías', 'you used to understand'], ['Ella / Él / Usted', 'entendía', 's/he used to understand'],
-        ['Nosotras / Nosotros', 'entendíamos', 'we used to understand'], ['Ellas / Ellos / Ustedes', 'entendían', 'they used to understand'],
+        ['entendía', 'I used to understand'], ['entendías', 'you used to understand'], ['entendía', 's/he used to understand'],
+        ['entendíamos', 'we used to understand'], ['entendían', 'they used to understand'],
     ]),
     simpleVerb('jugar', 'to play', [
-        ['Infinitive', 'jugar', 'to play'], ['Past participle', 'jugado', 'played'], ['Gerund', 'jugando', 'playing'],
+        ['jugar', 'to play'], ['jugado', 'played'], ['jugando', 'playing'],
     ], [
-        ['Yo', 'juego', 'I play', true], ['Tú', 'juegas', 'you play', true], ['Ella / Él / Usted', 'juega', 's/he plays', true],
-        ['Nosotras / Nosotros', 'jugamos', 'we play'], ['Ellas / Ellos / Ustedes', 'juegan', 'they play', true],
+        ['juego', 'I play', true], ['juegas', 'you play', true], ['juega', 's/he plays', true],
+        ['jugamos', 'we play'], ['juegan', 'they play', true],
     ], [
-        ['Yo', 'jugué', 'I played', true], ['Tú', 'jugaste', 'you played'], ['Ella / Él / Usted', 'jugó', 's/he played'],
-        ['Nosotras / Nosotros', 'jugamos', 'we played'], ['Ellas / Ellos / Ustedes', 'jugaron', 'they played'],
+        ['jugué', 'I played', true], ['jugaste', 'you played'], ['jugó', 's/he played'],
+        ['jugamos', 'we played'], ['jugaron', 'they played'],
     ], [
-        ['Yo', 'jugaba', 'I used to play'], ['Tú', 'jugabas', 'you used to play'], ['Ella / Él / Usted', 'jugaba', 's/he used to play'],
-        ['Nosotras / Nosotros', 'jugábamos', 'we used to play'], ['Ellas / Ellos / Ustedes', 'jugaban', 'they used to play'],
+        ['jugaba', 'I used to play'], ['jugabas', 'you used to play'], ['jugaba', 's/he used to play'],
+        ['jugábamos', 'we used to play'], ['jugaban', 'they used to play'],
     ]),
     simpleVerb('cerrar', 'to close, to shut, to lock', [
-        ['Infinitive', 'cerrar', 'to close'], ['Past participle', 'cerrado', 'closed'], ['Gerund', 'cerrando', 'closing'],
+        ['cerrar', 'to close'], ['cerrado', 'closed'], ['cerrando', 'closing'],
     ], [
-        ['Yo', 'cierro', 'I close', true], ['Tú', 'cierras', 'you close', true], ['Ella / Él / Usted', 'cierra', 's/he closes', true],
-        ['Nosotras / Nosotros', 'cerramos', 'we close'], ['Ellas / Ellos / Ustedes', 'cierran', 'they close', true],
+        ['cierro', 'I close', true], ['cierras', 'you close', true], ['cierra', 's/he closes', true],
+        ['cerramos', 'we close'], ['cierran', 'they close', true],
     ], [
-        ['Yo', 'cerré', 'I closed'], ['Tú', 'cerraste', 'you closed'], ['Ella / Él / Usted', 'cerró', 's/he closed'],
-        ['Nosotras / Nosotros', 'cerramos', 'we closed'], ['Ellas / Ellos / Ustedes', 'cerraron', 'they closed'],
+        ['cerré', 'I closed'], ['cerraste', 'you closed'], ['cerró', 's/he closed'],
+        ['cerramos', 'we closed'], ['cerraron', 'they closed'],
     ], [
-        ['Yo', 'cerraba', 'I used to close'], ['Tú', 'cerrabas', 'you used to close'], ['Ella / Él / Usted', 'cerraba', 's/he used to close'],
-        ['Nosotras / Nosotros', 'cerrábamos', 'we used to close'], ['Ellas / Ellos / Ustedes', 'cerraban', 'they used to close'],
+        ['cerraba', 'I used to close'], ['cerrabas', 'you used to close'], ['cerraba', 's/he used to close'],
+        ['cerrábamos', 'we used to close'], ['cerraban', 'they used to close'],
     ]),
     simpleVerb('almorzar', 'to lunch, to eat lunch', [
-        ['Infinitive', 'almorzar', 'to lunch'], ['Past participle', 'almorzado', 'lunched'], ['Gerund', 'almorzando', 'lunching'],
+        ['almorzar', 'to lunch'], ['almorzado', 'lunched'], ['almorzando', 'lunching'],
     ], [
-        ['Yo', 'almuerzo', 'I lunch', true], ['Tú', 'almuerzas', 'you lunch', true], ['Ella / Él / Usted', 'almuerza', 's/he lunches', true],
-        ['Nosotras / Nosotros', 'almorzamos', 'we lunch'], ['Ellas / Ellos / Ustedes', 'almuerzan', 'they lunch', true],
+        ['almuerzo', 'I lunch', true], ['almuerzas', 'you lunch', true], ['almuerza', 's/he lunches', true],
+        ['almorzamos', 'we lunch'], ['almuerzan', 'they lunch', true],
     ], [
-        ['Yo', 'almorcé', 'I lunched', true], ['Tú', 'almorzaste', 'you lunched'], ['Ella / Él / Usted', 'almorzó', 's/he lunched'],
-        ['Nosotras / Nosotros', 'almorzamos', 'we lunched'], ['Ellas / Ellos / Ustedes', 'almorzaron', 'they lunched'],
+        ['almorcé', 'I lunched', true], ['almorzaste', 'you lunched'], ['almorzó', 's/he lunched'],
+        ['almorzamos', 'we lunched'], ['almorzaron', 'they lunched'],
     ], [
-        ['Yo', 'almorzaba', 'I used to lunch'], ['Tú', 'almorzabas', 'you used to lunch'], ['Ella / Él / Usted', 'almorzaba', 's/he used to lunch'],
-        ['Nosotras / Nosotros', 'almorzábamos', 'we used to lunch'], ['Ellas / Ellos / Ustedes', 'almorzaban', 'they used to lunch'],
+        ['almorzaba', 'I used to lunch'], ['almorzabas', 'you used to lunch'], ['almorzaba', 's/he used to lunch'],
+        ['almorzábamos', 'we used to lunch'], ['almorzaban', 'they used to lunch'],
     ]),
     simpleVerb('pasar', 'to pass, to happen, to spend (time)', [
-        ['Infinitive', 'pasar', 'to pass'], ['Past participle', 'pasado', 'passed'], ['Gerund', 'pasando', 'passing'],
+        ['pasar', 'to pass'], ['pasado', 'passed'], ['pasando', 'passing'],
     ], [
-        ['Yo', 'paso', 'I pass'], ['Tú', 'pasas', 'you pass'], ['Ella / Él / Usted', 'pasa', 's/he passes'],
-        ['Nosotras / Nosotros', 'pasamos', 'we pass'], ['Ellas / Ellos / Ustedes', 'pasan', 'they pass'],
+        ['paso', 'I pass'], ['pasas', 'you pass'], ['pasa', 's/he passes'],
+        ['pasamos', 'we pass'], ['pasan', 'they pass'],
     ], [
-        ['Yo', 'pasé', 'I passed'], ['Tú', 'pasaste', 'you passed'], ['Ella / Él / Usted', 'pasó', 's/he passed'],
-        ['Nosotras / Nosotros', 'pasamos', 'we passed'], ['Ellas / Ellos / Ustedes', 'pasaron', 'they passed'],
+        ['pasé', 'I passed'], ['pasaste', 'you passed'], ['pasó', 's/he passed'],
+        ['pasamos', 'we passed'], ['pasaron', 'they passed'],
     ], [
-        ['Yo', 'pasaba', 'I used to pass'], ['Tú', 'pasabas', 'you used to pass'], ['Ella / Él / Usted', 'pasaba', 's/he used to pass'],
-        ['Nosotras / Nosotros', 'pasábamos', 'we used to pass'], ['Ellas / Ellos / Ustedes', 'pasaban', 'they used to pass'],
+        ['pasaba', 'I used to pass'], ['pasabas', 'you used to pass'], ['pasaba', 's/he used to pass'],
+        ['pasábamos', 'we used to pass'], ['pasaban', 'they used to pass'],
     ]),
     simpleVerb('creer', 'to believe, to think', [
-        ['Infinitive', 'creer', 'to believe'], ['Past participle', 'creído', 'believed'], ['Gerund', 'creyendo', 'believing'],
+        ['creer', 'to believe'], ['creído', 'believed'], ['creyendo', 'believing'],
     ], [
-        ['Yo', 'creo', 'I believe'], ['Tú', 'crees', 'you believe'], ['Ella / Él / Usted', 'cree', 's/he believes'],
-        ['Nosotras / Nosotros', 'creemos', 'we believe'], ['Ellas / Ellos / Ustedes', 'creen', 'they believe'],
+        ['creo', 'I believe'], ['crees', 'you believe'], ['cree', 's/he believes'],
+        ['creemos', 'we believe'], ['creen', 'they believe'],
     ], [
-        ['Yo', 'creí', 'I believed'], ['Tú', 'creíste', 'you believed'], ['Ella / Él / Usted', 'creyó', 's/he believed', true],
-        ['Nosotras / Nosotros', 'creímos', 'we believed'], ['Ellas / Ellos / Ustedes', 'creyeron', 'they believed', true],
+        ['creí', 'I believed'], ['creíste', 'you believed'], ['creyó', 's/he believed', true],
+        ['creímos', 'we believed'], ['creyeron', 'they believed', true],
     ], [
-        ['Yo', 'creía', 'I used to believe'], ['Tú', 'creías', 'you used to believe'], ['Ella / Él / Usted', 'creía', 's/he used to believe'],
-        ['Nosotras / Nosotros', 'creíamos', 'we used to believe'], ['Ellas / Ellos / Ustedes', 'creían', 'they used to believe'],
+        ['creía', 'I used to believe'], ['creías', 'you used to believe'], ['creía', 's/he used to believe'],
+        ['creíamos', 'we used to believe'], ['creían', 'they used to believe'],
     ]),
     simpleVerb('hablar', 'to speak, to talk', [
-        ['Infinitive', 'hablar', 'to speak'], ['Past participle', 'hablado', 'spoken'], ['Gerund', 'hablando', 'speaking'],
+        ['hablar', 'to speak'], ['hablado', 'spoken'], ['hablando', 'speaking'],
     ], [
-        ['Yo', 'hablo', 'I speak'], ['Tú', 'hablas', 'you speak'], ['Ella / Él / Usted', 'habla', 's/he speaks'],
-        ['Nosotras / Nosotros', 'hablamos', 'we speak'], ['Ellas / Ellos / Ustedes', 'hablan', 'they speak'],
+        ['hablo', 'I speak'], ['hablas', 'you speak'], ['habla', 's/he speaks'],
+        ['hablamos', 'we speak'], ['hablan', 'they speak'],
     ], [
-        ['Yo', 'hablé', 'I spoke'], ['Tú', 'hablaste', 'you spoke'], ['Ella / Él / Usted', 'habló', 's/he spoke'],
-        ['Nosotras / Nosotros', 'hablamos', 'we spoke'], ['Ellas / Ellos / Ustedes', 'hablaron', 'they spoke'],
+        ['hablé', 'I spoke'], ['hablaste', 'you spoke'], ['habló', 's/he spoke'],
+        ['hablamos', 'we spoke'], ['hablaron', 'they spoke'],
     ], [
-        ['Yo', 'hablaba', 'I used to speak'], ['Tú', 'hablabas', 'you used to speak'], ['Ella / Él / Usted', 'hablaba', 's/he used to speak'],
-        ['Nosotras / Nosotros', 'hablábamos', 'we used to speak'], ['Ellas / Ellos / Ustedes', 'hablaban', 'they used to speak'],
+        ['hablaba', 'I used to speak'], ['hablabas', 'you used to speak'], ['hablaba', 's/he used to speak'],
+        ['hablábamos', 'we used to speak'], ['hablaban', 'they used to speak'],
     ]),
     simpleVerb('dejar', 'to leave, to let, to allow', [
-        ['Infinitive', 'dejar', 'to leave'], ['Past participle', 'dejado', 'left'], ['Gerund', 'dejando', 'leaving'],
+        ['dejar', 'to leave'], ['dejado', 'left'], ['dejando', 'leaving'],
     ], [
-        ['Yo', 'dejo', 'I leave'], ['Tú', 'dejas', 'you leave'], ['Ella / Él / Usted', 'deja', 's/he leaves'],
-        ['Nosotras / Nosotros', 'dejamos', 'we leave'], ['Ellas / Ellos / Ustedes', 'dejan', 'they leave'],
+        ['dejo', 'I leave'], ['dejas', 'you leave'], ['deja', 's/he leaves'],
+        ['dejamos', 'we leave'], ['dejan', 'they leave'],
     ], [
-        ['Yo', 'dejé', 'I left'], ['Tú', 'dejaste', 'you left'], ['Ella / Él / Usted', 'dejó', 's/he left'],
-        ['Nosotras / Nosotros', 'dejamos', 'we left'], ['Ellas / Ellos / Ustedes', 'dejaron', 'they left'],
+        ['dejé', 'I left'], ['dejaste', 'you left'], ['dejó', 's/he left'],
+        ['dejamos', 'we left'], ['dejaron', 'they left'],
     ], [
-        ['Yo', 'dejaba', 'I used to leave'], ['Tú', 'dejabas', 'you used to leave'], ['Ella / Él / Usted', 'dejaba', 's/he used to leave'],
-        ['Nosotras / Nosotros', 'dejábamos', 'we used to leave'], ['Ellas / Ellos / Ustedes', 'dejaban', 'they used to leave'],
+        ['dejaba', 'I used to leave'], ['dejabas', 'you used to leave'], ['dejaba', 's/he used to leave'],
+        ['dejábamos', 'we used to leave'], ['dejaban', 'they used to leave'],
     ]),
     simpleVerb('seguir', 'to follow, to continue', [
-        ['Infinitive', 'seguir', 'to follow'], ['Past participle', 'seguido', 'followed'], ['Gerund', 'siguiendo', 'following'],
+        ['seguir', 'to follow'], ['seguido', 'followed'], ['siguiendo', 'following'],
     ], [
-        ['Yo', 'sigo', 'I follow', true], ['Tú', 'sigues', 'you follow', true], ['Ella / Él / Usted', 'sigue', 's/he follows', true],
-        ['Nosotras / Nosotros', 'seguimos', 'we follow'], ['Ellas / Ellos / Ustedes', 'siguen', 'they follow', true],
+        ['sigo', 'I follow', true], ['sigues', 'you follow', true], ['sigue', 's/he follows', true],
+        ['seguimos', 'we follow'], ['siguen', 'they follow', true],
     ], [
-        ['Yo', 'seguí', 'I followed'], ['Tú', 'seguiste', 'you followed'], ['Ella / Él / Usted', 'siguió', 's/he followed', true],
-        ['Nosotras / Nosotros', 'seguimos', 'we followed'], ['Ellas / Ellos / Ustedes', 'siguieron', 'they followed', true],
+        ['seguí', 'I followed'], ['seguiste', 'you followed'], ['siguió', 's/he followed', true],
+        ['seguimos', 'we followed'], ['siguieron', 'they followed', true],
     ], [
-        ['Yo', 'seguía', 'I used to follow'], ['Tú', 'seguías', 'you used to follow'], ['Ella / Él / Usted', 'seguía', 's/he used to follow'],
-        ['Nosotras / Nosotros', 'seguíamos', 'we used to follow'], ['Ellas / Ellos / Ustedes', 'seguían', 'they used to follow'],
+        ['seguía', 'I used to follow'], ['seguías', 'you used to follow'], ['seguía', 's/he used to follow'],
+        ['seguíamos', 'we used to follow'], ['seguían', 'they used to follow'],
     ]),
     simpleVerb('pensar', 'to think, to believe', [
-        ['Infinitive', 'pensar', 'to think'], ['Past participle', 'pensado', 'thought'], ['Gerund', 'pensando', 'thinking'],
+        ['pensar', 'to think'], ['pensado', 'thought'], ['pensando', 'thinking'],
     ], [
-        ['Yo', 'pienso', 'I think', true], ['Tú', 'piensas', 'you think', true], ['Ella / Él / Usted', 'piensa', 's/he thinks', true],
-        ['Nosotras / Nosotros', 'pensamos', 'we think'], ['Ellas / Ellos / Ustedes', 'piensan', 'they think', true],
+        ['pienso', 'I think', true], ['piensas', 'you think', true], ['piensa', 's/he thinks', true],
+        ['pensamos', 'we think'], ['piensan', 'they think', true],
     ], [
-        ['Yo', 'pensé', 'I thought'], ['Tú', 'pensaste', 'you thought'], ['Ella / Él / Usted', 'pensó', 's/he thought'],
-        ['Nosotras / Nosotros', 'pensamos', 'we thought'], ['Ellas / Ellos / Ustedes', 'pensaron', 'they thought'],
+        ['pensé', 'I thought'], ['pensaste', 'you thought'], ['pensó', 's/he thought'],
+        ['pensamos', 'we thought'], ['pensaron', 'they thought'],
     ], [
-        ['Yo', 'pensaba', 'I used to think'], ['Tú', 'pensabas', 'you used to think'], ['Ella / Él / Usted', 'pensaba', 's/he used to think'],
-        ['Nosotras / Nosotros', 'pensábamos', 'we used to think'], ['Ellas / Ellos / Ustedes', 'pensaban', 'they used to think'],
+        ['pensaba', 'I used to think'], ['pensabas', 'you used to think'], ['pensaba', 's/he used to think'],
+        ['pensábamos', 'we used to think'], ['pensaban', 'they used to think'],
     ]),
     simpleVerb('tomar', 'to drink, to take', [
-        ['Infinitive', 'tomar', 'to drink, to take'], ['Past participle', 'tomado', 'drunk'], ['Gerund', 'tomando', 'drinking'],
+        ['tomar', 'to drink, to take'], ['tomado', 'drunk'], ['tomando', 'drinking'],
     ], [
-        ['Yo', 'tomo', 'I drink'], ['Tú', 'tomas', 'you drink'], ['Ella / Él / Usted', 'toma', 's/he drinks'],
-        ['Nosotras / Nosotros', 'tomamos', 'we drink'], ['Ellas / Ellos / Ustedes', 'toman', 'they drink'],
+        ['tomo', 'I drink'], ['tomas', 'you drink'], ['toma', 's/he drinks'],
+        ['tomamos', 'we drink'], ['toman', 'they drink'],
     ], [
-        ['Yo', 'tomé', 'I drank'], ['Tú', 'tomaste', 'you drank'], ['Ella / Él / Usted', 'tomó', 's/he drank'],
-        ['Nosotras / Nosotros', 'tomamos', 'we drank'], ['Ellas / Ellos / Ustedes', 'tomaron', 'they drank'],
+        ['tomé', 'I drank'], ['tomaste', 'you drank'], ['tomó', 's/he drank'],
+        ['tomamos', 'we drank'], ['tomaron', 'they drank'],
     ], [
-        ['Yo', 'tomaba', 'I used to drink'], ['Tú', 'tomabas', 'you used to drink'], ['Ella / Él / Usted', 'tomaba', 's/he used to drink'],
-        ['Nosotras / Nosotros', 'tomábamos', 'we used to drink'], ['Ellas / Ellos / Ustedes', 'tomaban', 'they used to drink'],
+        ['tomaba', 'I used to drink'], ['tomabas', 'you used to drink'], ['tomaba', 's/he used to drink'],
+        ['tomábamos', 'we used to drink'], ['tomaban', 'they used to drink'],
     ]),
     simpleVerb('tratar', 'to treat, to try', [
-        ['Infinitive', 'tratar', 'to treat'], ['Past participle', 'tratado', 'treated'], ['Gerund', 'tratando', 'treating'],
+        ['tratar', 'to treat'], ['tratado', 'treated'], ['tratando', 'treating'],
     ], [
-        ['Yo', 'trato', 'I treat'], ['Tú', 'tratas', 'you treat'], ['Ella / Él / Usted', 'trata', 's/he treats'],
-        ['Nosotras / Nosotros', 'tratamos', 'we treat'], ['Ellas / Ellos / Ustedes', 'tratan', 'they treat'],
+        ['trato', 'I treat'], ['tratas', 'you treat'], ['trata', 's/he treats'],
+        ['tratamos', 'we treat'], ['tratan', 'they treat'],
     ], [
-        ['Yo', 'traté', 'I treated'], ['Tú', 'trataste', 'you treated'], ['Ella / Él / Usted', 'trató', 's/he treated'],
-        ['Nosotras / Nosotros', 'tratamos', 'we treated'], ['Ellas / Ellos / Ustedes', 'trataron', 'they treated'],
+        ['traté', 'I treated'], ['trataste', 'you treated'], ['trató', 's/he treated'],
+        ['tratamos', 'we treated'], ['trataron', 'they treated'],
     ], [
-        ['Yo', 'trataba', 'I used to treat'], ['Tú', 'tratabas', 'you used to treat'], ['Ella / Él / Usted', 'trataba', 's/he used to treat'],
-        ['Nosotras / Nosotros', 'tratábamos', 'we used to treat'], ['Ellas / Ellos / Ustedes', 'trataban', 'they used to treat'],
+        ['trataba', 'I used to treat'], ['tratabas', 'you used to treat'], ['trataba', 's/he used to treat'],
+        ['tratábamos', 'we used to treat'], ['trataban', 'they used to treat'],
     ]),
     simpleVerb('mirar', 'to look, to watch', [
-        ['Infinitive', 'mirar', 'to look, to watch'], ['Past participle', 'mirado', 'looked'], ['Gerund', 'mirando', 'looking'],
+        ['mirar', 'to look, to watch'], ['mirado', 'looked'], ['mirando', 'looking'],
     ], [
-        ['Yo', 'miro', 'I look'], ['Tú', 'miras', 'you look'], ['Ella / Él / Usted', 'mira', 's/he looks'],
-        ['Nosotras / Nosotros', 'miramos', 'we look'], ['Ellas / Ellos / Ustedes', 'miran', 'they look'],
+        ['miro', 'I look'], ['miras', 'you look'], ['mira', 's/he looks'],
+        ['miramos', 'we look'], ['miran', 'they look'],
     ], [
-        ['Yo', 'miré', 'I looked'], ['Tú', 'miraste', 'you looked'], ['Ella / Él / Usted', 'miró', 's/he looked'],
-        ['Nosotras / Nosotros', 'miramos', 'we looked'], ['Ellas / Ellos / Ustedes', 'miraron', 'they looked'],
+        ['miré', 'I looked'], ['miraste', 'you looked'], ['miró', 's/he looked'],
+        ['miramos', 'we looked'], ['miraron', 'they looked'],
     ], [
-        ['Yo', 'miraba', 'I used to look'], ['Tú', 'mirabas', 'you used to look'], ['Ella / Él / Usted', 'miraba', 's/he used to look'],
-        ['Nosotras / Nosotros', 'mirábamos', 'we used to look'], ['Ellas / Ellos / Ustedes', 'miraban', 'they used to look'],
+        ['miraba', 'I used to look'], ['mirabas', 'you used to look'], ['miraba', 's/he used to look'],
+        ['mirábamos', 'we used to look'], ['miraban', 'they used to look'],
     ]),
     simpleVerb('contar', 'to count, to tell', [
-        ['Infinitive', 'contar', 'to count, to tell'], ['Past participle', 'contado', 'counted'], ['Gerund', 'contando', 'counting'],
+        ['contar', 'to count, to tell'], ['contado', 'counted'], ['contando', 'counting'],
     ], [
-        ['Yo', 'cuento', 'I count', true], ['Tú', 'cuentas', 'you count', true], ['Ella / Él / Usted', 'cuenta', 's/he counts', true],
-        ['Nosotras / Nosotros', 'contamos', 'we count'], ['Ellas / Ellos / Ustedes', 'cuentan', 'they count', true],
+        ['cuento', 'I count', true], ['cuentas', 'you count', true], ['cuenta', 's/he counts', true],
+        ['contamos', 'we count'], ['cuentan', 'they count', true],
     ], [
-        ['Yo', 'conté', 'I counted'], ['Tú', 'contaste', 'you counted'], ['Ella / Él / Usted', 'contó', 's/he counted'],
-        ['Nosotras / Nosotros', 'contamos', 'we counted'], ['Ellas / Ellos / Ustedes', 'contaron', 'they counted'],
+        ['conté', 'I counted'], ['contaste', 'you counted'], ['contó', 's/he counted'],
+        ['contamos', 'we counted'], ['contaron', 'they counted'],
     ], [
-        ['Yo', 'contaba', 'I used to count'], ['Tú', 'contabas', 'you used to count'], ['Ella / Él / Usted', 'contaba', 's/he used to count'],
-        ['Nosotras / Nosotros', 'contábamos', 'we used to count'], ['Ellas / Ellos / Ustedes', 'contaban', 'they used to count'],
+        ['contaba', 'I used to count'], ['contabas', 'you used to count'], ['contaba', 's/he used to count'],
+        ['contábamos', 'we used to count'], ['contaban', 'they used to count'],
     ]),
     simpleVerb('esperar', 'to wait, to hope', [
-        ['Infinitive', 'esperar', 'to wait'], ['Past participle', 'esperado', 'waited'], ['Gerund', 'esperando', 'waiting'],
+        ['esperar', 'to wait'], ['esperado', 'waited'], ['esperando', 'waiting'],
     ], [
-        ['Yo', 'espero', 'I wait'], ['Tú', 'esperas', 'you wait'], ['Ella / Él / Usted', 'espera', 's/he waits'],
-        ['Nosotras / Nosotros', 'esperamos', 'we wait'], ['Ellas / Ellos / Ustedes', 'esperan', 'they wait'],
+        ['espero', 'I wait'], ['esperas', 'you wait'], ['espera', 's/he waits'],
+        ['esperamos', 'we wait'], ['esperan', 'they wait'],
     ], [
-        ['Yo', 'esperé', 'I waited'], ['Tú', 'esperaste', 'you waited'], ['Ella / Él / Usted', 'esperó', 's/he waited'],
-        ['Nosotras / Nosotros', 'esperamos', 'we waited'], ['Ellas / Ellos / Ustedes', 'esperaron', 'they waited'],
+        ['esperé', 'I waited'], ['esperaste', 'you waited'], ['esperó', 's/he waited'],
+        ['esperamos', 'we waited'], ['esperaron', 'they waited'],
     ], [
-        ['Yo', 'esperaba', 'I used to wait'], ['Tú', 'esperabas', 'you used to wait'], ['Ella / Él / Usted', 'esperaba', 's/he used to wait'],
-        ['Nosotras / Nosotros', 'esperábamos', 'we used to wait'], ['Ellas / Ellos / Ustedes', 'esperaban', 'they used to wait'],
+        ['esperaba', 'I used to wait'], ['esperabas', 'you used to wait'], ['esperaba', 's/he used to wait'],
+        ['esperábamos', 'we used to wait'], ['esperaban', 'they used to wait'],
     ]),
     simpleVerb('buscar', 'to search for, to look for', [
-        ['Infinitive', 'buscar', 'to search for'], ['Past participle', 'buscado', 'searched'], ['Gerund', 'buscando', 'searching'],
+        ['buscar', 'to search for'], ['buscado', 'searched'], ['buscando', 'searching'],
     ], [
-        ['Yo', 'busco', 'I search'], ['Tú', 'buscas', 'you search'], ['Ella / Él / Usted', 'busca', 's/he searches'],
-        ['Nosotras / Nosotros', 'buscamos', 'we search'], ['Ellas / Ellos / Ustedes', 'buscan', 'they search'],
+        ['busco', 'I search'], ['buscas', 'you search'], ['busca', 's/he searches'],
+        ['buscamos', 'we search'], ['buscan', 'they search'],
     ], [
-        ['Yo', 'busqué', 'I searched', true], ['Tú', 'buscaste', 'you searched'], ['Ella / Él / Usted', 'buscó', 's/he searched'],
-        ['Nosotras / Nosotros', 'buscamos', 'we searched'], ['Ellas / Ellos / Ustedes', 'buscaron', 'they searched'],
+        ['busqué', 'I searched', true], ['buscaste', 'you searched'], ['buscó', 's/he searched'],
+        ['buscamos', 'we searched'], ['buscaron', 'they searched'],
     ], [
-        ['Yo', 'buscaba', 'I used to search'], ['Tú', 'buscabas', 'you used to search'], ['Ella / Él / Usted', 'buscaba', 's/he used to search'],
-        ['Nosotras / Nosotros', 'buscábamos', 'we used to search'], ['Ellas / Ellos / Ustedes', 'buscaban', 'they used to search'],
+        ['buscaba', 'I used to search'], ['buscabas', 'you used to search'], ['buscaba', 's/he used to search'],
+        ['buscábamos', 'we used to search'], ['buscaban', 'they used to search'],
     ]),
     simpleVerb('existir', 'to exist', [
-        ['Infinitive', 'existir', 'to exist'], ['Past participle', 'existido', 'existed'], ['Gerund', 'existiendo', 'existing'],
+        ['existir', 'to exist'], ['existido', 'existed'], ['existiendo', 'existing'],
     ], [
-        ['Yo', 'existo', 'I exist'], ['Tú', 'existes', 'you exist'], ['Ella / Él / Usted', 'existe', 's/he exists'],
-        ['Nosotras / Nosotros', 'existimos', 'we exist'], ['Ellas / Ellos / Ustedes', 'existen', 'they exist'],
+        ['existo', 'I exist'], ['existes', 'you exist'], ['existe', 's/he exists'],
+        ['existimos', 'we exist'], ['existen', 'they exist'],
     ], [
-        ['Yo', 'existí', 'I existed'], ['Tú', 'exististe', 'you existed'], ['Ella / Él / Usted', 'existió', 's/he existed'],
-        ['Nosotras / Nosotros', 'existimos', 'we existed'], ['Ellas / Ellos / Ustedes', 'existieron', 'they existed'],
+        ['existí', 'I existed'], ['exististe', 'you existed'], ['existió', 's/he existed'],
+        ['existimos', 'we existed'], ['existieron', 'they existed'],
     ], [
-        ['Yo', 'existía', 'I used to exist'], ['Tú', 'existías', 'you used to exist'], ['Ella / Él / Usted', 'existía', 's/he used to exist'],
-        ['Nosotras / Nosotros', 'existíamos', 'we used to exist'], ['Ellas / Ellos / Ustedes', 'existían', 'they used to exist'],
+        ['existía', 'I used to exist'], ['existías', 'you used to exist'], ['existía', 's/he used to exist'],
+        ['existíamos', 'we used to exist'], ['existían', 'they used to exist'],
     ]),
     simpleVerb('entrar', 'to enter', [
-        ['Infinitive', 'entrar', 'to enter'], ['Past participle', 'entrado', 'entered'], ['Gerund', 'entrando', 'entering'],
+        ['entrar', 'to enter'], ['entrado', 'entered'], ['entrando', 'entering'],
     ], [
-        ['Yo', 'entro', 'I enter'], ['Tú', 'entras', 'you enter'], ['Ella / Él / Usted', 'entra', 's/he enters'],
-        ['Nosotras / Nosotros', 'entramos', 'we enter'], ['Ellas / Ellos / Ustedes', 'entran', 'they enter'],
+        ['entro', 'I enter'], ['entras', 'you enter'], ['entra', 's/he enters'],
+        ['entramos', 'we enter'], ['entran', 'they enter'],
     ], [
-        ['Yo', 'entré', 'I entered'], ['Tú', 'entraste', 'you entered'], ['Ella / Él / Usted', 'entró', 's/he entered'],
-        ['Nosotras / Nosotros', 'entramos', 'we entered'], ['Ellas / Ellos / Ustedes', 'entraron', 'they entered'],
+        ['entré', 'I entered'], ['entraste', 'you entered'], ['entró', 's/he entered'],
+        ['entramos', 'we entered'], ['entraron', 'they entered'],
     ], [
-        ['Yo', 'entraba', 'I used to enter'], ['Tú', 'entrabas', 'you used to enter'], ['Ella / Él / Usted', 'entraba', 's/he used to enter'],
-        ['Nosotras / Nosotros', 'entrábamos', 'we used to enter'], ['Ellas / Ellos / Ustedes', 'entraban', 'they used to enter'],
+        ['entraba', 'I used to enter'], ['entrabas', 'you used to enter'], ['entraba', 's/he used to enter'],
+        ['entrábamos', 'we used to enter'], ['entraban', 'they used to enter'],
     ]),
     simpleVerb('trabajar', 'to work', [
-        ['Infinitive', 'trabajar', 'to work'], ['Past participle', 'trabajado', 'worked'], ['Gerund', 'trabajando', 'working'],
+        ['trabajar', 'to work'], ['trabajado', 'worked'], ['trabajando', 'working'],
     ], [
-        ['Yo', 'trabajo', 'I work'], ['Tú', 'trabajas', 'you work'], ['Ella / Él / Usted', 'trabaja', 's/he works'],
-        ['Nosotras / Nosotros', 'trabajamos', 'we work'], ['Ellas / Ellos / Ustedes', 'trabajan', 'they work'],
+        ['trabajo', 'I work'], ['trabajas', 'you work'], ['trabaja', 's/he works'],
+        ['trabajamos', 'we work'], ['trabajan', 'they work'],
     ], [
-        ['Yo', 'trabajé', 'I worked'], ['Tú', 'trabajaste', 'you worked'], ['Ella / Él / Usted', 'trabajó', 's/he worked'],
-        ['Nosotras / Nosotros', 'trabajamos', 'we worked'], ['Ellas / Ellos / Ustedes', 'trabajaron', 'they worked'],
+        ['trabajé', 'I worked'], ['trabajaste', 'you worked'], ['trabajó', 's/he worked'],
+        ['trabajamos', 'we worked'], ['trabajaron', 'they worked'],
     ], [
-        ['Yo', 'trabajaba', 'I used to work'], ['Tú', 'trabajabas', 'you used to work'], ['Ella / Él / Usted', 'trabajaba', 's/he used to work'],
-        ['Nosotras / Nosotros', 'trabajábamos', 'we used to work'], ['Ellas / Ellos / Ustedes', 'trabajaban', 'they used to work'],
+        ['trabajaba', 'I used to work'], ['trabajabas', 'you used to work'], ['trabajaba', 's/he used to work'],
+        ['trabajábamos', 'we used to work'], ['trabajaban', 'they used to work'],
     ]),
     simpleVerb('escribir', 'to write', [
-        ['Infinitive', 'escribir', 'to write'], ['Past participle', 'escrito', 'written'], ['Gerund', 'escribiendo', 'writing'],
+        ['escribir', 'to write'], ['escrito', 'written'], ['escribiendo', 'writing'],
     ], [
-        ['Yo', 'escribo', 'I write'], ['Tú', 'escribes', 'you write'], ['Ella / Él / Usted', 'escribe', 's/he writes'],
-        ['Nosotras / Nosotros', 'escribimos', 'we write'], ['Ellas / Ellos / Ustedes', 'escriben', 'they write'],
+        ['escribo', 'I write'], ['escribes', 'you write'], ['escribe', 's/he writes'],
+        ['escribimos', 'we write'], ['escriben', 'they write'],
     ], [
-        ['Yo', 'escribí', 'I wrote'], ['Tú', 'escribiste', 'you wrote'], ['Ella / Él / Usted', 'escribió', 's/he wrote'],
-        ['Nosotras / Nosotros', 'escribimos', 'we wrote'], ['Ellas / Ellos / Ustedes', 'escribieron', 'they wrote'],
+        ['escribí', 'I wrote'], ['escribiste', 'you wrote'], ['escribió', 's/he wrote'],
+        ['escribimos', 'we wrote'], ['escribieron', 'they wrote'],
     ], [
-        ['Yo', 'escribía', 'I used to write'], ['Tú', 'escribías', 'you used to write'], ['Ella / Él / Usted', 'escribía', 's/he used to write'],
-        ['Nosotras / Nosotros', 'escribíamos', 'we used to write'], ['Ellas / Ellos / Ustedes', 'escribían', 'they used to write'],
+        ['escribía', 'I used to write'], ['escribías', 'you used to write'], ['escribía', 's/he used to write'],
+        ['escribíamos', 'we used to write'], ['escribían', 'they used to write'],
     ]),
     simpleVerb('producir', 'to produce, to make', [
-        ['Infinitive', 'producir', 'to produce'], ['Past participle', 'producido', 'produced'], ['Gerund', 'produciendo', 'producing'],
+        ['producir', 'to produce'], ['producido', 'produced'], ['produciendo', 'producing'],
     ], [
-        ['Yo', 'produzco', 'I produce', true], ['Tú', 'produces', 'you produce'], ['Ella / Él / Usted', 'produce', 's/he produces'],
-        ['Nosotras / Nosotros', 'producimos', 'we produce'], ['Ellas / Ellos / Ustedes', 'producen', 'they produce'],
+        ['produzco', 'I produce', true], ['produces', 'you produce'], ['produce', 's/he produces'],
+        ['producimos', 'we produce'], ['producen', 'they produce'],
     ], [
-        ['Yo', 'produje', 'I produced', true], ['Tú', 'produjiste', 'you produced', true], ['Ella / Él / Usted', 'produjo', 's/he produced', true],
-        ['Nosotras / Nosotros', 'produjimos', 'we produced', true], ['Ellas / Ellos / Ustedes', 'produjeron', 'they produced', true],
+        ['produje', 'I produced', true], ['produjiste', 'you produced', true], ['produjo', 's/he produced', true],
+        ['produjimos', 'we produced', true], ['produjeron', 'they produced', true],
     ], [
-        ['Yo', 'producía', 'I used to produce'], ['Tú', 'producías', 'you used to produce'], ['Ella / Él / Usted', 'producía', 's/he used to produce'],
-        ['Nosotras / Nosotros', 'producíamos', 'we used to produce'], ['Ellas / Ellos / Ustedes', 'producían', 'they used to produce'],
+        ['producía', 'I used to produce'], ['producías', 'you used to produce'], ['producía', 's/he used to produce'],
+        ['producíamos', 'we used to produce'], ['producían', 'they used to produce'],
     ]),
     simpleVerb('ocurrir', 'to occur, to happen', [
-        ['Infinitive', 'ocurrir', 'to occur'], ['Past participle', 'ocurrido', 'occurred'], ['Gerund', 'ocurriendo', 'occurring'],
+        ['ocurrir', 'to occur'], ['ocurrido', 'occurred'], ['ocurriendo', 'occurring'],
     ], [
-        ['Yo', 'ocurro', 'I occur'], ['Tú', 'ocurres', 'you occur'], ['Ella / Él / Usted', 'ocurre', 's/he occurs'],
-        ['Nosotras / Nosotros', 'ocurrimos', 'we occur'], ['Ellas / Ellos / Ustedes', 'ocurren', 'they occur'],
+        ['ocurro', 'I occur'], ['ocurres', 'you occur'], ['ocurre', 's/he occurs'],
+        ['ocurrimos', 'we occur'], ['ocurren', 'they occur'],
     ], [
-        ['Yo', 'ocurrí', 'I occurred'], ['Tú', 'ocurriste', 'you occurred'], ['Ella / Él / Usted', 'ocurrió', 's/he occurred'],
-        ['Nosotras / Nosotros', 'ocurrimos', 'we occurred'], ['Ellas / Ellos / Ustedes', 'ocurrieron', 'they occurred'],
+        ['ocurrí', 'I occurred'], ['ocurriste', 'you occurred'], ['ocurrió', 's/he occurred'],
+        ['ocurrimos', 'we occurred'], ['ocurrieron', 'they occurred'],
     ], [
-        ['Yo', 'ocurría', 'I used to occur'], ['Tú', 'ocurrías', 'you used to occur'], ['Ella / Él / Usted', 'ocurría', 's/he used to occur'],
-        ['Nosotras / Nosotros', 'ocurríamos', 'we used to occur'], ['Ellas / Ellos / Ustedes', 'ocurrían', 'they used to occur'],
+        ['ocurría', 'I used to occur'], ['ocurrías', 'you used to occur'], ['ocurría', 's/he used to occur'],
+        ['ocurríamos', 'we used to occur'], ['ocurrían', 'they used to occur'],
     ]),
     simpleVerb('pedir', 'to ask for, to request, to order', [
-        ['Infinitive', 'pedir', 'to ask for'], ['Past participle', 'pedido', 'asked for'], ['Gerund', 'pidiendo', 'asking for'],
+        ['pedir', 'to ask for'], ['pedido', 'asked for'], ['pidiendo', 'asking for'],
     ], [
-        ['Yo', 'pido', 'I ask for', true], ['Tú', 'pides', 'you ask for', true], ['Ella / Él / Usted', 'pide', 's/he asks for', true],
-        ['Nosotras / Nosotros', 'pedimos', 'we ask for'], ['Ellas / Ellos / Ustedes', 'piden', 'they ask for', true],
+        ['pido', 'I ask for', true], ['pides', 'you ask for', true], ['pide', 's/he asks for', true],
+        ['pedimos', 'we ask for'], ['piden', 'they ask for', true],
     ], [
-        ['Yo', 'pedí', 'I asked for'], ['Tú', 'pediste', 'you asked for'], ['Ella / Él / Usted', 'pidió', 's/he asked for', true],
-        ['Nosotras / Nosotros', 'pedimos', 'we asked for'], ['Ellas / Ellos / Ustedes', 'pidieron', 'they asked for', true],
+        ['pedí', 'I asked for'], ['pediste', 'you asked for'], ['pidió', 's/he asked for', true],
+        ['pedimos', 'we asked for'], ['pidieron', 'they asked for', true],
     ], [
-        ['Yo', 'pedía', 'I used to ask for'], ['Tú', 'pedías', 'you used to ask for'], ['Ella / Él / Usted', 'pedía', 's/he used to ask for'],
-        ['Nosotras / Nosotros', 'pedíamos', 'we used to ask for'], ['Ellas / Ellos / Ustedes', 'pedían', 'they used to ask for'],
+        ['pedía', 'I used to ask for'], ['pedías', 'you used to ask for'], ['pedía', 's/he used to ask for'],
+        ['pedíamos', 'we used to ask for'], ['pedían', 'they used to ask for'],
     ]),
     simpleVerb('recibir', 'to receive', [
-        ['Infinitive', 'recibir', 'to receive'], ['Past participle', 'recibido', 'received'], ['Gerund', 'recibiendo', 'receiving'],
+        ['recibir', 'to receive'], ['recibido', 'received'], ['recibiendo', 'receiving'],
     ], [
-        ['Yo', 'recibo', 'I receive'], ['Tú', 'recibes', 'you receive'], ['Ella / Él / Usted', 'recibe', 's/he receives'],
-        ['Nosotras / Nosotros', 'recibimos', 'we receive'], ['Ellas / Ellos / Ustedes', 'reciben', 'they receive'],
+        ['recibo', 'I receive'], ['recibes', 'you receive'], ['recibe', 's/he receives'],
+        ['recibimos', 'we receive'], ['reciben', 'they receive'],
     ], [
-        ['Yo', 'recibí', 'I received'], ['Tú', 'recibiste', 'you received'], ['Ella / Él / Usted', 'recibió', 's/he received'],
-        ['Nosotras / Nosotros', 'recibimos', 'we received'], ['Ellas / Ellos / Ustedes', 'recibieron', 'they received'],
+        ['recibí', 'I received'], ['recibiste', 'you received'], ['recibió', 's/he received'],
+        ['recibimos', 'we received'], ['recibieron', 'they received'],
     ], [
-        ['Yo', 'recibía', 'I used to receive'], ['Tú', 'recibías', 'you used to receive'], ['Ella / Él / Usted', 'recibía', 's/he used to receive'],
-        ['Nosotras / Nosotros', 'recibíamos', 'we used to receive'], ['Ellas / Ellos / Ustedes', 'recibían', 'they used to receive'],
+        ['recibía', 'I used to receive'], ['recibías', 'you used to receive'], ['recibía', 's/he used to receive'],
+        ['recibíamos', 'we used to receive'], ['recibían', 'they used to receive'],
     ]),
     simpleVerb('recordar', 'to remember, to recall, to remind', [
-        ['Infinitive', 'recordar', 'to remember'], ['Past participle', 'recordado', 'remembered'], ['Gerund', 'recordando', 'remembering'],
+        ['recordar', 'to remember'], ['recordado', 'remembered'], ['recordando', 'remembering'],
     ], [
-        ['Yo', 'recuerdo', 'I remember', true], ['Tú', 'recuerdas', 'you remember', true], ['Ella / Él / Usted', 'recuerda', 's/he remembers', true],
-        ['Nosotras / Nosotros', 'recordamos', 'we remember'], ['Ellas / Ellos / Ustedes', 'recuerdan', 'they remember', true],
+        ['recuerdo', 'I remember', true], ['recuerdas', 'you remember', true], ['recuerda', 's/he remembers', true],
+        ['recordamos', 'we remember'], ['recuerdan', 'they remember', true],
     ], [
-        ['Yo', 'recordé', 'I remembered'], ['Tú', 'recordaste', 'you remembered'], ['Ella / Él / Usted', 'recordó', 's/he remembered'],
-        ['Nosotras / Nosotros', 'recordamos', 'we remembered'], ['Ellas / Ellos / Ustedes', 'recordaron', 'they remembered'],
+        ['recordé', 'I remembered'], ['recordaste', 'you remembered'], ['recordó', 's/he remembered'],
+        ['recordamos', 'we remembered'], ['recordaron', 'they remembered'],
     ], [
-        ['Yo', 'recordaba', 'I used to remember'], ['Tú', 'recordabas', 'you used to remember'], ['Ella / Él / Usted', 'recordaba', 's/he used to remember'],
-        ['Nosotras / Nosotros', 'recordábamos', 'we used to remember'], ['Ellas / Ellos / Ustedes', 'recordaban', 'they used to remember'],
+        ['recordaba', 'I used to remember'], ['recordabas', 'you used to remember'], ['recordaba', 's/he used to remember'],
+        ['recordábamos', 'we used to remember'], ['recordaban', 'they used to remember'],
     ]),
     simpleVerb('terminar', 'to end, to finish', [
-        ['Infinitive', 'terminar', 'to end'], ['Past participle', 'terminado', 'ended'], ['Gerund', 'terminando', 'ending'],
+        ['terminar', 'to end'], ['terminado', 'ended'], ['terminando', 'ending'],
     ], [
-        ['Yo', 'termino', 'I end'], ['Tú', 'terminas', 'you end'], ['Ella / Él / Usted', 'termina', 's/he ends'],
-        ['Nosotras / Nosotros', 'terminamos', 'we end'], ['Ellas / Ellos / Ustedes', 'terminan', 'they end'],
+        ['termino', 'I end'], ['terminas', 'you end'], ['termina', 's/he ends'],
+        ['terminamos', 'we end'], ['terminan', 'they end'],
     ], [
-        ['Yo', 'terminé', 'I ended'], ['Tú', 'terminaste', 'you ended'], ['Ella / Él / Usted', 'terminó', 's/he ended'],
-        ['Nosotras / Nosotros', 'terminamos', 'we ended'], ['Ellas / Ellos / Ustedes', 'terminaron', 'they ended'],
+        ['terminé', 'I ended'], ['terminaste', 'you ended'], ['terminó', 's/he ended'],
+        ['terminamos', 'we ended'], ['terminaron', 'they ended'],
     ], [
-        ['Yo', 'terminaba', 'I used to end'], ['Tú', 'terminabas', 'you used to end'], ['Ella / Él / Usted', 'terminaba', 's/he used to end'],
-        ['Nosotras / Nosotros', 'terminábamos', 'we used to end'], ['Ellas / Ellos / Ustedes', 'terminaban', 'they used to end'],
+        ['terminaba', 'I used to end'], ['terminabas', 'you used to end'], ['terminaba', 's/he used to end'],
+        ['terminábamos', 'we used to end'], ['terminaban', 'they used to end'],
     ]),
     simpleVerb('permitir', 'to allow, to permit', [
-        ['Infinitive', 'permitir', 'to allow'], ['Past participle', 'permitido', 'allowed'], ['Gerund', 'permitiendo', 'allowing'],
+        ['permitir', 'to allow'], ['permitido', 'allowed'], ['permitiendo', 'allowing'],
     ], [
-        ['Yo', 'permito', 'I allow'], ['Tú', 'permites', 'you allow'], ['Ella / Él / Usted', 'permite', 's/he allows'],
-        ['Nosotras / Nosotros', 'permitimos', 'we allow'], ['Ellas / Ellos / Ustedes', 'permiten', 'they allow'],
+        ['permito', 'I allow'], ['permites', 'you allow'], ['permite', 's/he allows'],
+        ['permitimos', 'we allow'], ['permiten', 'they allow'],
     ], [
-        ['Yo', 'permití', 'I allowed'], ['Tú', 'permitiste', 'you allowed'], ['Ella / Él / Usted', 'permitió', 's/he allowed'],
-        ['Nosotras / Nosotros', 'permitimos', 'we allowed'], ['Ellas / Ellos / Ustedes', 'permitieron', 'they allowed'],
+        ['permití', 'I allowed'], ['permitiste', 'you allowed'], ['permitió', 's/he allowed'],
+        ['permitimos', 'we allowed'], ['permitieron', 'they allowed'],
     ], [
-        ['Yo', 'permitía', 'I used to allow'], ['Tú', 'permitías', 'you used to allow'], ['Ella / Él / Usted', 'permitía', 's/he used to allow'],
-        ['Nosotras / Nosotros', 'permitíamos', 'we used to allow'], ['Ellas / Ellos / Ustedes', 'permitían', 'they used to allow'],
+        ['permitía', 'I used to allow'], ['permitías', 'you used to allow'], ['permitía', 's/he used to allow'],
+        ['permitíamos', 'we used to allow'], ['permitían', 'they used to allow'],
     ]),
     simpleVerb('conseguir', 'to get, to obtain', [
-        ['Infinitive', 'conseguir', 'to get'], ['Past participle', 'conseguido', 'gotten'], ['Gerund', 'consiguiendo', 'getting'],
+        ['conseguir', 'to get'], ['conseguido', 'gotten'], ['consiguiendo', 'getting'],
     ], [
-        ['Yo', 'consigo', 'I get', true], ['Tú', 'consigues', 'you get', true], ['Ella / Él / Usted', 'consigue', 's/he gets', true],
-        ['Nosotras / Nosotros', 'conseguimos', 'we get'], ['Ellas / Ellos / Ustedes', 'consiguen', 'they get', true],
+        ['consigo', 'I get', true], ['consigues', 'you get', true], ['consigue', 's/he gets', true],
+        ['conseguimos', 'we get'], ['consiguen', 'they get', true],
     ], [
-        ['Yo', 'conseguí', 'I got'], ['Tú', 'conseguiste', 'you got'], ['Ella / Él / Usted', 'consiguió', 's/he got', true],
-        ['Nosotras / Nosotros', 'conseguimos', 'we got'], ['Ellas / Ellos / Ustedes', 'consiguieron', 'they got', true],
+        ['conseguí', 'I got'], ['conseguiste', 'you got'], ['consiguió', 's/he got', true],
+        ['conseguimos', 'we got'], ['consiguieron', 'they got', true],
     ], [
-        ['Yo', 'conseguía', 'I used to get'], ['Tú', 'conseguías', 'you used to get'], ['Ella / Él / Usted', 'conseguía', 's/he used to get'],
-        ['Nosotras / Nosotros', 'conseguíamos', 'we used to get'], ['Ellas / Ellos / Ustedes', 'conseguían', 'they used to get'],
+        ['conseguía', 'I used to get'], ['conseguías', 'you used to get'], ['conseguía', 's/he used to get'],
+        ['conseguíamos', 'we used to get'], ['conseguían', 'they used to get'],
     ]),
     simpleVerb('servir', 'to serve', [
-        ['Infinitive', 'servir', 'to serve'], ['Past participle', 'servido', 'served'], ['Gerund', 'sirviendo', 'serving'],
+        ['servir', 'to serve'], ['servido', 'served'], ['sirviendo', 'serving'],
     ], [
-        ['Yo', 'sirvo', 'I serve', true], ['Tú', 'sirves', 'you serve', true], ['Ella / Él / Usted', 'sirve', 's/he serves', true],
-        ['Nosotras / Nosotros', 'servimos', 'we serve'], ['Ellas / Ellos / Ustedes', 'sirven', 'they serve', true],
+        ['sirvo', 'I serve', true], ['sirves', 'you serve', true], ['sirve', 's/he serves', true],
+        ['servimos', 'we serve'], ['sirven', 'they serve', true],
     ], [
-        ['Yo', 'serví', 'I served'], ['Tú', 'serviste', 'you served'], ['Ella / Él / Usted', 'sirvió', 's/he served', true],
-        ['Nosotras / Nosotros', 'servimos', 'we served'], ['Ellas / Ellos / Ustedes', 'sirvieron', 'they served', true],
+        ['serví', 'I served'], ['serviste', 'you served'], ['sirvió', 's/he served', true],
+        ['servimos', 'we served'], ['sirvieron', 'they served', true],
     ], [
-        ['Yo', 'servía', 'I used to serve'], ['Tú', 'servías', 'you used to serve'], ['Ella / Él / Usted', 'servía', 's/he used to serve'],
-        ['Nosotras / Nosotros', 'servíamos', 'we used to serve'], ['Ellas / Ellos / Ustedes', 'servían', 'they used to serve'],
+        ['servía', 'I used to serve'], ['servías', 'you used to serve'], ['servía', 's/he used to serve'],
+        ['servíamos', 'we used to serve'], ['servían', 'they used to serve'],
     ]),
     simpleVerb('sacar', 'to take, to take out, to get', [
-        ['Infinitive', 'sacar', 'to take'], ['Past participle', 'sacado', 'taken'], ['Gerund', 'sacando', 'taking'],
+        ['sacar', 'to take'], ['sacado', 'taken'], ['sacando', 'taking'],
     ], [
-        ['Yo', 'saco', 'I take'], ['Tú', 'sacas', 'you take'], ['Ella / Él / Usted', 'saca', 's/he takes'],
-        ['Nosotras / Nosotros', 'sacamos', 'we take'], ['Ellas / Ellos / Ustedes', 'sacan', 'they take'],
+        ['saco', 'I take'], ['sacas', 'you take'], ['saca', 's/he takes'],
+        ['sacamos', 'we take'], ['sacan', 'they take'],
     ], [
-        ['Yo', 'saqué', 'I took', true], ['Tú', 'sacaste', 'you took'], ['Ella / Él / Usted', 'sacó', 's/he took'],
-        ['Nosotras / Nosotros', 'sacamos', 'we took'], ['Ellas / Ellos / Ustedes', 'sacaron', 'they took'],
+        ['saqué', 'I took', true], ['sacaste', 'you took'], ['sacó', 's/he took'],
+        ['sacamos', 'we took'], ['sacaron', 'they took'],
     ], [
-        ['Yo', 'sacaba', 'I used to take'], ['Tú', 'sacabas', 'you used to take'], ['Ella / Él / Usted', 'sacaba', 's/he used to take'],
-        ['Nosotras / Nosotros', 'sacábamos', 'we used to take'], ['Ellas / Ellos / Ustedes', 'sacaban', 'they used to take'],
+        ['sacaba', 'I used to take'], ['sacabas', 'you used to take'], ['sacaba', 's/he used to take'],
+        ['sacábamos', 'we used to take'], ['sacaban', 'they used to take'],
     ]),
     simpleVerb('necesitar', 'to need', [
-        ['Infinitive', 'necesitar', 'to need'], ['Past participle', 'necesitado', 'needed'], ['Gerund', 'necesitando', 'needing'],
+        ['necesitar', 'to need'], ['necesitado', 'needed'], ['necesitando', 'needing'],
     ], [
-        ['Yo', 'necesito', 'I need'], ['Tú', 'necesitas', 'you need'], ['Ella / Él / Usted', 'necesita', 's/he needs'],
-        ['Nosotras / Nosotros', 'necesitamos', 'we need'], ['Ellas / Ellos / Ustedes', 'necesitan', 'they need'],
+        ['necesito', 'I need'], ['necesitas', 'you need'], ['necesita', 's/he needs'],
+        ['necesitamos', 'we need'], ['necesitan', 'they need'],
     ], [
-        ['Yo', 'necesité', 'I needed'], ['Tú', 'necesitaste', 'you needed'], ['Ella / Él / Usted', 'necesitó', 's/he needed'],
-        ['Nosotras / Nosotros', 'necesitamos', 'we needed'], ['Ellas / Ellos / Ustedes', 'necesitaron', 'they needed'],
+        ['necesité', 'I needed'], ['necesitaste', 'you needed'], ['necesitó', 's/he needed'],
+        ['necesitamos', 'we needed'], ['necesitaron', 'they needed'],
     ], [
-        ['Yo', 'necesitaba', 'I used to need'], ['Tú', 'necesitabas', 'you used to need'], ['Ella / Él / Usted', 'necesitaba', 's/he used to need'],
-        ['Nosotras / Nosotros', 'necesitábamos', 'we used to need'], ['Ellas / Ellos / Ustedes', 'necesitaban', 'they used to need'],
+        ['necesitaba', 'I used to need'], ['necesitabas', 'you used to need'], ['necesitaba', 's/he used to need'],
+        ['necesitábamos', 'we used to need'], ['necesitaban', 'they used to need'],
     ]),
     simpleVerb('mantener', 'to maintain, to keep', [
-        ['Infinitive', 'mantener', 'to maintain'], ['Past participle', 'mantenido', 'maintained'], ['Gerund', 'manteniendo', 'maintaining'],
+        ['mantener', 'to maintain'], ['mantenido', 'maintained'], ['manteniendo', 'maintaining'],
     ], [
-        ['Yo', 'mantengo', 'I maintain', true], ['Tú', 'mantienes', 'you maintain', true], ['Ella / Él / Usted', 'mantiene', 's/he maintains', true],
-        ['Nosotras / Nosotros', 'mantenemos', 'we maintain'], ['Ellas / Ellos / Ustedes', 'mantienen', 'they maintain', true],
+        ['mantengo', 'I maintain', true], ['mantienes', 'you maintain', true], ['mantiene', 's/he maintains', true],
+        ['mantenemos', 'we maintain'], ['mantienen', 'they maintain', true],
     ], [
-        ['Yo', 'mantuve', 'I maintained', true], ['Tú', 'mantuviste', 'you maintained', true], ['Ella / Él / Usted', 'mantuvo', 's/he maintained', true],
-        ['Nosotras / Nosotros', 'mantuvimos', 'we maintained', true], ['Ellas / Ellos / Ustedes', 'mantuvieron', 'they maintained', true],
+        ['mantuve', 'I maintained', true], ['mantuviste', 'you maintained', true], ['mantuvo', 's/he maintained', true],
+        ['mantuvimos', 'we maintained', true], ['mantuvieron', 'they maintained', true],
     ], [
-        ['Yo', 'mantenía', 'I used to maintain'], ['Tú', 'mantenías', 'you used to maintain'], ['Ella / Él / Usted', 'mantenía', 's/he used to maintain'],
-        ['Nosotras / Nosotros', 'manteníamos', 'we used to maintain'], ['Ellas / Ellos / Ustedes', 'mantenían', 'they used to maintain'],
+        ['mantenía', 'I used to maintain'], ['mantenías', 'you used to maintain'], ['mantenía', 's/he used to maintain'],
+        ['manteníamos', 'we used to maintain'], ['mantenían', 'they used to maintain'],
     ]),
     simpleVerb('resultar', 'to become, to turn out', [
-        ['Infinitive', 'resultar', 'to become'], ['Past participle', 'resultado', 'become'], ['Gerund', 'resultando', 'becoming'],
+        ['resultar', 'to become'], ['resultado', 'become'], ['resultando', 'becoming'],
     ], [
-        ['Yo', 'resulto', 'I become'], ['Tú', 'resultas', 'you become'], ['Ella / Él / Usted', 'resulta', 's/he becomes'],
-        ['Nosotras / Nosotros', 'resultamos', 'we become'], ['Ellas / Ellos / Ustedes', 'resultan', 'they become'],
+        ['resulto', 'I become'], ['resultas', 'you become'], ['resulta', 's/he becomes'],
+        ['resultamos', 'we become'], ['resultan', 'they become'],
     ], [
-        ['Yo', 'resulté', 'I became'], ['Tú', 'resultaste', 'you became'], ['Ella / Él / Usted', 'resultó', 's/he became'],
-        ['Nosotras / Nosotros', 'resultamos', 'we became'], ['Ellas / Ellos / Ustedes', 'resultaron', 'they became'],
+        ['resulté', 'I became'], ['resultaste', 'you became'], ['resultó', 's/he became'],
+        ['resultamos', 'we became'], ['resultaron', 'they became'],
     ], [
-        ['Yo', 'resultaba', 'I used to become'], ['Tú', 'resultabas', 'you used to become'], ['Ella / Él / Usted', 'resultaba', 's/he used to become'],
-        ['Nosotras / Nosotros', 'resultábamos', 'we used to become'], ['Ellas / Ellos / Ustedes', 'resultaban', 'they used to become'],
+        ['resultaba', 'I used to become'], ['resultabas', 'you used to become'], ['resultaba', 's/he used to become'],
+        ['resultábamos', 'we used to become'], ['resultaban', 'they used to become'],
     ]),
     simpleVerb('leer', 'to read', [
-        ['Infinitive', 'leer', 'to read'], ['Past participle', 'leído', 'read'], ['Gerund', 'leyendo', 'reading'],
+        ['leer', 'to read'], ['leído', 'read'], ['leyendo', 'reading'],
     ], [
-        ['Yo', 'leo', 'I read'], ['Tú', 'lees', 'you read'], ['Ella / Él / Usted', 'lee', 's/he reads'],
-        ['Nosotras / Nosotros', 'leemos', 'we read'], ['Ellas / Ellos / Ustedes', 'leen', 'they read'],
+        ['leo', 'I read'], ['lees', 'you read'], ['lee', 's/he reads'],
+        ['leemos', 'we read'], ['leen', 'they read'],
     ], [
-        ['Yo', 'leí', 'I read'], ['Tú', 'leíste', 'you read'], ['Ella / Él / Usted', 'leyó', 's/he read', true],
-        ['Nosotras / Nosotros', 'leímos', 'we read'], ['Ellas / Ellos / Ustedes', 'leyeron', 'they read', true],
+        ['leí', 'I read'], ['leíste', 'you read'], ['leyó', 's/he read', true],
+        ['leímos', 'we read'], ['leyeron', 'they read', true],
     ], [
-        ['Yo', 'leía', 'I used to read'], ['Tú', 'leías', 'you used to read'], ['Ella / Él / Usted', 'leía', 's/he used to read'],
-        ['Nosotras / Nosotros', 'leíamos', 'we used to read'], ['Ellas / Ellos / Ustedes', 'leían', 'they used to read'],
+        ['leía', 'I used to read'], ['leías', 'you used to read'], ['leía', 's/he used to read'],
+        ['leíamos', 'we used to read'], ['leían', 'they used to read'],
     ]),
     simpleVerb('caer', 'to fall', [
-        ['Infinitive', 'caer', 'to fall'], ['Past participle', 'caído', 'fallen'], ['Gerund', 'cayendo', 'falling'],
+        ['caer', 'to fall'], ['caído', 'fallen'], ['cayendo', 'falling'],
     ], [
-        ['Yo', 'caigo', 'I fall', true], ['Tú', 'caes', 'you fall'], ['Ella / Él / Usted', 'cae', 's/he falls'],
-        ['Nosotras / Nosotros', 'caemos', 'we fall'], ['Ellas / Ellos / Ustedes', 'caen', 'they fall'],
+        ['caigo', 'I fall', true], ['caes', 'you fall'], ['cae', 's/he falls'],
+        ['caemos', 'we fall'], ['caen', 'they fall'],
     ], [
-        ['Yo', 'caí', 'I fell'], ['Tú', 'caíste', 'you fell'], ['Ella / Él / Usted', 'cayó', 's/he fell', true],
-        ['Nosotras / Nosotros', 'caímos', 'we fell'], ['Ellas / Ellos / Ustedes', 'cayeron', 'they fell', true],
+        ['caí', 'I fell'], ['caíste', 'you fell'], ['cayó', 's/he fell', true],
+        ['caímos', 'we fell'], ['cayeron', 'they fell', true],
     ], [
-        ['Yo', 'caía', 'I used to fall'], ['Tú', 'caías', 'you used to fall'], ['Ella / Él / Usted', 'caía', 's/he used to fall'],
-        ['Nosotras / Nosotros', 'caíamos', 'we used to fall'], ['Ellas / Ellos / Ustedes', 'caían', 'they used to fall'],
+        ['caía', 'I used to fall'], ['caías', 'you used to fall'], ['caía', 's/he used to fall'],
+        ['caíamos', 'we used to fall'], ['caían', 'they used to fall'],
     ]),
     simpleVerb('cambiar', 'to change', [
-        ['Infinitive', 'cambiar', 'to change'], ['Past participle', 'cambiado', 'changed'], ['Gerund', 'cambiando', 'changing'],
+        ['cambiar', 'to change'], ['cambiado', 'changed'], ['cambiando', 'changing'],
     ], [
-        ['Yo', 'cambio', 'I change'], ['Tú', 'cambias', 'you change'], ['Ella / Él / Usted', 'cambia', 's/he changes'],
-        ['Nosotras / Nosotros', 'cambiamos', 'we change'], ['Ellas / Ellos / Ustedes', 'cambian', 'they change'],
+        ['cambio', 'I change'], ['cambias', 'you change'], ['cambia', 's/he changes'],
+        ['cambiamos', 'we change'], ['cambian', 'they change'],
     ], [
-        ['Yo', 'cambié', 'I changed'], ['Tú', 'cambiaste', 'you changed'], ['Ella / Él / Usted', 'cambió', 's/he changed'],
-        ['Nosotras / Nosotros', 'cambiamos', 'we changed'], ['Ellas / Ellos / Ustedes', 'cambiaron', 'they changed'],
+        ['cambié', 'I changed'], ['cambiaste', 'you changed'], ['cambió', 's/he changed'],
+        ['cambiamos', 'we changed'], ['cambiaron', 'they changed'],
     ], [
-        ['Yo', 'cambiaba', 'I used to change'], ['Tú', 'cambiabas', 'you used to change'], ['Ella / Él / Usted', 'cambiaba', 's/he used to change'],
-        ['Nosotras / Nosotros', 'cambiábamos', 'we used to change'], ['Ellas / Ellos / Ustedes', 'cambiaban', 'they used to change'],
+        ['cambiaba', 'I used to change'], ['cambiabas', 'you used to change'], ['cambiaba', 's/he used to change'],
+        ['cambiábamos', 'we used to change'], ['cambiaban', 'they used to change'],
     ]),
     simpleVerb('presentar', 'to present, to introduce', [
-        ['Infinitive', 'presentar', 'to present'], ['Past participle', 'presentado', 'presented'], ['Gerund', 'presentando', 'presenting'],
+        ['presentar', 'to present'], ['presentado', 'presented'], ['presentando', 'presenting'],
     ], [
-        ['Yo', 'presento', 'I present'], ['Tú', 'presentas', 'you present'], ['Ella / Él / Usted', 'presenta', 's/he presents'],
-        ['Nosotras / Nosotros', 'presentamos', 'we present'], ['Ellas / Ellos / Ustedes', 'presentan', 'they present'],
+        ['presento', 'I present'], ['presentas', 'you present'], ['presenta', 's/he presents'],
+        ['presentamos', 'we present'], ['presentan', 'they present'],
     ], [
-        ['Yo', 'presenté', 'I presented'], ['Tú', 'presentaste', 'you presented'], ['Ella / Él / Usted', 'presentó', 's/he presented'],
-        ['Nosotras / Nosotros', 'presentamos', 'we presented'], ['Ellas / Ellos / Ustedes', 'presentaron', 'they presented'],
+        ['presenté', 'I presented'], ['presentaste', 'you presented'], ['presentó', 's/he presented'],
+        ['presentamos', 'we presented'], ['presentaron', 'they presented'],
     ], [
-        ['Yo', 'presentaba', 'I used to present'], ['Tú', 'presentabas', 'you used to present'], ['Ella / Él / Usted', 'presentaba', 's/he used to present'],
-        ['Nosotras / Nosotros', 'presentábamos', 'we used to present'], ['Ellas / Ellos / Ustedes', 'presentaban', 'they used to present'],
+        ['presentaba', 'I used to present'], ['presentabas', 'you used to present'], ['presentaba', 's/he used to present'],
+        ['presentábamos', 'we used to present'], ['presentaban', 'they used to present'],
     ]),
     simpleVerb('crear', 'to create', [
-        ['Infinitive', 'crear', 'to create'], ['Past participle', 'creado', 'created'], ['Gerund', 'creando', 'creating'],
+        ['crear', 'to create'], ['creado', 'created'], ['creando', 'creating'],
     ], [
-        ['Yo', 'creo', 'I create'], ['Tú', 'creas', 'you create'], ['Ella / Él / Usted', 'crea', 's/he creates'],
-        ['Nosotras / Nosotros', 'creamos', 'we create'], ['Ellas / Ellos / Ustedes', 'crean', 'they create'],
+        ['creo', 'I create'], ['creas', 'you create'], ['crea', 's/he creates'],
+        ['creamos', 'we create'], ['crean', 'they create'],
     ], [
-        ['Yo', 'creé', 'I created'], ['Tú', 'creaste', 'you created'], ['Ella / Él / Usted', 'creó', 's/he created'],
-        ['Nosotras / Nosotros', 'creamos', 'we created'], ['Ellas / Ellos / Ustedes', 'crearon', 'they created'],
+        ['creé', 'I created'], ['creaste', 'you created'], ['creó', 's/he created'],
+        ['creamos', 'we created'], ['crearon', 'they created'],
     ], [
-        ['Yo', 'creaba', 'I used to create'], ['Tú', 'creabas', 'you used to create'], ['Ella / Él / Usted', 'creaba', 's/he used to create'],
-        ['Nosotras / Nosotros', 'creábamos', 'we used to create'], ['Ellas / Ellos / Ustedes', 'creaban', 'they used to create'],
+        ['creaba', 'I used to create'], ['creabas', 'you used to create'], ['creaba', 's/he used to create'],
+        ['creábamos', 'we used to create'], ['creaban', 'they used to create'],
     ]),
     simpleVerb('abrir', 'to open', [
-        ['Infinitive', 'abrir', 'to open'], ['Past participle', 'abierto', 'opened'], ['Gerund', 'abriendo', 'opening'],
+        ['abrir', 'to open'], ['abierto', 'opened'], ['abriendo', 'opening'],
     ], [
-        ['Yo', 'abro', 'I open'], ['Tú', 'abres', 'you open'], ['Ella / Él / Usted', 'abre', 's/he opens'],
-        ['Nosotras / Nosotros', 'abrimos', 'we open'], ['Ellas / Ellos / Ustedes', 'abren', 'they open'],
+        ['abro', 'I open'], ['abres', 'you open'], ['abre', 's/he opens'],
+        ['abrimos', 'we open'], ['abren', 'they open'],
     ], [
-        ['Yo', 'abrí', 'I opened'], ['Tú', 'abriste', 'you opened'], ['Ella / Él / Usted', 'abrió', 's/he opened'],
-        ['Nosotras / Nosotros', 'abrimos', 'we opened'], ['Ellas / Ellos / Ustedes', 'abrieron', 'they opened'],
+        ['abrí', 'I opened'], ['abriste', 'you opened'], ['abrió', 's/he opened'],
+        ['abrimos', 'we opened'], ['abrieron', 'they opened'],
     ], [
-        ['Yo', 'abría', 'I used to open'], ['Tú', 'abrías', 'you used to open'], ['Ella / Él / Usted', 'abría', 's/he used to open'],
-        ['Nosotras / Nosotros', 'abríamos', 'we used to open'], ['Ellas / Ellos / Ustedes', 'abrían', 'they used to open'],
+        ['abría', 'I used to open'], ['abrías', 'you used to open'], ['abría', 's/he used to open'],
+        ['abríamos', 'we used to open'], ['abrían', 'they used to open'],
     ]),
     simpleVerb('considerar', 'to consider', [
-        ['Infinitive', 'considerar', 'to consider'], ['Past participle', 'considerado', 'considered'], ['Gerund', 'considerando', 'considering'],
+        ['considerar', 'to consider'], ['considerado', 'considered'], ['considerando', 'considering'],
     ], [
-        ['Yo', 'considero', 'I consider'], ['Tú', 'consideras', 'you consider'], ['Ella / Él / Usted', 'considera', 's/he considers'],
-        ['Nosotras / Nosotros', 'consideramos', 'we consider'], ['Ellas / Ellos / Ustedes', 'consideran', 'they consider'],
+        ['considero', 'I consider'], ['consideras', 'you consider'], ['considera', 's/he considers'],
+        ['consideramos', 'we consider'], ['consideran', 'they consider'],
     ], [
-        ['Yo', 'consideré', 'I considered'], ['Tú', 'consideraste', 'you considered'], ['Ella / Él / Usted', 'consideró', 's/he considered'],
-        ['Nosotras / Nosotros', 'consideramos', 'we considered'], ['Ellas / Ellos / Ustedes', 'consideraron', 'they considered'],
+        ['consideré', 'I considered'], ['consideraste', 'you considered'], ['consideró', 's/he considered'],
+        ['consideramos', 'we considered'], ['consideraron', 'they considered'],
     ], [
-        ['Yo', 'consideraba', 'I used to consider'], ['Tú', 'considerabas', 'you used to consider'], ['Ella / Él / Usted', 'consideraba', 's/he used to consider'],
-        ['Nosotras / Nosotros', 'considerábamos', 'we used to consider'], ['Ellas / Ellos / Ustedes', 'consideraban', 'they used to consider'],
+        ['consideraba', 'I used to consider'], ['considerabas', 'you used to consider'], ['consideraba', 's/he used to consider'],
+        ['considerábamos', 'we used to consider'], ['consideraban', 'they used to consider'],
     ]),
     simpleVerb('oír', 'to hear, to listen to', [
-        ['Infinitive', 'oír', 'to hear'], ['Past participle', 'oído', 'heard'], ['Gerund', 'oyendo', 'hearing'],
+        ['oír', 'to hear'], ['oído', 'heard'], ['oyendo', 'hearing'],
     ], [
-        ['Yo', 'oigo', 'I hear', true], ['Tú', 'oyes', 'you hear', true], ['Ella / Él / Usted', 'oye', 's/he hears', true],
-        ['Nosotras / Nosotros', 'oímos', 'we hear'], ['Ellas / Ellos / Ustedes', 'oyen', 'they hear', true],
+        ['oigo', 'I hear', true], ['oyes', 'you hear', true], ['oye', 's/he hears', true],
+        ['oímos', 'we hear'], ['oyen', 'they hear', true],
     ], [
-        ['Yo', 'oí', 'I heard'], ['Tú', 'oíste', 'you heard', true], ['Ella / Él / Usted', 'oyó', 's/he heard', true],
-        ['Nosotras / Nosotros', 'oímos', 'we heard'], ['Ellas / Ellos / Ustedes', 'oyeron', 'they heard', true],
+        ['oí', 'I heard'], ['oíste', 'you heard', true], ['oyó', 's/he heard', true],
+        ['oímos', 'we heard'], ['oyeron', 'they heard', true],
     ], [
-        ['Yo', 'oía', 'I used to hear'], ['Tú', 'oías', 'you used to hear'], ['Ella / Él / Usted', 'oía', 's/he used to hear'],
-        ['Nosotras / Nosotros', 'oíamos', 'we used to hear'], ['Ellas / Ellos / Ustedes', 'oían', 'they used to hear'],
+        ['oía', 'I used to hear'], ['oías', 'you used to hear'], ['oía', 's/he used to hear'],
+        ['oíamos', 'we used to hear'], ['oían', 'they used to hear'],
     ]),
     simpleVerb('acabar', 'to finish, to end, to complete', [
-        ['Infinitive', 'acabar', 'to finish'], ['Past participle', 'acabado', 'finished'], ['Gerund', 'acabando', 'finishing'],
+        ['acabar', 'to finish'], ['acabado', 'finished'], ['acabando', 'finishing'],
     ], [
-        ['Yo', 'acabo', 'I finish'], ['Tú', 'acabas', 'you finish'], ['Ella / Él / Usted', 'acaba', 's/he finishes'],
-        ['Nosotras / Nosotros', 'acabamos', 'we finish'], ['Ellas / Ellos / Ustedes', 'acaban', 'they finish'],
+        ['acabo', 'I finish'], ['acabas', 'you finish'], ['acaba', 's/he finishes'],
+        ['acabamos', 'we finish'], ['acaban', 'they finish'],
     ], [
-        ['Yo', 'acabé', 'I finished'], ['Tú', 'acabaste', 'you finished'], ['Ella / Él / Usted', 'acabó', 's/he finished'],
-        ['Nosotras / Nosotros', 'acabamos', 'we finished'], ['Ellas / Ellos / Ustedes', 'acabaron', 'they finished'],
+        ['acabé', 'I finished'], ['acabaste', 'you finished'], ['acabó', 's/he finished'],
+        ['acabamos', 'we finished'], ['acabaron', 'they finished'],
     ], [
-        ['Yo', 'acababa', 'I used to finish'], ['Tú', 'acababas', 'you used to finish'], ['Ella / Él / Usted', 'acababa', 's/he used to finish'],
-        ['Nosotras / Nosotros', 'acabábamos', 'we used to finish'], ['Ellas / Ellos / Ustedes', 'acababan', 'they used to finish'],
+        ['acababa', 'I used to finish'], ['acababas', 'you used to finish'], ['acababa', 's/he used to finish'],
+        ['acabábamos', 'we used to finish'], ['acababan', 'they used to finish'],
     ]),
     simpleVerb('convertir', 'to convert', [
-        ['Infinitive', 'convertir', 'to convert'], ['Past participle', 'convertido', 'converted'], ['Gerund', 'convirtiendo', 'converting'],
+        ['convertir', 'to convert'], ['convertido', 'converted'], ['convirtiendo', 'converting'],
     ], [
-        ['Yo', 'convierto', 'I convert', true], ['Tú', 'conviertes', 'you convert', true], ['Ella / Él / Usted', 'convierte', 's/he converts', true],
-        ['Nosotras / Nosotros', 'convertimos', 'we convert'], ['Ellas / Ellos / Ustedes', 'convierten', 'they convert', true],
+        ['convierto', 'I convert', true], ['conviertes', 'you convert', true], ['convierte', 's/he converts', true],
+        ['convertimos', 'we convert'], ['convierten', 'they convert', true],
     ], [
-        ['Yo', 'convertí', 'I converted'], ['Tú', 'convertiste', 'you converted'], ['Ella / Él / Usted', 'convirtió', 's/he converted', true],
-        ['Nosotras / Nosotros', 'convertimos', 'we converted'], ['Ellas / Ellos / Ustedes', 'convirtieron', 'they converted', true],
+        ['convertí', 'I converted'], ['convertiste', 'you converted'], ['convirtió', 's/he converted', true],
+        ['convertimos', 'we converted'], ['convirtieron', 'they converted', true],
     ], [
-        ['Yo', 'convertía', 'I used to convert'], ['Tú', 'convertías', 'you used to convert'], ['Ella / Él / Usted', 'convertía', 's/he used to convert'],
-        ['Nosotras / Nosotros', 'convertíamos', 'we used to convert'], ['Ellas / Ellos / Ustedes', 'convertían', 'they used to convert'],
+        ['convertía', 'I used to convert'], ['convertías', 'you used to convert'], ['convertía', 's/he used to convert'],
+        ['convertíamos', 'we used to convert'], ['convertían', 'they used to convert'],
     ]),
     simpleVerb('ganar', 'to win, to gain, to earn', [
-        ['Infinitive', 'ganar', 'to win'], ['Past participle', 'ganado', 'won'], ['Gerund', 'ganando', 'winning'],
+        ['ganar', 'to win'], ['ganado', 'won'], ['ganando', 'winning'],
     ], [
-        ['Yo', 'gano', 'I win'], ['Tú', 'ganas', 'you win'], ['Ella / Él / Usted', 'gana', 's/he wins'],
-        ['Nosotras / Nosotros', 'ganamos', 'we win'], ['Ellas / Ellos / Ustedes', 'ganan', 'they win'],
+        ['gano', 'I win'], ['ganas', 'you win'], ['gana', 's/he wins'],
+        ['ganamos', 'we win'], ['ganan', 'they win'],
     ], [
-        ['Yo', 'gané', 'I won'], ['Tú', 'ganaste', 'you won'], ['Ella / Él / Usted', 'ganó', 's/he won'],
-        ['Nosotras / Nosotros', 'ganamos', 'we won'], ['Ellas / Ellos / Ustedes', 'ganaron', 'they won'],
+        ['gané', 'I won'], ['ganaste', 'you won'], ['ganó', 's/he won'],
+        ['ganamos', 'we won'], ['ganaron', 'they won'],
     ], [
-        ['Yo', 'ganaba', 'I used to win'], ['Tú', 'ganabas', 'you used to win'], ['Ella / Él / Usted', 'ganaba', 's/he used to win'],
-        ['Nosotras / Nosotros', 'ganábamos', 'we used to win'], ['Ellas / Ellos / Ustedes', 'ganaban', 'they used to win'],
+        ['ganaba', 'I used to win'], ['ganabas', 'you used to win'], ['ganaba', 's/he used to win'],
+        ['ganábamos', 'we used to win'], ['ganaban', 'they used to win'],
     ]),
     simpleVerb('formar', 'to form, to make', [
-        ['Infinitive', 'formar', 'to form'], ['Past participle', 'formado', 'formed'], ['Gerund', 'formando', 'forming'],
+        ['formar', 'to form'], ['formado', 'formed'], ['formando', 'forming'],
     ], [
-        ['Yo', 'formo', 'I form'], ['Tú', 'formas', 'you form'], ['Ella / Él / Usted', 'forma', 's/he forms'],
-        ['Nosotras / Nosotros', 'formamos', 'we form'], ['Ellas / Ellos / Ustedes', 'forman', 'they form'],
+        ['formo', 'I form'], ['formas', 'you form'], ['forma', 's/he forms'],
+        ['formamos', 'we form'], ['forman', 'they form'],
     ], [
-        ['Yo', 'formé', 'I formed'], ['Tú', 'formaste', 'you formed'], ['Ella / Él / Usted', 'formó', 's/he formed'],
-        ['Nosotras / Nosotros', 'formamos', 'we formed'], ['Ellas / Ellos / Ustedes', 'formaron', 'they formed'],
+        ['formé', 'I formed'], ['formaste', 'you formed'], ['formó', 's/he formed'],
+        ['formamos', 'we formed'], ['formaron', 'they formed'],
     ], [
-        ['Yo', 'formaba', 'I used to form'], ['Tú', 'formabas', 'you used to form'], ['Ella / Él / Usted', 'formaba', 's/he used to form'],
-        ['Nosotras / Nosotros', 'formábamos', 'we used to form'], ['Ellas / Ellos / Ustedes', 'formaban', 'they used to form'],
+        ['formaba', 'I used to form'], ['formabas', 'you used to form'], ['formaba', 's/he used to form'],
+        ['formábamos', 'we used to form'], ['formaban', 'they used to form'],
     ]),
     simpleVerb('traer', 'to bring, to carry', [
-        ['Infinitive', 'traer', 'to bring'], ['Past participle', 'traído', 'brought'], ['Gerund', 'trayendo', 'bringing'],
+        ['traer', 'to bring'], ['traído', 'brought'], ['trayendo', 'bringing'],
     ], [
-        ['Yo', 'traigo', 'I bring', true], ['Tú', 'traes', 'you bring', true], ['Ella / Él / Usted', 'trae', 's/he brings', true],
-        ['Nosotras / Nosotros', 'traemos', 'we bring'], ['Ellas / Ellos / Ustedes', 'traen', 'they bring', true],
+        ['traigo', 'I bring', true], ['traes', 'you bring', true], ['trae', 's/he brings', true],
+        ['traemos', 'we bring'], ['traen', 'they bring', true],
     ], [
-        ['Yo', 'traje', 'I brought', true], ['Tú', 'trajiste', 'you brought', true], ['Ella / Él / Usted', 'trajo', 's/he brought', true],
-        ['Nosotras / Nosotros', 'trajimos', 'we brought', true], ['Ellas / Ellos / Ustedes', 'trajeron', 'they brought', true],
+        ['traje', 'I brought', true], ['trajiste', 'you brought', true], ['trajo', 's/he brought', true],
+        ['trajimos', 'we brought', true], ['trajeron', 'they brought', true],
     ], [
-        ['Yo', 'traía', 'I used to bring'], ['Tú', 'traías', 'you used to bring'], ['Ella / Él / Usted', 'traía', 's/he used to bring'],
-        ['Nosotras / Nosotros', 'traíamos', 'we used to bring'], ['Ellas / Ellos / Ustedes', 'traían', 'they used to bring'],
+        ['traía', 'I used to bring'], ['traías', 'you used to bring'], ['traía', 's/he used to bring'],
+        ['traíamos', 'we used to bring'], ['traían', 'they used to bring'],
     ]),
     simpleVerb('partir', 'to split, to depart', [
-        ['Infinitive', 'partir', 'to split'], ['Past participle', 'partido', 'split'], ['Gerund', 'partiendo', 'splitting'],
+        ['partir', 'to split'], ['partido', 'split'], ['partiendo', 'splitting'],
     ], [
-        ['Yo', 'parto', 'I split'], ['Tú', 'partes', 'you split'], ['Ella / Él / Usted', 'parte', 's/he splits'],
-        ['Nosotras / Nosotros', 'partimos', 'we split'], ['Ellas / Ellos / Ustedes', 'parten', 'they split'],
+        ['parto', 'I split'], ['partes', 'you split'], ['parte', 's/he splits'],
+        ['partimos', 'we split'], ['parten', 'they split'],
     ], [
-        ['Yo', 'partí', 'I split'], ['Tú', 'partiste', 'you split'], ['Ella / Él / Usted', 'partió', 's/he split'],
-        ['Nosotras / Nosotros', 'partimos', 'we split'], ['Ellas / Ellos / Ustedes', 'partieron', 'they split'],
+        ['partí', 'I split'], ['partiste', 'you split'], ['partió', 's/he split'],
+        ['partimos', 'we split'], ['partieron', 'they split'],
     ], [
-        ['Yo', 'partía', 'I used to split'], ['Tú', 'partías', 'you used to split'], ['Ella / Él / Usted', 'partía', 's/he used to split'],
-        ['Nosotras / Nosotros', 'partíamos', 'we used to split'], ['Ellas / Ellos / Ustedes', 'partían', 'they used to split'],
+        ['partía', 'I used to split'], ['partías', 'you used to split'], ['partía', 's/he used to split'],
+        ['partíamos', 'we used to split'], ['partían', 'they used to split'],
     ]),
     simpleVerb('morir', 'to die', [
-        ['Infinitive', 'morir', 'to die'], ['Past participle', 'muerto', 'died'], ['Gerund', 'muriendo', 'dying'],
+        ['morir', 'to die'], ['muerto', 'died'], ['muriendo', 'dying'],
     ], [
-        ['Yo', 'muero', 'I die', true], ['Tú', 'mueres', 'you die', true], ['Ella / Él / Usted', 'muere', 's/he dies', true],
-        ['Nosotras / Nosotros', 'morimos', 'we die'], ['Ellas / Ellos / Ustedes', 'mueren', 'they die', true],
+        ['muero', 'I die', true], ['mueres', 'you die', true], ['muere', 's/he dies', true],
+        ['morimos', 'we die'], ['mueren', 'they die', true],
     ], [
-        ['Yo', 'morí', 'I died'], ['Tú', 'moriste', 'you died'], ['Ella / Él / Usted', 'murió', 's/he died', true],
-        ['Nosotras / Nosotros', 'morimos', 'we died'], ['Ellas / Ellos / Ustedes', 'murieron', 'they died', true],
+        ['morí', 'I died'], ['moriste', 'you died'], ['murió', 's/he died', true],
+        ['morimos', 'we died'], ['murieron', 'they died', true],
     ], [
-        ['Yo', 'moría', 'I used to die'], ['Tú', 'morías', 'you used to die'], ['Ella / Él / Usted', 'moría', 's/he used to die'],
-        ['Nosotras / Nosotros', 'moríamos', 'we used to die'], ['Ellas / Ellos / Ustedes', 'morían', 'they used to die'],
+        ['moría', 'I used to die'], ['morías', 'you used to die'], ['moría', 's/he used to die'],
+        ['moríamos', 'we used to die'], ['morían', 'they used to die'],
     ]),
     simpleVerb('aceptar', 'to accept', [
-        ['Infinitive', 'aceptar', 'to accept'], ['Past participle', 'aceptado', 'accepted'], ['Gerund', 'aceptando', 'accepting'],
+        ['aceptar', 'to accept'], ['aceptado', 'accepted'], ['aceptando', 'accepting'],
     ], [
-        ['Yo', 'acepto', 'I accept'], ['Tú', 'aceptas', 'you accept'], ['Ella / Él / Usted', 'acepta', 's/he accepts'],
-        ['Nosotras / Nosotros', 'aceptamos', 'we accept'], ['Ellas / Ellos / Ustedes', 'aceptan', 'they accept'],
+        ['acepto', 'I accept'], ['aceptas', 'you accept'], ['acepta', 's/he accepts'],
+        ['aceptamos', 'we accept'], ['aceptan', 'they accept'],
     ], [
-        ['Yo', 'acepté', 'I accepted'], ['Tú', 'aceptaste', 'you accepted'], ['Ella / Él / Usted', 'aceptó', 's/he accepted'],
-        ['Nosotras / Nosotros', 'aceptamos', 'we accepted'], ['Ellas / Ellos / Ustedes', 'aceptaron', 'they accepted'],
+        ['acepté', 'I accepted'], ['aceptaste', 'you accepted'], ['aceptó', 's/he accepted'],
+        ['aceptamos', 'we accepted'], ['aceptaron', 'they accepted'],
     ], [
-        ['Yo', 'aceptaba', 'I used to accept'], ['Tú', 'aceptabas', 'you used to accept'], ['Ella / Él / Usted', 'aceptaba', 's/he used to accept'],
-        ['Nosotras / Nosotros', 'aceptábamos', 'we used to accept'], ['Ellas / Ellos / Ustedes', 'aceptaban', 'they used to accept'],
+        ['aceptaba', 'I used to accept'], ['aceptabas', 'you used to accept'], ['aceptaba', 's/he used to accept'],
+        ['aceptábamos', 'we used to accept'], ['aceptaban', 'they used to accept'],
     ]),
     simpleVerb('realizar', 'to perform, to carry out, to realize', [
-        ['Infinitive', 'realizar', 'to perform'], ['Past participle', 'realizado', 'performed'], ['Gerund', 'realizando', 'performing'],
+        ['realizar', 'to perform'], ['realizado', 'performed'], ['realizando', 'performing'],
     ], [
-        ['Yo', 'realizo', 'I perform'], ['Tú', 'realizas', 'you perform'], ['Ella / Él / Usted', 'realiza', 's/he performs'],
-        ['Nosotras / Nosotros', 'realizamos', 'we perform'], ['Ellas / Ellos / Ustedes', 'realizan', 'they perform'],
+        ['realizo', 'I perform'], ['realizas', 'you perform'], ['realiza', 's/he performs'],
+        ['realizamos', 'we perform'], ['realizan', 'they perform'],
     ], [
-        ['Yo', 'realicé', 'I performed', true], ['Tú', 'realizaste', 'you performed'], ['Ella / Él / Usted', 'realizó', 's/he performed'],
-        ['Nosotras / Nosotros', 'realizamos', 'we performed'], ['Ellas / Ellos / Ustedes', 'realizaron', 'they performed'],
+        ['realicé', 'I performed', true], ['realizaste', 'you performed'], ['realizó', 's/he performed'],
+        ['realizamos', 'we performed'], ['realizaron', 'they performed'],
     ], [
-        ['Yo', 'realizaba', 'I used to perform'], ['Tú', 'realizabas', 'you used to perform'], ['Ella / Él / Usted', 'realizaba', 's/he used to perform'],
-        ['Nosotras / Nosotros', 'realizábamos', 'we used to perform'], ['Ellas / Ellos / Ustedes', 'realizaban', 'they used to perform'],
+        ['realizaba', 'I used to perform'], ['realizabas', 'you used to perform'], ['realizaba', 's/he used to perform'],
+        ['realizábamos', 'we used to perform'], ['realizaban', 'they used to perform'],
     ]),
     simpleVerb('suponer', 'to suppose, to guess', [
-        ['Infinitive', 'suponer', 'to suppose'], ['Past participle', 'supuesto', 'supposed'], ['Gerund', 'suponiendo', 'supposing'],
+        ['suponer', 'to suppose'], ['supuesto', 'supposed'], ['suponiendo', 'supposing'],
     ], [
-        ['Yo', 'supongo', 'I suppose', true], ['Tú', 'supones', 'you suppose'], ['Ella / Él / Usted', 'supone', 's/he supposes'],
-        ['Nosotras / Nosotros', 'suponemos', 'we suppose'], ['Ellas / Ellos / Ustedes', 'suponen', 'they suppose'],
+        ['supongo', 'I suppose', true], ['supones', 'you suppose'], ['supone', 's/he supposes'],
+        ['suponemos', 'we suppose'], ['suponen', 'they suppose'],
     ], [
-        ['Yo', 'supuse', 'I supposed', true], ['Tú', 'supusiste', 'you supposed'], ['Ella / Él / Usted', 'supuso', 's/he supposed'],
-        ['Nosotras / Nosotros', 'supusimos', 'we supposed'], ['Ellas / Ellos / Ustedes', 'supusieron', 'they supposed'],
+        ['supuse', 'I supposed', true], ['supusiste', 'you supposed'], ['supuso', 's/he supposed'],
+        ['supusimos', 'we supposed'], ['supusieron', 'they supposed'],
     ], [
-        ['Yo', 'suponía', 'I used to suppose'], ['Tú', 'suponías', 'you used to suppose'], ['Ella / Él / Usted', 'suponía', 's/he used to suppose'],
-        ['Nosotras / Nosotros', 'suponíamos', 'we used to suppose'], ['Ellas / Ellos / Ustedes', 'suponían', 'they used to suppose'],
+        ['suponía', 'I used to suppose'], ['suponías', 'you used to suppose'], ['suponía', 's/he used to suppose'],
+        ['suponíamos', 'we used to suppose'], ['suponían', 'they used to suppose'],
     ]),
     simpleVerb('comprender', 'to comprehend, to understand', [
-        ['Infinitive', 'comprender', 'to comprehend'], ['Past participle', 'comprendido', 'comprehended'], ['Gerund', 'comprendiendo', 'comprehending'],
+        ['comprender', 'to comprehend'], ['comprendido', 'comprehended'], ['comprendiendo', 'comprehending'],
     ], [
-        ['Yo', 'comprendo', 'I comprehend'], ['Tú', 'comprendes', 'you comprehend'], ['Ella / Él / Usted', 'comprende', 's/he comprehends'],
-        ['Nosotras / Nosotros', 'comprendemos', 'we comprehend'], ['Ellas / Ellos / Ustedes', 'comprenden', 'they comprehend'],
+        ['comprendo', 'I comprehend'], ['comprendes', 'you comprehend'], ['comprende', 's/he comprehends'],
+        ['comprendemos', 'we comprehend'], ['comprenden', 'they comprehend'],
     ], [
-        ['Yo', 'comprendí', 'I comprehended'], ['Tú', 'comprendiste', 'you comprehended'], ['Ella / Él / Usted', 'comprendió', 's/he comprehended'],
-        ['Nosotras / Nosotros', 'comprendimos', 'we comprehended'], ['Ellas / Ellos / Ustedes', 'comprendieron', 'they comprehended'],
+        ['comprendí', 'I comprehended'], ['comprendiste', 'you comprehended'], ['comprendió', 's/he comprehended'],
+        ['comprendimos', 'we comprehended'], ['comprendieron', 'they comprehended'],
     ], [
-        ['Yo', 'comprendía', 'I used to comprehend'], ['Tú', 'comprendías', 'you used to comprehend'], ['Ella / Él / Usted', 'comprendía', 's/he used to comprehend'],
-        ['Nosotras / Nosotros', 'comprendíamos', 'we used to comprehend'], ['Ellas / Ellos / Ustedes', 'comprendían', 'they used to comprehend'],
+        ['comprendía', 'I used to comprehend'], ['comprendías', 'you used to comprehend'], ['comprendía', 's/he used to comprehend'],
+        ['comprendíamos', 'we used to comprehend'], ['comprendían', 'they used to comprehend'],
     ]),
     simpleVerb('lograr', 'to achieve, to accomplish', [
-        ['Infinitive', 'lograr', 'to achieve'], ['Past participle', 'logrado', 'achieved'], ['Gerund', 'logrando', 'achieving'],
+        ['lograr', 'to achieve'], ['logrado', 'achieved'], ['logrando', 'achieving'],
     ], [
-        ['Yo', 'logro', 'I achieve'], ['Tú', 'logras', 'you achieve'], ['Ella / Él / Usted', 'logra', 's/he achieves'],
-        ['Nosotras / Nosotros', 'logramos', 'we achieve'], ['Ellas / Ellos / Ustedes', 'logran', 'they achieve'],
+        ['logro', 'I achieve'], ['logras', 'you achieve'], ['logra', 's/he achieves'],
+        ['logramos', 'we achieve'], ['logran', 'they achieve'],
     ], [
-        ['Yo', 'logré', 'I achieved'], ['Tú', 'lograste', 'you achieved'], ['Ella / Él / Usted', 'logró', 's/he achieved'],
-        ['Nosotras / Nosotros', 'logramos', 'we achieved'], ['Ellas / Ellos / Ustedes', 'lograron', 'they achieved'],
+        ['logré', 'I achieved'], ['lograste', 'you achieved'], ['logró', 's/he achieved'],
+        ['logramos', 'we achieved'], ['lograron', 'they achieved'],
     ], [
-        ['Yo', 'lograba', 'I used to achieve'], ['Tú', 'lograbas', 'you used to achieve'], ['Ella / Él / Usted', 'lograba', 's/he used to achieve'],
-        ['Nosotras / Nosotros', 'lográbamos', 'we used to achieve'], ['Ellas / Ellos / Ustedes', 'lograban', 'they used to achieve'],
+        ['lograba', 'I used to achieve'], ['lograbas', 'you used to achieve'], ['lograba', 's/he used to achieve'],
+        ['lográbamos', 'we used to achieve'], ['lograban', 'they used to achieve'],
     ]),
     simpleVerb('explicar', 'to explain', [
-        ['Infinitive', 'explicar', 'to explain'], ['Past participle', 'explicado', 'explained'], ['Gerund', 'explicando', 'explaining'],
+        ['explicar', 'to explain'], ['explicado', 'explained'], ['explicando', 'explaining'],
     ], [
-        ['Yo', 'explico', 'I explain'], ['Tú', 'explicas', 'you explain'], ['Ella / Él / Usted', 'explica', 's/he explains'],
-        ['Nosotras / Nosotros', 'explicamos', 'we explain'], ['Ellas / Ellos / Ustedes', 'explican', 'they explain'],
+        ['explico', 'I explain'], ['explicas', 'you explain'], ['explica', 's/he explains'],
+        ['explicamos', 'we explain'], ['explican', 'they explain'],
     ], [
-        ['Yo', 'expliqué', 'I explained', true], ['Tú', 'explicaste', 'you explained'], ['Ella / Él / Usted', 'explicó', 's/he explained'],
-        ['Nosotras / Nosotros', 'explicamos', 'we explained'], ['Ellas / Ellos / Ustedes', 'explicaron', 'they explained'],
+        ['expliqué', 'I explained', true], ['explicaste', 'you explained'], ['explicó', 's/he explained'],
+        ['explicamos', 'we explained'], ['explicaron', 'they explained'],
     ], [
-        ['Yo', 'explicaba', 'I used to explain'], ['Tú', 'explicabas', 'you used to explain'], ['Ella / Él / Usted', 'explicaba', 's/he used to explain'],
-        ['Nosotras / Nosotros', 'explicábamos', 'we used to explain'], ['Ellas / Ellos / Ustedes', 'explicaban', 'they used to explain'],
+        ['explicaba', 'I used to explain'], ['explicabas', 'you used to explain'], ['explicaba', 's/he used to explain'],
+        ['explicábamos', 'we used to explain'], ['explicaban', 'they used to explain'],
     ]),
     simpleVerb('preguntar', 'to ask, to question', [
-        ['Infinitive', 'preguntar', 'to ask'], ['Past participle', 'preguntado', 'asked'], ['Gerund', 'preguntando', 'asking'],
+        ['preguntar', 'to ask'], ['preguntado', 'asked'], ['preguntando', 'asking'],
     ], [
-        ['Yo', 'pregunto', 'I ask'], ['Tú', 'preguntas', 'you ask'], ['Ella / Él / Usted', 'pregunta', 's/he asks'],
-        ['Nosotras / Nosotros', 'preguntamos', 'we ask'], ['Ellas / Ellos / Ustedes', 'preguntan', 'they ask'],
+        ['pregunto', 'I ask'], ['preguntas', 'you ask'], ['pregunta', 's/he asks'],
+        ['preguntamos', 'we ask'], ['preguntan', 'they ask'],
     ], [
-        ['Yo', 'pregunté', 'I asked'], ['Tú', 'preguntaste', 'you asked'], ['Ella / Él / Usted', 'preguntó', 's/he asked'],
-        ['Nosotras / Nosotros', 'preguntamos', 'we asked'], ['Ellas / Ellos / Ustedes', 'preguntaron', 'they asked'],
+        ['pregunté', 'I asked'], ['preguntaste', 'you asked'], ['preguntó', 's/he asked'],
+        ['preguntamos', 'we asked'], ['preguntaron', 'they asked'],
     ], [
-        ['Yo', 'preguntaba', 'I used to ask'], ['Tú', 'preguntabas', 'you used to ask'], ['Ella / Él / Usted', 'preguntaba', 's/he used to ask'],
-        ['Nosotras / Nosotros', 'preguntábamos', 'we used to ask'], ['Ellas / Ellos / Ustedes', 'preguntaban', 'they used to ask'],
+        ['preguntaba', 'I used to ask'], ['preguntabas', 'you used to ask'], ['preguntaba', 's/he used to ask'],
+        ['preguntábamos', 'we used to ask'], ['preguntaban', 'they used to ask'],
     ]),
     simpleVerb('tocar', 'to play (an instrument), to touch', [
-        ['Infinitive', 'tocar', 'to play, to touch'], ['Past participle', 'tocado', 'played'], ['Gerund', 'tocando', 'playing'],
+        ['tocar', 'to play, to touch'], ['tocado', 'played'], ['tocando', 'playing'],
     ], [
-        ['Yo', 'toco', 'I play'], ['Tú', 'tocas', 'you play'], ['Ella / Él / Usted', 'toca', 's/he plays'],
-        ['Nosotras / Nosotros', 'tocamos', 'we play'], ['Ellas / Ellos / Ustedes', 'tocan', 'they play'],
+        ['toco', 'I play'], ['tocas', 'you play'], ['toca', 's/he plays'],
+        ['tocamos', 'we play'], ['tocan', 'they play'],
     ], [
-        ['Yo', 'toqué', 'I played', true], ['Tú', 'tocaste', 'you played'], ['Ella / Él / Usted', 'tocó', 's/he played'],
-        ['Nosotras / Nosotros', 'tocamos', 'we played'], ['Ellas / Ellos / Ustedes', 'tocaron', 'they played'],
+        ['toqué', 'I played', true], ['tocaste', 'you played'], ['tocó', 's/he played'],
+        ['tocamos', 'we played'], ['tocaron', 'they played'],
     ], [
-        ['Yo', 'tocaba', 'I used to play'], ['Tú', 'tocabas', 'you used to play'], ['Ella / Él / Usted', 'tocaba', 's/he used to play'],
-        ['Nosotras / Nosotros', 'tocábamos', 'we used to play'], ['Ellas / Ellos / Ustedes', 'tocaban', 'they used to play'],
+        ['tocaba', 'I used to play'], ['tocabas', 'you used to play'], ['tocaba', 's/he used to play'],
+        ['tocábamos', 'we used to play'], ['tocaban', 'they used to play'],
     ]),
     simpleVerb('reconocer', 'to recognize', [
-        ['Infinitive', 'reconocer', 'to recognize'], ['Past participle', 'reconocido', 'recognized'], ['Gerund', 'reconociendo', 'recognizing'],
+        ['reconocer', 'to recognize'], ['reconocido', 'recognized'], ['reconociendo', 'recognizing'],
     ], [
-        ['Yo', 'reconozco', 'I recognize', true], ['Tú', 'reconoces', 'you recognize'], ['Ella / Él / Usted', 'reconoce', 's/he recognizes'],
-        ['Nosotras / Nosotros', 'reconocemos', 'we recognize'], ['Ellas / Ellos / Ustedes', 'reconocen', 'they recognize'],
+        ['reconozco', 'I recognize', true], ['reconoces', 'you recognize'], ['reconoce', 's/he recognizes'],
+        ['reconocemos', 'we recognize'], ['reconocen', 'they recognize'],
     ], [
-        ['Yo', 'reconocí', 'I recognized'], ['Tú', 'reconociste', 'you recognized'], ['Ella / Él / Usted', 'reconoció', 's/he recognized'],
-        ['Nosotras / Nosotros', 'reconocimos', 'we recognized'], ['Ellas / Ellos / Ustedes', 'reconocieron', 'they recognized'],
+        ['reconocí', 'I recognized'], ['reconociste', 'you recognized'], ['reconoció', 's/he recognized'],
+        ['reconocimos', 'we recognized'], ['reconocieron', 'they recognized'],
     ], [
-        ['Yo', 'reconocía', 'I used to recognize'], ['Tú', 'reconocías', 'you used to recognize'], ['Ella / Él / Usted', 'reconocía', 's/he used to recognize'],
-        ['Nosotras / Nosotros', 'reconocíamos', 'we used to recognize'], ['Ellas / Ellos / Ustedes', 'reconocían', 'they used to recognize'],
+        ['reconocía', 'I used to recognize'], ['reconocías', 'you used to recognize'], ['reconocía', 's/he used to recognize'],
+        ['reconocíamos', 'we used to recognize'], ['reconocían', 'they used to recognize'],
     ]),
     simpleVerb('estudiar', 'to study', [
-        ['Infinitive', 'estudiar', 'to study'], ['Past participle', 'estudiado', 'studied'], ['Gerund', 'estudiando', 'studying'],
+        ['estudiar', 'to study'], ['estudiado', 'studied'], ['estudiando', 'studying'],
     ], [
-        ['Yo', 'estudio', 'I study'], ['Tú', 'estudias', 'you study'], ['Ella / Él / Usted', 'estudia', 's/he studies'],
-        ['Nosotras / Nosotros', 'estudiamos', 'we study'], ['Ellas / Ellos / Ustedes', 'estudian', 'they study'],
+        ['estudio', 'I study'], ['estudias', 'you study'], ['estudia', 's/he studies'],
+        ['estudiamos', 'we study'], ['estudian', 'they study'],
     ], [
-        ['Yo', 'estudié', 'I studied'], ['Tú', 'estudiaste', 'you studied'], ['Ella / Él / Usted', 'estudió', 's/he studied'],
-        ['Nosotras / Nosotros', 'estudiamos', 'we studied'], ['Ellas / Ellos / Ustedes', 'estudiaron', 'they studied'],
+        ['estudié', 'I studied'], ['estudiaste', 'you studied'], ['estudió', 's/he studied'],
+        ['estudiamos', 'we studied'], ['estudiaron', 'they studied'],
     ], [
-        ['Yo', 'estudiaba', 'I used to study'], ['Tú', 'estudiabas', 'you used to study'], ['Ella / Él / Usted', 'estudiaba', 's/he used to study'],
-        ['Nosotras / Nosotros', 'estudiábamos', 'we used to study'], ['Ellas / Ellos / Ustedes', 'estudiaban', 'they used to study'],
+        ['estudiaba', 'I used to study'], ['estudiabas', 'you used to study'], ['estudiaba', 's/he used to study'],
+        ['estudiábamos', 'we used to study'], ['estudiaban', 'they used to study'],
     ]),
     simpleVerb('alcanzar', 'to reach, to attain, to achieve', [
-        ['Infinitive', 'alcanzar', 'to reach'], ['Past participle', 'alcanzado', 'reached'], ['Gerund', 'alcanzando', 'reaching'],
+        ['alcanzar', 'to reach'], ['alcanzado', 'reached'], ['alcanzando', 'reaching'],
     ], [
-        ['Yo', 'alcanzo', 'I reach'], ['Tú', 'alcanzas', 'you reach'], ['Ella / Él / Usted', 'alcanza', 's/he reaches'],
-        ['Nosotras / Nosotros', 'alcanzamos', 'we reach'], ['Ellas / Ellos / Ustedes', 'alcanzan', 'they reach'],
+        ['alcanzo', 'I reach'], ['alcanzas', 'you reach'], ['alcanza', 's/he reaches'],
+        ['alcanzamos', 'we reach'], ['alcanzan', 'they reach'],
     ], [
-        ['Yo', 'alcancé', 'I reached', true], ['Tú', 'alcanzaste', 'you reached'], ['Ella / Él / Usted', 'alcanzó', 's/he reached'],
-        ['Nosotras / Nosotros', 'alcanzamos', 'we reached'], ['Ellas / Ellos / Ustedes', 'alcanzaron', 'they reached'],
+        ['alcancé', 'I reached', true], ['alcanzaste', 'you reached'], ['alcanzó', 's/he reached'],
+        ['alcanzamos', 'we reached'], ['alcanzaron', 'they reached'],
     ], [
-        ['Yo', 'alcanzaba', 'I used to reach'], ['Tú', 'alcanzabas', 'you used to reach'], ['Ella / Él / Usted', 'alcanzaba', 's/he used to reach'],
-        ['Nosotras / Nosotros', 'alcanzábamos', 'we used to reach'], ['Ellas / Ellos / Ustedes', 'alcanzaban', 'they used to reach'],
+        ['alcanzaba', 'I used to reach'], ['alcanzabas', 'you used to reach'], ['alcanzaba', 's/he used to reach'],
+        ['alcanzábamos', 'we used to reach'], ['alcanzaban', 'they used to reach'],
     ]),
     simpleVerb('nacer', 'to be born', [
-        ['Infinitive', 'nacer', 'to be born'], ['Past participle', 'nacido', 'been born'], ['Gerund', 'naciendo', 'being born'],
+        ['nacer', 'to be born'], ['nacido', 'been born'], ['naciendo', 'being born'],
     ], [
-        ['Yo', 'nazco', 'I am born', true], ['Tú', 'naces', 'you are born'], ['Ella / Él / Usted', 'nace', 's/he is born'],
-        ['Nosotras / Nosotros', 'nacemos', 'we are born'], ['Ellas / Ellos / Ustedes', 'nacen', 'they are born'],
+        ['nazco', 'I am born', true], ['naces', 'you are born'], ['nace', 's/he is born'],
+        ['nacemos', 'we are born'], ['nacen', 'they are born'],
     ], [
-        ['Yo', 'nací', 'I was born'], ['Tú', 'naciste', 'you were born'], ['Ella / Él / Usted', 'nació', 's/he was born'],
-        ['Nosotras / Nosotros', 'nacimos', 'we were born'], ['Ellas / Ellos / Ustedes', 'nacieron', 'they were born'],
+        ['nací', 'I was born'], ['naciste', 'you were born'], ['nació', 's/he was born'],
+        ['nacimos', 'we were born'], ['nacieron', 'they were born'],
     ], [
-        ['Yo', 'nacía', 'I used to be born'], ['Tú', 'nacías', 'you used to be born'], ['Ella / Él / Usted', 'nacía', 's/he used to be born'],
-        ['Nosotras / Nosotros', 'nacíamos', 'we used to be born'], ['Ellas / Ellos / Ustedes', 'nacían', 'they used to be born'],
+        ['nacía', 'I used to be born'], ['nacías', 'you used to be born'], ['nacía', 's/he used to be born'],
+        ['nacíamos', 'we used to be born'], ['nacían', 'they used to be born'],
     ]),
     simpleVerb('dirigir', 'to direct, to lead, to manage', [
-        ['Infinitive', 'dirigir', 'to direct'], ['Past participle', 'dirigido', 'directed'], ['Gerund', 'dirigiendo', 'directing'],
+        ['dirigir', 'to direct'], ['dirigido', 'directed'], ['dirigiendo', 'directing'],
     ], [
-        ['Yo', 'dirijo', 'I direct', true], ['Tú', 'diriges', 'you direct'], ['Ella / Él / Usted', 'dirige', 's/he directs'],
-        ['Nosotras / Nosotros', 'dirigimos', 'we direct'], ['Ellas / Ellos / Ustedes', 'dirigen', 'they direct'],
+        ['dirijo', 'I direct', true], ['diriges', 'you direct'], ['dirige', 's/he directs'],
+        ['dirigimos', 'we direct'], ['dirigen', 'they direct'],
     ], [
-        ['Yo', 'dirigí', 'I directed'], ['Tú', 'dirigiste', 'you directed'], ['Ella / Él / Usted', 'dirigió', 's/he directed'],
-        ['Nosotras / Nosotros', 'dirigimos', 'we directed'], ['Ellas / Ellos / Ustedes', 'dirigieron', 'they directed'],
+        ['dirigí', 'I directed'], ['dirigiste', 'you directed'], ['dirigió', 's/he directed'],
+        ['dirigimos', 'we directed'], ['dirigieron', 'they directed'],
     ], [
-        ['Yo', 'dirigía', 'I used to direct'], ['Tú', 'dirigías', 'you used to direct'], ['Ella / Él / Usted', 'dirigía', 's/he used to direct'],
-        ['Nosotras / Nosotros', 'dirigíamos', 'we used to direct'], ['Ellas / Ellos / Ustedes', 'dirigían', 'they used to direct'],
+        ['dirigía', 'I used to direct'], ['dirigías', 'you used to direct'], ['dirigía', 's/he used to direct'],
+        ['dirigíamos', 'we used to direct'], ['dirigían', 'they used to direct'],
     ]),
     simpleVerb('correr', 'to run, to race', [
-        ['Infinitive', 'correr', 'to run'], ['Past participle', 'corrido', 'run'], ['Gerund', 'corriendo', 'running'],
+        ['correr', 'to run'], ['corrido', 'run'], ['corriendo', 'running'],
     ], [
-        ['Yo', 'corro', 'I run'], ['Tú', 'corres', 'you run'], ['Ella / Él / Usted', 'corre', 's/he runs'],
-        ['Nosotras / Nosotros', 'corremos', 'we run'], ['Ellas / Ellos / Ustedes', 'corren', 'they run'],
+        ['corro', 'I run'], ['corres', 'you run'], ['corre', 's/he runs'],
+        ['corremos', 'we run'], ['corren', 'they run'],
     ], [
-        ['Yo', 'corrí', 'I ran'], ['Tú', 'corriste', 'you ran'], ['Ella / Él / Usted', 'corrió', 's/he ran'],
-        ['Nosotras / Nosotros', 'corrimos', 'we ran'], ['Ellas / Ellos / Ustedes', 'corrieron', 'they ran'],
+        ['corrí', 'I ran'], ['corriste', 'you ran'], ['corrió', 's/he ran'],
+        ['corrimos', 'we ran'], ['corrieron', 'they ran'],
     ], [
-        ['Yo', 'corría', 'I used to run'], ['Tú', 'corrías', 'you used to run'], ['Ella / Él / Usted', 'corría', 's/he used to run'],
-        ['Nosotras / Nosotros', 'corríamos', 'we used to run'], ['Ellas / Ellos / Ustedes', 'corrían', 'they used to run'],
+        ['corría', 'I used to run'], ['corrías', 'you used to run'], ['corría', 's/he used to run'],
+        ['corríamos', 'we used to run'], ['corrían', 'they used to run'],
     ]),
     simpleVerb('utilizar', 'to use, to utilize', [
-        ['Infinitive', 'utilizar', 'to use'], ['Past participle', 'utilizado', 'used'], ['Gerund', 'utilizando', 'using'],
+        ['utilizar', 'to use'], ['utilizado', 'used'], ['utilizando', 'using'],
     ], [
-        ['Yo', 'utilizo', 'I use'], ['Tú', 'utilizas', 'you use'], ['Ella / Él / Usted', 'utiliza', 's/he uses'],
-        ['Nosotras / Nosotros', 'utilizamos', 'we use'], ['Ellas / Ellos / Ustedes', 'utilizan', 'they use'],
+        ['utilizo', 'I use'], ['utilizas', 'you use'], ['utiliza', 's/he uses'],
+        ['utilizamos', 'we use'], ['utilizan', 'they use'],
     ], [
-        ['Yo', 'utilicé', 'I used', true], ['Tú', 'utilizaste', 'you used'], ['Ella / Él / Usted', 'utilizó', 's/he used'],
-        ['Nosotras / Nosotros', 'utilizamos', 'we used'], ['Ellas / Ellos / Ustedes', 'utilizaron', 'they used'],
+        ['utilicé', 'I used', true], ['utilizaste', 'you used'], ['utilizó', 's/he used'],
+        ['utilizamos', 'we used'], ['utilizaron', 'they used'],
     ], [
-        ['Yo', 'utilizaba', 'I used to use'], ['Tú', 'utilizabas', 'you used to use'], ['Ella / Él / Usted', 'utilizaba', 's/he used to use'],
-        ['Nosotras / Nosotros', 'utilizábamos', 'we used to use'], ['Ellas / Ellos / Ustedes', 'utilizaban', 'they used to use'],
+        ['utilizaba', 'I used to use'], ['utilizabas', 'you used to use'], ['utilizaba', 's/he used to use'],
+        ['utilizábamos', 'we used to use'], ['utilizaban', 'they used to use'],
     ]),
     simpleVerb('pagar', 'to pay (for)', [
-        ['Infinitive', 'pagar', 'to pay'], ['Past participle', 'pagado', 'paid'], ['Gerund', 'pagando', 'paying'],
+        ['pagar', 'to pay'], ['pagado', 'paid'], ['pagando', 'paying'],
     ], [
-        ['Yo', 'pago', 'I pay'], ['Tú', 'pagas', 'you pay'], ['Ella / Él / Usted', 'paga', 's/he pays'],
-        ['Nosotras / Nosotros', 'pagamos', 'we pay'], ['Ellas / Ellos / Ustedes', 'pagan', 'they pay'],
+        ['pago', 'I pay'], ['pagas', 'you pay'], ['paga', 's/he pays'],
+        ['pagamos', 'we pay'], ['pagan', 'they pay'],
     ], [
-        ['Yo', 'pagué', 'I paid', true], ['Tú', 'pagaste', 'you paid'], ['Ella / Él / Usted', 'pagó', 's/he paid'],
-        ['Nosotras / Nosotros', 'pagamos', 'we paid'], ['Ellas / Ellos / Ustedes', 'pagaron', 'they paid'],
+        ['pagué', 'I paid', true], ['pagaste', 'you paid'], ['pagó', 's/he paid'],
+        ['pagamos', 'we paid'], ['pagaron', 'they paid'],
     ], [
-        ['Yo', 'pagaba', 'I used to pay'], ['Tú', 'pagabas', 'you used to pay'], ['Ella / Él / Usted', 'pagaba', 's/he used to pay'],
-        ['Nosotras / Nosotros', 'pagábamos', 'we used to pay'], ['Ellas / Ellos / Ustedes', 'pagaban', 'they used to pay'],
+        ['pagaba', 'I used to pay'], ['pagabas', 'you used to pay'], ['pagaba', 's/he used to pay'],
+        ['pagábamos', 'we used to pay'], ['pagaban', 'they used to pay'],
     ]),
     simpleVerb('ayudar', 'to help, to assist', [
-        ['Infinitive', 'ayudar', 'to help'], ['Past participle', 'ayudado', 'helped'], ['Gerund', 'ayudando', 'helping'],
+        ['ayudar', 'to help'], ['ayudado', 'helped'], ['ayudando', 'helping'],
     ], [
-        ['Yo', 'ayudo', 'I help'], ['Tú', 'ayudas', 'you help'], ['Ella / Él / Usted', 'ayuda', 's/he helps'],
-        ['Nosotras / Nosotros', 'ayudamos', 'we help'], ['Ellas / Ellos / Ustedes', 'ayudan', 'they help'],
+        ['ayudo', 'I help'], ['ayudas', 'you help'], ['ayuda', 's/he helps'],
+        ['ayudamos', 'we help'], ['ayudan', 'they help'],
     ], [
-        ['Yo', 'ayudé', 'I helped'], ['Tú', 'ayudaste', 'you helped'], ['Ella / Él / Usted', 'ayudó', 's/he helped'],
-        ['Nosotras / Nosotros', 'ayudamos', 'we helped'], ['Ellas / Ellos / Ustedes', 'ayudaron', 'they helped'],
+        ['ayudé', 'I helped'], ['ayudaste', 'you helped'], ['ayudó', 's/he helped'],
+        ['ayudamos', 'we helped'], ['ayudaron', 'they helped'],
     ], [
-        ['Yo', 'ayudaba', 'I used to help'], ['Tú', 'ayudabas', 'you used to help'], ['Ella / Él / Usted', 'ayudaba', 's/he used to help'],
-        ['Nosotras / Nosotros', 'ayudábamos', 'we used to help'], ['Ellas / Ellos / Ustedes', 'ayudaban', 'they used to help'],
+        ['ayudaba', 'I used to help'], ['ayudabas', 'you used to help'], ['ayudaba', 's/he used to help'],
+        ['ayudábamos', 'we used to help'], ['ayudaban', 'they used to help'],
     ]),
 ]
 
