@@ -316,6 +316,57 @@ export const VERBS: VerbEntry[] = [
       },
     ],
   },
+  {
+    infinitive: 'estar',
+    translation: 'to be',
+    summary: 'Estar is another Spanish verb which means "to be". In contrast to Ser, Estar is generally used to portray more temporary feelings or situations. For example: I am not at home, you are angry, she is at the concert, this cake is delicious, we are singing a song, this restaurant is very popular. This is an important and versatile verb that you will use in everyday life. Estar is also irregular in most cases, meaning you will need to learn the conjugations off by heart.',
+    infinitiveForms: [
+      { item: 'Infinitive', spanish: 'estar', english: 'to be (temporary)' },
+      { item: 'Past participle', spanish: 'estado', english: 'been' },
+      { item: 'Gerund', spanish: 'estando', english: 'being' },
+    ],
+    tenses: [
+      {
+        name: 'Indicative Present',
+        spanishName: 'El Presente',
+        description: 'The Indicative Present of estar is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
+        example: { spanish: 'estoy cansado', english: 'I am tired' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'estoy', english: 'I am', irregular: true },
+          { pronoun: 'Tú', spanish: 'estás', english: 'you are', irregular: true },
+          { pronoun: 'Ella / Él / Usted', spanish: 'está', english: 's/he is', irregular: true },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'estamos', english: 'we are' },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'están', english: 'they are', irregular: true },
+        ],
+      },
+      {
+        name: 'Indicative Preterite',
+        spanishName: 'El Pretérito Indefinido',
+        description: 'The Indicative Preterite of estar is used to talk about actions completed in the past, at a specific point in time.',
+        example: { spanish: 'estuve cansado', english: 'I was tired' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'estuve', english: 'I was', irregular: true },
+          { pronoun: 'Tú', spanish: 'estuviste', english: 'you were', irregular: true },
+          { pronoun: 'Ella / Él / Usted', spanish: 'estuvo', english: 's/he was', irregular: true },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'estuvimos', english: 'we were', irregular: true },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'estuvieron', english: 'they were', irregular: true },
+        ],
+      },
+      {
+        name: 'Indicative Imperfect',
+        spanishName: 'El Pretérito Imperfecto',
+        description: 'The Indicative Imperfect of estar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
+        example: { spanish: 'estaba cansado', english: 'I used to be tired' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'estaba', english: 'I used to be' },
+          { pronoun: 'Tú', spanish: 'estabas', english: 'you used to be' },
+          { pronoun: 'Ella / Él / Usted', spanish: 'estaba', english: 's/he used to be' },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'estábamos', english: 'we used to be' },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'estaban', english: 'they used to be' },
+        ],
+      },
+    ],
+  },
 ]
 
 export const SCREENS: Screen[] = [
