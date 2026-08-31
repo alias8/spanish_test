@@ -4,7 +4,26 @@ export type ConjugationEntry = { id: string; stem: string; ending: string }
 export type ConjugationRow = { pronoun: string; cells: ConjugationEntry[] }
 export type NumberScreen = { kind: 'numbers'; label: string; col1: NumberEntry[]; col2: NumberEntry[] }
 export type ConjugationScreen = { kind: 'conjugation'; label: string; description: string; verbs: string[]; rows: ConjugationRow[] }
-export type Screen = NumberScreen | ConjugationScreen
+
+export type VerbForm = { pronoun: string; spanish: string; english: string; irregular?: boolean }
+export type VerbTense = {
+  name: string
+  spanishName: string
+  description: string
+  example: { spanish: string; english: string }
+  forms: VerbForm[]
+}
+export type VerbInfoRow = { item: string; spanish: string; english: string }
+export type VerbEntry = {
+  infinitive: string
+  translation: string
+  summary: string
+  infinitiveForms: VerbInfoRow[]
+  tenses: VerbTense[]
+}
+export type VerbLookupScreen = { kind: 'verbs'; label: string }
+
+export type Screen = NumberScreen | ConjugationScreen | VerbLookupScreen
 
 const ALL_NUMBERS: NumberEntry[] = [
   { value: 1,  spanish: 'uno' },
@@ -245,6 +264,60 @@ const CONJUGATION_SCREENS: ConjugationScreen[] = [
   },
 ]
 
+export const VERBS: VerbEntry[] = [
+  {
+    infinitive: 'ser',
+    translation: 'to be',
+    summary: 'Ser is the Spanish verb "to be". It is generally used to portray permanent situations, for example: I am from Spain, he is a profesor, she is tall, this watch is my mother\'s etc. You\'ll find that this particular verb is one of the most versatile out there, but also hugely irregular, following almost no rules. Ser is not to be confused with Estar, also meaning "to be", but used for different situations.',
+    infinitiveForms: [
+      { item: 'Infinitive', spanish: 'ser', english: 'to be (permanent)' },
+      { item: 'Past participle', spanish: 'sido', english: 'been' },
+      { item: 'Gerund', spanish: 'siendo', english: 'being' },
+    ],
+    tenses: [
+      {
+        name: 'Indicative Present',
+        spanishName: 'El Presente',
+        description: 'The Indicative Present of ser is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
+        example: { spanish: 'soy estudiante', english: 'I am a student' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'soy', english: 'I am', irregular: true },
+          { pronoun: 'Tú', spanish: 'eres', english: 'you are', irregular: true },
+          { pronoun: 'Ella / Él / Usted', spanish: 'es', english: 's/he is', irregular: true },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'somos', english: 'we are', irregular: true },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'son', english: 'they are', irregular: true },
+        ],
+      },
+      {
+        name: 'Indicative Preterite',
+        spanishName: 'El Pretérito Indefinido',
+        description: 'The Indicative Preterite of ser is used to talk about actions completed in the past, at a specific point in time.',
+        example: { spanish: 'fui estudiante', english: 'I was a student' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'fui', english: 'I was', irregular: true },
+          { pronoun: 'Tú', spanish: 'fuiste', english: 'you were', irregular: true },
+          { pronoun: 'Ella / Él / Usted', spanish: 'fue', english: 's/he was', irregular: true },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'fuimos', english: 'we were', irregular: true },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'fueron', english: 'they were', irregular: true },
+        ],
+      },
+      {
+        name: 'Indicative Imperfect',
+        spanishName: 'El Pretérito Imperfecto',
+        description: 'The Indicative Imperfect of ser is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
+        example: { spanish: 'era estudiante', english: 'I used to be a student' },
+        forms: [
+          { pronoun: 'Yo', spanish: 'era', english: 'I used to be', irregular: true },
+          { pronoun: 'Tú', spanish: 'eras', english: 'you used to be', irregular: true },
+          { pronoun: 'Ella / Él / Usted', spanish: 'era', english: 's/he used to be', irregular: true },
+          { pronoun: 'Nosotras / Nosotros', spanish: 'éramos', english: 'we used to be', irregular: true },
+          { pronoun: 'Ellas / Ellos / Ustedes', spanish: 'eran', english: 'they used to be', irregular: true },
+        ],
+      },
+    ],
+  },
+]
+
 export const SCREENS: Screen[] = [
   { kind: 'numbers', label: '1 – 20',      col1: ALL_NUMBERS.slice(0, 10),  col2: ALL_NUMBERS.slice(10, 20) },
   { kind: 'numbers', label: '21 – 40',     col1: ALL_NUMBERS.slice(20, 30), col2: ALL_NUMBERS.slice(30, 40) },
@@ -256,4 +329,5 @@ export const SCREENS: Screen[] = [
   { kind: 'numbers', label: 'Tricky 100s', col1: TRICKY_HUNDREDS.slice(0, 10), col2: TRICKY_HUNDREDS.slice(10) },
   { kind: 'numbers', label: 'Years',       col1: YEARS.slice(0, 10),        col2: YEARS.slice(10) },
   ...CONJUGATION_SCREENS,
+  { kind: 'verbs', label: 'Verbs' },
 ]

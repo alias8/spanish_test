@@ -1,8 +1,9 @@
 import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
-import { type NumberEntry, SCREENS } from './data'
+import { type NumberEntry, SCREENS, VERBS } from './data'
 import Card from './Card'
 import ConjugationTable from './ConjugationTable'
+import VerbLookup from './VerbLookup'
 import { normalize } from './utils'
 
 export default function App() {
@@ -22,8 +23,10 @@ export default function App() {
   const revealed = revealedByScreen[screenIndex]
   const totalCount = screen.kind === 'numbers'
     ? numberScreenMap!.size
-    : screen.rows.reduce((sum, row) => sum + row.cells.length, 0)
-  const complete = revealed.size === totalCount
+    : screen.kind === 'conjugation'
+    ? screen.rows.reduce((sum, row) => sum + row.cells.length, 0)
+    : 0
+  const complete = screen.kind !== 'verbs' && revealed.size === totalCount
 
   function switchScreen(index: number) {
     setScreenIndex(index)
@@ -73,43 +76,51 @@ export default function App() {
     <div className="layout">
       <div className="app">
         <h1>{screen.kind === 'numbers' ? 'Spanish Numbers' : screen.label}</h1>
-        <p className="subtitle">
-          {screen.kind === 'numbers'
-            ? 'Type each number in Spanish to reveal it'
-            : screen.description}
-        </p>
+        {screen.kind !== 'verbs' && (
+          <p className="subtitle">
+            {screen.kind === 'numbers'
+              ? 'Type each number in Spanish to reveal it'
+              : screen.description}
+          </p>
+        )}
 
         {screen.kind === 'numbers' ? (
           <div className="columns">
             <div className="grid">{renderColumn(screen.col1)}</div>
             {screen.col2.length > 0 && <div className="grid">{renderColumn(screen.col2)}</div>}
           </div>
-        ) : (
+        ) : screen.kind === 'conjugation' ? (
           <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
+        ) : (
+          <VerbLookup verbs={VERBS} />
         )}
 
-        <div className="bottom-area">
-          {complete ? (
-            <div className="complete">
-              <span>¡Perfecto! You got all {totalCount}!</span>
-              <button onClick={reset}>Play again</button>
+        {screen.kind !== 'verbs' && (
+          <>
+            <div className="bottom-area">
+              {complete ? (
+                <div className="complete">
+                  <span>¡Perfecto! You got all {totalCount}!</span>
+                  <button onClick={reset}>Play again</button>
+                </div>
+              ) : screen.kind === 'numbers' ? (
+                <input
+                  ref={inputRef}
+                  className="answer-input"
+                  type="text"
+                  value={input}
+                  onChange={handleInput}
+                  placeholder="Type a Spanish number..."
+                  autoFocus
+                  autoComplete="off"
+                  spellCheck={false}
+                />
+              ) : null}
             </div>
-          ) : screen.kind === 'numbers' ? (
-            <input
-              ref={inputRef}
-              className="answer-input"
-              type="text"
-              value={input}
-              onChange={handleInput}
-              placeholder="Type a Spanish number..."
-              autoFocus
-              autoComplete="off"
-              spellCheck={false}
-            />
-          ) : null}
-        </div>
 
-        <p className="progress">{revealed.size} / {totalCount}</p>
+            <p className="progress">{revealed.size} / {totalCount}</p>
+          </>
+        )}
       </div>
 
       <nav className="screen-nav">
