@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { VerbEntry } from './data'
+import type { VerbEntry } from './verbs'
 import { normalize } from './utils'
 
 export default function VerbLookup({ verbs, query, onQueryChange }: {

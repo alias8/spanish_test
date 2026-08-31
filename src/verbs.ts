@@ -2050,4 +2050,14 @@ const BULK_VERBS: VerbEntry[] = [
 
 VERBS.push(...BULK_VERBS)
 
+// TODO: verbs still requested (conjugations only — present/preterite/imperfect,
+// same simpleVerb() format as above) but not yet added:
+// costar, dibujar, cocinar, montar, manejar, caminar, comer, comprar, disfrutar,
+// pintar, limpiar, desayunar, cantar, coger, elegir, llover, nevar, usar, fumar,
+// parar, responder, odiar, preferir, llenar, visitar, parecer, acompañar,
+// conversar, apagar, encender, deber, doler, descansar, cuidar (non-reflexive —
+// cuidarse is already added), enviar, aprobar, beber, mandar, rezar, planear,
+// reservar, regresar, llorar, satisfacer, romper, pescar, reparar, asar, repetir,
+// completar, decidir, preparar, reunir, gastar
+
 

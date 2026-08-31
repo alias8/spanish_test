@@ -1,5 +1,5 @@
 import { memo, useRef, useState } from 'react'
-import type { ConjugationScreen } from './data'
+import type { ConjugationScreen } from './verbs'
 import { normalizeStrict } from './utils'
 
 const ConjCell = memo(({ id, stem, ending, isRevealed, onReveal, registerRef, onComplete }: {

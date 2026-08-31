@@ -1,6 +1,7 @@
 import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
-import { type NumberEntry, SCREENS, VERBS } from './data'
+import { type NumberEntry, SCREENS } from './data'
+import { VERBS } from './verbs'
 import Card from './Card'
 import ConjugationTable from './ConjugationTable'
 import VerbLookup from './VerbLookup'
