@@ -2621,6 +2621,463 @@ const BULK_VERBS: VerbEntry[] = [
 
 VERBS.push(...BULK_VERBS)
 
+// Original summaries and tense descriptions (not copied from any external source),
+// merged onto matching entries above by infinitive. Only a subset of verbs have
+// these — the rest stay conjugation-only.
+type TenseDetail = { description: string; example: { spanish: string; english: string } }
+type VerbDetail = { summary: string; present: TenseDetail; preterite: TenseDetail; imperfect: TenseDetail }
+
+const VERB_DETAILS: Record<string, VerbDetail> = {
+    querer: {
+        summary: 'Querer is one of the most versatile verbs in Spanish, covering both "to want" and "to love". It shows up constantly in everyday speech — for making requests, expressing desires, and telling someone you care about them (te quiero). Like poder, it is e→ie stem-changing in the present, and has an irregular preterite stem (quis-).',
+        present: { description: 'Used for wants, desires, and requests happening now.', example: { spanish: 'quiero un café', english: 'I want a coffee' } },
+        preterite: { description: 'Used for a specific moment of wanting — or, in the negative, refusing to do something.', example: { spanish: 'no quiso venir', english: "s/he refused to come" } },
+        imperfect: { description: 'Used for an ongoing want or desire in the past.', example: { spanish: 'quería ser médico', english: 'I wanted to be a doctor' } },
+    },
+    llegar: {
+        summary: 'Llegar means "to arrive" or "to get to" a place, and is one of the most common verbs for talking about movement and punctuality. It is regular apart from a spelling change in the yo preterite form (llegué), needed to keep the hard "g" sound before an "e".',
+        present: { description: 'Used to talk about arriving somewhere, now or in the near future.', example: { spanish: 'llego a las ocho', english: 'I arrive at eight' } },
+        preterite: { description: 'Used for a completed arrival at a specific point in the past.', example: { spanish: 'llegué tarde', english: 'I arrived late' } },
+        imperfect: { description: 'Used for habitual or ongoing arrivals in the past.', example: { spanish: 'llegaba siempre temprano', english: 'I always used to arrive early' } },
+    },
+    pasar: {
+        summary: 'Pasar is a flexible verb covering "to pass", "to happen", and "to spend time". You will hear it in questions like "¿Qué pasa?" (What\'s going on?) as well as in sentences about time passing or moving through a place.',
+        present: { description: 'Used for things happening now, or for passing by or through somewhere.', example: { spanish: 'paso por tu casa', english: "I pass by your house" } },
+        preterite: { description: 'Used for something that happened or was completed at a specific time.', example: { spanish: '¿qué pasó?', english: 'what happened?' } },
+        imperfect: { description: 'Used for things that used to happen, or were ongoing, in the past.', example: { spanish: 'pasaba mucho tiempo allí', english: 'I used to spend a lot of time there' } },
+    },
+    deber: {
+        summary: 'Deber expresses obligation ("should" or "must") when followed by an infinitive, and means "to owe" when used with a noun. It is a fully regular -er verb, and one of the most common ways to give advice or say what is expected.',
+        present: { description: 'Used to say what someone should, or is supposed to, do.', example: { spanish: 'debo estudiar', english: 'I should study' } },
+        preterite: { description: 'Used for an obligation tied to a specific, completed moment.', example: { spanish: 'debí llamarte', english: 'I should have called you' } },
+        imperfect: { description: 'Used for an ongoing or general sense of obligation in the past.', example: { spanish: 'debía trabajar los sábados', english: 'I was supposed to work on Saturdays' } },
+    },
+    quedar: {
+        summary: 'Quedar covers several everyday situations: what is left over (no queda pan), arranging to meet someone (quedamos a las siete), and how clothes fit or suit someone (te queda bien). It is fully regular.',
+        present: { description: 'Used for what remains, or for arranging to meet up with someone.', example: { spanish: 'quedo con mis amigos', english: "I'm meeting up with my friends" } },
+        preterite: { description: 'Used for something that was left over, or a meeting that took place.', example: { spanish: 'quedamos en el parque', english: 'we met up at the park' } },
+        imperfect: { description: 'Used for what used to be left over, or how things used to fit or suit.', example: { spanish: 'me quedaba grande', english: 'it used to be too big for me' } },
+    },
+    creer: {
+        summary: 'Creer means "to believe" or "to think" something is true, and is a key verb for giving an opinion (creo que...). It is regular except that the "i" in its endings becomes "y" in certain third-person forms (creyó, creyeron), to avoid three vowels in a row.',
+        present: { description: 'Used to state a belief or an opinion.', example: { spanish: 'creo que sí', english: 'I think so' } },
+        preterite: { description: 'Used for the moment someone came to believe or realize something.', example: { spanish: 'no le creyó', english: "s/he didn't believe him/her" } },
+        imperfect: { description: 'Used for a belief someone held over a period of time.', example: { spanish: 'creía en fantasmas', english: 'I used to believe in ghosts' } },
+    },
+    hablar: {
+        summary: 'Hablar, "to speak" or "to talk", is one of the first verbs Spanish learners meet, and a completely regular -ar verb. It covers both speaking a language and having a conversation with someone.',
+        present: { description: 'Used for speaking a language, or talking, right now.', example: { spanish: 'hablo español', english: 'I speak Spanish' } },
+        preterite: { description: 'Used for a conversation or instance of speaking that is finished.', example: { spanish: 'hablé con ella ayer', english: 'I spoke with her yesterday' } },
+        imperfect: { description: 'Used for how someone used to speak or talk regularly.', example: { spanish: 'hablábamos todos los días', english: 'we used to talk every day' } },
+    },
+    llevar: {
+        summary: 'Llevar means "to carry" or "to take" something somewhere, and also "to wear" clothes. Paired with a time expression, it is the standard way to say how long you have been doing something (llevo dos años aquí).',
+        present: { description: 'Used for carrying, wearing, or taking something right now.', example: { spanish: 'llevo una chaqueta', english: "I'm wearing a jacket" } },
+        preterite: { description: 'Used for a completed act of carrying or taking something somewhere.', example: { spanish: 'llevé el paquete', english: 'I took the package' } },
+        imperfect: { description: 'Used for what someone used to wear or carry regularly.', example: { spanish: 'llevaba gafas', english: 'I used to wear glasses' } },
+    },
+    dejar: {
+        summary: 'Dejar covers "to leave (something) behind", "to let" or "allow", and — followed by "de" — "to stop" doing something (dejar de fumar). It is a regular -ar verb with a wide range of everyday uses.',
+        present: { description: 'Used for leaving something somewhere, or letting someone do something.', example: { spanish: 'dejo las llaves aquí', english: 'I leave the keys here' } },
+        preterite: { description: 'Used for something left behind, or permitted, at a specific moment.', example: { spanish: 'me dejó entrar', english: "s/he let me in" } },
+        imperfect: { description: 'Used for what someone used to leave behind or allow.', example: { spanish: 'me dejaba jugar afuera', english: "s/he used to let me play outside" } },
+    },
+    seguir: {
+        summary: 'Seguir means both "to follow" someone or something and "to continue" doing something, when paired with a gerund (seguir trabajando). It is an e→i stem-changing -ir verb, with a spelling change (gu→g) before o and a.',
+        present: { description: 'Used for following someone or something, or for continuing an action.', example: { spanish: 'sigo trabajando', english: 'I keep working' } },
+        preterite: { description: 'Used for a completed instance of following or continuing.', example: { spanish: 'siguió el camino', english: 's/he followed the path' } },
+        imperfect: { description: 'Used for something someone used to follow, or kept doing, in the past.', example: { spanish: 'seguía sus consejos', english: "I used to follow his/her advice" } },
+    },
+    llamar: {
+        summary: 'Llamar means "to call", whether on the phone or to get someone\'s attention. In its reflexive form, llamarse, it is how you say what your name is (me llamo Juan).',
+        present: { description: 'Used for calling someone right now, or in general.', example: { spanish: 'te llamo esta noche', english: "I'll call you tonight" } },
+        preterite: { description: 'Used for a specific, completed phone call or call for attention.', example: { spanish: 'la llamé ayer', english: 'I called her yesterday' } },
+        imperfect: { description: 'Used for how someone used to call or address someone or something.', example: { spanish: 'lo llamaban el profesor', english: 'they used to call him the professor' } },
+    },
+    pensar: {
+        summary: 'Pensar means "to think" — for the act of thinking, and for stating an opinion (pienso que...). Followed by "en", it means "to think about" someone or something; followed directly by an infinitive, it means "to plan to" do something. It is e→ie stem-changing.',
+        present: { description: 'Used for thinking, having an opinion, or planning to do something.', example: { spanish: 'pienso viajar', english: 'I plan to travel' } },
+        preterite: { description: 'Used for a specific, completed thought.', example: { spanish: 'lo pensé bien', english: 'I thought it through' } },
+        imperfect: { description: 'Used for what someone used to think or believe.', example: { spanish: 'pensaba que era fácil', english: 'I used to think it was easy' } },
+    },
+    salir: {
+        summary: 'Salir means "to leave" or "to go out" — whether leaving a place, or going out socially (salir con amigos also means "to date" someone). It has an irregular yo form (salgo) but is otherwise regular.',
+        present: { description: 'Used for leaving a place, or going out, right now or in general.', example: { spanish: 'salgo a las nueve', english: 'I leave at nine' } },
+        preterite: { description: 'Used for a completed departure or night out.', example: { spanish: 'salió temprano', english: 's/he left early' } },
+        imperfect: { description: 'Used for when someone used to go out or leave regularly.', example: { spanish: 'salíamos los viernes', english: 'we used to go out on Fridays' } },
+    },
+    volver: {
+        summary: 'Volver means "to return" or "to go/come back", and in its reflexive form volverse can also mean "to become" (volverse loco, to go crazy). It is o→ue stem-changing, and its past participle is irregular: vuelto.',
+        present: { description: 'Used for returning somewhere, now or in the near future.', example: { spanish: 'vuelvo a casa', english: "I'm going home" } },
+        preterite: { description: 'Used for a completed return in the past.', example: { spanish: 'volvió tarde', english: 's/he came back late' } },
+        imperfect: { description: 'Used for returning somewhere regularly in the past.', example: { spanish: 'volvíamos cada verano', english: 'we used to come back every summer' } },
+    },
+    tomar: {
+        summary: 'Tomar is a common everyday verb meaning "to take" (tomar un taxi) and, especially in Latin America, "to drink" (tomar agua). It is fully regular.',
+        present: { description: 'Used for taking or drinking something now or habitually.', example: { spanish: 'tomo café por la mañana', english: 'I drink coffee in the morning' } },
+        preterite: { description: 'Used for a completed act of taking or drinking something.', example: { spanish: 'tomé el autobús', english: 'I took the bus' } },
+        imperfect: { description: 'Used for what someone used to take or drink regularly.', example: { spanish: 'tomaba té todas las tardes', english: 'I used to drink tea every afternoon' } },
+    },
+    conocer: {
+        summary: 'Conocer means "to know" or "to be familiar with" a person, place, or thing — different from saber, which is for facts and skills. In the preterite it shifts meaning slightly, to "to meet" someone for the first time. It has an irregular yo form (conozco).',
+        present: { description: 'Used for being familiar with someone or somewhere.', example: { spanish: 'conozco a tu hermano', english: 'I know your brother' } },
+        preterite: { description: 'Used for the moment of meeting someone for the first time.', example: { spanish: 'la conocí en Madrid', english: 'I met her in Madrid' } },
+        imperfect: { description: 'Used for having known or been familiar with someone or something over time in the past.', example: { spanish: 'lo conocía bien', english: 'I used to know him well' } },
+    },
+    sentirse: {
+        summary: 'Sentirse means "to feel" a certain way, physically or emotionally (me siento bien). It is e→ie stem-changing in the present, with an extra e→i shift in the third-person preterite (se sintió).',
+        present: { description: 'Used to describe how someone feels right now.', example: { spanish: 'me siento cansado', english: 'I feel tired' } },
+        preterite: { description: 'Used for a specific moment of feeling a certain way.', example: { spanish: 'se sintió mal', english: 's/he felt sick' } },
+        imperfect: { description: 'Used for how someone used to feel over a period of time.', example: { spanish: 'me sentía solo', english: 'I used to feel lonely' } },
+    },
+    entender: {
+        summary: 'Entender means "to understand", whether a language, a situation, or a person. It is e→ie stem-changing, so the stressed forms shift from "entend-" to "entiend-" in the present tense.',
+        present: { description: 'Used for understanding something right now.', example: { spanish: 'no entiendo', english: "I don't understand" } },
+        preterite: { description: 'Used for the moment something became clear.', example: { spanish: 'por fin lo entendí', english: 'I finally understood it' } },
+        imperfect: { description: 'Used for an ongoing level of understanding in the past.', example: { spanish: 'no entendía nada', english: "I didn't use to understand anything" } },
+    },
+    buscar: {
+        summary: 'Buscar means "to search for" or "to look for" something or someone — note that, unlike English, it takes no preposition. It has a spelling change in the yo preterite (busqué) to keep the hard "c" sound.',
+        present: { description: 'Used for searching or looking for something right now.', example: { spanish: 'busco mis llaves', english: "I'm looking for my keys" } },
+        preterite: { description: 'Used for a completed search.', example: { spanish: 'busqué por todas partes', english: 'I looked everywhere' } },
+        imperfect: { description: 'Used for something someone used to search for regularly.', example: { spanish: 'buscaba trabajo', english: 'I used to be looking for a job' } },
+    },
+    encontrarse: {
+        summary: 'Encontrarse can mean "to be located" (el museo se encuentra cerca), "to feel" a certain way, or "to run into" someone. It is o→ue stem-changing.',
+        present: { description: 'Used for where something is located, or how someone feels.', example: { spanish: 'me encuentro bien', english: "I'm feeling well" } },
+        preterite: { description: 'Used for a moment of running into someone, or finding oneself somewhere.', example: { spanish: 'nos encontramos en la calle', english: 'we ran into each other on the street' } },
+        imperfect: { description: 'Used for where something used to be, or how someone used to feel.', example: { spanish: 'se encontraba triste', english: 's/he used to feel sad' } },
+    },
+    trabajar: {
+        summary: 'Trabajar means "to work", whether at a job or in the sense of putting in effort. It is a fully regular -ar verb.',
+        present: { description: 'Used for working now or on a regular basis.', example: { spanish: 'trabajo en una oficina', english: 'I work in an office' } },
+        preterite: { description: 'Used for a completed period of work.', example: { spanish: 'trabajé todo el día', english: 'I worked all day' } },
+        imperfect: { description: 'Used for where or how someone used to work.', example: { spanish: 'trabajaba de noche', english: 'I used to work nights' } },
+    },
+    escribir: {
+        summary: 'Escribir means "to write", covering everything from writing letters to texting. Its past participle is irregular: escrito.',
+        present: { description: 'Used for writing something now or in general.', example: { spanish: 'escribo una carta', english: "I'm writing a letter" } },
+        preterite: { description: 'Used for something completed in writing.', example: { spanish: 'le escribí ayer', english: 'I wrote to him/her yesterday' } },
+        imperfect: { description: 'Used for what someone used to write regularly.', example: { spanish: 'escribía poesía', english: 'I used to write poetry' } },
+    },
+    empezar: {
+        summary: 'Empezar means "to start" or "to begin", often paired with "a" and an infinitive (empezar a trabajar). It is e→ie stem-changing, with a spelling change (z→c) in the yo preterite (empecé).',
+        present: { description: 'Used for starting something now or habitually.', example: { spanish: 'empiezo a las nueve', english: 'I start at nine' } },
+        preterite: { description: 'Used for the moment something began.', example: { spanish: 'empecé el proyecto', english: 'I started the project' } },
+        imperfect: { description: 'Used for how or when something used to begin.', example: { spanish: 'empezaba temprano', english: 'it used to start early' } },
+    },
+    esperar: {
+        summary: 'Esperar covers "to wait" (esperar el autobús), "to hope" (espero que sí), and "to expect". It is a fully regular -ar verb.',
+        present: { description: 'Used for waiting, hoping, or expecting something now.', example: { spanish: 'espero el autobús', english: "I'm waiting for the bus" } },
+        preterite: { description: 'Used for a completed wait.', example: { spanish: 'esperé una hora', english: 'I waited an hour' } },
+        imperfect: { description: 'Used for waiting or hoping over a period of time in the past.', example: { spanish: 'esperaba una respuesta', english: 'I was waiting for a reply' } },
+    },
+    perder: {
+        summary: 'Perder means "to lose", whether losing an object, a game, or track of time (perder el tiempo, to waste time). It is e→ie stem-changing.',
+        present: { description: 'Used for losing something right now or regularly.', example: { spanish: 'pierdo las llaves siempre', english: 'I always lose my keys' } },
+        preterite: { description: 'Used for a specific instance of losing something.', example: { spanish: 'perdí el partido', english: 'I lost the game' } },
+        imperfect: { description: 'Used for something someone used to lose regularly.', example: { spanish: 'perdía la paciencia', english: 'I used to lose my patience' } },
+    },
+    pedir: {
+        summary: 'Pedir means "to ask for", "to request", or "to order" (in a restaurant) — note it takes no preposition, unlike English "ask for". It is e→i stem-changing.',
+        present: { description: 'Used for asking for or ordering something now.', example: { spanish: 'pido ayuda', english: "I'm asking for help" } },
+        preterite: { description: 'Used for a completed request.', example: { spanish: 'pidió la cuenta', english: 's/he asked for the bill' } },
+        imperfect: { description: 'Used for what someone used to ask for or order regularly.', example: { spanish: 'pedía pizza los viernes', english: 'I used to order pizza on Fridays' } },
+    },
+    recibir: {
+        summary: 'Recibir means "to receive", whether a gift, a message, or a guest (recibir visitas). It is a fully regular -ir verb.',
+        present: { description: 'Used for receiving something now or regularly.', example: { spanish: 'recibo muchos correos', english: 'I receive a lot of emails' } },
+        preterite: { description: 'Used for a completed act of receiving something.', example: { spanish: 'recibí tu mensaje', english: 'I received your message' } },
+        imperfect: { description: 'Used for what someone used to receive regularly.', example: { spanish: 'recibía cartas cada semana', english: 'I used to receive letters every week' } },
+    },
+    recordar: {
+        summary: 'Recordar means "to remember" and, when followed by a person, "to remind" (le recuerdo a su madre — s/he reminds me of his/her mother). It is o→ue stem-changing.',
+        present: { description: 'Used for remembering something right now.', example: { spanish: 'no recuerdo su nombre', english: "I don't remember his/her name" } },
+        preterite: { description: 'Used for the moment something was remembered.', example: { spanish: 'de repente lo recordé', english: 'suddenly I remembered it' } },
+        imperfect: { description: 'Used for something someone used to remember or recall.', example: { spanish: 'recordaba su voz', english: 'I used to remember his/her voice' } },
+    },
+    terminar: {
+        summary: 'Terminar means "to end" or "to finish", whether finishing a task (terminar de + infinitive) or something simply ending on its own. It is fully regular.',
+        present: { description: 'Used for finishing something now or in general.', example: { spanish: 'termino a las cinco', english: 'I finish at five' } },
+        preterite: { description: 'Used for something that finished at a specific point.', example: { spanish: 'terminé el examen', english: 'I finished the exam' } },
+        imperfect: { description: 'Used for when something used to end or finish.', example: { spanish: 'terminaba tarde', english: 'it used to end late' } },
+    },
+    permitir: {
+        summary: 'Permitir means "to allow" or "to permit", often used impersonally (se permite fumar) or with an indirect object (me permite pasar). It is fully regular.',
+        present: { description: 'Used for allowing something right now or as a rule.', example: { spanish: 'no permito eso', english: "I don't allow that" } },
+        preterite: { description: 'Used for a specific act of allowing something.', example: { spanish: 'me permitió entrar', english: 's/he allowed me to enter' } },
+        imperfect: { description: 'Used for what used to be allowed.', example: { spanish: 'nos permitía salir tarde', english: 's/he used to let us leave late' } },
+    },
+    conseguir: {
+        summary: 'Conseguir means "to get" or "to obtain" something, and, followed by an infinitive, "to manage to" do something (conseguí terminar). It is e→i stem-changing, with a spelling change (gu→g) before o and a.',
+        present: { description: 'Used for getting or managing to do something now.', example: { spanish: 'consigo lo que quiero', english: 'I get what I want' } },
+        preterite: { description: 'Used for successfully obtaining or managing something.', example: { spanish: 'lo conseguí', english: 'I managed it' } },
+        imperfect: { description: 'Used for what someone used to get or manage regularly.', example: { spanish: 'conseguía buenas notas', english: 'I used to get good grades' } },
+    },
+    comenzar: {
+        summary: 'Comenzar is a close synonym of empezar, meaning "to start" or "to begin". It is e→ie stem-changing, with a spelling change (z→c) in the yo preterite (comencé).',
+        present: { description: 'Used for starting something now or habitually.', example: { spanish: 'comienzo el trabajo', english: 'I start work' } },
+        preterite: { description: 'Used for the moment something began.', example: { spanish: 'comenzó a llover', english: 'it started to rain' } },
+        imperfect: { description: 'Used for how or when something used to begin.', example: { spanish: 'comenzaba a las ocho', english: 'it used to start at eight' } },
+    },
+    servir: {
+        summary: 'Servir means "to serve", whether serving food or drinks, or being useful for something (servir para algo). It is e→i stem-changing.',
+        present: { description: 'Used for serving something, or being useful, right now.', example: { spanish: 'sirvo la cena', english: 'I serve dinner' } },
+        preterite: { description: 'Used for a completed act of serving.', example: { spanish: 'sirvió el vino', english: 's/he served the wine' } },
+        imperfect: { description: 'Used for what someone used to serve regularly.', example: { spanish: 'servía en un restaurante', english: 'I used to work as a server at a restaurant' } },
+    },
+    sacar: {
+        summary: 'Sacar means "to take out" (sacar la basura) or "to get" (sacar una foto, sacar buenas notas). It has a spelling change in the yo preterite (saqué) to keep the hard "c" sound.',
+        present: { description: 'Used for taking something out, or getting something, now.', example: { spanish: 'saco fotos', english: 'I take photos' } },
+        preterite: { description: 'Used for a completed act of taking out or getting something.', example: { spanish: 'saqué la basura', english: 'I took out the trash' } },
+        imperfect: { description: 'Used for what someone used to take out or get regularly.', example: { spanish: 'sacaba buenas notas', english: 'I used to get good grades' } },
+    },
+    necesitar: {
+        summary: 'Necesitar means "to need", followed by a noun or an infinitive (necesito dormir). It is a fully regular -ar verb.',
+        present: { description: 'Used for needing something right now.', example: { spanish: 'necesito ayuda', english: 'I need help' } },
+        preterite: { description: 'Used for a specific moment something was needed.', example: { spanish: 'necesité tu ayuda', english: 'I needed your help' } },
+        imperfect: { description: 'Used for an ongoing need in the past.', example: { spanish: 'necesitaba dinero', english: 'I needed money' } },
+    },
+    jugar: {
+        summary: 'Jugar means "to play", whether a sport or a game — followed by "a" before the specific activity (jugar al fútbol). It is the only u→ue stem-changing verb in Spanish, with a spelling change (g→gu) in the yo preterite (jugué).',
+        present: { description: 'Used for playing something now or regularly.', example: { spanish: 'juego al tenis', english: 'I play tennis' } },
+        preterite: { description: 'Used for a completed instance of playing.', example: { spanish: 'jugué con mis amigos', english: 'I played with my friends' } },
+        imperfect: { description: 'Used for what someone used to play regularly.', example: { spanish: 'jugaba al fútbol de niño', english: 'I used to play football as a kid' } },
+    },
+    cerrar: {
+        summary: 'Cerrar means "to close", "to shut", or "to lock". It is e→ie stem-changing.',
+        present: { description: 'Used for closing something right now or on a schedule.', example: { spanish: 'cierro la puerta', english: 'I close the door' } },
+        preterite: { description: 'Used for a completed act of closing something.', example: { spanish: 'cerró la tienda', english: 's/he closed the shop' } },
+        imperfect: { description: 'Used for when something used to close.', example: { spanish: 'cerraba a las diez', english: 'it used to close at ten' } },
+    },
+    contar: {
+        summary: 'Contar means both "to count" (contar dinero) and "to tell" a story (contar un cuento). It is o→ue stem-changing.',
+        present: { description: 'Used for counting or telling something right now.', example: { spanish: 'te cuento un secreto', english: "I'll tell you a secret" } },
+        preterite: { description: 'Used for a completed count, or a story that was told.', example: { spanish: 'me contó todo', english: 's/he told me everything' } },
+        imperfect: { description: 'Used for what someone used to count or tell regularly.', example: { spanish: 'contaba historias increíbles', english: 's/he used to tell incredible stories' } },
+    },
+    mirar: {
+        summary: 'Mirar means "to look at" or "to watch" — used for deliberately directing your attention somewhere, unlike ver ("to see"), which is more passive. It is fully regular.',
+        present: { description: 'Used for looking at or watching something now.', example: { spanish: 'miro la tele', english: "I'm watching TV" } },
+        preterite: { description: 'Used for a completed act of looking or watching.', example: { spanish: 'miré por la ventana', english: 'I looked out the window' } },
+        imperfect: { description: 'Used for what someone used to watch or look at regularly.', example: { spanish: 'miraba dibujos animados', english: 'I used to watch cartoons' } },
+    },
+    tratar: {
+        summary: 'Tratar means "to treat" someone or something a certain way, and, followed by "de", "to try to" do something (trato de ayudar) or "to be about" (¿de qué trata la película?). It is fully regular.',
+        present: { description: 'Used for treating someone or something, or trying to do something, now.', example: { spanish: 'trato de entender', english: "I'm trying to understand" } },
+        preterite: { description: 'Used for a completed attempt, or an act of treating someone a certain way.', example: { spanish: 'lo trató mal', english: 's/he treated him badly' } },
+        imperfect: { description: 'Used for how someone used to be treated, or what something used to be about.', example: { spanish: 'trataba de un crimen', english: 'it used to be about a crime' } },
+    },
+    cambiar: {
+        summary: 'Cambiar means "to change", whether changing an object, a plan, or oneself (cambiar de opinión, to change one\'s mind). It is fully regular.',
+        present: { description: 'Used for changing something right now or in general.', example: { spanish: 'cambio de trabajo', english: "I'm changing jobs" } },
+        preterite: { description: 'Used for a completed change.', example: { spanish: 'cambié de idea', english: 'I changed my mind' } },
+        imperfect: { description: 'Used for something that used to change regularly, or was changing.', example: { spanish: 'cambiaba de humor', english: 'his/her mood used to change' } },
+    },
+    leer: {
+        summary: 'Leer means "to read". It is regular except that the "i" in its endings becomes "y" in certain third-person forms (leyó, leyeron), to avoid three vowels in a row.',
+        present: { description: 'Used for reading something now or regularly.', example: { spanish: 'leo el periódico', english: 'I read the newspaper' } },
+        preterite: { description: 'Used for something that was read and finished.', example: { spanish: 'leyó el libro', english: 's/he read the book' } },
+        imperfect: { description: 'Used for what someone used to read regularly.', example: { spanish: 'leía antes de dormir', english: 'I used to read before sleeping' } },
+    },
+    caer: {
+        summary: 'Caer means "to fall", and in its reflexive form caerse is used for accidentally falling down or dropping something (se me cayó el vaso). It has an irregular yo form (caigo).',
+        present: { description: 'Used for falling right now or in general.', example: { spanish: 'la lluvia cae', english: 'the rain is falling' } },
+        preterite: { description: 'Used for a specific fall.', example: { spanish: 'se cayó en la calle', english: 's/he fell on the street' } },
+        imperfect: { description: 'Used for something that used to fall regularly.', example: { spanish: 'las hojas caían', english: 'the leaves used to fall' } },
+    },
+    traer: {
+        summary: 'Traer means "to bring" something, as opposed to llevar, which means "to take" something away. It has an irregular yo form (traigo) and an irregular preterite stem (traj-).',
+        present: { description: 'Used for bringing something now or in general.', example: { spanish: 'traigo el postre', english: "I'm bringing dessert" } },
+        preterite: { description: 'Used for something that was brought at a specific time.', example: { spanish: 'trajo vino', english: 's/he brought wine' } },
+        imperfect: { description: 'Used for what someone used to bring regularly.', example: { spanish: 'traía flores', english: 's/he used to bring flowers' } },
+    },
+    morir: {
+        summary: 'Morir means "to die", and in its reflexive form morirse is used more informally, including for exaggeration (me muero de hambre, I\'m starving). It is o→ue stem-changing, with an irregular past participle: muerto.',
+        present: { description: 'Used for dying, literally or figuratively, right now.', example: { spanish: 'me muero de risa', english: "I'm dying laughing" } },
+        preterite: { description: 'Used for the moment someone or something died.', example: { spanish: 'murió en 1980', english: 's/he died in 1980' } },
+        imperfect: { description: 'Used for a state close to death, or dying, that was ongoing.', example: { spanish: 'se moría de miedo', english: 's/he was dying of fear' } },
+    },
+    entrar: {
+        summary: 'Entrar means "to enter" or "to go/come in", usually paired with "en" or "a" plus a place (entrar en la casa). It is fully regular.',
+        present: { description: 'Used for entering somewhere right now.', example: { spanish: 'entro a la reunión', english: "I'm going into the meeting" } },
+        preterite: { description: 'Used for a completed entrance.', example: { spanish: 'entró sin llamar', english: 's/he came in without knocking' } },
+        imperfect: { description: 'Used for how or when someone used to enter.', example: { spanish: 'entrábamos por la parte de atrás', english: 'we used to come in through the back' } },
+    },
+    existir: {
+        summary: 'Existir means "to exist" or "to be real" — used for talking about whether something exists at all, rather than describing it (which would be ser or estar). It is fully regular.',
+        present: { description: 'Used for saying something exists right now.', example: { spanish: 'existe una solución', english: 'there is a solution' } },
+        preterite: { description: 'Used for something that existed and is no longer around.', example: { spanish: 'esa costumbre existió', english: 'that custom used to exist' } },
+        imperfect: { description: 'Used for something that used to exist.', example: { spanish: 'no existía internet', english: "the internet didn't used to exist" } },
+    },
+    mantener: {
+        summary: 'Mantener means "to maintain" or "to keep" something a certain way, and also "to support" financially (mantener a la familia). It conjugates just like tener, with an irregular yo form and an e→ie stem change.',
+        present: { description: 'Used for maintaining or keeping something right now.', example: { spanish: 'mantengo la calma', english: 'I stay calm' } },
+        preterite: { description: 'Used for something that was kept or maintained at a specific time.', example: { spanish: 'mantuvo su promesa', english: 's/he kept his/her promise' } },
+        imperfect: { description: 'Used for something someone used to maintain or support.', example: { spanish: 'mantenía a su familia', english: 's/he used to support his/her family' } },
+    },
+    resultar: {
+        summary: 'Resultar means "to turn out" or "to result" — often used to describe how a situation ends up (resultó ser mentira, it turned out to be a lie). It is fully regular.',
+        present: { description: 'Used for how something turns out or results.', example: { spanish: 'resulta difícil', english: 'it turns out to be difficult' } },
+        preterite: { description: 'Used for how something turned out at a specific point.', example: { spanish: 'resultó ser cierto', english: 'it turned out to be true' } },
+        imperfect: { description: 'Used for how something used to turn out or result.', example: { spanish: 'siempre resultaba en un desastre', english: 'it always used to turn into a disaster' } },
+    },
+    presentar: {
+        summary: 'Presentar means "to present" (presentar un proyecto) and "to introduce" one person to another (te presento a mi hermano). It is fully regular.',
+        present: { description: 'Used for presenting or introducing something or someone now.', example: { spanish: 'te presento a mi amigo', english: 'let me introduce you to my friend' } },
+        preterite: { description: 'Used for a completed presentation or introduction.', example: { spanish: 'presentó su proyecto', english: 's/he presented his/her project' } },
+        imperfect: { description: 'Used for what someone used to present regularly.', example: { spanish: 'presentaba las noticias', english: 's/he used to present the news' } },
+    },
+    crear: {
+        summary: 'Crear means "to create" or "to make" something new, from art to companies to problems (crear un problema). It is fully regular.',
+        present: { description: 'Used for creating something now or in general.', example: { spanish: 'creo contenido', english: 'I create content' } },
+        preterite: { description: 'Used for something that was created at a specific time.', example: { spanish: 'creó una empresa', english: 's/he created a company' } },
+        imperfect: { description: 'Used for what someone used to create regularly.', example: { spanish: 'creaba obras de arte', english: 's/he used to create works of art' } },
+    },
+    abrir: {
+        summary: 'Abrir means "to open", whether a door, a business, or an opportunity. Its past participle is irregular: abierto.',
+        present: { description: 'Used for opening something right now or on a schedule.', example: { spanish: 'abro la ventana', english: 'I open the window' } },
+        preterite: { description: 'Used for a completed act of opening something.', example: { spanish: 'abrió la puerta', english: 's/he opened the door' } },
+        imperfect: { description: 'Used for when something used to open.', example: { spanish: 'abría a las nueve', english: 'it used to open at nine' } },
+    },
+    considerar: {
+        summary: 'Considerar means "to consider" or "to think about" something, often used to give or ask for an opinion (¿qué consideras?). It is fully regular.',
+        present: { description: 'Used for considering something right now.', example: { spanish: 'considero que es justo', english: 'I consider it fair' } },
+        preterite: { description: 'Used for a specific moment something was considered.', example: { spanish: 'lo consideré cuidadosamente', english: 'I considered it carefully' } },
+        imperfect: { description: 'Used for an opinion someone used to hold.', example: { spanish: 'lo consideraba un amigo', english: 'I used to consider him a friend' } },
+    },
+    oír: {
+        summary: 'Oír means "to hear" — perceiving a sound, as opposed to escuchar, the more deliberate "to listen". It is irregular throughout the present tense (oigo, oyes, oye...).',
+        present: { description: 'Used for hearing something right now.', example: { spanish: 'no te oigo bien', english: "I can't hear you well" } },
+        preterite: { description: 'Used for a specific instance of hearing something.', example: { spanish: 'oí un ruido', english: 'I heard a noise' } },
+        imperfect: { description: 'Used for something someone used to hear regularly.', example: { spanish: 'se oía música', english: 'music could be heard' } },
+    },
+    acabar: {
+        summary: 'Acabar means "to finish" or "to end", and, followed by "de" plus an infinitive, "to have just" done something (acabo de llegar, I just arrived). It is fully regular.',
+        present: { description: 'Used for finishing something, or for something that just happened.', example: { spanish: 'acabo de comer', english: 'I just ate' } },
+        preterite: { description: 'Used for something that was completed.', example: { spanish: 'acabó el trabajo', english: 's/he finished the work' } },
+        imperfect: { description: 'Used for how or when something used to end.', example: { spanish: 'la clase acababa a las tres', english: 'class used to end at three' } },
+    },
+    convertir: {
+        summary: 'Convertir means "to convert" or "to turn" something into something else, often used reflexively (convertirse en, to become). It is e→ie stem-changing, with an extra e→i shift in the third-person preterite.',
+        present: { description: 'Used for converting or turning something into something else now.', example: { spanish: 'se convierte en agua', english: 'it turns into water' } },
+        preterite: { description: 'Used for a completed transformation.', example: { spanish: 'se convirtió en actor', english: 'he became an actor' } },
+        imperfect: { description: 'Used for something that used to turn into something else.', example: { spanish: 'se convertía en hielo', english: 'it used to turn into ice' } },
+    },
+    ganar: {
+        summary: 'Ganar means "to win" a game or competition, and "to earn" money (ganar dinero). It is fully regular.',
+        present: { description: 'Used for winning or earning something now.', example: { spanish: 'gano bien', english: 'I earn well' } },
+        preterite: { description: 'Used for a completed win or earning.', example: { spanish: 'ganó el partido', english: 's/he won the game' } },
+        imperfect: { description: 'Used for what someone used to win or earn regularly.', example: { spanish: 'ganaba poco', english: 'I used to earn little' } },
+    },
+    formar: {
+        summary: 'Formar means "to form" or "to make up" something (formar parte de, to be part of), and also "to train" someone. It is fully regular.',
+        present: { description: 'Used for forming or making up something right now.', example: { spanish: 'formo parte del equipo', english: "I'm part of the team" } },
+        preterite: { description: 'Used for something that was formed at a specific time.', example: { spanish: 'se formó el grupo', english: 'the group was formed' } },
+        imperfect: { description: 'Used for what used to form or make up something.', example: { spanish: 'formaba parte del club', english: 'I used to be part of the club' } },
+    },
+    partir: {
+        summary: 'Partir means "to split" or "to cut" something into pieces, and, more formally, "to depart" from somewhere. It is fully regular.',
+        present: { description: 'Used for splitting something, or departing, right now.', example: { spanish: 'parto mañana', english: 'I depart tomorrow' } },
+        preterite: { description: 'Used for a completed departure or split.', example: { spanish: 'partió el pan', english: 's/he split the bread' } },
+        imperfect: { description: 'Used for a departure or split that used to happen regularly.', example: { spanish: 'partíamos temprano', english: 'we used to depart early' } },
+    },
+    aceptar: {
+        summary: 'Aceptar means "to accept" an offer, an invitation, or a situation. It is fully regular.',
+        present: { description: 'Used for accepting something right now.', example: { spanish: 'acepto la oferta', english: 'I accept the offer' } },
+        preterite: { description: 'Used for a completed act of accepting something.', example: { spanish: 'aceptó la invitación', english: 's/he accepted the invitation' } },
+        imperfect: { description: 'Used for what someone used to accept regularly.', example: { spanish: 'aceptaba cualquier trabajo', english: 'I used to accept any job' } },
+    },
+    realizar: {
+        summary: "Realizar means \"to carry out\" or \"to accomplish\" something — note it's a false friend, and doesn't mean \"to realize\" mentally (that's darse cuenta). It has a spelling change in the yo preterite (realicé).",
+        present: { description: 'Used for carrying out or accomplishing something now.', example: { spanish: 'realizo mis sueños', english: "I'm making my dreams come true" } },
+        preterite: { description: 'Used for something that was accomplished.', example: { spanish: 'realizó el proyecto', english: 's/he carried out the project' } },
+        imperfect: { description: 'Used for what someone used to carry out regularly.', example: { spanish: 'realizaba tareas difíciles', english: 's/he used to carry out difficult tasks' } },
+    },
+    suponer: {
+        summary: 'Suponer means "to suppose" or "to assume" something is true. It conjugates like poner, with an irregular yo form and an irregular preterite stem.',
+        present: { description: 'Used for supposing or assuming something right now.', example: { spanish: 'supongo que sí', english: 'I suppose so' } },
+        preterite: { description: 'Used for a specific assumption that was made.', example: { spanish: 'lo supuse', english: 'I assumed it' } },
+        imperfect: { description: 'Used for something someone used to assume.', example: { spanish: 'suponía que vendría', english: 'I assumed s/he would come' } },
+    },
+    comprender: {
+        summary: 'Comprender is a slightly more formal synonym of entender, meaning "to understand" or "to comprehend". It is fully regular.',
+        present: { description: 'Used for understanding something right now.', example: { spanish: 'comprendo la situación', english: 'I understand the situation' } },
+        preterite: { description: 'Used for the moment something was understood.', example: { spanish: 'no lo comprendí', english: "I didn't understand it" } },
+        imperfect: { description: 'Used for an ongoing level of understanding in the past.', example: { spanish: 'no comprendía nada', english: "I didn't use to understand anything" } },
+    },
+    lograr: {
+        summary: 'Lograr means "to achieve" or "to accomplish" something, and, followed by an infinitive, "to manage to" do something (logré terminar, I managed to finish). It is fully regular.',
+        present: { description: 'Used for achieving or managing to do something now.', example: { spanish: 'logro mis metas', english: 'I achieve my goals' } },
+        preterite: { description: 'Used for something that was successfully achieved.', example: { spanish: 'logró el puesto', english: 's/he got the position' } },
+        imperfect: { description: 'Used for what someone used to achieve or manage regularly.', example: { spanish: 'lograba buenos resultados', english: 'I used to achieve good results' } },
+    },
+    explicar: {
+        summary: 'Explicar means "to explain" something to someone. It has a spelling change in the yo preterite (expliqué) to keep the hard "c" sound.',
+        present: { description: 'Used for explaining something right now.', example: { spanish: 'te explico la regla', english: "I'll explain the rule to you" } },
+        preterite: { description: 'Used for a completed explanation.', example: { spanish: 'me lo explicó', english: 's/he explained it to me' } },
+        imperfect: { description: 'Used for what someone used to explain regularly.', example: { spanish: 'explicaba las lecciones', english: 's/he used to explain the lessons' } },
+    },
+    preguntar: {
+        summary: 'Preguntar means "to ask" a question, as opposed to pedir, which means "to ask for" something. It is fully regular.',
+        present: { description: 'Used for asking something right now.', example: { spanish: 'pregunto por curiosidad', english: 'I ask out of curiosity' } },
+        preterite: { description: 'Used for a specific question that was asked.', example: { spanish: 'me preguntó la hora', english: 's/he asked me the time' } },
+        imperfect: { description: 'Used for what someone used to ask regularly.', example: { spanish: 'siempre preguntaba lo mismo', english: 's/he always used to ask the same thing' } },
+    },
+    tocar: {
+        summary: 'Tocar means "to touch" something, and also "to play" a musical instrument (tocar la guitarra). It has a spelling change in the yo preterite (toqué) to keep the hard "c" sound.',
+        present: { description: 'Used for touching or playing something now.', example: { spanish: 'toco el piano', english: 'I play the piano' } },
+        preterite: { description: 'Used for a completed act of touching or playing.', example: { spanish: 'tocó la campana', english: 's/he rang the bell' } },
+        imperfect: { description: 'Used for what someone used to play or touch regularly.', example: { spanish: 'tocaba en una banda', english: 'I used to play in a band' } },
+    },
+    reconocer: {
+        summary: 'Reconocer means "to recognize" someone or something, and also "to admit" (reconozco que me equivoqué, I admit I was wrong). It has an irregular yo form (reconozco).',
+        present: { description: 'Used for recognizing or admitting something right now.', example: { spanish: 'no te reconozco', english: "I don't recognize you" } },
+        preterite: { description: 'Used for the moment something was recognized.', example: { spanish: 'lo reconoció enseguida', english: 's/he recognized him right away' } },
+        imperfect: { description: 'Used for something someone used to recognize.', example: { spanish: 'apenas lo reconocía', english: 'I could barely recognize him' } },
+    },
+    estudiar: {
+        summary: 'Estudiar means "to study", whether a subject in school or examining something carefully. It is fully regular.',
+        present: { description: 'Used for studying something now or in general.', example: { spanish: 'estudio medicina', english: "I'm studying medicine" } },
+        preterite: { description: 'Used for a completed period of studying.', example: { spanish: 'estudié toda la noche', english: 'I studied all night' } },
+        imperfect: { description: 'Used for what someone used to study.', example: { spanish: 'estudiaba derecho', english: 'I used to study law' } },
+    },
+    alcanzar: {
+        summary: 'Alcanzar means "to reach" a place or a goal, and also "to catch up to" someone. It has a spelling change in the yo preterite (alcancé) to keep the hard "c" sound.',
+        present: { description: "Used for reaching something now, or being enough (no alcanza, it's not enough).", example: { spanish: 'alcanzo el estante', english: 'I reach the shelf' } },
+        preterite: { description: 'Used for something that was reached or attained.', example: { spanish: 'alcanzó su meta', english: 's/he reached his/her goal' } },
+        imperfect: { description: 'Used for something someone used to reach or attain regularly.', example: { spanish: 'no alcanzaba el dinero', english: 'the money used to not be enough' } },
+    },
+    nacer: {
+        summary: 'Nacer means "to be born", used for people, animals, and even ideas (nació una idea). It has an irregular yo form (nazco).',
+        present: { description: 'Used for something being born right now, literally or figuratively.', example: { spanish: 'nace una estrella', english: 'a star is born' } },
+        preterite: { description: 'Used for the moment someone or something was born.', example: { spanish: 'nací en 1990', english: 'I was born in 1990' } },
+        imperfect: { description: 'Used for describing the circumstances around a birth.', example: { spanish: 'cuando nacía el sol', english: 'as the sun was rising' } },
+    },
+    dirigir: {
+        summary: 'Dirigir means "to direct" or "to lead" — a team, a company, a film. It has an irregular yo form (dirijo), with a spelling change (g→j) to keep the soft sound.',
+        present: { description: 'Used for directing or leading something right now.', example: { spanish: 'dirijo un equipo', english: 'I manage a team' } },
+        preterite: { description: 'Used for something that was directed or led at a specific time.', example: { spanish: 'dirigió la película', english: 's/he directed the film' } },
+        imperfect: { description: 'Used for what someone used to direct or lead.', example: { spanish: 'dirigía la empresa', english: 's/he used to run the company' } },
+    },
+    correr: {
+        summary: 'Correr means "to run", whether for exercise or in a hurry. It is fully regular.',
+        present: { description: 'Used for running right now or as a habit.', example: { spanish: 'corro todas las mañanas', english: 'I run every morning' } },
+        preterite: { description: 'Used for a completed run.', example: { spanish: 'corrió una maratón', english: 's/he ran a marathon' } },
+        imperfect: { description: 'Used for how or when someone used to run.', example: { spanish: 'corría rápido de joven', english: 'I used to run fast when I was young' } },
+    },
+}
+
+for (const verb of VERBS) {
+    const details = VERB_DETAILS[verb.infinitive]
+    if (!details) continue
+    verb.summary = details.summary
+    const [present, preterite, imperfect] = verb.tenses
+    Object.assign(present, details.present)
+    Object.assign(preterite, details.preterite)
+    Object.assign(imperfect, details.imperfect)
+}
+
 // Approximate real-world Spanish usage frequency, most common first. Not exact —
 // based on general corpus-frequency knowledge, good enough for a rough sort.
 const FREQUENCY_ORDER = [
