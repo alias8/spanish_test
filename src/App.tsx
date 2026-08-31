@@ -13,7 +13,7 @@ export default function App() {
     () => Object.fromEntries(SCREENS.map((_, index) => [index, new Set<string>()]))
   )
   const [input, setInput] = useState('')
-  const [verbQuery, setVerbQuery] = useState('')
+  const [verbQuery, setVerbQuery] = useState('ser')
   const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('alpha')
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -43,7 +43,7 @@ export default function App() {
   function switchScreen(index: number) {
     setScreenIndex(index)
     setInput('')
-    setVerbQuery('')
+    setVerbQuery(SCREENS[index].kind === 'verbs' ? 'ser' : '')
     setTimeout(() => inputRef.current?.focus(), 0)
   }
 
