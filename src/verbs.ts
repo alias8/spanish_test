@@ -1969,35 +1969,679 @@ const BULK_VERBS: VerbEntry[] = [
         ['ayudaba', 'I used to help'], ['ayudabas', 'you used to help'], ['ayudaba', 's/he used to help'],
         ['ayudábamos', 'we used to help'], ['ayudaban', 'they used to help'],
     ]),
+    simpleVerb('costar', 'to cost', [
+        ['costar', 'to cost'], ['costado', 'cost'], ['costando', 'costing'],
+    ], [
+        ['cuesto', 'I cost', true], ['cuestas', 'you cost', true], ['cuesta', 's/he costs', true],
+        ['costamos', 'we cost'], ['cuestan', 'they cost', true],
+    ], [
+        ['costé', 'I cost'], ['costaste', 'you cost'], ['costó', 's/he cost'],
+        ['costamos', 'we cost'], ['costaron', 'they cost'],
+    ], [
+        ['costaba', 'I used to cost'], ['costabas', 'you used to cost'], ['costaba', 's/he used to cost'],
+        ['costábamos', 'we used to cost'], ['costaban', 'they used to cost'],
+    ]),
+    simpleVerb('dibujar', 'to draw', [
+        ['dibujar', 'to draw'], ['dibujado', 'drawn'], ['dibujando', 'drawing'],
+    ], [
+        ['dibujo', 'I draw'], ['dibujas', 'you draw'], ['dibuja', 's/he draws'],
+        ['dibujamos', 'we draw'], ['dibujan', 'they draw'],
+    ], [
+        ['dibujé', 'I drew'], ['dibujaste', 'you drew'], ['dibujó', 's/he drew'],
+        ['dibujamos', 'we drew'], ['dibujaron', 'they drew'],
+    ], [
+        ['dibujaba', 'I used to draw'], ['dibujabas', 'you used to draw'], ['dibujaba', 's/he used to draw'],
+        ['dibujábamos', 'we used to draw'], ['dibujaban', 'they used to draw'],
+    ]),
+    simpleVerb('cocinar', 'to cook', [
+        ['cocinar', 'to cook'], ['cocinado', 'cooked'], ['cocinando', 'cooking'],
+    ], [
+        ['cocino', 'I cook'], ['cocinas', 'you cook'], ['cocina', 's/he cooks'],
+        ['cocinamos', 'we cook'], ['cocinan', 'they cook'],
+    ], [
+        ['cociné', 'I cooked'], ['cocinaste', 'you cooked'], ['cocinó', 's/he cooked'],
+        ['cocinamos', 'we cooked'], ['cocinaron', 'they cooked'],
+    ], [
+        ['cocinaba', 'I used to cook'], ['cocinabas', 'you used to cook'], ['cocinaba', 's/he used to cook'],
+        ['cocinábamos', 'we used to cook'], ['cocinaban', 'they used to cook'],
+    ]),
+    simpleVerb('montar', 'to ride, to mount, to assemble', [
+        ['montar', 'to ride'], ['montado', 'ridden'], ['montando', 'riding'],
+    ], [
+        ['monto', 'I ride'], ['montas', 'you ride'], ['monta', 's/he rides'],
+        ['montamos', 'we ride'], ['montan', 'they ride'],
+    ], [
+        ['monté', 'I rode'], ['montaste', 'you rode'], ['montó', 's/he rode'],
+        ['montamos', 'we rode'], ['montaron', 'they rode'],
+    ], [
+        ['montaba', 'I used to ride'], ['montabas', 'you used to ride'], ['montaba', 's/he used to ride'],
+        ['montábamos', 'we used to ride'], ['montaban', 'they used to ride'],
+    ]),
+    simpleVerb('manejar', 'to drive, to manage', [
+        ['manejar', 'to drive'], ['manejado', 'driven'], ['manejando', 'driving'],
+    ], [
+        ['manejo', 'I drive'], ['manejas', 'you drive'], ['maneja', 's/he drives'],
+        ['manejamos', 'we drive'], ['manejan', 'they drive'],
+    ], [
+        ['manejé', 'I drove'], ['manejaste', 'you drove'], ['manejó', 's/he drove'],
+        ['manejamos', 'we drove'], ['manejaron', 'they drove'],
+    ], [
+        ['manejaba', 'I used to drive'], ['manejabas', 'you used to drive'], ['manejaba', 's/he used to drive'],
+        ['manejábamos', 'we used to drive'], ['manejaban', 'they used to drive'],
+    ]),
+    simpleVerb('caminar', 'to walk', [
+        ['caminar', 'to walk'], ['caminado', 'walked'], ['caminando', 'walking'],
+    ], [
+        ['camino', 'I walk'], ['caminas', 'you walk'], ['camina', 's/he walks'],
+        ['caminamos', 'we walk'], ['caminan', 'they walk'],
+    ], [
+        ['caminé', 'I walked'], ['caminaste', 'you walked'], ['caminó', 's/he walked'],
+        ['caminamos', 'we walked'], ['caminaron', 'they walked'],
+    ], [
+        ['caminaba', 'I used to walk'], ['caminabas', 'you used to walk'], ['caminaba', 's/he used to walk'],
+        ['caminábamos', 'we used to walk'], ['caminaban', 'they used to walk'],
+    ]),
+    simpleVerb('comer', 'to eat', [
+        ['comer', 'to eat'], ['comido', 'eaten'], ['comiendo', 'eating'],
+    ], [
+        ['como', 'I eat'], ['comes', 'you eat'], ['come', 's/he eats'],
+        ['comemos', 'we eat'], ['comen', 'they eat'],
+    ], [
+        ['comí', 'I ate'], ['comiste', 'you ate'], ['comió', 's/he ate'],
+        ['comimos', 'we ate'], ['comieron', 'they ate'],
+    ], [
+        ['comía', 'I used to eat'], ['comías', 'you used to eat'], ['comía', 's/he used to eat'],
+        ['comíamos', 'we used to eat'], ['comían', 'they used to eat'],
+    ]),
+    simpleVerb('comprar', 'to buy', [
+        ['comprar', 'to buy'], ['comprado', 'bought'], ['comprando', 'buying'],
+    ], [
+        ['compro', 'I buy'], ['compras', 'you buy'], ['compra', 's/he buys'],
+        ['compramos', 'we buy'], ['compran', 'they buy'],
+    ], [
+        ['compré', 'I bought'], ['compraste', 'you bought'], ['compró', 's/he bought'],
+        ['compramos', 'we bought'], ['compraron', 'they bought'],
+    ], [
+        ['compraba', 'I used to buy'], ['comprabas', 'you used to buy'], ['compraba', 's/he used to buy'],
+        ['comprábamos', 'we used to buy'], ['compraban', 'they used to buy'],
+    ]),
+    simpleVerb('disfrutar', 'to enjoy', [
+        ['disfrutar', 'to enjoy'], ['disfrutado', 'enjoyed'], ['disfrutando', 'enjoying'],
+    ], [
+        ['disfruto', 'I enjoy'], ['disfrutas', 'you enjoy'], ['disfruta', 's/he enjoys'],
+        ['disfrutamos', 'we enjoy'], ['disfrutan', 'they enjoy'],
+    ], [
+        ['disfruté', 'I enjoyed'], ['disfrutaste', 'you enjoyed'], ['disfrutó', 's/he enjoyed'],
+        ['disfrutamos', 'we enjoyed'], ['disfrutaron', 'they enjoyed'],
+    ], [
+        ['disfrutaba', 'I used to enjoy'], ['disfrutabas', 'you used to enjoy'], ['disfrutaba', 's/he used to enjoy'],
+        ['disfrutábamos', 'we used to enjoy'], ['disfrutaban', 'they used to enjoy'],
+    ]),
+    simpleVerb('pintar', 'to paint', [
+        ['pintar', 'to paint'], ['pintado', 'painted'], ['pintando', 'painting'],
+    ], [
+        ['pinto', 'I paint'], ['pintas', 'you paint'], ['pinta', 's/he paints'],
+        ['pintamos', 'we paint'], ['pintan', 'they paint'],
+    ], [
+        ['pinté', 'I painted'], ['pintaste', 'you painted'], ['pintó', 's/he painted'],
+        ['pintamos', 'we painted'], ['pintaron', 'they painted'],
+    ], [
+        ['pintaba', 'I used to paint'], ['pintabas', 'you used to paint'], ['pintaba', 's/he used to paint'],
+        ['pintábamos', 'we used to paint'], ['pintaban', 'they used to paint'],
+    ]),
+    simpleVerb('limpiar', 'to clean', [
+        ['limpiar', 'to clean'], ['limpiado', 'cleaned'], ['limpiando', 'cleaning'],
+    ], [
+        ['limpio', 'I clean'], ['limpias', 'you clean'], ['limpia', 's/he cleans'],
+        ['limpiamos', 'we clean'], ['limpian', 'they clean'],
+    ], [
+        ['limpié', 'I cleaned'], ['limpiaste', 'you cleaned'], ['limpió', 's/he cleaned'],
+        ['limpiamos', 'we cleaned'], ['limpiaron', 'they cleaned'],
+    ], [
+        ['limpiaba', 'I used to clean'], ['limpiabas', 'you used to clean'], ['limpiaba', 's/he used to clean'],
+        ['limpiábamos', 'we used to clean'], ['limpiaban', 'they used to clean'],
+    ]),
+    simpleVerb('desayunar', 'to have breakfast', [
+        ['desayunar', 'to have breakfast'], ['desayunado', 'had breakfast'], ['desayunando', 'having breakfast'],
+    ], [
+        ['desayuno', 'I have breakfast'], ['desayunas', 'you have breakfast'], ['desayuna', 's/he has breakfast'],
+        ['desayunamos', 'we have breakfast'], ['desayunan', 'they have breakfast'],
+    ], [
+        ['desayuné', 'I had breakfast'], ['desayunaste', 'you had breakfast'], ['desayunó', 's/he had breakfast'],
+        ['desayunamos', 'we had breakfast'], ['desayunaron', 'they had breakfast'],
+    ], [
+        ['desayunaba', 'I used to have breakfast'], ['desayunabas', 'you used to have breakfast'], ['desayunaba', 's/he used to have breakfast'],
+        ['desayunábamos', 'we used to have breakfast'], ['desayunaban', 'they used to have breakfast'],
+    ]),
+    simpleVerb('cantar', 'to sing', [
+        ['cantar', 'to sing'], ['cantado', 'sung'], ['cantando', 'singing'],
+    ], [
+        ['canto', 'I sing'], ['cantas', 'you sing'], ['canta', 's/he sings'],
+        ['cantamos', 'we sing'], ['cantan', 'they sing'],
+    ], [
+        ['canté', 'I sang'], ['cantaste', 'you sang'], ['cantó', 's/he sang'],
+        ['cantamos', 'we sang'], ['cantaron', 'they sang'],
+    ], [
+        ['cantaba', 'I used to sing'], ['cantabas', 'you used to sing'], ['cantaba', 's/he used to sing'],
+        ['cantábamos', 'we used to sing'], ['cantaban', 'they used to sing'],
+    ]),
+    simpleVerb('coger', 'to take, to catch, to grab', [
+        ['coger', 'to take'], ['cogido', 'taken'], ['cogiendo', 'taking'],
+    ], [
+        ['cojo', 'I take', true], ['coges', 'you take'], ['coge', 's/he takes'],
+        ['cogemos', 'we take'], ['cogen', 'they take'],
+    ], [
+        ['cogí', 'I took'], ['cogiste', 'you took'], ['cogió', 's/he took'],
+        ['cogimos', 'we took'], ['cogieron', 'they took'],
+    ], [
+        ['cogía', 'I used to take'], ['cogías', 'you used to take'], ['cogía', 's/he used to take'],
+        ['cogíamos', 'we used to take'], ['cogían', 'they used to take'],
+    ]),
+    simpleVerb('elegir', 'to choose, to elect', [
+        ['elegir', 'to choose'], ['elegido', 'chosen'], ['eligiendo', 'choosing'],
+    ], [
+        ['elijo', 'I choose', true], ['eliges', 'you choose', true], ['elige', 's/he chooses', true],
+        ['elegimos', 'we choose'], ['eligen', 'they choose', true],
+    ], [
+        ['elegí', 'I chose'], ['elegiste', 'you chose'], ['eligió', 's/he chose', true],
+        ['elegimos', 'we chose'], ['eligieron', 'they chose', true],
+    ], [
+        ['elegía', 'I used to choose'], ['elegías', 'you used to choose'], ['elegía', 's/he used to choose'],
+        ['elegíamos', 'we used to choose'], ['elegían', 'they used to choose'],
+    ]),
+    simpleVerb('llover', 'to rain', [
+        ['llover', 'to rain'], ['llovido', 'rained'], ['lloviendo', 'raining'],
+    ], [
+        ['lluevo', 'I rain', true], ['llueves', 'you rain', true], ['llueve', 's/he rains', true],
+        ['llovemos', 'we rain'], ['llueven', 'they rain', true],
+    ], [
+        ['lloví', 'I rained'], ['lloviste', 'you rained'], ['llovió', 's/he rained'],
+        ['llovimos', 'we rained'], ['llovieron', 'they rained'],
+    ], [
+        ['llovía', 'I used to rain'], ['llovías', 'you used to rain'], ['llovía', 's/he used to rain'],
+        ['llovíamos', 'we used to rain'], ['llovían', 'they used to rain'],
+    ]),
+    simpleVerb('nevar', 'to snow', [
+        ['nevar', 'to snow'], ['nevado', 'snowed'], ['nevando', 'snowing'],
+    ], [
+        ['nievo', 'I snow', true], ['nievas', 'you snow', true], ['nieva', 's/he snows', true],
+        ['nevamos', 'we snow'], ['nievan', 'they snow', true],
+    ], [
+        ['nevé', 'I snowed'], ['nevaste', 'you snowed'], ['nevó', 's/he snowed'],
+        ['nevamos', 'we snowed'], ['nevaron', 'they snowed'],
+    ], [
+        ['nevaba', 'I used to snow'], ['nevabas', 'you used to snow'], ['nevaba', 's/he used to snow'],
+        ['nevábamos', 'we used to snow'], ['nevaban', 'they used to snow'],
+    ]),
+    simpleVerb('usar', 'to use', [
+        ['usar', 'to use'], ['usado', 'used'], ['usando', 'using'],
+    ], [
+        ['uso', 'I use'], ['usas', 'you use'], ['usa', 's/he uses'],
+        ['usamos', 'we use'], ['usan', 'they use'],
+    ], [
+        ['usé', 'I used'], ['usaste', 'you used'], ['usó', 's/he used'],
+        ['usamos', 'we used'], ['usaron', 'they used'],
+    ], [
+        ['usaba', 'I used to use'], ['usabas', 'you used to use'], ['usaba', 's/he used to use'],
+        ['usábamos', 'we used to use'], ['usaban', 'they used to use'],
+    ]),
+    simpleVerb('fumar', 'to smoke', [
+        ['fumar', 'to smoke'], ['fumado', 'smoked'], ['fumando', 'smoking'],
+    ], [
+        ['fumo', 'I smoke'], ['fumas', 'you smoke'], ['fuma', 's/he smokes'],
+        ['fumamos', 'we smoke'], ['fuman', 'they smoke'],
+    ], [
+        ['fumé', 'I smoked'], ['fumaste', 'you smoked'], ['fumó', 's/he smoked'],
+        ['fumamos', 'we smoked'], ['fumaron', 'they smoked'],
+    ], [
+        ['fumaba', 'I used to smoke'], ['fumabas', 'you used to smoke'], ['fumaba', 's/he used to smoke'],
+        ['fumábamos', 'we used to smoke'], ['fumaban', 'they used to smoke'],
+    ]),
+    simpleVerb('parar', 'to stop', [
+        ['parar', 'to stop'], ['parado', 'stopped'], ['parando', 'stopping'],
+    ], [
+        ['paro', 'I stop'], ['paras', 'you stop'], ['para', 's/he stops'],
+        ['paramos', 'we stop'], ['paran', 'they stop'],
+    ], [
+        ['paré', 'I stopped'], ['paraste', 'you stopped'], ['paró', 's/he stopped'],
+        ['paramos', 'we stopped'], ['pararon', 'they stopped'],
+    ], [
+        ['paraba', 'I used to stop'], ['parabas', 'you used to stop'], ['paraba', 's/he used to stop'],
+        ['parábamos', 'we used to stop'], ['paraban', 'they used to stop'],
+    ]),
+    simpleVerb('responder', 'to answer, to respond', [
+        ['responder', 'to answer'], ['respondido', 'answered'], ['respondiendo', 'answering'],
+    ], [
+        ['respondo', 'I answer'], ['respondes', 'you answer'], ['responde', 's/he answers'],
+        ['respondemos', 'we answer'], ['responden', 'they answer'],
+    ], [
+        ['respondí', 'I answered'], ['respondiste', 'you answered'], ['respondió', 's/he answered'],
+        ['respondimos', 'we answered'], ['respondieron', 'they answered'],
+    ], [
+        ['respondía', 'I used to answer'], ['respondías', 'you used to answer'], ['respondía', 's/he used to answer'],
+        ['respondíamos', 'we used to answer'], ['respondían', 'they used to answer'],
+    ]),
+    simpleVerb('odiar', 'to hate', [
+        ['odiar', 'to hate'], ['odiado', 'hated'], ['odiando', 'hating'],
+    ], [
+        ['odio', 'I hate'], ['odias', 'you hate'], ['odia', 's/he hates'],
+        ['odiamos', 'we hate'], ['odian', 'they hate'],
+    ], [
+        ['odié', 'I hated'], ['odiaste', 'you hated'], ['odió', 's/he hated'],
+        ['odiamos', 'we hated'], ['odiaron', 'they hated'],
+    ], [
+        ['odiaba', 'I used to hate'], ['odiabas', 'you used to hate'], ['odiaba', 's/he used to hate'],
+        ['odiábamos', 'we used to hate'], ['odiaban', 'they used to hate'],
+    ]),
+    simpleVerb('preferir', 'to prefer', [
+        ['preferir', 'to prefer'], ['preferido', 'preferred'], ['prefiriendo', 'preferring'],
+    ], [
+        ['prefiero', 'I prefer', true], ['prefieres', 'you prefer', true], ['prefiere', 's/he prefers', true],
+        ['preferimos', 'we prefer'], ['prefieren', 'they prefer', true],
+    ], [
+        ['preferí', 'I preferred'], ['preferiste', 'you preferred'], ['prefirió', 's/he preferred', true],
+        ['preferimos', 'we preferred'], ['prefirieron', 'they preferred', true],
+    ], [
+        ['prefería', 'I used to prefer'], ['preferías', 'you used to prefer'], ['prefería', 's/he used to prefer'],
+        ['preferíamos', 'we used to prefer'], ['preferían', 'they used to prefer'],
+    ]),
+    simpleVerb('llenar', 'to fill', [
+        ['llenar', 'to fill'], ['llenado', 'filled'], ['llenando', 'filling'],
+    ], [
+        ['lleno', 'I fill'], ['llenas', 'you fill'], ['llena', 's/he fills'],
+        ['llenamos', 'we fill'], ['llenan', 'they fill'],
+    ], [
+        ['llené', 'I filled'], ['llenaste', 'you filled'], ['llenó', 's/he filled'],
+        ['llenamos', 'we filled'], ['llenaron', 'they filled'],
+    ], [
+        ['llenaba', 'I used to fill'], ['llenabas', 'you used to fill'], ['llenaba', 's/he used to fill'],
+        ['llenábamos', 'we used to fill'], ['llenaban', 'they used to fill'],
+    ]),
+    simpleVerb('visitar', 'to visit', [
+        ['visitar', 'to visit'], ['visitado', 'visited'], ['visitando', 'visiting'],
+    ], [
+        ['visito', 'I visit'], ['visitas', 'you visit'], ['visita', 's/he visits'],
+        ['visitamos', 'we visit'], ['visitan', 'they visit'],
+    ], [
+        ['visité', 'I visited'], ['visitaste', 'you visited'], ['visitó', 's/he visited'],
+        ['visitamos', 'we visited'], ['visitaron', 'they visited'],
+    ], [
+        ['visitaba', 'I used to visit'], ['visitabas', 'you used to visit'], ['visitaba', 's/he used to visit'],
+        ['visitábamos', 'we used to visit'], ['visitaban', 'they used to visit'],
+    ]),
+    simpleVerb('parecer', 'to seem, to appear', [
+        ['parecer', 'to seem'], ['parecido', 'seemed'], ['pareciendo', 'seeming'],
+    ], [
+        ['parezco', 'I seem', true], ['pareces', 'you seem'], ['parece', 's/he seems'],
+        ['parecemos', 'we seem'], ['parecen', 'they seem'],
+    ], [
+        ['parecí', 'I seemed'], ['pareciste', 'you seemed'], ['pareció', 's/he seemed'],
+        ['parecimos', 'we seemed'], ['parecieron', 'they seemed'],
+    ], [
+        ['parecía', 'I used to seem'], ['parecías', 'you used to seem'], ['parecía', 's/he used to seem'],
+        ['parecíamos', 'we used to seem'], ['parecían', 'they used to seem'],
+    ]),
+    simpleVerb('acompañar', 'to accompany', [
+        ['acompañar', 'to accompany'], ['acompañado', 'accompanied'], ['acompañando', 'accompanying'],
+    ], [
+        ['acompaño', 'I accompany'], ['acompañas', 'you accompany'], ['acompaña', 's/he accompanies'],
+        ['acompañamos', 'we accompany'], ['acompañan', 'they accompany'],
+    ], [
+        ['acompañé', 'I accompanied'], ['acompañaste', 'you accompanied'], ['acompañó', 's/he accompanied'],
+        ['acompañamos', 'we accompanied'], ['acompañaron', 'they accompanied'],
+    ], [
+        ['acompañaba', 'I used to accompany'], ['acompañabas', 'you used to accompany'], ['acompañaba', 's/he used to accompany'],
+        ['acompañábamos', 'we used to accompany'], ['acompañaban', 'they used to accompany'],
+    ]),
+    simpleVerb('conversar', 'to converse, to chat', [
+        ['conversar', 'to converse'], ['conversado', 'conversed'], ['conversando', 'conversing'],
+    ], [
+        ['converso', 'I converse'], ['conversas', 'you converse'], ['conversa', 's/he converses'],
+        ['conversamos', 'we converse'], ['conversan', 'they converse'],
+    ], [
+        ['conversé', 'I conversed'], ['conversaste', 'you conversed'], ['conversó', 's/he conversed'],
+        ['conversamos', 'we conversed'], ['conversaron', 'they conversed'],
+    ], [
+        ['conversaba', 'I used to converse'], ['conversabas', 'you used to converse'], ['conversaba', 's/he used to converse'],
+        ['conversábamos', 'we used to converse'], ['conversaban', 'they used to converse'],
+    ]),
+    simpleVerb('apagar', 'to turn off, to extinguish', [
+        ['apagar', 'to turn off'], ['apagado', 'turned off'], ['apagando', 'turning off'],
+    ], [
+        ['apago', 'I turn off'], ['apagas', 'you turn off'], ['apaga', 's/he turns off'],
+        ['apagamos', 'we turn off'], ['apagan', 'they turn off'],
+    ], [
+        ['apagué', 'I turned off', true], ['apagaste', 'you turned off'], ['apagó', 's/he turned off'],
+        ['apagamos', 'we turned off'], ['apagaron', 'they turned off'],
+    ], [
+        ['apagaba', 'I used to turn off'], ['apagabas', 'you used to turn off'], ['apagaba', 's/he used to turn off'],
+        ['apagábamos', 'we used to turn off'], ['apagaban', 'they used to turn off'],
+    ]),
+    simpleVerb('encender', 'to turn on, to light', [
+        ['encender', 'to turn on'], ['encendido', 'turned on'], ['encendiendo', 'turning on'],
+    ], [
+        ['enciendo', 'I turn on', true], ['enciendes', 'you turn on', true], ['enciende', 's/he turns on', true],
+        ['encendemos', 'we turn on'], ['encienden', 'they turn on', true],
+    ], [
+        ['encendí', 'I turned on'], ['encendiste', 'you turned on'], ['encendió', 's/he turned on'],
+        ['encendimos', 'we turned on'], ['encendieron', 'they turned on'],
+    ], [
+        ['encendía', 'I used to turn on'], ['encendías', 'you used to turn on'], ['encendía', 's/he used to turn on'],
+        ['encendíamos', 'we used to turn on'], ['encendían', 'they used to turn on'],
+    ]),
+    simpleVerb('deber', 'should, to owe, must', [
+        ['deber', 'should, must'], ['debido', 'owed'], ['debiendo', 'owing'],
+    ], [
+        ['debo', 'I should'], ['debes', 'you should'], ['debe', 's/he should'],
+        ['debemos', 'we should'], ['deben', 'they should'],
+    ], [
+        ['debí', 'I should have'], ['debiste', 'you should have'], ['debió', 's/he should have'],
+        ['debimos', 'we should have'], ['debieron', 'they should have'],
+    ], [
+        ['debía', 'I was supposed to'], ['debías', 'you were supposed to'], ['debía', 's/he was supposed to'],
+        ['debíamos', 'we were supposed to'], ['debían', 'they were supposed to'],
+    ]),
+    simpleVerb('doler', 'to hurt, to ache', [
+        ['doler', 'to hurt'], ['dolido', 'hurt'], ['doliendo', 'hurting'],
+    ], [
+        ['me duele / me duelen', 'it hurts me'], ['te duele / te duelen', 'it hurts you'], ['le duele / le duelen', 's/he feels pain'],
+        ['nos duele / nos duelen', 'it hurts us'], ['les duele / les duelen', 'it hurts them'],
+    ], [
+        ['me dolió / me dolieron', 'it hurt me'], ['te dolió / te dolieron', 'it hurt you'], ['le dolió / le dolieron', 's/he felt pain'],
+        ['nos dolió / nos dolieron', 'it hurt us'], ['les dolió / les dolieron', 'it hurt them'],
+    ], [
+        ['me dolía / me dolían', 'it used to hurt me'], ['te dolía / te dolían', 'it used to hurt you'], ['le dolía / le dolían', 's/he used to feel pain'],
+        ['nos dolía / nos dolían', 'it used to hurt us'], ['les dolía / les dolían', 'it used to hurt them'],
+    ]),
+    simpleVerb('descansar', 'to rest', [
+        ['descansar', 'to rest'], ['descansado', 'rested'], ['descansando', 'resting'],
+    ], [
+        ['descanso', 'I rest'], ['descansas', 'you rest'], ['descansa', 's/he rests'],
+        ['descansamos', 'we rest'], ['descansan', 'they rest'],
+    ], [
+        ['descansé', 'I rested'], ['descansaste', 'you rested'], ['descansó', 's/he rested'],
+        ['descansamos', 'we rested'], ['descansaron', 'they rested'],
+    ], [
+        ['descansaba', 'I used to rest'], ['descansabas', 'you used to rest'], ['descansaba', 's/he used to rest'],
+        ['descansábamos', 'we used to rest'], ['descansaban', 'they used to rest'],
+    ]),
+    simpleVerb('cuidar', 'to take care of, to look after', [
+        ['cuidar', 'to take care of'], ['cuidado', 'taken care of'], ['cuidando', 'taking care of'],
+    ], [
+        ['cuido', 'I take care of'], ['cuidas', 'you take care of'], ['cuida', 's/he takes care of'],
+        ['cuidamos', 'we take care of'], ['cuidan', 'they take care of'],
+    ], [
+        ['cuidé', 'I took care of'], ['cuidaste', 'you took care of'], ['cuidó', 's/he took care of'],
+        ['cuidamos', 'we took care of'], ['cuidaron', 'they took care of'],
+    ], [
+        ['cuidaba', 'I used to take care of'], ['cuidabas', 'you used to take care of'], ['cuidaba', 's/he used to take care of'],
+        ['cuidábamos', 'we used to take care of'], ['cuidaban', 'they used to take care of'],
+    ]),
+    simpleVerb('enviar', 'to send', [
+        ['enviar', 'to send'], ['enviado', 'sent'], ['enviando', 'sending'],
+    ], [
+        ['envío', 'I send', true], ['envías', 'you send', true], ['envía', 's/he sends', true],
+        ['enviamos', 'we send'], ['envían', 'they send', true],
+    ], [
+        ['envié', 'I sent'], ['enviaste', 'you sent'], ['envió', 's/he sent'],
+        ['enviamos', 'we sent'], ['enviaron', 'they sent'],
+    ], [
+        ['enviaba', 'I used to send'], ['enviabas', 'you used to send'], ['enviaba', 's/he used to send'],
+        ['enviábamos', 'we used to send'], ['enviaban', 'they used to send'],
+    ]),
+    simpleVerb('aprobar', 'to pass (an exam), to approve', [
+        ['aprobar', 'to pass'], ['aprobado', 'passed'], ['aprobando', 'passing'],
+    ], [
+        ['apruebo', 'I pass', true], ['apruebas', 'you pass', true], ['aprueba', 's/he passes', true],
+        ['aprobamos', 'we pass'], ['aprueban', 'they pass', true],
+    ], [
+        ['aprobé', 'I passed'], ['aprobaste', 'you passed'], ['aprobó', 's/he passed'],
+        ['aprobamos', 'we passed'], ['aprobaron', 'they passed'],
+    ], [
+        ['aprobaba', 'I used to pass'], ['aprobabas', 'you used to pass'], ['aprobaba', 's/he used to pass'],
+        ['aprobábamos', 'we used to pass'], ['aprobaban', 'they used to pass'],
+    ]),
+    simpleVerb('beber', 'to drink', [
+        ['beber', 'to drink'], ['bebido', 'drunk'], ['bebiendo', 'drinking'],
+    ], [
+        ['bebo', 'I drink'], ['bebes', 'you drink'], ['bebe', 's/he drinks'],
+        ['bebemos', 'we drink'], ['beben', 'they drink'],
+    ], [
+        ['bebí', 'I drank'], ['bebiste', 'you drank'], ['bebió', 's/he drank'],
+        ['bebimos', 'we drank'], ['bebieron', 'they drank'],
+    ], [
+        ['bebía', 'I used to drink'], ['bebías', 'you used to drink'], ['bebía', 's/he used to drink'],
+        ['bebíamos', 'we used to drink'], ['bebían', 'they used to drink'],
+    ]),
+    simpleVerb('mandar', 'to send, to order', [
+        ['mandar', 'to send'], ['mandado', 'sent'], ['mandando', 'sending'],
+    ], [
+        ['mando', 'I send'], ['mandas', 'you send'], ['manda', 's/he sends'],
+        ['mandamos', 'we send'], ['mandan', 'they send'],
+    ], [
+        ['mandé', 'I sent'], ['mandaste', 'you sent'], ['mandó', 's/he sent'],
+        ['mandamos', 'we sent'], ['mandaron', 'they sent'],
+    ], [
+        ['mandaba', 'I used to send'], ['mandabas', 'you used to send'], ['mandaba', 's/he used to send'],
+        ['mandábamos', 'we used to send'], ['mandaban', 'they used to send'],
+    ]),
+    simpleVerb('rezar', 'to pray', [
+        ['rezar', 'to pray'], ['rezado', 'prayed'], ['rezando', 'praying'],
+    ], [
+        ['rezo', 'I pray'], ['rezas', 'you pray'], ['reza', 's/he prays'],
+        ['rezamos', 'we pray'], ['rezan', 'they pray'],
+    ], [
+        ['recé', 'I prayed', true], ['rezaste', 'you prayed'], ['rezó', 's/he prayed'],
+        ['rezamos', 'we prayed'], ['rezaron', 'they prayed'],
+    ], [
+        ['rezaba', 'I used to pray'], ['rezabas', 'you used to pray'], ['rezaba', 's/he used to pray'],
+        ['rezábamos', 'we used to pray'], ['rezaban', 'they used to pray'],
+    ]),
+    simpleVerb('planear', 'to plan', [
+        ['planear', 'to plan'], ['planeado', 'planned'], ['planeando', 'planning'],
+    ], [
+        ['planeo', 'I plan'], ['planeas', 'you plan'], ['planea', 's/he plans'],
+        ['planeamos', 'we plan'], ['planean', 'they plan'],
+    ], [
+        ['planeé', 'I planned'], ['planeaste', 'you planned'], ['planeó', 's/he planned'],
+        ['planeamos', 'we planned'], ['planearon', 'they planned'],
+    ], [
+        ['planeaba', 'I used to plan'], ['planeabas', 'you used to plan'], ['planeaba', 's/he used to plan'],
+        ['planeábamos', 'we used to plan'], ['planeaban', 'they used to plan'],
+    ]),
+    simpleVerb('reservar', 'to reserve, to book', [
+        ['reservar', 'to reserve'], ['reservado', 'reserved'], ['reservando', 'reserving'],
+    ], [
+        ['reservo', 'I reserve'], ['reservas', 'you reserve'], ['reserva', 's/he reserves'],
+        ['reservamos', 'we reserve'], ['reservan', 'they reserve'],
+    ], [
+        ['reservé', 'I reserved'], ['reservaste', 'you reserved'], ['reservó', 's/he reserved'],
+        ['reservamos', 'we reserved'], ['reservaron', 'they reserved'],
+    ], [
+        ['reservaba', 'I used to reserve'], ['reservabas', 'you used to reserve'], ['reservaba', 's/he used to reserve'],
+        ['reservábamos', 'we used to reserve'], ['reservaban', 'they used to reserve'],
+    ]),
+    simpleVerb('regresar', 'to return, to go back', [
+        ['regresar', 'to return'], ['regresado', 'returned'], ['regresando', 'returning'],
+    ], [
+        ['regreso', 'I return'], ['regresas', 'you return'], ['regresa', 's/he returns'],
+        ['regresamos', 'we return'], ['regresan', 'they return'],
+    ], [
+        ['regresé', 'I returned'], ['regresaste', 'you returned'], ['regresó', 's/he returned'],
+        ['regresamos', 'we returned'], ['regresaron', 'they returned'],
+    ], [
+        ['regresaba', 'I used to return'], ['regresabas', 'you used to return'], ['regresaba', 's/he used to return'],
+        ['regresábamos', 'we used to return'], ['regresaban', 'they used to return'],
+    ]),
+    simpleVerb('llorar', 'to cry', [
+        ['llorar', 'to cry'], ['llorado', 'cried'], ['llorando', 'crying'],
+    ], [
+        ['lloro', 'I cry'], ['lloras', 'you cry'], ['llora', 's/he cries'],
+        ['lloramos', 'we cry'], ['lloran', 'they cry'],
+    ], [
+        ['lloré', 'I cried'], ['lloraste', 'you cried'], ['lloró', 's/he cried'],
+        ['lloramos', 'we cried'], ['lloraron', 'they cried'],
+    ], [
+        ['lloraba', 'I used to cry'], ['llorabas', 'you used to cry'], ['lloraba', 's/he used to cry'],
+        ['llorábamos', 'we used to cry'], ['lloraban', 'they used to cry'],
+    ]),
+    simpleVerb('satisfacer', 'to satisfy', [
+        ['satisfacer', 'to satisfy'], ['satisfecho', 'satisfied'], ['satisfaciendo', 'satisfying'],
+    ], [
+        ['satisfago', 'I satisfy', true], ['satisfaces', 'you satisfy', true], ['satisface', 's/he satisfies', true],
+        ['satisfacemos', 'we satisfy'], ['satisfacen', 'they satisfy', true],
+    ], [
+        ['satisfice', 'I satisfied', true], ['satisficiste', 'you satisfied', true], ['satisfizo', 's/he satisfied', true],
+        ['satisficimos', 'we satisfied', true], ['satisficieron', 'they satisfied', true],
+    ], [
+        ['satisfacía', 'I used to satisfy'], ['satisfacías', 'you used to satisfy'], ['satisfacía', 's/he used to satisfy'],
+        ['satisfacíamos', 'we used to satisfy'], ['satisfacían', 'they used to satisfy'],
+    ]),
+    simpleVerb('romper', 'to break', [
+        ['romper', 'to break'], ['roto', 'broken'], ['rompiendo', 'breaking'],
+    ], [
+        ['rompo', 'I break'], ['rompes', 'you break'], ['rompe', 's/he breaks'],
+        ['rompemos', 'we break'], ['rompen', 'they break'],
+    ], [
+        ['rompí', 'I broke'], ['rompiste', 'you broke'], ['rompió', 's/he broke'],
+        ['rompimos', 'we broke'], ['rompieron', 'they broke'],
+    ], [
+        ['rompía', 'I used to break'], ['rompías', 'you used to break'], ['rompía', 's/he used to break'],
+        ['rompíamos', 'we used to break'], ['rompían', 'they used to break'],
+    ]),
+    simpleVerb('pescar', 'to fish', [
+        ['pescar', 'to fish'], ['pescado', 'fished'], ['pescando', 'fishing'],
+    ], [
+        ['pesco', 'I fish'], ['pescas', 'you fish'], ['pesca', 's/he fishes'],
+        ['pescamos', 'we fish'], ['pescan', 'they fish'],
+    ], [
+        ['pesqué', 'I fished', true], ['pescaste', 'you fished'], ['pescó', 's/he fished'],
+        ['pescamos', 'we fished'], ['pescaron', 'they fished'],
+    ], [
+        ['pescaba', 'I used to fish'], ['pescabas', 'you used to fish'], ['pescaba', 's/he used to fish'],
+        ['pescábamos', 'we used to fish'], ['pescaban', 'they used to fish'],
+    ]),
+    simpleVerb('reparar', 'to repair', [
+        ['reparar', 'to repair'], ['reparado', 'repaired'], ['reparando', 'repairing'],
+    ], [
+        ['reparo', 'I repair'], ['reparas', 'you repair'], ['repara', 's/he repairs'],
+        ['reparamos', 'we repair'], ['reparan', 'they repair'],
+    ], [
+        ['reparé', 'I repaired'], ['reparaste', 'you repaired'], ['reparó', 's/he repaired'],
+        ['reparamos', 'we repaired'], ['repararon', 'they repaired'],
+    ], [
+        ['reparaba', 'I used to repair'], ['reparabas', 'you used to repair'], ['reparaba', 's/he used to repair'],
+        ['reparábamos', 'we used to repair'], ['reparaban', 'they used to repair'],
+    ]),
+    simpleVerb('asar', 'to roast, to grill', [
+        ['asar', 'to roast'], ['asado', 'roasted'], ['asando', 'roasting'],
+    ], [
+        ['aso', 'I roast'], ['asas', 'you roast'], ['asa', 's/he roasts'],
+        ['asamos', 'we roast'], ['asan', 'they roast'],
+    ], [
+        ['asé', 'I roasted'], ['asaste', 'you roasted'], ['asó', 's/he roasted'],
+        ['asamos', 'we roasted'], ['asaron', 'they roasted'],
+    ], [
+        ['asaba', 'I used to roast'], ['asabas', 'you used to roast'], ['asaba', 's/he used to roast'],
+        ['asábamos', 'we used to roast'], ['asaban', 'they used to roast'],
+    ]),
+    simpleVerb('repetir', 'to repeat', [
+        ['repetir', 'to repeat'], ['repetido', 'repeated'], ['repitiendo', 'repeating'],
+    ], [
+        ['repito', 'I repeat', true], ['repites', 'you repeat', true], ['repite', 's/he repeats', true],
+        ['repetimos', 'we repeat'], ['repiten', 'they repeat', true],
+    ], [
+        ['repetí', 'I repeated'], ['repetiste', 'you repeated'], ['repitió', 's/he repeated', true],
+        ['repetimos', 'we repeated'], ['repitieron', 'they repeated', true],
+    ], [
+        ['repetía', 'I used to repeat'], ['repetías', 'you used to repeat'], ['repetía', 's/he used to repeat'],
+        ['repetíamos', 'we used to repeat'], ['repetían', 'they used to repeat'],
+    ]),
+    simpleVerb('completar', 'to complete', [
+        ['completar', 'to complete'], ['completado', 'completed'], ['completando', 'completing'],
+    ], [
+        ['completo', 'I complete'], ['completas', 'you complete'], ['completa', 's/he completes'],
+        ['completamos', 'we complete'], ['completan', 'they complete'],
+    ], [
+        ['completé', 'I completed'], ['completaste', 'you completed'], ['completó', 's/he completed'],
+        ['completamos', 'we completed'], ['completaron', 'they completed'],
+    ], [
+        ['completaba', 'I used to complete'], ['completabas', 'you used to complete'], ['completaba', 's/he used to complete'],
+        ['completábamos', 'we used to complete'], ['completaban', 'they used to complete'],
+    ]),
+    simpleVerb('decidir', 'to decide', [
+        ['decidir', 'to decide'], ['decidido', 'decided'], ['decidiendo', 'deciding'],
+    ], [
+        ['decido', 'I decide'], ['decides', 'you decide'], ['decide', 's/he decides'],
+        ['decidimos', 'we decide'], ['deciden', 'they decide'],
+    ], [
+        ['decidí', 'I decided'], ['decidiste', 'you decided'], ['decidió', 's/he decided'],
+        ['decidimos', 'we decided'], ['decidieron', 'they decided'],
+    ], [
+        ['decidía', 'I used to decide'], ['decidías', 'you used to decide'], ['decidía', 's/he used to decide'],
+        ['decidíamos', 'we used to decide'], ['decidían', 'they used to decide'],
+    ]),
+    simpleVerb('preparar', 'to prepare', [
+        ['preparar', 'to prepare'], ['preparado', 'prepared'], ['preparando', 'preparing'],
+    ], [
+        ['preparo', 'I prepare'], ['preparas', 'you prepare'], ['prepara', 's/he prepares'],
+        ['preparamos', 'we prepare'], ['preparan', 'they prepare'],
+    ], [
+        ['preparé', 'I prepared'], ['preparaste', 'you prepared'], ['preparó', 's/he prepared'],
+        ['preparamos', 'we prepared'], ['prepararon', 'they prepared'],
+    ], [
+        ['preparaba', 'I used to prepare'], ['preparabas', 'you used to prepare'], ['preparaba', 's/he used to prepare'],
+        ['preparábamos', 'we used to prepare'], ['preparaban', 'they used to prepare'],
+    ]),
+    simpleVerb('reunir', 'to gather, to meet, to reunite', [
+        ['reunir', 'to gather'], ['reunido', 'gathered'], ['reuniendo', 'gathering'],
+    ], [
+        ['reúno', 'I gather', true], ['reúnes', 'you gather', true], ['reúne', 's/he gathers', true],
+        ['reunimos', 'we gather'], ['reúnen', 'they gather', true],
+    ], [
+        ['reuní', 'I gathered'], ['reuniste', 'you gathered'], ['reunió', 's/he gathered'],
+        ['reunimos', 'we gathered'], ['reunieron', 'they gathered'],
+    ], [
+        ['reunía', 'I used to gather'], ['reunías', 'you used to gather'], ['reunía', 's/he used to gather'],
+        ['reuníamos', 'we used to gather'], ['reunían', 'they used to gather'],
+    ]),
+    simpleVerb('gastar', 'to spend', [
+        ['gastar', 'to spend'], ['gastado', 'spent'], ['gastando', 'spending'],
+    ], [
+        ['gasto', 'I spend'], ['gastas', 'you spend'], ['gasta', 's/he spends'],
+        ['gastamos', 'we spend'], ['gastan', 'they spend'],
+    ], [
+        ['gasté', 'I spent'], ['gastaste', 'you spent'], ['gastó', 's/he spent'],
+        ['gastamos', 'we spent'], ['gastaron', 'they spent'],
+    ], [
+        ['gastaba', 'I used to spend'], ['gastabas', 'you used to spend'], ['gastaba', 's/he used to spend'],
+        ['gastábamos', 'we used to spend'], ['gastaban', 'they used to spend'],
+    ]),
 ]
 
 VERBS.push(...BULK_VERBS)
-
-// TODO: verbs still requested (conjugations only — present/preterite/imperfect,
-// same simpleVerb() format as above) but not yet added:
-// costar, dibujar, cocinar, montar, manejar, caminar, comer, comprar, disfrutar,
-// pintar, limpiar, desayunar, cantar, coger, elegir, llover, nevar, usar, fumar,
-// parar, responder, odiar, preferir, llenar, visitar, parecer, acompañar,
-// conversar, apagar, encender, deber, doler, descansar, cuidar (non-reflexive —
-// cuidarse is already added), enviar, aprobar, beber, mandar, rezar, planear,
-// reservar, regresar, llorar, satisfacer, romper, pescar, reparar, asar, repetir,
-// completar, decidir, preparar, reunir, gastar
 
 // Approximate real-world Spanish usage frequency, most common first. Not exact —
 // based on general corpus-frequency knowledge, good enough for a rough sort.
 const FREQUENCY_ORDER = [
     'ser', 'estar', 'haber', 'tener', 'hacer', 'poder', 'decir', 'ir', 'ver', 'dar',
-    'saber', 'querer', 'llegar', 'pasar', 'quedar', 'creer', 'hablar', 'llevar', 'dejar', 'seguir',
-    'llamar', 'venir', 'pensar', 'salir', 'volver', 'tomar', 'conocer', 'vivir', 'sentirse', 'entender',
-    'buscar', 'encontrarse', 'trabajar', 'escribir', 'empezar', 'esperar', 'perder', 'pedir', 'recibir', 'recordar',
-    'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'necesitar', 'jugar', 'cerrar', 'contar',
-    'mirar', 'tratar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'existir', 'mantener',
-    'resultar', 'presentar', 'crear', 'abrir', 'considerar', 'oír', 'acabar', 'convertir', 'ganar', 'formar',
-    'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'preguntar', 'tocar', 'reconocer',
-    'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr', 'utilizar', 'pagar', 'ayudar', 'producir', 'ocurrir',
-    'probar', 'gustar', 'sentarse', 'ponerse', 'amar', 'encantar', 'invitar', 'enseñar', 'aprender', 'quedarse',
-    'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse', 'ducharse', 'lavarse', 'vestirse', 'cepillarse', 'casarse',
-    'cuidarse', 'divertirse', 'aburrirse', 'enojarse', 'enfadarse', 'olvidarse', 'preocuparse', 'dormirse',
+    'saber', 'querer', 'llegar', 'pasar', 'deber', 'quedar', 'creer', 'hablar', 'llevar', 'dejar',
+    'seguir', 'llamar', 'venir', 'pensar', 'salir', 'volver', 'tomar', 'conocer', 'vivir', 'sentirse',
+    'entender', 'buscar', 'encontrarse', 'trabajar', 'escribir', 'empezar', 'esperar', 'perder', 'pedir', 'recibir',
+    'recordar', 'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'necesitar', 'jugar', 'cerrar',
+    'contar', 'mirar', 'tratar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'existir',
+    'mantener', 'resultar', 'presentar', 'crear', 'abrir', 'considerar', 'oír', 'acabar', 'convertir', 'ganar',
+    'formar', 'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'preguntar', 'tocar',
+    'reconocer', 'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr', 'utilizar', 'pagar', 'ayudar', 'comer',
+    'usar', 'parecer', 'decidir', 'producir', 'ocurrir', 'probar', 'gustar', 'sentarse', 'ponerse', 'amar',
+    'encantar', 'invitar', 'enseñar', 'aprender', 'quedarse', 'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse',
+    'ducharse', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrirse', 'enojarse', 'enfadarse',
+    'olvidarse', 'preocuparse', 'dormirse', 'responder', 'cuidar', 'romper', 'gastar', 'preparar', 'parar', 'beber',
+    'repetir', 'apagar', 'encender', 'llorar', 'mandar', 'rezar', 'enviar', 'visitar', 'aprobar', 'regresar',
+    'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'manejar', 'caminar', 'comprar', 'dibujar', 'planear',
+    'completar', 'reunir', 'satisfacer', 'montar', 'asar', 'pescar', 'reparar', 'llenar', 'acompañar', 'conversar',
+    'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'elegir', 'descansar', 'doler', 'costar',
+    'llover', 'nevar',
 ] as const
 
 export const FREQUENCY_RANK: ReadonlyMap<string, number> = new Map(FREQUENCY_ORDER.map((infinitive, rank) => [infinitive, rank]))
