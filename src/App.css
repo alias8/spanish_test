@@ -262,15 +262,17 @@ h1 {
   max-width: 1300px;
   box-sizing: border-box;
   min-height: 0;
-  max-height: calc(100svh - 190px);
+  height: calc(100svh - 190px);
   overflow-y: auto;
   padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .verb-hint {
   color: var(--text);
   text-align: center;
-  margin-top: 24px;
 }
 
 .verb-picker {
@@ -404,6 +406,19 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.verb-nav {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: calc(100svh - 80px);
+  overflow-y: auto;
+  padding: 4px;
 }
 
 .nav-btn {

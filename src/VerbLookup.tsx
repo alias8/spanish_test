@@ -2,22 +2,28 @@ import { useMemo, useState } from 'react'
 import type { VerbEntry } from './data'
 import { normalize } from './utils'
 
-export default function VerbLookup({ verbs }: { verbs: VerbEntry[] }) {
-  const [query, setQuery] = useState('')
+export default function VerbLookup({ verbs, query, onQueryChange }: {
+  verbs: VerbEntry[]
+  query: string
+  onQueryChange: (query: string) => void
+}) {
   const [selected, setSelected] = useState<string | null>(null)
+  const [prevQuery, setPrevQuery] = useState(query)
+
+  if (query !== prevQuery) {
+    setPrevQuery(query)
+    setSelected(null)
+  }
 
   const matches = useMemo(() => {
     const q = normalize(query)
     if (!q) return []
+    const exact = verbs.find(v => normalize(v.infinitive) === q)
+    if (exact) return [exact]
     return verbs.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
   }, [verbs, query])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
-
-  function handleQueryChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setQuery(e.target.value)
-    setSelected(null)
-  }
 
   return (
     <div className="verb-lookup">
@@ -25,7 +31,7 @@ export default function VerbLookup({ verbs }: { verbs: VerbEntry[] }) {
         className="verb-search"
         type="text"
         value={query}
-        onChange={handleQueryChange}
+        onChange={e => onQueryChange(e.target.value)}
         placeholder="Search a verb, e.g. &quot;ser&quot; or &quot;to be&quot;..."
         autoFocus
         autoComplete="off"
@@ -33,9 +39,7 @@ export default function VerbLookup({ verbs }: { verbs: VerbEntry[] }) {
       />
 
       <div className="verb-results">
-        {!query ? (
-          <p className="verb-hint">Type a Spanish verb or its English translation to look it up.</p>
-        ) : matches.length === 0 ? (
+        {!query ? null : matches.length === 0 ? (
           <p className="verb-hint">No verb found for "{query}" yet.</p>
         ) : match ? (
           <VerbDetail verb={match} />

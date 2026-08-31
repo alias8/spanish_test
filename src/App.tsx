@@ -12,6 +12,7 @@ export default function App() {
     () => Object.fromEntries(SCREENS.map((_, index) => [index, new Set<string>()]))
   )
   const [input, setInput] = useState('')
+  const [verbQuery, setVerbQuery] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
@@ -31,6 +32,7 @@ export default function App() {
   function switchScreen(index: number) {
     setScreenIndex(index)
     setInput('')
+    setVerbQuery('')
     setTimeout(() => inputRef.current?.focus(), 0)
   }
 
@@ -92,7 +94,7 @@ export default function App() {
         ) : screen.kind === 'conjugation' ? (
           <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
         ) : (
-          <VerbLookup verbs={VERBS} />
+          <VerbLookup verbs={VERBS} query={verbQuery} onQueryChange={setVerbQuery} />
         )}
 
         {screen.kind !== 'verbs' && (
@@ -122,6 +124,20 @@ export default function App() {
           </>
         )}
       </div>
+
+      {screen.kind === 'verbs' && (
+        <nav className="verb-nav">
+          {[...VERBS].sort((a, b) => a.infinitive.localeCompare(b.infinitive)).map(v => (
+            <button
+              key={v.infinitive}
+              className={`nav-btn ${normalize(verbQuery) === normalize(v.infinitive) ? 'active' : ''}`}
+              onClick={() => setVerbQuery(v.infinitive)}
+            >
+              {v.infinitive[0].toUpperCase() + v.infinitive.slice(1)}
+            </button>
+          ))}
+        </nav>
+      )}
 
       <nav className="screen-nav">
         {SCREENS.map((s, index) => (
