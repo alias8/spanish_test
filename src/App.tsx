@@ -14,7 +14,7 @@ export default function App() {
   )
   const [input, setInput] = useState('')
   const [verbQuery, setVerbQuery] = useState('ser')
-  const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('alpha')
+  const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('frequency')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
