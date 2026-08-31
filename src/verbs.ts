@@ -94,593 +94,6 @@ export const CONJUGATION_SCREENS: ConjugationScreen[] = [
     },
 ]
 
-export const VERBS: VerbEntry[] = [
-    {
-        infinitive: 'ser',
-        translation: 'to be',
-        summary: 'Ser is the Spanish verb "to be". It is generally used to portray permanent situations, for example: I am from Spain, he is a profesor, she is tall, this watch is my mother\'s etc. You\'ll find that this particular verb is one of the most versatile out there, but also hugely irregular, following almost no rules. Ser is not to be confused with Estar, also meaning "to be", but used for different situations.',
-        infinitiveForms: [
-            { spanish: 'ser', english: 'to be (permanent)' },
-            { spanish: 'sido', english: 'been' },
-            { spanish: 'siendo', english: 'being' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of ser is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'soy estudiante', english: 'I am a student' },
-                forms: [
-                    { spanish: 'soy', english: 'I am', irregular: true },
-                    { spanish: 'eres', english: 'you are', irregular: true },
-                    { spanish: 'es', english: 's/he is', irregular: true },
-                    { spanish: 'somos', english: 'we are', irregular: true },
-                    { spanish: 'son', english: 'they are', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of ser is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'fui estudiante', english: 'I was a student' },
-                forms: [
-                    { spanish: 'fui', english: 'I was', irregular: true },
-                    { spanish: 'fuiste', english: 'you were', irregular: true },
-                    { spanish: 'fue', english: 's/he was', irregular: true },
-                    { spanish: 'fuimos', english: 'we were', irregular: true },
-                    { spanish: 'fueron', english: 'they were', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of ser is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'era estudiante', english: 'I used to be a student' },
-                forms: [
-                    { spanish: 'era', english: 'I used to be', irregular: true },
-                    { spanish: 'eras', english: 'you used to be', irregular: true },
-                    { spanish: 'era', english: 's/he used to be', irregular: true },
-                    { spanish: 'éramos', english: 'we used to be', irregular: true },
-                    { spanish: 'eran', english: 'they used to be', irregular: true },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'estar',
-        translation: 'to be',
-        summary: 'Estar is another Spanish verb which means "to be". In contrast to Ser, Estar is generally used to portray more temporary feelings or situations. For example: I am not at home, you are angry, she is at the concert, this cake is delicious, we are singing a song, this restaurant is very popular. This is an important and versatile verb that you will use in everyday life. Estar is also irregular in most cases, meaning you will need to learn the conjugations off by heart.',
-        infinitiveForms: [
-            { spanish: 'estar', english: 'to be (temporary)' },
-            { spanish: 'estado', english: 'been' },
-            { spanish: 'estando', english: 'being' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of estar is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'estoy cansado', english: 'I am tired' },
-                forms: [
-                    { spanish: 'estoy', english: 'I am', irregular: true },
-                    { spanish: 'estás', english: 'you are', irregular: true },
-                    { spanish: 'está', english: 's/he is', irregular: true },
-                    { spanish: 'estamos', english: 'we are' },
-                    { spanish: 'están', english: 'they are', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of estar is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'estuve cansado', english: 'I was tired' },
-                forms: [
-                    { spanish: 'estuve', english: 'I was', irregular: true },
-                    { spanish: 'estuviste', english: 'you were', irregular: true },
-                    { spanish: 'estuvo', english: 's/he was', irregular: true },
-                    { spanish: 'estuvimos', english: 'we were', irregular: true },
-                    { spanish: 'estuvieron', english: 'they were', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of estar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'estaba cansado', english: 'I used to be tired' },
-                forms: [
-                    { spanish: 'estaba', english: 'I used to be' },
-                    { spanish: 'estabas', english: 'you used to be' },
-                    { spanish: 'estaba', english: 's/he used to be' },
-                    { spanish: 'estábamos', english: 'we used to be' },
-                    { spanish: 'estaban', english: 'they used to be' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'tener',
-        translation: 'to have',
-        summary: 'Tener is the Spanish verb "to have". It is an extremely useful verb and is largely irregular when conjugating. It is important to note that in Spanish, tener is used to portray a person\'s age; for example: "tengo 21 años". This literally translates to "I have 21 years". Another common use for Tener is to indicate an obligation, for example: "tengo que irme a casa" - "I have to go home". It is always followed by "que" to indicate this type of obligation or "must".',
-        infinitiveForms: [
-            { spanish: 'tener', english: 'to have' },
-            { spanish: 'tenido', english: 'had' },
-            { spanish: 'teniendo', english: 'having' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of tener is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'tengo un gato gris', english: 'I have a grey cat' },
-                forms: [
-                    { spanish: 'tengo', english: 'I have', irregular: true },
-                    { spanish: 'tienes', english: 'you have', irregular: true },
-                    { spanish: 'tiene', english: 's/he has', irregular: true },
-                    { spanish: 'tenemos', english: 'we have' },
-                    { spanish: 'tienen', english: 'they have', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of tener is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'tuve un gato gris', english: 'I had a grey cat' },
-                forms: [
-                    { spanish: 'tuve', english: 'I had', irregular: true },
-                    { spanish: 'tuviste', english: 'you had', irregular: true },
-                    { spanish: 'tuvo', english: 's/he had', irregular: true },
-                    { spanish: 'tuvimos', english: 'we had', irregular: true },
-                    { spanish: 'tuvieron', english: 'they had', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of tener is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'tenía un gato gris', english: 'I used to have a grey cat' },
-                forms: [
-                    { spanish: 'tenía', english: 'I used to have' },
-                    { spanish: 'tenías', english: 'you used to have' },
-                    { spanish: 'tenía', english: 's/he used to have' },
-                    { spanish: 'teníamos', english: 'we used to have' },
-                    { spanish: 'tenían', english: 'they used to have' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'ir',
-        translation: 'to go',
-        summary: 'Ir is the Spanish verb "to go", and is one of the most common irregular verbs in Spanish. It is used in various contexts like "I go to school", "you went to Mexico on holiday", "we are going to the concert on Saturday".',
-        infinitiveForms: [
-            { spanish: 'ir', english: 'to go' },
-            { spanish: 'ido', english: 'gone' },
-            { spanish: 'yendo', english: 'going' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of ir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'voy al supermercado todos los sábados', english: 'I go to the supermarket every Saturday' },
-                forms: [
-                    { spanish: 'voy', english: 'I go', irregular: true },
-                    { spanish: 'vas', english: 'you go', irregular: true },
-                    { spanish: 'va', english: 's/he goes', irregular: true },
-                    { spanish: 'vamos', english: 'we go', irregular: true },
-                    { spanish: 'van', english: 'they go', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of ir is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'fui al supermercado todos los sábados', english: 'I went to the supermarket every Saturday' },
-                forms: [
-                    { spanish: 'fui', english: 'I went', irregular: true },
-                    { spanish: 'fuiste', english: 'you went', irregular: true },
-                    { spanish: 'fue', english: 's/he went', irregular: true },
-                    { spanish: 'fuimos', english: 'we went', irregular: true },
-                    { spanish: 'fueron', english: 'they went', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of ir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'iba al supermercado todos los sábados', english: 'I used to go to the supermarket every Saturday' },
-                forms: [
-                    { spanish: 'iba', english: 'I used to go', irregular: true },
-                    { spanish: 'ibas', english: 'you used to go', irregular: true },
-                    { spanish: 'iba', english: 's/he used to go', irregular: true },
-                    { spanish: 'íbamos', english: 'we used to go', irregular: true },
-                    { spanish: 'iban', english: 'they used to go', irregular: true },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'hacer',
-        translation: 'to do, to make',
-        summary: 'Hacer is the Spanish verb meaning "to do / to make". It is extremely versatile, and one common use is to express the weather or time. In this sense, it is different from English, whereby we would use "to be". For example: "hace frío" is how to say "it is cold", which directly translates to "it makes cold".',
-        infinitiveForms: [
-            { spanish: 'hacer', english: 'to do, to make' },
-            { spanish: 'hecho', english: 'done' },
-            { spanish: 'haciendo', english: 'doing' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of hacer is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'hago los deberes después de cenar', english: 'I do my homework after dinner' },
-                forms: [
-                    { spanish: 'hago', english: 'I do', irregular: true },
-                    { spanish: 'haces', english: 'you do', irregular: true },
-                    { spanish: 'hace', english: 's/he does', irregular: true },
-                    { spanish: 'hacemos', english: 'we do' },
-                    { spanish: 'hacen', english: 'they do', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of hacer is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'hice los deberes después de cenar', english: 'I did my homework after dinner' },
-                forms: [
-                    { spanish: 'hice', english: 'I did', irregular: true },
-                    { spanish: 'hiciste', english: 'you did', irregular: true },
-                    { spanish: 'hizo', english: 's/he did', irregular: true },
-                    { spanish: 'hicimos', english: 'we did', irregular: true },
-                    { spanish: 'hicieron', english: 'they did', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of hacer is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'hacía los deberes después de cenar', english: 'I used to do my homework after dinner' },
-                forms: [
-                    { spanish: 'hacía', english: 'I used to do' },
-                    { spanish: 'hacías', english: 'you used to do' },
-                    { spanish: 'hacía', english: 's/he used to do' },
-                    { spanish: 'hacíamos', english: 'we used to do' },
-                    { spanish: 'hacían', english: 'they used to do' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'haber',
-        translation: 'to have (helper verb)',
-        summary: 'Haber is the Spanish verb meaning "to have". It is a very unique verb in that it is used in compound tenses as an auxiliary, meaning that is comes before the main verb in the sentence and is used to set the main verbs\' tense or mood. For example: He estado (I have been), hemos comido (we have eaten). It is also very commonly used as an impersonal verb, to say "there is / there are". For example: Hay mucho chocolate en el armario. (There is a lot of chocolate in the press).',
-        infinitiveForms: [
-            { spanish: 'haber', english: 'to have (helper verb)' },
-            { spanish: 'habido', english: 'had' },
-            { spanish: 'habiendo', english: 'having' },
-        ],
-        tenses: [
-            {
-                description: 'As an auxiliary verb, haber in the indicative present is used to form the "indicative present perfect" tense.',
-                example: { spanish: 'he escrito la carta', english: 'I have written the letter' },
-                forms: [
-                    { spanish: 'he', english: 'I have', irregular: true },
-                    { spanish: 'has', english: 'you have', irregular: true },
-                    { spanish: 'ha', english: 's/he has', irregular: true },
-                    { spanish: 'hemos', english: 'we have', irregular: true },
-                    { spanish: 'han', english: 'they have', irregular: true },
-                ],
-            },
-            {
-                description: 'Because haber is an auxiliary verb used to form compound conjugations, it is rarely used alone in this tense — except in the impersonal form, meaning "there was / there were".',
-                example: { spanish: 'hubo una fiesta anoche', english: 'there was a party last night' },
-                forms: [
-                    { spanish: 'hube', english: 'I had', irregular: true },
-                    { spanish: 'hubiste', english: 'you had', irregular: true },
-                    { spanish: 'hubo', english: 's/he had', irregular: true },
-                    { spanish: 'hubimos', english: 'we had', irregular: true },
-                    { spanish: 'hubieron', english: 'they had', irregular: true },
-                ],
-            },
-            {
-                description: 'As an auxiliary verb, haber in the indicative imperfect is used to form the "indicative past perfect" tense.',
-                example: { spanish: 'había escrito la carta', english: 'I had written the letter' },
-                forms: [
-                    { spanish: 'había', english: 'I had' },
-                    { spanish: 'habías', english: 'you had' },
-                    { spanish: 'había', english: 's/he had' },
-                    { spanish: 'habíamos', english: 'we had' },
-                    { spanish: 'habían', english: 'they had' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'ver',
-        translation: 'to see, to watch',
-        summary: 'Ver is the Spanish verb "to see". It is mostly irregular, so endings must be learned by heart. Ver can be used for a number of reasons, the most basic "to see", for example: "Veo un coche". It can also be used to describe "watching" a movie or tv show, asking a person if they have "seen" a particular movie or object, or to notice something.',
-        infinitiveForms: [
-            { spanish: 'ver', english: 'to see, to watch' },
-            { spanish: 'visto', english: 'seen' },
-            { spanish: 'viendo', english: 'seeing' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of ver is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'veo fantasmas', english: 'I see ghosts' },
-                forms: [
-                    { spanish: 'veo', english: 'I see', irregular: true },
-                    { spanish: 'ves', english: 'you see', irregular: true },
-                    { spanish: 've', english: 's/he sees', irregular: true },
-                    { spanish: 'vemos', english: 'we see' },
-                    { spanish: 'ven', english: 'they see', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of ver is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'vi fantasmas', english: 'I saw ghosts' },
-                forms: [
-                    { spanish: 'vi', english: 'I saw', irregular: true },
-                    { spanish: 'viste', english: 'you saw', irregular: true },
-                    { spanish: 'vio', english: 's/he saw', irregular: true },
-                    { spanish: 'vimos', english: 'we saw', irregular: true },
-                    { spanish: 'vieron', english: 'they saw', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of ver is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'veía fantasmas', english: 'I used to see ghosts' },
-                forms: [
-                    { spanish: 'veía', english: 'I used to see', irregular: true },
-                    { spanish: 'veías', english: 'you used to see', irregular: true },
-                    { spanish: 'veía', english: 's/he used to see', irregular: true },
-                    { spanish: 'veíamos', english: 'we used to see', irregular: true },
-                    { spanish: 'veían', english: 'they used to see', irregular: true },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'venir',
-        translation: 'to come',
-        summary: 'Venir is the Spanish verb meaning "to come". Similar verbs to venir include: llegar (to arrive).',
-        infinitiveForms: [
-            { spanish: 'venir', english: 'to come' },
-            { spanish: 'venido', english: 'come' },
-            { spanish: 'viniendo', english: 'coming' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of venir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'vengo a casa', english: 'I come home' },
-                forms: [
-                    { spanish: 'vengo', english: 'I come', irregular: true },
-                    { spanish: 'vienes', english: 'you come', irregular: true },
-                    { spanish: 'viene', english: 's/he comes', irregular: true },
-                    { spanish: 'venimos', english: 'we come' },
-                    { spanish: 'vienen', english: 'they come', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of venir is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'vine a casa', english: 'I came home' },
-                forms: [
-                    { spanish: 'vine', english: 'I came', irregular: true },
-                    { spanish: 'viniste', english: 'you came', irregular: true },
-                    { spanish: 'vino', english: 's/he came', irregular: true },
-                    { spanish: 'vinimos', english: 'we came', irregular: true },
-                    { spanish: 'vinieron', english: 'they came', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of venir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'venía a casa', english: 'I used to come home' },
-                forms: [
-                    { spanish: 'venía', english: 'I used to come' },
-                    { spanish: 'venías', english: 'you used to come' },
-                    { spanish: 'venía', english: 's/he used to come' },
-                    { spanish: 'veníamos', english: 'we used to come' },
-                    { spanish: 'venían', english: 'they used to come' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'vivir',
-        translation: 'to live',
-        summary: 'Vivir is the Spanish verb for "to live". It is a regular IR verb, and one of the most popular 100 Spanish verbs.',
-        infinitiveForms: [
-            { spanish: 'vivir', english: 'to live' },
-            { spanish: 'vivido', english: 'lived' },
-            { spanish: 'viviendo', english: 'living' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of vivir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'vivo cerca de mi hermana', english: 'I live close to my sister' },
-                forms: [
-                    { spanish: 'vivo', english: 'I live' },
-                    { spanish: 'vives', english: 'you live' },
-                    { spanish: 'vive', english: 's/he lives' },
-                    { spanish: 'vivimos', english: 'we live' },
-                    { spanish: 'viven', english: 'they live' },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of vivir is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'viví cerca de mi hermana', english: 'I lived close to my sister' },
-                forms: [
-                    { spanish: 'viví', english: 'I lived' },
-                    { spanish: 'viviste', english: 'you lived' },
-                    { spanish: 'vivió', english: 's/he lived' },
-                    { spanish: 'vivimos', english: 'we lived' },
-                    { spanish: 'vivieron', english: 'they lived' },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of vivir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'vivía cerca de mi hermana', english: 'I used to live close to my sister' },
-                forms: [
-                    { spanish: 'vivía', english: 'I used to live' },
-                    { spanish: 'vivías', english: 'you used to live' },
-                    { spanish: 'vivía', english: 's/he used to live' },
-                    { spanish: 'vivíamos', english: 'we used to live' },
-                    { spanish: 'vivían', english: 'they used to live' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'poder',
-        translation: 'to be able to / can',
-        summary: 'Poder is the Spanish verb meaning "to be able to / to can". This verb can be used to ask for permission, e.g. ¿Podría usar el baño?, or to express tolerance for something "No puedo más", meaning "I can\'t do any more". In its purist form, it is used to express capability to do something. For example: "Mi hermano puede nadar 1 kilómetro sin parar" - "My brother can swim 1km without stopping".',
-        infinitiveForms: [
-            { spanish: 'poder', english: 'to be able to / can' },
-            { spanish: 'podido', english: 'been able to' },
-            { spanish: 'pudiendo', english: 'being able to' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of poder is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'puedo hablar español', english: 'I am able to speak Spanish' },
-                forms: [
-                    { spanish: 'puedo', english: 'I am able to', irregular: true },
-                    { spanish: 'puedes', english: 'you are able to', irregular: true },
-                    { spanish: 'puede', english: 's/he is able to', irregular: true },
-                    { spanish: 'podemos', english: 'we are able to' },
-                    { spanish: 'pueden', english: 'they are able to', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of poder is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'pude hablar español', english: 'I was able to speak Spanish' },
-                forms: [
-                    { spanish: 'pude', english: 'I was able to', irregular: true },
-                    { spanish: 'pudiste', english: 'you were able to', irregular: true },
-                    { spanish: 'pudo', english: 's/he was able to', irregular: true },
-                    { spanish: 'pudimos', english: 'we were able to', irregular: true },
-                    { spanish: 'pudieron', english: 'they were able to', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of poder is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'podía hablar español', english: 'I used to be able to speak Spanish' },
-                forms: [
-                    { spanish: 'podía', english: 'I used to be able to' },
-                    { spanish: 'podías', english: 'you used to be able to' },
-                    { spanish: 'podía', english: 's/he used to be able to' },
-                    { spanish: 'podíamos', english: 'we used to be able to' },
-                    { spanish: 'podían', english: 'they used to be able to' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'saber',
-        translation: 'to know (things)',
-        summary: 'Saber is the Spanish verb meaning "to know" (things). It is mostly used to portray knowledge - for example: "I speak Spanish" and "I know all the capital cities in Europe". It can also be used to express taste; for example: "The cake tastes like chocolate and orange". Saber is not to be confused with Conocer, also meaning "to know" but used in different situations.',
-        infinitiveForms: [
-            { spanish: 'saber', english: 'to know (things)' },
-            { spanish: 'sabido', english: 'known' },
-            { spanish: 'sabiendo', english: 'knowing' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of saber is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'sé español', english: 'I know Spanish' },
-                forms: [
-                    { spanish: 'sé', english: 'I know', irregular: true },
-                    { spanish: 'sabes', english: 'you know' },
-                    { spanish: 'sabe', english: 's/he knows' },
-                    { spanish: 'sabemos', english: 'we know' },
-                    { spanish: 'saben', english: 'they know' },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of saber is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'supe español', english: 'I knew Spanish' },
-                forms: [
-                    { spanish: 'supe', english: 'I knew', irregular: true },
-                    { spanish: 'supiste', english: 'you knew', irregular: true },
-                    { spanish: 'supo', english: 's/he knew', irregular: true },
-                    { spanish: 'supimos', english: 'we knew', irregular: true },
-                    { spanish: 'supieron', english: 'they knew', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of saber is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'sabía español', english: 'I used to know Spanish' },
-                forms: [
-                    { spanish: 'sabía', english: 'I used to know' },
-                    { spanish: 'sabías', english: 'you used to know' },
-                    { spanish: 'sabía', english: 's/he used to know' },
-                    { spanish: 'sabíamos', english: 'we used to know' },
-                    { spanish: 'sabían', english: 'they used to know' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'decir',
-        translation: 'to say, to tell',
-        summary: 'Decir is the Spanish verb meaning "to say / to tell". For example: "What did you say?" or "I swear to tell the truth". In Spain, it is used when answering the phone - you will hear "¿Diga?" meaning "hello" or "¡Digame!", literally translating to "tell me". It can also be used to express rumours and opinions - "they say it\'s going to rain all next week" and "What do you say, will we go on holidays in June?"',
-        infinitiveForms: [
-            { spanish: 'decir', english: 'to say, to tell' },
-            { spanish: 'dicho', english: 'said' },
-            { spanish: 'diciendo', english: 'saying' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of decir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.',
-                example: { spanish: 'digo hola al profesor', english: 'I say hello to the teacher' },
-                forms: [
-                    { spanish: 'digo', english: 'I say', irregular: true },
-                    { spanish: 'dices', english: 'you say', irregular: true },
-                    { spanish: 'dice', english: 's/he says', irregular: true },
-                    { spanish: 'decimos', english: 'we say' },
-                    { spanish: 'dicen', english: 'they say', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of decir is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'dije hola al profesor', english: 'I said hello to the teacher' },
-                forms: [
-                    { spanish: 'dije', english: 'I said', irregular: true },
-                    { spanish: 'dijiste', english: 'you said', irregular: true },
-                    { spanish: 'dijo', english: 's/he said', irregular: true },
-                    { spanish: 'dijimos', english: 'we said', irregular: true },
-                    { spanish: 'dijeron', english: 'they said', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of decir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'decía hola al profesor', english: 'I used to say hello to the teacher' },
-                forms: [
-                    { spanish: 'decía', english: 'I used to say' },
-                    { spanish: 'decías', english: 'you used to say' },
-                    { spanish: 'decía', english: 's/he used to say' },
-                    { spanish: 'decíamos', english: 'we used to say' },
-                    { spanish: 'decían', english: 'they used to say' },
-                ],
-            },
-        ],
-    },
-    {
-        infinitive: 'dar',
-        translation: 'to give',
-        summary: 'Dar is the Spanish verb "to give". It is a very versatile verb, with many meanings and uses. For example: "Dame las llaves" - "Give me the keys", "dar las gracias" - "to give thanks", to express fear "Me da miedo" - "It scares me" as well as to perform an action "dar un paseo" - "to go for a walk".',
-        infinitiveForms: [
-            { spanish: 'dar', english: 'to give' },
-            { spanish: 'dado', english: 'given' },
-            { spanish: 'dando', english: 'giving' },
-        ],
-        tenses: [
-            {
-                description: 'The Indicative Present of dar is used to talk about situations, events or thoughts that are happening now or in the near future.',
-                example: { spanish: 'doy regalos a mis hermanos', english: 'I give presents to my siblings' },
-                forms: [
-                    { spanish: 'doy', english: 'I give', irregular: true },
-                    { spanish: 'das', english: 'you give', irregular: true },
-                    { spanish: 'da', english: 's/he gives', irregular: true },
-                    { spanish: 'damos', english: 'we give' },
-                    { spanish: 'dan', english: 'they give', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Preterite of dar is used to talk about actions completed in the past, at a specific point in time.',
-                example: { spanish: 'di regalos a mis hermanos', english: 'I gave presents to my siblings' },
-                forms: [
-                    { spanish: 'di', english: 'I gave', irregular: true },
-                    { spanish: 'diste', english: 'you gave', irregular: true },
-                    { spanish: 'dio', english: 's/he gave', irregular: true },
-                    { spanish: 'dimos', english: 'we gave', irregular: true },
-                    { spanish: 'dieron', english: 'they gave', irregular: true },
-                ],
-            },
-            {
-                description: 'The Indicative Imperfect of dar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.',
-                example: { spanish: 'daba regalos a mis hermanos', english: 'I used to give presents to my siblings' },
-                forms: [
-                    { spanish: 'daba', english: 'I used to give' },
-                    { spanish: 'dabas', english: 'you used to give' },
-                    { spanish: 'daba', english: 's/he used to give' },
-                    { spanish: 'dábamos', english: 'we used to give' },
-                    { spanish: 'daban', english: 'they used to give' },
-                ],
-            },
-        ],
-    },
-]
 
 type SimpleForm = [spanish: string, english: string, irregular?: boolean]
 
@@ -707,6 +120,125 @@ function simpleVerb(
         tenses: [buildTense(present), buildTense(preterite), buildTense(imperfect)],
     }
 }
+
+export const VERBS: VerbEntry[] = [
+    simpleVerb('ser', 'to be', [
+        ['ser', 'to be (permanent)'], ['sido', 'been'], ['siendo', 'being'],
+    ], [
+        ['soy', 'I am', true], ['eres', 'you are', true], ['es', 's/he is', true], ['somos', 'we are', true], ['son', 'they are', true],
+    ], [
+        ['fui', 'I was', true], ['fuiste', 'you were', true], ['fue', 's/he was', true], ['fuimos', 'we were', true], ['fueron', 'they were', true],
+    ], [
+        ['era', 'I used to be', true], ['eras', 'you used to be', true], ['era', 's/he used to be', true], ['éramos', 'we used to be', true], ['eran', 'they used to be', true],
+    ]),
+    simpleVerb('estar', 'to be', [
+        ['estar', 'to be (temporary)'], ['estado', 'been'], ['estando', 'being'],
+    ], [
+        ['estoy', 'I am', true], ['estás', 'you are', true], ['está', 's/he is', true], ['estamos', 'we are'], ['están', 'they are', true],
+    ], [
+        ['estuve', 'I was', true], ['estuviste', 'you were', true], ['estuvo', 's/he was', true], ['estuvimos', 'we were', true], ['estuvieron', 'they were', true],
+    ], [
+        ['estaba', 'I used to be'], ['estabas', 'you used to be'], ['estaba', 's/he used to be'], ['estábamos', 'we used to be'], ['estaban', 'they used to be'],
+    ]),
+    simpleVerb('tener', 'to have', [
+        ['tener', 'to have'], ['tenido', 'had'], ['teniendo', 'having'],
+    ], [
+        ['tengo', 'I have', true], ['tienes', 'you have', true], ['tiene', 's/he has', true], ['tenemos', 'we have'], ['tienen', 'they have', true],
+    ], [
+        ['tuve', 'I had', true], ['tuviste', 'you had', true], ['tuvo', 's/he had', true], ['tuvimos', 'we had', true], ['tuvieron', 'they had', true],
+    ], [
+        ['tenía', 'I used to have'], ['tenías', 'you used to have'], ['tenía', 's/he used to have'], ['teníamos', 'we used to have'], ['tenían', 'they used to have'],
+    ]),
+    simpleVerb('ir', 'to go', [
+        ['ir', 'to go'], ['ido', 'gone'], ['yendo', 'going'],
+    ], [
+        ['voy', 'I go', true], ['vas', 'you go', true], ['va', 's/he goes', true], ['vamos', 'we go', true], ['van', 'they go', true],
+    ], [
+        ['fui', 'I went', true], ['fuiste', 'you went', true], ['fue', 's/he went', true], ['fuimos', 'we went', true], ['fueron', 'they went', true],
+    ], [
+        ['iba', 'I used to go', true], ['ibas', 'you used to go', true], ['iba', 's/he used to go', true], ['íbamos', 'we used to go', true], ['iban', 'they used to go', true],
+    ]),
+    simpleVerb('hacer', 'to do, to make', [
+        ['hacer', 'to do, to make'], ['hecho', 'done'], ['haciendo', 'doing'],
+    ], [
+        ['hago', 'I do', true], ['haces', 'you do', true], ['hace', 's/he does', true], ['hacemos', 'we do'], ['hacen', 'they do', true],
+    ], [
+        ['hice', 'I did', true], ['hiciste', 'you did', true], ['hizo', 's/he did', true], ['hicimos', 'we did', true], ['hicieron', 'they did', true],
+    ], [
+        ['hacía', 'I used to do'], ['hacías', 'you used to do'], ['hacía', 's/he used to do'], ['hacíamos', 'we used to do'], ['hacían', 'they used to do'],
+    ]),
+    simpleVerb('haber', 'to have (helper verb)', [
+        ['haber', 'to have (helper verb)'], ['habido', 'had'], ['habiendo', 'having'],
+    ], [
+        ['he', 'I have', true], ['has', 'you have', true], ['ha', 's/he has', true], ['hemos', 'we have', true], ['han', 'they have', true],
+    ], [
+        ['hube', 'I had', true], ['hubiste', 'you had', true], ['hubo', 's/he had', true], ['hubimos', 'we had', true], ['hubieron', 'they had', true],
+    ], [
+        ['había', 'I had'], ['habías', 'you had'], ['había', 's/he had'], ['habíamos', 'we had'], ['habían', 'they had'],
+    ]),
+    simpleVerb('ver', 'to see, to watch', [
+        ['ver', 'to see, to watch'], ['visto', 'seen'], ['viendo', 'seeing'],
+    ], [
+        ['veo', 'I see', true], ['ves', 'you see', true], ['ve', 's/he sees', true], ['vemos', 'we see'], ['ven', 'they see', true],
+    ], [
+        ['vi', 'I saw', true], ['viste', 'you saw', true], ['vio', 's/he saw', true], ['vimos', 'we saw', true], ['vieron', 'they saw', true],
+    ], [
+        ['veía', 'I used to see', true], ['veías', 'you used to see', true], ['veía', 's/he used to see', true], ['veíamos', 'we used to see', true], ['veían', 'they used to see', true],
+    ]),
+    simpleVerb('venir', 'to come', [
+        ['venir', 'to come'], ['venido', 'come'], ['viniendo', 'coming'],
+    ], [
+        ['vengo', 'I come', true], ['vienes', 'you come', true], ['viene', 's/he comes', true], ['venimos', 'we come'], ['vienen', 'they come', true],
+    ], [
+        ['vine', 'I came', true], ['viniste', 'you came', true], ['vino', 's/he came', true], ['vinimos', 'we came', true], ['vinieron', 'they came', true],
+    ], [
+        ['venía', 'I used to come'], ['venías', 'you used to come'], ['venía', 's/he used to come'], ['veníamos', 'we used to come'], ['venían', 'they used to come'],
+    ]),
+    simpleVerb('vivir', 'to live', [
+        ['vivir', 'to live'], ['vivido', 'lived'], ['viviendo', 'living'],
+    ], [
+        ['vivo', 'I live'], ['vives', 'you live'], ['vive', 's/he lives'], ['vivimos', 'we live'], ['viven', 'they live'],
+    ], [
+        ['viví', 'I lived'], ['viviste', 'you lived'], ['vivió', 's/he lived'], ['vivimos', 'we lived'], ['vivieron', 'they lived'],
+    ], [
+        ['vivía', 'I used to live'], ['vivías', 'you used to live'], ['vivía', 's/he used to live'], ['vivíamos', 'we used to live'], ['vivían', 'they used to live'],
+    ]),
+    simpleVerb('poder', 'to be able to / can', [
+        ['poder', 'to be able to / can'], ['podido', 'been able to'], ['pudiendo', 'being able to'],
+    ], [
+        ['puedo', 'I am able to', true], ['puedes', 'you are able to', true], ['puede', 's/he is able to', true], ['podemos', 'we are able to'], ['pueden', 'they are able to', true],
+    ], [
+        ['pude', 'I was able to', true], ['pudiste', 'you were able to', true], ['pudo', 's/he was able to', true], ['pudimos', 'we were able to', true], ['pudieron', 'they were able to', true],
+    ], [
+        ['podía', 'I used to be able to'], ['podías', 'you used to be able to'], ['podía', 's/he used to be able to'], ['podíamos', 'we used to be able to'], ['podían', 'they used to be able to'],
+    ]),
+    simpleVerb('saber', 'to know (things)', [
+        ['saber', 'to know (things)'], ['sabido', 'known'], ['sabiendo', 'knowing'],
+    ], [
+        ['sé', 'I know', true], ['sabes', 'you know'], ['sabe', 's/he knows'], ['sabemos', 'we know'], ['saben', 'they know'],
+    ], [
+        ['supe', 'I knew', true], ['supiste', 'you knew', true], ['supo', 's/he knew', true], ['supimos', 'we knew', true], ['supieron', 'they knew', true],
+    ], [
+        ['sabía', 'I used to know'], ['sabías', 'you used to know'], ['sabía', 's/he used to know'], ['sabíamos', 'we used to know'], ['sabían', 'they used to know'],
+    ]),
+    simpleVerb('decir', 'to say, to tell', [
+        ['decir', 'to say, to tell'], ['dicho', 'said'], ['diciendo', 'saying'],
+    ], [
+        ['digo', 'I say', true], ['dices', 'you say', true], ['dice', 's/he says', true], ['decimos', 'we say'], ['dicen', 'they say', true],
+    ], [
+        ['dije', 'I said', true], ['dijiste', 'you said', true], ['dijo', 's/he said', true], ['dijimos', 'we said', true], ['dijeron', 'they said', true],
+    ], [
+        ['decía', 'I used to say'], ['decías', 'you used to say'], ['decía', 's/he used to say'], ['decíamos', 'we used to say'], ['decían', 'they used to say'],
+    ]),
+    simpleVerb('dar', 'to give', [
+        ['dar', 'to give'], ['dado', 'given'], ['dando', 'giving'],
+    ], [
+        ['doy', 'I give', true], ['das', 'you give', true], ['da', 's/he gives', true], ['damos', 'we give'], ['dan', 'they give', true],
+    ], [
+        ['di', 'I gave', true], ['diste', 'you gave', true], ['dio', 's/he gave', true], ['dimos', 'we gave', true], ['dieron', 'they gave', true],
+    ], [
+        ['daba', 'I used to give'], ['dabas', 'you used to give'], ['daba', 's/he used to give'], ['dábamos', 'we used to give'], ['daban', 'they used to give'],
+    ]),]
 
 const BULK_VERBS: VerbEntry[] = [
     simpleVerb('llegar', 'to arrive', [
@@ -3065,6 +2597,84 @@ const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for running right now or as a habit.', example: { spanish: 'corro todas las mañanas', english: 'I run every morning' } },
         preterite: { description: 'Used for a completed run.', example: { spanish: 'corrió una maratón', english: 's/he ran a marathon' } },
         imperfect: { description: 'Used for how or when someone used to run.', example: { spanish: 'corría rápido de joven', english: 'I used to run fast when I was young' } },
+    },
+    ser: {
+        summary: 'Ser is the Spanish verb "to be". It is generally used to portray permanent situations, for example: I am from Spain, he is a profesor, she is tall, this watch is my mother\'s etc. You\'ll find that this particular verb is one of the most versatile out there, but also hugely irregular, following almost no rules. Ser is not to be confused with Estar, also meaning "to be", but used for different situations.',
+        present: { description: 'The Indicative Present of ser is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'soy estudiante', english: 'I am a student' } },
+        preterite: { description: 'The Indicative Preterite of ser is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'fui estudiante', english: 'I was a student' } },
+        imperfect: { description: 'The Indicative Imperfect of ser is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'era estudiante', english: 'I used to be a student' } },
+    },
+    estar: {
+        summary: 'Estar is another Spanish verb which means "to be". In contrast to Ser, Estar is generally used to portray more temporary feelings or situations. For example: I am not at home, you are angry, she is at the concert, this cake is delicious, we are singing a song, this restaurant is very popular. This is an important and versatile verb that you will use in everyday life. Estar is also irregular in most cases, meaning you will need to learn the conjugations off by heart.',
+        present: { description: 'The Indicative Present of estar is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'estoy cansado', english: 'I am tired' } },
+        preterite: { description: 'The Indicative Preterite of estar is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'estuve cansado', english: 'I was tired' } },
+        imperfect: { description: 'The Indicative Imperfect of estar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'estaba cansado', english: 'I used to be tired' } },
+    },
+    tener: {
+        summary: 'Tener is the Spanish verb "to have". It is an extremely useful verb and is largely irregular when conjugating. It is important to note that in Spanish, tener is used to portray a person\'s age; for example: "tengo 21 años". This literally translates to "I have 21 years". Another common use for Tener is to indicate an obligation, for example: "tengo que irme a casa" - "I have to go home". It is always followed by "que" to indicate this type of obligation or "must".',
+        present: { description: 'The Indicative Present of tener is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'tengo un gato gris', english: 'I have a grey cat' } },
+        preterite: { description: 'The Indicative Preterite of tener is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'tuve un gato gris', english: 'I had a grey cat' } },
+        imperfect: { description: 'The Indicative Imperfect of tener is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'tenía un gato gris', english: 'I used to have a grey cat' } },
+    },
+    ir: {
+        summary: 'Ir is the Spanish verb "to go", and is one of the most common irregular verbs in Spanish. It is used in various contexts like "I go to school", "you went to Mexico on holiday", "we are going to the concert on Saturday".',
+        present: { description: 'The Indicative Present of ir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'voy al supermercado todos los sábados', english: 'I go to the supermarket every Saturday' } },
+        preterite: { description: 'The Indicative Preterite of ir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'fui al supermercado todos los sábados', english: 'I went to the supermarket every Saturday' } },
+        imperfect: { description: 'The Indicative Imperfect of ir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'iba al supermercado todos los sábados', english: 'I used to go to the supermarket every Saturday' } },
+    },
+    hacer: {
+        summary: 'Hacer is the Spanish verb meaning "to do / to make". It is extremely versatile, and one common use is to express the weather or time. In this sense, it is different from English, whereby we would use "to be". For example: "hace frío" is how to say "it is cold", which directly translates to "it makes cold".',
+        present: { description: 'The Indicative Present of hacer is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'hago los deberes después de cenar', english: 'I do my homework after dinner' } },
+        preterite: { description: 'The Indicative Preterite of hacer is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'hice los deberes después de cenar', english: 'I did my homework after dinner' } },
+        imperfect: { description: 'The Indicative Imperfect of hacer is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'hacía los deberes después de cenar', english: 'I used to do my homework after dinner' } },
+    },
+    haber: {
+        summary: 'Haber is the Spanish verb meaning "to have". It is a very unique verb in that it is used in compound tenses as an auxiliary, meaning that is comes before the main verb in the sentence and is used to set the main verbs\' tense or mood. For example: He estado (I have been), hemos comido (we have eaten). It is also very commonly used as an impersonal verb, to say "there is / there are". For example: Hay mucho chocolate en el armario. (There is a lot of chocolate in the press).',
+        present: { description: 'As an auxiliary verb, haber in the indicative present is used to form the "indicative present perfect" tense.', example: { spanish: 'he escrito la carta', english: 'I have written the letter' } },
+        preterite: { description: 'Because haber is an auxiliary verb used to form compound conjugations, it is rarely used alone in this tense — except in the impersonal form, meaning "there was / there were".', example: { spanish: 'hubo una fiesta anoche', english: 'there was a party last night' } },
+        imperfect: { description: 'As an auxiliary verb, haber in the indicative imperfect is used to form the "indicative past perfect" tense.', example: { spanish: 'había escrito la carta', english: 'I had written the letter' } },
+    },
+    ver: {
+        summary: 'Ver is the Spanish verb "to see". It is mostly irregular, so endings must be learned by heart. Ver can be used for a number of reasons, the most basic "to see", for example: "Veo un coche". It can also be used to describe "watching" a movie or tv show, asking a person if they have "seen" a particular movie or object, or to notice something.',
+        present: { description: 'The Indicative Present of ver is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'veo fantasmas', english: 'I see ghosts' } },
+        preterite: { description: 'The Indicative Preterite of ver is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'vi fantasmas', english: 'I saw ghosts' } },
+        imperfect: { description: 'The Indicative Imperfect of ver is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'veía fantasmas', english: 'I used to see ghosts' } },
+    },
+    venir: {
+        summary: 'Venir is the Spanish verb meaning "to come". Similar verbs to venir include: llegar (to arrive).',
+        present: { description: 'The Indicative Present of venir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'vengo a casa', english: 'I come home' } },
+        preterite: { description: 'The Indicative Preterite of venir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'vine a casa', english: 'I came home' } },
+        imperfect: { description: 'The Indicative Imperfect of venir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'venía a casa', english: 'I used to come home' } },
+    },
+    vivir: {
+        summary: 'Vivir is the Spanish verb for "to live". It is a regular IR verb, and one of the most popular 100 Spanish verbs.',
+        present: { description: 'The Indicative Present of vivir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'vivo cerca de mi hermana', english: 'I live close to my sister' } },
+        preterite: { description: 'The Indicative Preterite of vivir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'viví cerca de mi hermana', english: 'I lived close to my sister' } },
+        imperfect: { description: 'The Indicative Imperfect of vivir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'vivía cerca de mi hermana', english: 'I used to live close to my sister' } },
+    },
+    poder: {
+        summary: 'Poder is the Spanish verb meaning "to be able to / to can". This verb can be used to ask for permission, e.g. ¿Podría usar el baño?, or to express tolerance for something "No puedo más", meaning "I can\'t do any more". In its purist form, it is used to express capability to do something. For example: "Mi hermano puede nadar 1 kilómetro sin parar" - "My brother can swim 1km without stopping".',
+        present: { description: 'The Indicative Present of poder is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'puedo hablar español', english: 'I am able to speak Spanish' } },
+        preterite: { description: 'The Indicative Preterite of poder is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'pude hablar español', english: 'I was able to speak Spanish' } },
+        imperfect: { description: 'The Indicative Imperfect of poder is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'podía hablar español', english: 'I used to be able to speak Spanish' } },
+    },
+    saber: {
+        summary: 'Saber is the Spanish verb meaning "to know" (things). It is mostly used to portray knowledge - for example: "I speak Spanish" and "I know all the capital cities in Europe". It can also be used to express taste; for example: "The cake tastes like chocolate and orange". Saber is not to be confused with Conocer, also meaning "to know" but used in different situations.',
+        present: { description: 'The Indicative Present of saber is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'sé español', english: 'I know Spanish' } },
+        preterite: { description: 'The Indicative Preterite of saber is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'supe español', english: 'I knew Spanish' } },
+        imperfect: { description: 'The Indicative Imperfect of saber is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'sabía español', english: 'I used to know Spanish' } },
+    },
+    decir: {
+        summary: 'Decir is the Spanish verb meaning "to say / to tell". For example: "What did you say?" or "I swear to tell the truth". In Spain, it is used when answering the phone - you will hear "¿Diga?" meaning "hello" or "¡Digame!", literally translating to "tell me". It can also be used to express rumours and opinions - "they say it\'s going to rain all next week" and "What do you say, will we go on holidays in June?"',
+        present: { description: 'The Indicative Present of decir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'digo hola al profesor', english: 'I say hello to the teacher' } },
+        preterite: { description: 'The Indicative Preterite of decir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'dije hola al profesor', english: 'I said hello to the teacher' } },
+        imperfect: { description: 'The Indicative Imperfect of decir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'decía hola al profesor', english: 'I used to say hello to the teacher' } },
+    },
+    dar: {
+        summary: 'Dar is the Spanish verb "to give". It is a very versatile verb, with many meanings and uses. For example: "Dame las llaves" - "Give me the keys", "dar las gracias" - "to give thanks", to express fear "Me da miedo" - "It scares me" as well as to perform an action "dar un paseo" - "to go for a walk".',
+        present: { description: 'The Indicative Present of dar is used to talk about situations, events or thoughts that are happening now or in the near future.', example: { spanish: 'doy regalos a mis hermanos', english: 'I give presents to my siblings' } },
+        preterite: { description: 'The Indicative Preterite of dar is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'di regalos a mis hermanos', english: 'I gave presents to my siblings' } },
+        imperfect: { description: 'The Indicative Imperfect of dar is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'daba regalos a mis hermanos', english: 'I used to give presents to my siblings' } },
     },
 }
 
