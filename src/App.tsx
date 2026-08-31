@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
 import { type NumberEntry, SCREENS } from './data'
-import { VERBS } from './verbs'
+import { FREQUENCY_RANK, VERBS } from './verbs'
 import Card from './Card'
 import ConjugationTable from './ConjugationTable'
 import VerbLookup from './VerbLookup'
@@ -14,9 +14,19 @@ export default function App() {
   )
   const [input, setInput] = useState('')
   const [verbQuery, setVerbQuery] = useState('')
+  const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('alpha')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const screen = SCREENS[screenIndex]
+  const sortedVerbs = useMemo(() => {
+    const list = [...VERBS]
+    if (verbSort === 'frequency') {
+      list.sort((a, b) => (FREQUENCY_RANK.get(a.infinitive) ?? Infinity) - (FREQUENCY_RANK.get(b.infinitive) ?? Infinity))
+    } else {
+      list.sort((a, b) => a.infinitive.localeCompare(b.infinitive))
+    }
+    return list
+  }, [verbSort])
   const numberScreenMap = useMemo(() => {
     if (screen.kind !== 'numbers') return null
     return new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n]))
@@ -128,7 +138,13 @@ export default function App() {
 
       {screen.kind === 'verbs' && (
         <nav className="verb-nav">
-          {[...VERBS].sort((a, b) => a.infinitive.localeCompare(b.infinitive)).map(v => (
+          <button
+            className="verb-sort-toggle"
+            onClick={() => setVerbSort(prev => prev === 'alpha' ? 'frequency' : 'alpha')}
+          >
+            Sort: {verbSort === 'alpha' ? 'A–Z' : 'Frequency'}
+          </button>
+          {sortedVerbs.map(v => (
             <button
               key={v.infinitive}
               className={`nav-btn verb-nav-btn ${normalize(verbQuery) === normalize(v.infinitive) ? 'active' : ''}`}

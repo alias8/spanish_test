@@ -1983,4 +1983,23 @@ VERBS.push(...BULK_VERBS)
 // reservar, regresar, llorar, satisfacer, romper, pescar, reparar, asar, repetir,
 // completar, decidir, preparar, reunir, gastar
 
+// Approximate real-world Spanish usage frequency, most common first. Not exact —
+// based on general corpus-frequency knowledge, good enough for a rough sort.
+const FREQUENCY_ORDER = [
+    'ser', 'estar', 'haber', 'tener', 'hacer', 'poder', 'decir', 'ir', 'ver', 'dar',
+    'saber', 'querer', 'llegar', 'pasar', 'quedar', 'creer', 'hablar', 'llevar', 'dejar', 'seguir',
+    'llamar', 'venir', 'pensar', 'salir', 'volver', 'tomar', 'conocer', 'vivir', 'sentirse', 'entender',
+    'buscar', 'encontrarse', 'trabajar', 'escribir', 'empezar', 'esperar', 'perder', 'pedir', 'recibir', 'recordar',
+    'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'necesitar', 'jugar', 'cerrar', 'contar',
+    'mirar', 'tratar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'existir', 'mantener',
+    'resultar', 'presentar', 'crear', 'abrir', 'considerar', 'oír', 'acabar', 'convertir', 'ganar', 'formar',
+    'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'preguntar', 'tocar', 'reconocer',
+    'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr', 'utilizar', 'pagar', 'ayudar', 'producir', 'ocurrir',
+    'probar', 'gustar', 'sentarse', 'ponerse', 'amar', 'encantar', 'invitar', 'enseñar', 'aprender', 'quedarse',
+    'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse', 'ducharse', 'lavarse', 'vestirse', 'cepillarse', 'casarse',
+    'cuidarse', 'divertirse', 'aburrirse', 'enojarse', 'enfadarse', 'olvidarse', 'preocuparse', 'dormirse',
+] as const
+
+export const FREQUENCY_RANK: ReadonlyMap<string, number> = new Map(FREQUENCY_ORDER.map((infinitive, rank) => [infinitive, rank]))
+
 
