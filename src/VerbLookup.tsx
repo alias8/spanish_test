@@ -64,7 +64,7 @@ function VerbDetail({ verb }: { verb: VerbEntry }) {
   return (
     <div className="verb-detail">
       <div className="verb-box">
-        <p className="verb-summary">{verb.summary}</p>
+        {verb.summary && <p className="verb-summary">{verb.summary}</p>}
         <table className="verb-table">
           <thead>
             <tr>
@@ -88,10 +88,15 @@ function VerbDetail({ verb }: { verb: VerbEntry }) {
       {verb.tenses.map(tense => (
         <div className="verb-box" key={tense.name}>
           <h3>{label} in the {tense.name}</h3>
-          <p className="verb-summary">
-            {tense.description} For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".
-            In Spanish, known as "{tense.spanishName}".
-          </p>
+          {tense.description && (
+            <p className="verb-summary">
+              {tense.description}
+              {tense.example && (
+                <> For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".</>
+              )}
+              {' '}In Spanish, known as "{tense.spanishName}".
+            </p>
+          )}
           <table className="verb-table">
             <thead>
               <tr>
