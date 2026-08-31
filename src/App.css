@@ -414,7 +414,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(5, auto);
   gap: 4px 6px;
   max-height: calc(100svh - 40px);
   overflow-y: auto;
