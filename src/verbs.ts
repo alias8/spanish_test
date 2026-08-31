@@ -3,7 +3,7 @@ export type ConjugationEntry = { id: string; stem: string; ending: string }
 export type ConjugationRow = { pronoun: string; cells: ConjugationEntry[] }
 export type ConjugationScreen = { kind: 'conjugation'; label: string; description: string; verbs: string[]; rows: ConjugationRow[] }
 // Shared labels — every verb's data is positional against these instead of repeating the labels per-verb.
-export const VERB_PRONOUNS = ['Yo', 'Tú', 'Ella / Él / Usted', 'Nosotras / Nosotros', 'Ellas / Ellos / Ustedes'] as const
+export const VERB_PRONOUNS = ['Yo', 'Tú', 'Él / Usted', 'Nosotros', 'Ellos / Ustedes'] as const
 export const INFINITIVE_ITEMS = ['Infinitive', 'Past participle', 'Gerund'] as const
 export const TENSE_META = [
     { name: 'Indicative Present', spanishName: 'El Presente' },
