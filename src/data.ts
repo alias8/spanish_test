@@ -1,4 +1,4 @@
-import {CONJUGATION_SCREENS, type ConjugationScreen, type VerbLookupScreen} from "./verbs.ts";
+import { CONJUGATION_SCREENS, type ConjugationScreen, type VerbLookupScreen } from './verbs'
 
 export type NumberEntry = { value: number; spanish: string }
 
