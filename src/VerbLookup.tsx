@@ -1,9 +1,8 @@
 import { useMemo, useState } from 'react'
-import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, type VerbEntry } from './verbs'
+import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
-export default function VerbLookup({ verbs, query, onQueryChange }: {
-  verbs: VerbEntry[]
+export default function VerbLookup({ query, onQueryChange }: {
   query: string
   onQueryChange: (query: string) => void
 }) {
@@ -18,10 +17,10 @@ export default function VerbLookup({ verbs, query, onQueryChange }: {
   const matches = useMemo(() => {
     const q = normalize(query)
     if (!q) return []
-    const exact = verbs.find(v => normalize(v.infinitive) === q)
+    const exact = VERBS.find(v => normalize(v.infinitive) === q)
     if (exact) return [exact]
-    return verbs.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
-  }, [verbs, query])
+    return VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
+  }, [query])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
 

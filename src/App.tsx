@@ -105,7 +105,7 @@ export default function App() {
         ) : screen.kind === 'conjugation' ? (
           <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
         ) : (
-          <VerbLookup verbs={VERBS} query={verbQuery} onQueryChange={setVerbQuery} />
+          <VerbLookup query={verbQuery} onQueryChange={setVerbQuery} />
         )}
 
         {screen.kind !== 'verbs' && (
