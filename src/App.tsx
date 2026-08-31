@@ -131,7 +131,7 @@ export default function App() {
           {[...VERBS].sort((a, b) => a.infinitive.localeCompare(b.infinitive)).map(v => (
             <button
               key={v.infinitive}
-              className={`nav-btn ${normalize(verbQuery) === normalize(v.infinitive) ? 'active' : ''}`}
+              className={`nav-btn verb-nav-btn ${normalize(verbQuery) === normalize(v.infinitive) ? 'active' : ''}`}
               onClick={() => setVerbQuery(v.infinitive)}
             >
               {v.infinitive[0].toUpperCase() + v.infinitive.slice(1)}
