@@ -8,7 +8,7 @@ import VerbLookup from './VerbLookup'
 import { normalize } from './utils'
 
 export default function App() {
-  const [screenIndex, setScreenIndex] = useState(0)
+  const [screenIndex, setScreenIndex] = useState(() => SCREENS.findIndex(s => s.kind === 'verbs'))
   const [revealedByScreen, setRevealedByScreen] = useState<Record<number, Set<string>>>(
     () => Object.fromEntries(SCREENS.map((_, index) => [index, new Set<string>()]))
   )

@@ -19,10 +19,16 @@ export default function VerbLookup({ query, onQueryChange }: {
     if (!q) return []
     const exact = VERBS.find(v => normalize(v.infinitive) === q)
     if (exact) return [exact]
+    const conjugated = VERBS.find(v =>
+      v.infinitiveForms.some(f => normalize(f.spanish) === q) ||
+      v.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
+    )
+    if (conjugated) return [conjugated]
     return VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
   }, [query])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
+  const matchedViaForm = match !== null && normalize(match.infinitive) !== normalize(query)
 
   return (
     <div className="verb-lookup">
@@ -41,7 +47,7 @@ export default function VerbLookup({ query, onQueryChange }: {
         {!query ? null : matches.length === 0 ? (
           <p className="verb-hint">No verb found for "{query}" yet.</p>
         ) : match ? (
-          <VerbDetail verb={match} />
+          <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} />
         ) : (
           <div className="verb-picker">
             <p className="verb-hint">Multiple matches — pick one:</p>
@@ -57,12 +63,17 @@ export default function VerbLookup({ query, onQueryChange }: {
   )
 }
 
-function VerbDetail({ verb }: { verb: VerbEntry }) {
+function VerbDetail({ verb, matchedFrom }: { verb: VerbEntry; matchedFrom?: string }) {
   const label = verb.infinitive[0].toUpperCase() + verb.infinitive.slice(1)
 
   return (
     <div className="verb-detail">
       <div className="verb-box">
+        {matchedFrom && (
+          <p className="verb-hint">
+            "{matchedFrom}" is a conjugated form of <strong>{verb.infinitive}</strong>.
+          </p>
+        )}
         {verb.summary && <p className="verb-summary">{verb.summary}</p>}
         <table className="verb-table">
           <thead>
