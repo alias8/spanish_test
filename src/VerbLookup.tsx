@@ -17,13 +17,15 @@ export default function VerbLookup({ query, onQueryChange }: {
   const matches = useMemo(() => {
     const q = normalize(query)
     if (!q) return []
-    const exact = VERBS.find(v => normalize(v.infinitive) === q)
+    const exact = VERBS.find(v => normalize(v.infinitive) === q) // checks if perfect match for infinitive
     if (exact) return [exact]
+    // checks if perfect match for conjugations
     const conjugated = VERBS.find(v =>
       v.infinitiveForms.some(f => normalize(f.spanish) === q) ||
       v.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
     )
     if (conjugated) return [conjugated]
+    // check for partial match on infinitive or english translation
     return VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
   }, [query])
 
