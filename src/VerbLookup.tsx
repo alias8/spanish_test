@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
@@ -17,15 +17,15 @@ export default function VerbLookup({ query, onQueryChange }: {
   const matches = useMemo(() => {
     const q = normalize(query)
     if (!q) return []
-    const exact = VERBS.find(v => normalize(v.infinitive) === q) // checks if perfect match for infinitive
+    const exact = VERBS.find(v => normalize(v.infinitive) === q) // checks if perfect match for spanish infinitive
     if (exact) return [exact]
-    // checks if perfect match for conjugations
+    // checks if perfect match for spanish conjugations
     const conjugated = VERBS.find(v =>
       v.infinitiveForms.some(f => normalize(f.spanish) === q) ||
       v.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
     )
     if (conjugated) return [conjugated]
-    // check for partial match on infinitive or english translation
+    // check for partial match on spanish infinitive or english translation
     const direct = VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
     // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
     // gated by length so short queries like "en" don't match almost every verb via some conjugated form
@@ -39,6 +39,7 @@ export default function VerbLookup({ query, onQueryChange }: {
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
   const matchedViaForm = match !== null && normalize(match.infinitive) !== normalize(query)
+  const highlight = matchedViaForm ? normalize(query) : undefined
 
   return (
     <div className="verb-lookup">
@@ -57,7 +58,7 @@ export default function VerbLookup({ query, onQueryChange }: {
         {!query ? null : matches.length === 0 ? (
           <p className="verb-hint">No verb found for "{query}" yet.</p>
         ) : match ? (
-          <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} />
+          <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} highlight={highlight} />
         ) : (
           <div className="verb-picker">
             <p className="verb-hint">Multiple matches — pick one:</p>
@@ -73,7 +74,25 @@ export default function VerbLookup({ query, onQueryChange }: {
   )
 }
 
-function VerbDetail({ verb, matchedFrom }: { verb: VerbEntry; matchedFrom?: string }) {
+function highlightMatches(text: string, query: string | undefined) {
+  if (!query) return text
+  const normText = normalize(text)
+  const parts: ReactNode[] = []
+  let i = 0
+  let idx = normText.indexOf(query, i)
+  if (idx === -1) return text
+  let key = 0
+  while (idx !== -1) {
+    if (idx > i) parts.push(<Fragment key={key++}>{text.slice(i, idx)}</Fragment>)
+    parts.push(<mark className="search-highlight" key={key++}>{text.slice(idx, idx + query.length)}</mark>)
+    i = idx + query.length
+    idx = normText.indexOf(query, i)
+  }
+  if (i < text.length) parts.push(<Fragment key={key++}>{text.slice(i)}</Fragment>)
+  return parts
+}
+
+function VerbDetail({ verb, matchedFrom, highlight }: { verb: VerbEntry; matchedFrom?: string; highlight?: string }) {
   const label = verb.infinitive[0].toUpperCase() + verb.infinitive.slice(1)
 
   return (
@@ -97,7 +116,7 @@ function VerbDetail({ verb, matchedFrom }: { verb: VerbEntry; matchedFrom?: stri
             {verb.infinitiveForms.map((row, i) => (
               <tr key={INFINITIVE_ITEMS[i]}>
                 <td>{INFINITIVE_ITEMS[i]}</td>
-                <td>{row.spanish}</td>
+                <td>{highlightMatches(row.spanish, highlight)}</td>
                 <td className="english">{row.english}</td>
               </tr>
             ))}
@@ -132,7 +151,7 @@ function VerbDetail({ verb, matchedFrom }: { verb: VerbEntry; matchedFrom?: stri
                   <tr key={VERB_PRONOUNS[j]}>
                     <td>{VERB_PRONOUNS[j]}</td>
                     <td>
-                      {form.spanish}
+                      {highlightMatches(form.spanish, highlight)}
                       {form.irregular && <span className="irregular-dot" />}
                     </td>
                     <td className="english">{form.english}</td>

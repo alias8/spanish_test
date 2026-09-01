@@ -391,6 +391,13 @@ h1 {
   color: var(--text);
 }
 
+.search-highlight {
+  background: #ffe066;
+  color: #1a1a1a;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
 .irregular-dot {
   display: inline-block;
   width: 7px;
