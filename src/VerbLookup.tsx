@@ -41,6 +41,23 @@ export default function VerbLookup({ query, onQueryChange }: {
   const matchedViaForm = match !== null && normalize(match.infinitive) !== normalize(query)
   const highlight = matchedViaForm ? normalize(query) : undefined
 
+  function renderResults() {
+    if (!query) return null
+    if (matches.length === 0) return <p className="verb-hint">No verb found for "{query}" yet.</p>
+    if (match) return <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} highlight={highlight} />
+
+    return (
+      <div className="verb-picker">
+        <p className="verb-hint">Multiple matches — pick one:</p>
+        {matches.map(v => (
+          <button key={v.infinitive} className="verb-picker-btn" onClick={() => setSelected(v.infinitive)}>
+            {v.infinitive} <span className="english">— {v.translation}</span>
+          </button>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div className="verb-lookup">
       <input
@@ -55,20 +72,7 @@ export default function VerbLookup({ query, onQueryChange }: {
       />
 
       <div className="verb-results">
-        {!query ? null : matches.length === 0 ? (
-          <p className="verb-hint">No verb found for "{query}" yet.</p>
-        ) : match ? (
-          <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} highlight={highlight} />
-        ) : (
-          <div className="verb-picker">
-            <p className="verb-hint">Multiple matches — pick one:</p>
-            {matches.map(v => (
-              <button key={v.infinitive} className="verb-picker-btn" onClick={() => setSelected(v.infinitive)}>
-                {v.infinitive} <span className="english">— {v.translation}</span>
-              </button>
-            ))}
-          </div>
-        )}
+        {renderResults()}
       </div>
     </div>
   )
