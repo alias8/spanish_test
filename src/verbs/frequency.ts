@@ -11,7 +11,7 @@ const FREQUENCY_ORDER = [
     'formar', 'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr', 'utilizar', 'pagar', 'ayudar', 'comer',
     'usar', 'parecer', 'decidir', 'producir', 'ocurrir', 'probar', 'gustar', 'sentarse', 'ponerse', 'amar',
-    'encantar', 'invitar', 'enseñar', 'aprender', 'quedarse', 'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse',
+    'encantar', 'invitar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse',
     'ducharse', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrirse', 'enojarse', 'enfadarse',
     'olvidarse', 'preocuparse', 'dormirse', 'responder', 'cuidar', 'romper', 'gastar', 'preparar', 'parar', 'beber',
     'repetir', 'apagar', 'encender', 'llorar', 'mandar', 'rezar', 'enviar', 'visitar', 'aprobar', 'regresar',

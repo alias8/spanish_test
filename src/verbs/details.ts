@@ -1034,4 +1034,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed instance of spending something.', example: { spanish: 'gastó todo su sueldo', english: 's/he spent all his/her salary' } },
         imperfect: { description: 'Used for what someone used to spend regularly.', example: { spanish: 'gastaba mucho en ropa', english: 'I used to spend a lot on clothes' } },
     },
+    practicar: {
+        summary: 'Practicar means "to practice" — a skill, sport, or language. It is regular apart from a spelling change in the yo preterite form (practiqué), needed to keep the hard "c" sound before an "e".',
+        present: { description: 'Used for practicing something right now or habitually.', example: { spanish: 'practico español', english: 'I practice Spanish' } },
+        preterite: { description: 'Used for a completed instance of practicing something.', example: { spanish: 'practiqué el piano', english: 'I practiced the piano' } },
+        imperfect: { description: 'Used for what someone used to practice regularly.', example: { spanish: 'practicaba yoga', english: 'I used to practice yoga' } },
+    },
 }

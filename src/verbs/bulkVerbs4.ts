@@ -469,4 +469,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['gastaba', 'I used to spend'], ['gastabas', 'you used to spend'], ['gastaba', 's/he used to spend'],
         ['gastábamos', 'we used to spend'], ['gastaban', 'they used to spend'],
+    ]),
+    simpleVerb('practicar', 'to practice', [
+        ['practicar', 'to practice'], ['practicado', 'practiced'], ['practicando', 'practicing'],
+    ], [
+        ['practico', 'I practice'], ['practicas', 'you practice'], ['practica', 's/he practices'],
+        ['practicamos', 'we practice'], ['practican', 'they practice'],
+    ], [
+        ['practiqué', 'I practiced', true], ['practicaste', 'you practiced'], ['practicó', 's/he practiced'],
+        ['practicamos', 'we practiced'], ['practicaron', 'they practiced'],
+    ], [
+        ['practicaba', 'I used to practice'], ['practicabas', 'you used to practice'], ['practicaba', 's/he used to practice'],
+        ['practicábamos', 'we used to practice'], ['practicaban', 'they used to practice'],
     ]),]
