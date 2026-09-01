@@ -299,6 +299,18 @@ export const BULK_VERBS_1: VerbEntry[] = [
         ['volvía', 'I used to return'], ['volvías', 'you used to return'], ['volvía', 's/he used to return'],
         ['volvíamos', 'we used to return'], ['volvían', 'they used to return'],
     ]),
+    simpleVerb('resolver', 'to solve, to resolve', [
+        ['resolver', 'to solve'], ['resuelto', 'solved'], ['resolviendo', 'solving'],
+    ], [
+        ['resuelvo', 'I solve', true], ['resuelves', 'you solve', true], ['resuelve', 's/he solves', true],
+        ['resolvemos', 'we solve'], ['resuelven', 'they solve', true],
+    ], [
+        ['resolví', 'I solved'], ['resolviste', 'you solved'], ['resolvió', 's/he solved'],
+        ['resolvimos', 'we solved'], ['resolvieron', 'they solved'],
+    ], [
+        ['resolvía', 'I used to solve'], ['resolvías', 'you used to solve'], ['resolvía', 's/he used to solve'],
+        ['resolvíamos', 'we used to solve'], ['resolvían', 'they used to solve'],
+    ]),
     simpleVerb('empezar', 'to start, to begin', [
         ['empezar', 'to start'], ['empezado', 'started'], ['empezando', 'starting'],
     ], [

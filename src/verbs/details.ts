@@ -1034,6 +1034,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed instance of spending something.', example: { spanish: 'gastó todo su sueldo', english: 's/he spent all his/her salary' } },
         imperfect: { description: 'Used for what someone used to spend regularly.', example: { spanish: 'gastaba mucho en ropa', english: 'I used to spend a lot on clothes' } },
     },
+    resolver: {
+        summary: 'Resolver means "to solve" a problem or "to resolve" a situation. It is o→ue stem-changing in the present, and has an irregular past participle (resuelto), like volver and its other compounds.',
+        present: { description: 'Used for solving or resolving something right now.', example: { spanish: 'resuelvo el problema', english: 'I solve the problem' } },
+        preterite: { description: 'Used for a completed instance of solving or resolving something.', example: { spanish: 'resolvió el caso', english: 's/he solved the case' } },
+        imperfect: { description: 'Used for what someone used to solve or resolve regularly.', example: { spanish: 'resolvía disputas', english: 'I used to resolve disputes' } },
+    },
     practicar: {
         summary: 'Practicar means "to practice" — a skill, sport, or language. It is regular apart from a spelling change in the yo preterite form (practiqué), needed to keep the hard "c" sound before an "e".',
         present: { description: 'Used for practicing something right now or habitually.', example: { spanish: 'practico español', english: 'I practice Spanish' } },
