@@ -26,7 +26,15 @@ export default function VerbLookup({ query, onQueryChange }: {
     )
     if (conjugated) return [conjugated]
     // check for partial match on infinitive or english translation
-    return VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
+    const direct = VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
+    // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
+    // gated by length so short queries like "en" don't match almost every verb via some conjugated form
+    if (q.length < 4) return direct
+    const viaForm = VERBS.filter(v =>
+      v.infinitiveForms.some(f => normalize(f.spanish).includes(q)) ||
+      v.tenses.some(t => t.forms.some(f => normalize(f.spanish).includes(q)))
+    )
+    return [...new Map([...direct, ...viaForm].map(v => [v.infinitive, v])).values()]
   }, [query])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
