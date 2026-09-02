@@ -2,6 +2,23 @@ import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
+type MatchReason = 'conjugated' | 'translation' | 'partial'
+
+// why a given verb showed up for a query — mirrors the branches in the matches useMemo below.
+// only an exact hit on a conjugated/inflected form gets called out specifically as that; any
+// other substring hit (in the infinitive, a conjugated form, or the translation) is just a
+// "partial match", except a translation hit, which is worth naming since it's easy to miss
+function getMatchReason(verb: VerbEntry, q: string): MatchReason | null {
+  if (normalize(verb.infinitive) === q) return null // exact infinitive match, nothing to explain
+  // infinitiveForms[0] is the bare infinitive itself — only participle/gerund (the rest) count as "conjugated"
+  const isExactConjugatedForm =
+    verb.infinitiveForms.slice(1).some(f => normalize(f.spanish) === q) ||
+    verb.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
+  if (isExactConjugatedForm) return 'conjugated'
+  if (normalize(verb.translation).includes(q)) return 'translation'
+  return 'partial'
+}
+
 export default function VerbLookup({ query, onQueryChange }: {
   query: string
   onQueryChange: (query: string) => void
@@ -38,13 +55,13 @@ export default function VerbLookup({ query, onQueryChange }: {
   }, [query])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
-  const matchedViaForm = match !== null && normalize(match.infinitive) !== normalize(query)
-  const highlight = matchedViaForm ? normalize(query) : undefined
+  const matchReason = match !== null ? getMatchReason(match, normalize(query)) : null
+  const highlight = matchReason !== null ? normalize(query) : undefined
 
   function renderResults() {
     if (!query) return null
     if (matches.length === 0) return <p className="verb-hint">No verb found for "{query}" yet.</p>
-    if (match) return <VerbDetail verb={match} matchedFrom={matchedViaForm ? query : undefined} highlight={highlight} />
+    if (match) return <VerbDetail verb={match} matchedFrom={matchReason !== null ? query : undefined} matchReason={matchReason ?? undefined} highlight={highlight} />
 
     return (
       <div className="verb-picker">
@@ -96,15 +113,22 @@ function highlightMatches(text: string, query: string | undefined) {
   return parts
 }
 
-function VerbDetail({ verb, matchedFrom, highlight }: { verb: VerbEntry; matchedFrom?: string; highlight?: string }) {
+function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
+  verb: VerbEntry
+  matchedFrom?: string
+  matchReason?: MatchReason
+  highlight?: string
+}) {
   const label = verb.infinitive[0].toUpperCase() + verb.infinitive.slice(1)
 
   return (
     <div className="verb-detail">
       <div className="verb-box">
-        {matchedFrom && (
+        {matchedFrom && matchReason && (
           <p className="verb-hint">
-            "{matchedFrom}" is a conjugated form of <strong>{verb.infinitive}</strong>.
+            {matchReason === 'conjugated' && <>"{matchedFrom}" is a conjugated form of <strong>{verb.infinitive}</strong>.</>}
+            {matchReason === 'translation' && <>"{matchedFrom}" matches the English translation of <strong>{verb.infinitive}</strong>.</>}
+            {matchReason === 'partial' && <>"{matchedFrom}" is a partial match for <strong>{verb.infinitive}</strong>.</>}
           </p>
         )}
         {verb.summary && <p className="verb-summary">{verb.summary}</p>}
@@ -121,7 +145,7 @@ function VerbDetail({ verb, matchedFrom, highlight }: { verb: VerbEntry; matched
               <tr key={INFINITIVE_ITEMS[i]}>
                 <td>{INFINITIVE_ITEMS[i]}</td>
                 <td>{highlightMatches(row.spanish, highlight)}</td>
-                <td className="english">{row.english}</td>
+                <td className="english">{highlightMatches(row.english, highlight)}</td>
               </tr>
             ))}
           </tbody>
@@ -158,7 +182,7 @@ function VerbDetail({ verb, matchedFrom, highlight }: { verb: VerbEntry; matched
                       {highlightMatches(form.spanish, highlight)}
                       {form.irregular && <span className="irregular-dot" />}
                     </td>
-                    <td className="english">{form.english}</td>
+                    <td className="english">{highlightMatches(form.english, highlight)}</td>
                   </tr>
                 ))}
               </tbody>
