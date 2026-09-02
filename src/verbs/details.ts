@@ -284,6 +284,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something that existed and is no longer around.', example: { spanish: 'esa costumbre existió', english: 'that custom used to exist' } },
         imperfect: { description: 'Used for something that used to exist.', example: { spanish: 'no existía internet', english: "the internet didn't used to exist" } },
     },
+    durar: {
+        summary: 'Durar means "to last" — how long something continues or takes. It is fully regular.',
+        present: { description: 'Used for how long something lasts or takes, in general or right now.', example: { spanish: 'la reunión dura una hora', english: 'the meeting lasts an hour' } },
+        preterite: { description: 'Used for how long a completed event or situation lasted.', example: { spanish: 'la película duró dos horas', english: 'the movie lasted two hours' } },
+        imperfect: { description: 'Used for how long something used to last, or was lasting, in the past.', example: { spanish: 'el viaje duraba tres días', english: 'the trip used to take three days' } },
+    },
     mantener: {
         summary: 'Mantener means "to maintain" or "to keep" something a certain way, and also "to support" financially (mantener a la familia). It conjugates just like tener, with an irregular yo form and an e→ie stem change.',
         present: { description: 'Used for maintaining or keeping something right now.', example: { spanish: 'mantengo la calma', english: 'I stay calm' } },
