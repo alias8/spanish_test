@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
@@ -19,9 +19,10 @@ function getMatchReason(verb: VerbEntry, q: string): MatchReason | null {
   return 'partial'
 }
 
-export default function VerbLookup({ query, onQueryChange }: {
+export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
   query: string
   onQueryChange: (query: string) => void
+  onResolvedChange?: (infinitive: string | null) => void
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   const [prevQuery, setPrevQuery] = useState(query)
@@ -57,6 +58,10 @@ export default function VerbLookup({ query, onQueryChange }: {
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
   const matchReason = match !== null ? getMatchReason(match, normalize(query)) : null
   const highlight = matchReason !== null ? normalize(query) : undefined
+
+  useEffect(() => {
+    onResolvedChange?.(match?.infinitive ?? null)
+  }, [match, onResolvedChange])
 
   function renderResults() {
     if (!query) return null

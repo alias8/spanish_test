@@ -14,6 +14,7 @@ export default function App() {
   )
   const [input, setInput] = useState('')
   const [verbQuery, setVerbQuery] = useState('ser')
+  const [resolvedVerb, setResolvedVerb] = useState<string | null>(null)
   const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('frequency')
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -105,7 +106,7 @@ export default function App() {
         ) : screen.kind === 'conjugation' ? (
           <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
         ) : (
-          <VerbLookup query={verbQuery} onQueryChange={setVerbQuery} />
+          <VerbLookup query={verbQuery} onQueryChange={setVerbQuery} onResolvedChange={setResolvedVerb} />
         )}
 
         {screen.kind !== 'verbs' && (
@@ -147,7 +148,7 @@ export default function App() {
           {sortedVerbs.map(v => (
             <button
               key={v.infinitive}
-              className={`nav-btn verb-nav-btn ${normalize(verbQuery) === normalize(v.infinitive) ? 'active' : ''}`}
+              className={`nav-btn verb-nav-btn ${resolvedVerb !== null && normalize(resolvedVerb) === normalize(v.infinitive) ? 'active' : ''}`}
               onClick={() => setVerbQuery(v.infinitive)}
             >
               {v.infinitive[0].toUpperCase() + v.infinitive.slice(1)}
