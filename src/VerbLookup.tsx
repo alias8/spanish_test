@@ -131,7 +131,7 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
             {matchReason === 'partial' && <>"{matchedFrom}" is a partial match for <strong>{verb.infinitive}</strong>.</>}
           </p>
         )}
-        {verb.summary && <p className="verb-summary">{verb.summary}</p>}
+        {verb.summary && <p className="verb-summary">{highlightMatches(verb.summary, highlight)}</p>}
         <table className="verb-table">
           <thead>
             <tr>
