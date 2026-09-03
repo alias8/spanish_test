@@ -914,6 +914,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed period of rest.', example: { spanish: 'descansó una hora', english: 's/he rested for an hour' } },
         imperfect: { description: 'Used for when someone used to rest regularly.', example: { spanish: 'descansaba después de comer', english: 'I used to rest after eating' } },
     },
+    relajarse: {
+        summary: 'Relajarse means "to relax" or "to calm down". Its non-reflexive form, relajar, means to relax something else (relajar los músculos, to relax the muscles). It is fully regular.',
+        present: { description: 'Used for relaxing right now or habitually.', example: { spanish: 'me relajo los fines de semana', english: 'I relax on weekends' } },
+        preterite: { description: 'Used for a completed moment of relaxing.', example: { spanish: 'se relajó en la playa', english: 's/he relaxed at the beach' } },
+        imperfect: { description: 'Used for when someone used to relax regularly.', example: { spanish: 'me relajaba con música', english: 'I used to relax with music' } },
+    },
     cuidar: {
         summary: 'Cuidar means "to take care of" someone or something else (cuidar a un niño, to look after a child) — the non-reflexive counterpart of cuidarse. It is fully regular.',
         present: { description: 'Used for taking care of someone right now or habitually.', example: { spanish: 'cuido a mi abuela', english: 'I take care of my grandmother' } },

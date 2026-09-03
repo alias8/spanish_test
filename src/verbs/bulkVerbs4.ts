@@ -218,6 +218,18 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['descansaba', 'I used to rest'], ['descansabas', 'you used to rest'], ['descansaba', 's/he used to rest'],
         ['descansábamos', 'we used to rest'], ['descansaban', 'they used to rest'],
     ]),
+    simpleVerb('relajarse', 'to relax, to calm down', [
+        ['relajarse', 'to relax'], ['relajado', 'relaxed'], ['relajando', 'relaxing'],
+    ], [
+        ['me relajo', 'I relax'], ['te relajas', 'you relax'], ['se relaja', 's/he relaxes'],
+        ['nos relajamos', 'we relax'], ['se relajan', 'they relax'],
+    ], [
+        ['me relajé', 'I relaxed'], ['te relajaste', 'you relaxed'], ['se relajó', 's/he relaxed'],
+        ['nos relajamos', 'we relaxed'], ['se relajaron', 'they relaxed'],
+    ], [
+        ['me relajaba', 'I used to relax'], ['te relajabas', 'you used to relax'], ['se relajaba', 's/he used to relax'],
+        ['nos relajábamos', 'we used to relax'], ['se relajaban', 'they used to relax'],
+    ]),
     simpleVerb('cuidar', 'to take care of, to look after', [
         ['cuidar', 'to take care of'], ['cuidado', 'taken care of'], ['cuidando', 'taking care of'],
     ], [
