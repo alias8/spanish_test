@@ -499,17 +499,17 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   display: grid;
-  grid-template-columns: repeat(1, auto);
+  grid-template-columns: repeat(2, auto);
   gap: 4px 6px;
   max-height: calc(100svh - 40px);
   overflow-y: auto;
   padding: 4px;
 }
 
-/* Only two screen sizes are supported: 1792x968 (1 column, default above)
-   and 2560x1288 (5 columns). */
+/* Only two screen sizes are supported: 1792x968 (2 columns, default above)
+   and 2560x1288 (7 columns). */
 @media (min-width: 2560px) {
-  .verb-nav { grid-template-columns: repeat(5, auto); }
+  .verb-nav { grid-template-columns: repeat(7, auto); }
 }
 
 .nav-btn {
@@ -537,8 +537,8 @@ h1 {
 }
 
 .verb-nav-btn {
-  font-size: 0.68rem;
-  padding: 4px 8px;
+  font-size: 0.64rem;
+  padding: 3px 6px;
   border-radius: 6px;
   border-width: 1px;
 }
