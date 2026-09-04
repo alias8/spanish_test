@@ -37,12 +37,13 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     if (!q) return []
     const exact = VERBS.find(v => normalize(v.infinitive) === q) // checks if perfect match for spanish infinitive
     if (exact) return [exact]
-    // checks if perfect match for spanish conjugations
-    const conjugated = VERBS.find(v =>
+    // checks if perfect match for spanish conjugations — collect every verb that shares this
+    // form (e.g. "fue" is the preterite of both "ser" and "ir"), not just the first one found
+    const conjugated = VERBS.filter(v =>
       v.infinitiveForms.some(f => normalize(f.spanish) === q) ||
       v.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
     )
-    if (conjugated) return [conjugated]
+    if (conjugated.length > 0) return conjugated
     // check for partial match on spanish infinitive or english translation
     const direct = VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
     // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
