@@ -140,6 +140,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for the moment something began.', example: { spanish: 'empecé el proyecto', english: 'I started the project' } },
         imperfect: { description: 'Used for how or when something used to begin.', example: { spanish: 'empezaba temprano', english: 'it used to start early' } },
     },
+    continuar: {
+        summary: 'Continuar means "to continue" or "to keep on" doing something, often paired with a gerund (continúa lloviendo) or "con" plus a noun. It has a written accent that shifts stress onto the u in most present-tense forms (continúo), but is otherwise regular.',
+        present: { description: 'Used for something that continues or keeps happening right now.', example: { spanish: 'continúo trabajando', english: "I'm still working" } },
+        preterite: { description: 'Used for a completed instance of something continuing.', example: { spanish: 'continuó lloviendo toda la noche', english: 'it kept raining all night' } },
+        imperfect: { description: 'Used for something that used to continue or kept happening over time in the past.', example: { spanish: 'continuaba estudiando por la noche', english: 'I used to keep studying at night' } },
+    },
     esperar: {
         summary: 'Esperar covers "to wait" (esperar el autobús), "to hope" (espero que sí), and "to expect". It is a fully regular -ar verb.',
         present: { description: 'Used for waiting, hoping, or expecting something now.', example: { spanish: 'espero el autobús', english: "I'm waiting for the bus" } },

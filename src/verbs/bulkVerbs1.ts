@@ -323,6 +323,18 @@ export const BULK_VERBS_1: VerbEntry[] = [
         ['empezaba', 'I used to start'], ['empezabas', 'you used to start'], ['empezaba', 's/he used to start'],
         ['empezábamos', 'we used to start'], ['empezaban', 'they used to start'],
     ]),
+    simpleVerb('continuar', 'to continue', [
+        ['continuar', 'to continue'], ['continuado', 'continued'], ['continuando', 'continuing'],
+    ], [
+        ['continúo', 'I continue', true], ['continúas', 'you continue', true], ['continúa', 's/he continues', true],
+        ['continuamos', 'we continue'], ['continúan', 'they continue', true],
+    ], [
+        ['continué', 'I continued'], ['continuaste', 'you continued'], ['continuó', 's/he continued'],
+        ['continuamos', 'we continued'], ['continuaron', 'they continued'],
+    ], [
+        ['continuaba', 'I used to continue'], ['continuabas', 'you used to continue'], ['continuaba', 's/he used to continue'],
+        ['continuábamos', 'we used to continue'], ['continuaban', 'they used to continue'],
+    ]),
     simpleVerb('comenzar', 'to start, to commence', [
         ['comenzar', 'to start'], ['comenzado', 'started'], ['comenzando', 'starting'],
     ], [
