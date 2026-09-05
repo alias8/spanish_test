@@ -878,6 +878,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed visit.', example: { spanish: 'visitó el museo', english: 's/he visited the museum' } },
         imperfect: { description: 'Used for who or where someone used to visit regularly.', example: { spanish: 'visitaba España cada año', english: 'I used to visit Spain every year' } },
     },
+    explorar: {
+        summary: 'Explorar means "to explore" — a place, an idea, or an option (explorar otras opciones). It is a fully regular -ar verb.',
+        present: { description: 'Used for exploring something right now or in general.', example: { spanish: 'exploro la ciudad', english: "I'm exploring the city" } },
+        preterite: { description: 'Used for a completed act of exploring.', example: { spanish: 'exploró la selva', english: 's/he explored the jungle' } },
+        imperfect: { description: 'Used for what someone used to explore regularly.', example: { spanish: 'explorábamos cuevas', english: 'we used to explore caves' } },
+    },
     parecer: {
         summary: 'Parecer means "to seem" or "to appear" (parece cansado, s/he seems tired). It has an irregular yo form (parezco), following the same zc pattern as conocer.',
         present: { description: 'Used for how something seems right now.', example: { spanish: 'parece cansado', english: 's/he seems tired' } },

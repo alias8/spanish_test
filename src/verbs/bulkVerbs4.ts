@@ -122,6 +122,18 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['visitaba', 'I used to visit'], ['visitabas', 'you used to visit'], ['visitaba', 's/he used to visit'],
         ['visitábamos', 'we used to visit'], ['visitaban', 'they used to visit'],
     ]),
+    simpleVerb('explorar', 'to explore', [
+        ['explorar', 'to explore'], ['explorado', 'explored'], ['explorando', 'exploring'],
+    ], [
+        ['exploro', 'I explore'], ['exploras', 'you explore'], ['explora', 's/he explores'],
+        ['exploramos', 'we explore'], ['exploran', 'they explore'],
+    ], [
+        ['exploré', 'I explored'], ['exploraste', 'you explored'], ['exploró', 's/he explored'],
+        ['exploramos', 'we explored'], ['exploraron', 'they explored'],
+    ], [
+        ['exploraba', 'I used to explore'], ['explorabas', 'you used to explore'], ['exploraba', 's/he used to explore'],
+        ['explorábamos', 'we used to explore'], ['exploraban', 'they used to explore'],
+    ]),
     simpleVerb('parecer', 'to seem, to appear', [
         ['parecer', 'to seem'], ['parecido', 'seemed'], ['pareciendo', 'seeming'],
     ], [
