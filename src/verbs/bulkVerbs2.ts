@@ -290,6 +290,30 @@ export const BULK_VERBS_2: VerbEntry[] = [
         ['pedía', 'I used to ask for'], ['pedías', 'you used to ask for'], ['pedía', 's/he used to ask for'],
         ['pedíamos', 'we used to ask for'], ['pedían', 'they used to ask for'],
     ]),
+    simpleVerb('prestar', 'to lend', [
+        ['prestar', 'to lend'], ['prestado', 'lent'], ['prestando', 'lending'],
+    ], [
+        ['presto', 'I lend'], ['prestas', 'you lend'], ['presta', 's/he lends'],
+        ['prestamos', 'we lend'], ['prestan', 'they lend'],
+    ], [
+        ['presté', 'I lent'], ['prestaste', 'you lent'], ['prestó', 's/he lent'],
+        ['prestamos', 'we lent'], ['prestaron', 'they lent'],
+    ], [
+        ['prestaba', 'I used to lend'], ['prestabas', 'you used to lend'], ['prestaba', 's/he used to lend'],
+        ['prestábamos', 'we used to lend'], ['prestaban', 'they used to lend'],
+    ]),
+    simpleVerb('pedir prestado', 'to borrow', [
+        ['pedir prestado', 'to borrow'], ['pedido prestado', 'borrowed'], ['pidiendo prestado', 'borrowing'],
+    ], [
+        ['pido prestado', 'I borrow', true], ['pides prestado', 'you borrow', true], ['pide prestado', 's/he borrows', true],
+        ['pedimos prestado', 'we borrow'], ['piden prestado', 'they borrow', true],
+    ], [
+        ['pedí prestado', 'I borrowed'], ['pediste prestado', 'you borrowed'], ['pidió prestado', 's/he borrowed', true],
+        ['pedimos prestado', 'we borrowed'], ['pidieron prestado', 'they borrowed', true],
+    ], [
+        ['pedía prestado', 'I used to borrow'], ['pedías prestado', 'you used to borrow'], ['pedía prestado', 's/he used to borrow'],
+        ['pedíamos prestado', 'we used to borrow'], ['pedían prestado', 'they used to borrow'],
+    ]),
     simpleVerb('recibir', 'to receive', [
         ['recibir', 'to receive'], ['recibido', 'received'], ['recibiendo', 'receiving'],
     ], [

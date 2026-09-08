@@ -290,6 +290,18 @@ export const BULK_VERBS_3: VerbEntry[] = [
         ['pagaba', 'I used to pay'], ['pagabas', 'you used to pay'], ['pagaba', 's/he used to pay'],
         ['pagábamos', 'we used to pay'], ['pagaban', 'they used to pay'],
     ]),
+    simpleVerb('navegar', 'to sail, to navigate', [
+        ['navegar', 'to sail'], ['navegado', 'sailed'], ['navegando', 'sailing'],
+    ], [
+        ['navego', 'I sail'], ['navegas', 'you sail'], ['navega', 's/he sails'],
+        ['navegamos', 'we sail'], ['navegan', 'they sail'],
+    ], [
+        ['navegué', 'I sailed', true], ['navegaste', 'you sailed'], ['navegó', 's/he sailed'],
+        ['navegamos', 'we sailed'], ['navegaron', 'they sailed'],
+    ], [
+        ['navegaba', 'I used to sail'], ['navegabas', 'you used to sail'], ['navegaba', 's/he used to sail'],
+        ['navegábamos', 'we used to sail'], ['navegaban', 'they used to sail'],
+    ]),
     simpleVerb('ayudar', 'to help, to assist', [
         ['ayudar', 'to help'], ['ayudado', 'helped'], ['ayudando', 'helping'],
     ], [
@@ -325,6 +337,18 @@ export const BULK_VERBS_3: VerbEntry[] = [
     ], [
         ['dibujaba', 'I used to draw'], ['dibujabas', 'you used to draw'], ['dibujaba', 's/he used to draw'],
         ['dibujábamos', 'we used to draw'], ['dibujaban', 'they used to draw'],
+    ]),
+    simpleVerb('coleccionar', 'to collect', [
+        ['coleccionar', 'to collect'], ['coleccionado', 'collected'], ['coleccionando', 'collecting'],
+    ], [
+        ['colecciono', 'I collect'], ['coleccionas', 'you collect'], ['colecciona', 's/he collects'],
+        ['coleccionamos', 'we collect'], ['coleccionan', 'they collect'],
+    ], [
+        ['coleccioné', 'I collected'], ['coleccionaste', 'you collected'], ['coleccionó', 's/he collected'],
+        ['coleccionamos', 'we collected'], ['coleccionaron', 'they collected'],
+    ], [
+        ['coleccionaba', 'I used to collect'], ['coleccionabas', 'you used to collect'], ['coleccionaba', 's/he used to collect'],
+        ['coleccionábamos', 'we used to collect'], ['coleccionaban', 'they used to collect'],
     ]),
     simpleVerb('cocinar', 'to cook', [
         ['cocinar', 'to cook'], ['cocinado', 'cooked'], ['cocinando', 'cooking'],
@@ -373,6 +397,18 @@ export const BULK_VERBS_3: VerbEntry[] = [
     ], [
         ['caminaba', 'I used to walk'], ['caminabas', 'you used to walk'], ['caminaba', 's/he used to walk'],
         ['caminábamos', 'we used to walk'], ['caminaban', 'they used to walk'],
+    ]),
+    simpleVerb('girar', 'to turn', [
+        ['girar', 'to turn'], ['girado', 'turned'], ['girando', 'turning'],
+    ], [
+        ['giro', 'I turn'], ['giras', 'you turn'], ['gira', 's/he turns'],
+        ['giramos', 'we turn'], ['giran', 'they turn'],
+    ], [
+        ['giré', 'I turned'], ['giraste', 'you turned'], ['giró', 's/he turned'],
+        ['giramos', 'we turned'], ['giraron', 'they turned'],
+    ], [
+        ['giraba', 'I used to turn'], ['girabas', 'you used to turn'], ['giraba', 's/he used to turn'],
+        ['girábamos', 'we used to turn'], ['giraban', 'they used to turn'],
     ]),
     simpleVerb('comer', 'to eat', [
         ['comer', 'to eat'], ['comido', 'eaten'], ['comiendo', 'eating'],

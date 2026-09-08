@@ -467,6 +467,30 @@ export const BULK_VERBS_1: VerbEntry[] = [
         ['me levantaba', 'I used to get up'], ['te levantabas', 'you used to get up'], ['se levantaba', 's/he used to get up'],
         ['nos levantábamos', 'we used to get up'], ['se levantaban', 'they used to get up'],
     ]),
+    simpleVerb('subirse', 'to get on, to board', [
+        ['subirse', 'to get on'], ['subido', 'gotten on'], ['subiendo', 'getting on'],
+    ], [
+        ['me subo', 'I get on'], ['te subes', 'you get on'], ['se sube', 's/he gets on'],
+        ['nos subimos', 'we get on'], ['se suben', 'they get on'],
+    ], [
+        ['me subí', 'I got on'], ['te subiste', 'you got on'], ['se subió', 's/he got on'],
+        ['nos subimos', 'we got on'], ['se subieron', 'they got on'],
+    ], [
+        ['me subía', 'I used to get on'], ['te subías', 'you used to get on'], ['se subía', 's/he used to get on'],
+        ['nos subíamos', 'we used to get on'], ['se subían', 'they used to get on'],
+    ]),
+    simpleVerb('bajarse', 'to get off', [
+        ['bajarse', 'to get off'], ['bajado', 'gotten off'], ['bajando', 'getting off'],
+    ], [
+        ['me bajo', 'I get off'], ['te bajas', 'you get off'], ['se baja', 's/he gets off'],
+        ['nos bajamos', 'we get off'], ['se bajan', 'they get off'],
+    ], [
+        ['me bajé', 'I got off'], ['te bajaste', 'you got off'], ['se bajó', 's/he got off'],
+        ['nos bajamos', 'we got off'], ['se bajaron', 'they got off'],
+    ], [
+        ['me bajaba', 'I used to get off'], ['te bajabas', 'you used to get off'], ['se bajaba', 's/he used to get off'],
+        ['nos bajábamos', 'we used to get off'], ['se bajaban', 'they used to get off'],
+    ]),
     simpleVerb('ducharse', 'to shower (oneself)', [
         ['ducharse', 'to shower'], ['duchado', 'showered'], ['duchando', 'showering'],
     ], [

@@ -26,6 +26,30 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['nevaba', 'I used to snow'], ['nevabas', 'you used to snow'], ['nevaba', 's/he used to snow'],
         ['nevábamos', 'we used to snow'], ['nevaban', 'they used to snow'],
     ]),
+    simpleVerb('esquiar', 'to ski', [
+        ['esquiar', 'to ski'], ['esquiado', 'skied'], ['esquiando', 'skiing'],
+    ], [
+        ['esquío', 'I ski', true], ['esquías', 'you ski', true], ['esquía', 's/he skis', true],
+        ['esquiamos', 'we ski'], ['esquían', 'they ski', true],
+    ], [
+        ['esquié', 'I skied'], ['esquiaste', 'you skied'], ['esquió', 's/he skied'],
+        ['esquiamos', 'we skied'], ['esquiaron', 'they skied'],
+    ], [
+        ['esquiaba', 'I used to ski'], ['esquiabas', 'you used to ski'], ['esquiaba', 's/he used to ski'],
+        ['esquiábamos', 'we used to ski'], ['esquiaban', 'they used to ski'],
+    ]),
+    simpleVerb('hacer snowboard', 'to snowboard', [
+        ['hacer snowboard', 'to snowboard'], ['hecho snowboard', 'snowboarded'], ['haciendo snowboard', 'snowboarding'],
+    ], [
+        ['hago snowboard', 'I snowboard', true], ['haces snowboard', 'you snowboard', true], ['hace snowboard', 's/he snowboards', true],
+        ['hacemos snowboard', 'we snowboard'], ['hacen snowboard', 'they snowboard', true],
+    ], [
+        ['hice snowboard', 'I snowboarded', true], ['hiciste snowboard', 'you snowboarded', true], ['hizo snowboard', 's/he snowboarded', true],
+        ['hicimos snowboard', 'we snowboarded', true], ['hicieron snowboard', 'they snowboarded', true],
+    ], [
+        ['hacía snowboard', 'I used to snowboard'], ['hacías snowboard', 'you used to snowboard'], ['hacía snowboard', 's/he used to snowboard'],
+        ['hacíamos snowboard', 'we used to snowboard'], ['hacían snowboard', 'they used to snowboard'],
+    ]),
     simpleVerb('usar', 'to use', [
         ['usar', 'to use'], ['usado', 'used'], ['usando', 'using'],
     ], [

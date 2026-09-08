@@ -164,6 +164,18 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed request.', example: { spanish: 'pidió la cuenta', english: 's/he asked for the bill' } },
         imperfect: { description: 'Used for what someone used to ask for or order regularly.', example: { spanish: 'pedía pizza los viernes', english: 'I used to order pizza on Fridays' } },
     },
+    prestar: {
+        summary: 'Prestar means "to lend" — the subject is the one giving the loan (¿me puedes prestar tu raqueta?, can you lend me your racket?). It is fully regular.',
+        present: { description: 'Used for lending something right now or habitually.', example: { spanish: 'te presto mi libro', english: 'I lend you my book' } },
+        preterite: { description: 'Used for a completed loan of something.', example: { spanish: 'me prestó su coche', english: 's/he lent me his/her car' } },
+        imperfect: { description: 'Used for what someone used to lend regularly.', example: { spanish: 'me prestaba sus apuntes', english: 'he used to lend me his notes' } },
+    },
+    'pedir prestado': {
+        summary: '"Pedir prestado" means "to borrow" — the subject is the one receiving the loan, the opposite of prestar. Literally "to ask for as a loan"; it inflects like pedir (e→i stem-changing) while "prestado" stays fixed.',
+        present: { description: 'Used for borrowing something right now or habitually.', example: { spanish: 'pido prestado tu libro', english: 'I borrow your book' } },
+        preterite: { description: 'Used for a completed act of borrowing.', example: { spanish: 'pidió prestado el coche', english: 's/he borrowed the car' } },
+        imperfect: { description: 'Used for what someone used to borrow regularly.', example: { spanish: 'pedía prestados sus apuntes', english: 'I used to borrow his/her notes' } },
+    },
     recibir: {
         summary: 'Recibir means "to receive", whether a gift, a message, or a guest (recibir visitas). It is a fully regular -ir verb.',
         present: { description: 'Used for receiving something now or regularly.', example: { spanish: 'recibo muchos correos', english: 'I receive a lot of emails' } },
@@ -626,6 +638,18 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for the moment someone got up.', example: { spanish: 'se levantó tarde', english: 's/he got up late' } },
         imperfect: { description: 'Used for when someone used to get up regularly.', example: { spanish: 'nos levantábamos temprano', english: 'we used to get up early' } },
     },
+    subirse: {
+        summary: 'Subirse means "to get on" or "to board" — a bus, train, or car (subirse al autobús). Its non-reflexive form, subir, means "to go up" or "to climb". It is fully regular.',
+        present: { description: 'Used for getting on or boarding something right now.', example: { spanish: 'me subo al tren', english: 'I get on the train' } },
+        preterite: { description: 'Used for the moment someone got on or boarded.', example: { spanish: 'se subió al taxi', english: 's/he got in the taxi' } },
+        imperfect: { description: 'Used for when someone used to board regularly.', example: { spanish: 'nos subíamos al autobús cada mañana', english: 'we used to get on the bus every morning' } },
+    },
+    bajarse: {
+        summary: 'Bajarse means "to get off" — a bus, train, or car (bajarse del autobús). Its non-reflexive form, bajar, means "to go down" or "to lower" something. It is fully regular.',
+        present: { description: 'Used for getting off something right now.', example: { spanish: 'me bajo en la próxima parada', english: 'I get off at the next stop' } },
+        preterite: { description: 'Used for the moment someone got off.', example: { spanish: 'se bajó del coche', english: 's/he got out of the car' } },
+        imperfect: { description: 'Used for when someone used to get off regularly.', example: { spanish: 'nos bajábamos allí todos los días', english: 'we used to get off there every day' } },
+    },
     ducharse: {
         summary: 'Ducharse means "to take a shower". Its non-reflexive form, duchar, means to shower someone else (like a child or a pet). It is fully regular.',
         present: { description: 'Used for showering right now.', example: { spanish: 'me ducho por la mañana', english: 'I shower in the morning' } },
@@ -722,6 +746,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed payment.', example: { spanish: 'pagué la cena', english: 'I paid for dinner' } },
         imperfect: { description: 'Used for how someone used to pay regularly.', example: { spanish: 'pagaba en efectivo', english: 'I used to pay in cash' } },
     },
+    navegar: {
+        summary: 'Navegar means "to sail" (a boat) or "to navigate" (the internet, navegar por internet). It is regular apart from a spelling change (g→gu) in the yo preterite (navegué), needed to keep the hard "g" sound before an "e".',
+        present: { description: 'Used for sailing or navigating right now or habitually.', example: { spanish: 'navego por internet', english: 'I browse the internet' } },
+        preterite: { description: 'Used for a completed instance of sailing or navigating.', example: { spanish: 'navegué por el Caribe', english: 'I sailed through the Caribbean' } },
+        imperfect: { description: 'Used for what someone used to sail or navigate regularly.', example: { spanish: 'navegaba en su velero cada verano', english: 'he used to sail his sailboat every summer' } },
+    },
     ayudar: {
         summary: 'Ayudar means "to help" or "to assist" someone. It is fully regular.',
         present: { description: 'Used for helping someone right now or habitually.', example: { spanish: 'ayudo a mi hermano', english: 'I help my brother' } },
@@ -739,6 +769,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for drawing something right now or habitually.', example: { spanish: 'dibujo un gato', english: 'I draw a cat' } },
         preterite: { description: 'Used for a completed drawing.', example: { spanish: 'dibujó un mapa', english: 's/he drew a map' } },
         imperfect: { description: 'Used for what someone used to draw regularly.', example: { spanish: 'dibujaba cómics', english: 'I used to draw comics' } },
+    },
+    coleccionar: {
+        summary: 'Coleccionar means "to collect" as a hobby — stamps, cards, coins (coleccionar cromos de béisbol, to collect baseball cards). It is fully regular.',
+        present: { description: 'Used for collecting something right now or as a hobby.', example: { spanish: 'colecciono monedas', english: 'I collect coins' } },
+        preterite: { description: 'Used for a completed act of collecting, such as adding to a collection.', example: { spanish: 'coleccionó sellos de niño', english: 'he collected stamps as a kid' } },
+        imperfect: { description: 'Used for what someone used to collect regularly.', example: { spanish: 'coleccionaba cromos de béisbol', english: 'I used to collect baseball cards' } },
     },
     cocinar: {
         summary: 'Cocinar means "to cook". It is fully regular.',
@@ -763,6 +799,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for walking right now or habitually.', example: { spanish: 'camino al parque', english: 'I walk to the park' } },
         preterite: { description: 'Used for a completed walk.', example: { spanish: 'caminó diez kilómetros', english: 's/he walked ten kilometers' } },
         imperfect: { description: 'Used for how someone used to walk somewhere regularly.', example: { spanish: 'caminaba a la escuela', english: 'I used to walk to school' } },
+    },
+    girar: {
+        summary: 'Girar means "to turn" — a corner while driving or walking (girar a la derecha, to turn right), or an object spinning. It is fully regular.',
+        present: { description: 'Used for turning right now or habitually.', example: { spanish: 'giro a la izquierda', english: 'I turn left' } },
+        preterite: { description: 'Used for a completed turn.', example: { spanish: 'giró la cabeza', english: 's/he turned his/her head' } },
+        imperfect: { description: 'Used for turning that used to happen regularly.', example: { spanish: 'giraba la rueda sin parar', english: 'I used to spin the wheel nonstop' } },
     },
     comer: {
         summary: 'Comer means "to eat" — one of the most common verbs in the language, and a model for regular -er verb conjugation.',
@@ -829,6 +871,18 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for saying it is snowing right now.', example: { spanish: 'nieva en las montañas', english: 'it snows in the mountains' } },
         preterite: { description: 'Used for a specific instance of snow.', example: { spanish: 'nevó ayer', english: 'it snowed yesterday' } },
         imperfect: { description: 'Used for describing snow that used to happen regularly.', example: { spanish: 'nevaba en invierno', english: 'it used to snow in winter' } },
+    },
+    esquiar: {
+        summary: 'Esquiar means "to ski". Like enviar, its "i" carries a written accent and takes the stress in every present-tense form except nosotros (esquío, not esquio).',
+        present: { description: 'Used for skiing right now or as a regular activity.', example: { spanish: 'esquío en los Alpes', english: 'I ski in the Alps' } },
+        preterite: { description: 'Used for a completed instance of skiing.', example: { spanish: 'esquié todo el día', english: 'I skied all day' } },
+        imperfect: { description: 'Used for skiing someone used to do regularly.', example: { spanish: 'esquiaba cada invierno', english: 'I used to ski every winter' } },
+    },
+    'hacer snowboard': {
+        summary: '"Hacer snowboard" is the standard way to say "to snowboard" — Spanish borrows the English noun "snowboard" rather than using a native verb, so it conjugates hacer and leaves snowboard unchanged.',
+        present: { description: 'Used for snowboarding right now or as a regular activity.', example: { spanish: 'hago snowboard los fines de semana', english: 'I snowboard on weekends' } },
+        preterite: { description: 'Used for a completed instance of snowboarding.', example: { spanish: 'hizo snowboard ayer', english: 's/he snowboarded yesterday' } },
+        imperfect: { description: 'Used for snowboarding someone used to do regularly.', example: { spanish: 'hacía snowboard cada invierno', english: 'I used to snowboard every winter' } },
     },
     usar: {
         summary: 'Usar means "to use" — a close synonym of utilizar. It is fully regular.',
