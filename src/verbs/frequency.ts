@@ -8,7 +8,7 @@ const FREQUENCY_ORDER = [
     'recordar', 'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'necesitar', 'jugar', 'cerrar',
     'contar', 'mirar', 'tratar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'existir', 'durar',
     'mantener', 'resultar', 'presentar', 'crear', 'abrir', 'considerar', 'oír', 'acabar', 'convertir', 'ganar',
-    'formar', 'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'resolver', 'preguntar', 'tocar',
+    'formar', 'partir', 'aceptar', 'realizar', 'suponer', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'dirigir', 'correr', 'utilizar', 'pagar', 'ayudar', 'comer',
     'usar', 'parecer', 'decidir', 'producir', 'ocurrir', 'probar', 'gustar', 'sentarse', 'ponerse', 'amar',
     'encantar', 'invitar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse',
@@ -18,7 +18,7 @@ const FREQUENCY_ORDER = [
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'manejar', 'caminar', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
     'completar', 'reunir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'llenar', 'acompañar', 'conversar',
     'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'elegir', 'descansar', 'relajarse', 'doler', 'costar',
-    'llover', 'nevar', 'esquiar', 'hacer snowboard',
+    'llover', 'nevar', 'esquiar', 'hacer snowboard', 'acampar',
 ] as const
 
 export const FREQUENCY_RANK: ReadonlyMap<string, number> = new Map(FREQUENCY_ORDER.map((infinitive, rank) => [infinitive, rank]))

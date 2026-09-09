@@ -50,6 +50,18 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['hacía snowboard', 'I used to snowboard'], ['hacías snowboard', 'you used to snowboard'], ['hacía snowboard', 's/he used to snowboard'],
         ['hacíamos snowboard', 'we used to snowboard'], ['hacían snowboard', 'they used to snowboard'],
     ]),
+    simpleVerb('acampar', 'to camp', [
+        ['acampar', 'to camp'], ['acampado', 'camped'], ['acampando', 'camping'],
+    ], [
+        ['acampo', 'I camp'], ['acampas', 'you camp'], ['acampa', 's/he camps'],
+        ['acampamos', 'we camp'], ['acampan', 'they camp'],
+    ], [
+        ['acampé', 'I camped'], ['acampaste', 'you camped'], ['acampó', 's/he camped'],
+        ['acampamos', 'we camped'], ['acamparon', 'they camped'],
+    ], [
+        ['acampaba', 'I used to camp'], ['acampabas', 'you used to camp'], ['acampaba', 's/he used to camp'],
+        ['acampábamos', 'we used to camp'], ['acampaban', 'they used to camp'],
+    ]),
     simpleVerb('usar', 'to use', [
         ['usar', 'to use'], ['usado', 'used'], ['usando', 'using'],
     ], [

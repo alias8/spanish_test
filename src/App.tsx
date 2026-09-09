@@ -185,6 +185,7 @@ export default function App() {
               {v.infinitive[0].toUpperCase() + v.infinitive.slice(1)}
             </button>
           ))}
+          <p className="verb-count">{sortedVerbs.length} verbs</p>
         </nav>
       )}
 

@@ -543,6 +543,15 @@ h1 {
   border-width: 1px;
 }
 
+.verb-count {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+  font-size: 0.64rem;
+  font-family: var(--sans);
+  color: var(--text);
+  text-align: center;
+}
+
 .verb-sort-toggle {
   grid-column: 1 / -1;
   margin-bottom: 4px;

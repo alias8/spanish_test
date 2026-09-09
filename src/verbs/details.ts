@@ -416,6 +416,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed explanation.', example: { spanish: 'me lo explicó', english: 's/he explained it to me' } },
         imperfect: { description: 'Used for what someone used to explain regularly.', example: { spanish: 'explicaba las lecciones', english: 's/he used to explain the lessons' } },
     },
+    evitar: {
+        summary: 'Evitar means "to avoid" — a place, a person, or a situation, or followed by an infinitive to mean "to avoid doing" something. It is fully regular.',
+        present: { description: 'Used for avoiding something right now or habitually.', example: { spanish: 'evito el tráfico', english: 'I avoid the traffic' } },
+        preterite: { description: 'Used for a specific instance of avoiding something.', example: { spanish: 'evitó el problema', english: 's/he avoided the problem' } },
+        imperfect: { description: 'Used for what someone used to avoid regularly.', example: { spanish: 'evitaba las multitudes', english: 'I used to avoid crowds' } },
+    },
     preguntar: {
         summary: 'Preguntar means "to ask" a question, as opposed to pedir, which means "to ask for" something. It is fully regular.',
         present: { description: 'Used for asking something right now.', example: { spanish: 'pregunto por curiosidad', english: 'I ask out of curiosity' } },
@@ -883,6 +889,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for snowboarding right now or as a regular activity.', example: { spanish: 'hago snowboard los fines de semana', english: 'I snowboard on weekends' } },
         preterite: { description: 'Used for a completed instance of snowboarding.', example: { spanish: 'hizo snowboard ayer', english: 's/he snowboarded yesterday' } },
         imperfect: { description: 'Used for snowboarding someone used to do regularly.', example: { spanish: 'hacía snowboard cada invierno', english: 'I used to snowboard every winter' } },
+    },
+    acampar: {
+        summary: 'Acampar means "to camp". It is a fully regular -ar verb.',
+        present: { description: 'Used for camping right now or as a regular activity.', example: { spanish: 'acampamos en la montaña', english: 'we camp in the mountains' } },
+        preterite: { description: 'Used for a completed instance of camping.', example: { spanish: 'acampé en el bosque', english: 'I camped in the forest' } },
+        imperfect: { description: 'Used for camping someone used to do regularly.', example: { spanish: 'acampábamos cada verano', english: 'we used to camp every summer' } },
     },
     usar: {
         summary: 'Usar means "to use" — a close synonym of utilizar. It is fully regular.',
