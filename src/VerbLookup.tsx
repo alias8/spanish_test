@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, type VerbEntry } from './verbs'
+import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
 type MatchReason = 'conjugated' | 'translation' | 'partial'
@@ -35,15 +35,16 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
   const matches = useMemo(() => {
     const q = normalize(query)
     if (!q) return []
-    const exact = VERBS.find(v => normalize(v.infinitive) === q) // checks if perfect match for spanish infinitive
+    const exact = VERBS_BY_INFINITIVE.get(q) // checks if perfect match for spanish infinitive
     if (exact) return [exact]
     // checks if perfect match for spanish conjugations — collect every verb that shares this
     // form (e.g. "fue" is the preterite of both "ser" and "ir"), not just the first one found
-    const conjugated = VERBS.filter(v =>
-      v.infinitiveForms.some(f => normalize(f.spanish) === q) ||
-      v.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
-    )
-    if (conjugated.length > 0) return conjugated
+    const conjugated = VERBS_BY_FORM.get(q)
+    if (conjugated && conjugated.length > 0) return conjugated
+    // checks if perfect match for an english gloss (translation is comma-separated,
+    // e.g. "to owe" exact-matches deber's "should, to owe, must")
+    const byTranslation = VERBS_BY_TRANSLATION.get(q)
+    if (byTranslation && byTranslation.length > 0) return byTranslation
     // check for partial match on spanish infinitive or english translation
     const direct = VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
     // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
