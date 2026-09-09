@@ -51,6 +51,25 @@ for (const v of VERBS) {
     }
 }
 
+// Precomputed normalized strings for partial/substring search, so VerbLookup's
+// .filter() calls don't re-run normalize() on every verb on every keystroke.
+export type VerbSearchEntry = {
+    verb: VerbEntry
+    normInfinitive: string
+    normTranslation: string
+    normForms: string[]
+}
+
+export const VERB_SEARCH_INDEX: VerbSearchEntry[] = VERBS.map(v => ({
+    verb: v,
+    normInfinitive: normalize(v.infinitive),
+    normTranslation: normalize(v.translation),
+    normForms: [
+        ...v.infinitiveForms.map(f => normalize(f.spanish)),
+        ...v.tenses.flatMap(t => t.forms.map(f => normalize(f.spanish))),
+    ],
+}))
+
 export * from './types'
 export { CONJUGATION_SCREENS } from './conjugationPractice'
 export { FREQUENCY_RANK } from './frequency'

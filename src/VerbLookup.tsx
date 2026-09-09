@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, type VerbEntry } from './verbs'
+import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, VERB_SEARCH_INDEX, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
 type MatchReason = 'conjugated' | 'translation' | 'partial'
@@ -46,14 +46,11 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     const byTranslation = VERBS_BY_TRANSLATION.get(q)
     if (byTranslation && byTranslation.length > 0) return byTranslation
     // check for partial match on spanish infinitive or english translation
-    const direct = VERBS.filter(v => normalize(v.infinitive).includes(q) || normalize(v.translation).includes(q))
+    const direct = VERB_SEARCH_INDEX.filter(e => e.normInfinitive.includes(q) || e.normTranslation.includes(q)).map(e => e.verb)
     // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
     // gated by length so short queries like "en" don't match almost every verb via some conjugated form
     if (q.length < 4) return direct
-    const viaForm = VERBS.filter(v =>
-      v.infinitiveForms.some(f => normalize(f.spanish).includes(q)) ||
-      v.tenses.some(t => t.forms.some(f => normalize(f.spanish).includes(q)))
-    )
+    const viaForm = VERB_SEARCH_INDEX.filter(e => e.normForms.some(f => f.includes(q))).map(e => e.verb)
     return [...new Map([...direct, ...viaForm].map(v => [v.infinitive, v])).values()]
   }, [query])
 
