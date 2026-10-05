@@ -28,3 +28,17 @@ Accent marks are optional: typing `dieciseis` is accepted as a correct answer fo
 npm install
 npm run dev
 ```
+
+## Audio
+
+Each number card has a 🔊 button that plays the Spanish word. The recordings are generated once with the
+ElevenLabs text-to-speech API and committed to `public/audio/`, so the browser never needs the API key.
+
+```bash
+echo "elevenlabs=<your ElevenLabs API key>" > .env
+npm run generate-audio            # generates any missing words
+LIMIT=2 npm run generate-audio    # try a couple of words first
+```
+
+Optional: `ELEVENLABS_VOICE_ID` and `ELEVENLABS_MODEL_ID` to change the voice or model (free accounts can only use
+the default voices through the API).
