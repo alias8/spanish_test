@@ -1136,4 +1136,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed instance of practicing something.', example: { spanish: 'practiqué el piano', english: 'I practiced the piano' } },
         imperfect: { description: 'Used for what someone used to practice regularly.', example: { spanish: 'practicaba yoga', english: 'I used to practice yoga' } },
     },
+    robar: {
+        summary: 'Robar means "to steal" something or "to rob" a person or place. The person stolen from is marked with an indirect object pronoun (me robaron el móvil, "they stole my phone"). It is a fully regular -ar verb.',
+        present: { description: 'Used for stealing something right now or habitually.', example: { spanish: 'siempre me roba las papas fritas', english: 's/he always steals my fries' } },
+        preterite: { description: 'Used for a completed theft or robbery at a specific moment.', example: { spanish: 'me robaron la cartera', english: 'they stole my wallet' } },
+        imperfect: { description: 'Used for what someone used to steal regularly.', example: { spanish: 'robaba manzanas del huerto', english: 'I used to steal apples from the orchard' } },
+    },
 }

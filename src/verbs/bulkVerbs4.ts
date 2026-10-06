@@ -541,4 +541,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['practicaba', 'I used to practice'], ['practicabas', 'you used to practice'], ['practicaba', 's/he used to practice'],
         ['practicábamos', 'we used to practice'], ['practicaban', 'they used to practice'],
+    ]),
+    simpleVerb('robar', 'to steal, to rob', [
+        ['robar', 'to steal'], ['robado', 'stolen'], ['robando', 'stealing'],
+    ], [
+        ['robo', 'I steal'], ['robas', 'you steal'], ['roba', 's/he steals'],
+        ['robamos', 'we steal'], ['roban', 'they steal'],
+    ], [
+        ['robé', 'I stole'], ['robaste', 'you stole'], ['robó', 's/he stole'],
+        ['robamos', 'we stole'], ['robaron', 'they stole'],
+    ], [
+        ['robaba', 'I used to steal'], ['robabas', 'you used to steal'], ['robaba', 's/he used to steal'],
+        ['robábamos', 'we used to steal'], ['robaban', 'they used to steal'],
     ]),]
