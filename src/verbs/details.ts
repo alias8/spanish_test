@@ -1142,4 +1142,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed theft or robbery at a specific moment.', example: { spanish: 'me robaron la cartera', english: 'they stole my wallet' } },
         imperfect: { description: 'Used for what someone used to steal regularly.', example: { spanish: 'robaba manzanas del huerto', english: 'I used to steal apples from the orchard' } },
     },
+    crecer: {
+        summary: 'Crecer means "to grow" (in size, number or amount) or "to grow up". It is intransitive: to grow plants or crops, use cultivar instead. It is irregular only in the yo form of the present (crezco), following the same -zco pattern as conocer and parecer.',
+        present: { description: 'Used for something growing right now or in general.', example: { spanish: 'los niños crecen muy rápido', english: 'children grow up very fast' } },
+        preterite: { description: 'Used for completed growth or for where someone grew up, seen as a whole.', example: { spanish: 'crecí en Sídney', english: 'I grew up in Sydney' } },
+        imperfect: { description: 'Used for ongoing or gradual growth in the past.', example: { spanish: 'la ciudad crecía cada año', english: 'the city used to grow every year' } },
+    },
+    causar: {
+        summary: 'Causar means "to cause" or "to bring about" a result, problem or feeling. It is also used for the impression something makes (causar una buena impresión, "to make a good impression"). It is a fully regular -ar verb.',
+        present: { description: 'Used for what causes something right now or in general.', example: { spanish: 'el estrés causa muchos problemas', english: 'stress causes many problems' } },
+        preterite: { description: 'Used for a completed event that caused something at a specific moment.', example: { spanish: 'la tormenta causó muchos daños', english: 'the storm caused a lot of damage' } },
+        imperfect: { description: 'Used for what used to cause something repeatedly or over time.', example: { spanish: 'el ruido me causaba dolor de cabeza', english: 'the noise used to give me a headache' } },
+    },
 }

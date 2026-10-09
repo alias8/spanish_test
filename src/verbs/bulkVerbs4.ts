@@ -553,4 +553,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['robaba', 'I used to steal'], ['robabas', 'you used to steal'], ['robaba', 's/he used to steal'],
         ['robábamos', 'we used to steal'], ['robaban', 'they used to steal'],
+    ]),
+    simpleVerb('crecer', 'to grow, to grow up', [
+        ['crecer', 'to grow'], ['crecido', 'grown'], ['creciendo', 'growing'],
+    ], [
+        ['crezco', 'I grow', true], ['creces', 'you grow'], ['crece', 's/he grows'],
+        ['crecemos', 'we grow'], ['crecen', 'they grow'],
+    ], [
+        ['crecí', 'I grew'], ['creciste', 'you grew'], ['creció', 's/he grew'],
+        ['crecimos', 'we grew'], ['crecieron', 'they grew'],
+    ], [
+        ['crecía', 'I used to grow'], ['crecías', 'you used to grow'], ['crecía', 's/he used to grow'],
+        ['crecíamos', 'we used to grow'], ['crecían', 'they used to grow'],
+    ]),
+    simpleVerb('causar', 'to cause', [
+        ['causar', 'to cause'], ['causado', 'caused'], ['causando', 'causing'],
+    ], [
+        ['causo', 'I cause'], ['causas', 'you cause'], ['causa', 's/he causes'],
+        ['causamos', 'we cause'], ['causan', 'they cause'],
+    ], [
+        ['causé', 'I caused'], ['causaste', 'you caused'], ['causó', 's/he caused'],
+        ['causamos', 'we caused'], ['causaron', 'they caused'],
+    ], [
+        ['causaba', 'I used to cause'], ['causabas', 'you used to cause'], ['causaba', 's/he used to cause'],
+        ['causábamos', 'we used to cause'], ['causaban', 'they used to cause'],
     ]),]
