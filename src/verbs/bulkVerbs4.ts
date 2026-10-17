@@ -577,4 +577,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['causaba', 'I used to cause'], ['causabas', 'you used to cause'], ['causaba', 's/he used to cause'],
         ['causábamos', 'we used to cause'], ['causaban', 'they used to cause'],
+    ]),
+    simpleVerb('descargar', 'to download, to unload', [
+        ['descargar', 'to download'], ['descargado', 'downloaded'], ['descargando', 'downloading'],
+    ], [
+        ['descargo', 'I download'], ['descargas', 'you download'], ['descarga', 's/he downloads'],
+        ['descargamos', 'we download'], ['descargan', 'they download'],
+    ], [
+        ['descargué', 'I downloaded', true], ['descargaste', 'you downloaded'], ['descargó', 's/he downloaded'],
+        ['descargamos', 'we downloaded'], ['descargaron', 'they downloaded'],
+    ], [
+        ['descargaba', 'I used to download'], ['descargabas', 'you used to download'], ['descargaba', 's/he used to download'],
+        ['descargábamos', 'we used to download'], ['descargaban', 'they used to download'],
     ]),]

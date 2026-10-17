@@ -1154,4 +1154,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed event that caused something at a specific moment.', example: { spanish: 'la tormenta causó muchos daños', english: 'the storm caused a lot of damage' } },
         imperfect: { description: 'Used for what used to cause something repeatedly or over time.', example: { spanish: 'el ruido me causaba dolor de cabeza', english: 'the noise used to give me a headache' } },
     },
+    descargar: {
+        summary: 'Descargar means "to download" (files, apps, music) and also "to unload" (a truck, cargo) or "to discharge" (a battery). It is regular apart from a spelling change (g→gu) in the yo preterite (descargué), needed to keep the hard "g" sound before an "e".',
+        present: { description: 'Used for downloading something right now or habitually.', example: { spanish: 'descargo música para el viaje', english: 'I download music for the trip' } },
+        preterite: { description: 'Used for a completed download at a specific moment.', example: { spanish: 'descargué la aplicación ayer', english: 'I downloaded the app yesterday' } },
+        imperfect: { description: 'Used for what someone used to download regularly, or a download in progress.', example: { spanish: 'descargaba películas todas las semanas', english: 'I used to download movies every week' } },
+    },
 }
