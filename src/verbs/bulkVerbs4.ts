@@ -589,4 +589,64 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['descargaba', 'I used to download'], ['descargabas', 'you used to download'], ['descargaba', 's/he used to download'],
         ['descargábamos', 'we used to download'], ['descargaban', 'they used to download'],
+    ]),
+    simpleVerb('copiar', 'to copy', [
+        ['copiar', 'to copy'], ['copiado', 'copied'], ['copiando', 'copying'],
+    ], [
+        ['copio', 'I copy'], ['copias', 'you copy'], ['copia', 's/he copies'],
+        ['copiamos', 'we copy'], ['copian', 'they copy'],
+    ], [
+        ['copié', 'I copied'], ['copiaste', 'you copied'], ['copió', 's/he copied'],
+        ['copiamos', 'we copied'], ['copiaron', 'they copied'],
+    ], [
+        ['copiaba', 'I used to copy'], ['copiabas', 'you used to copy'], ['copiaba', 's/he used to copy'],
+        ['copiábamos', 'we used to copy'], ['copiaban', 'they used to copy'],
+    ]),
+    simpleVerb('soler', 'to tend to (do), to usually (do)', [
+        ['soler', 'to tend to'], ['solido', 'tended to'], ['soliendo', 'tending to'],
+    ], [
+        ['suelo', 'I usually', true], ['sueles', 'you usually', true], ['suele', 's/he usually', true],
+        ['solemos', 'we usually'], ['suelen', 'they usually', true],
+    ], [
+        ['solí', 'I tended to'], ['soliste', 'you tended to'], ['solió', 's/he tended to'],
+        ['solimos', 'we tended to'], ['solieron', 'they tended to'],
+    ], [
+        ['solía', 'I used to'], ['solías', 'you used to'], ['solía', 's/he used to'],
+        ['solíamos', 'we used to'], ['solían', 'they used to'],
+    ]),
+    simpleVerb('mudarse', 'to move (house), to relocate', [
+        ['mudarse', 'to move'], ['mudado', 'moved'], ['mudando', 'moving'],
+    ], [
+        ['me mudo', 'I move'], ['te mudas', 'you move'], ['se muda', 's/he moves'],
+        ['nos mudamos', 'we move'], ['se mudan', 'they move'],
+    ], [
+        ['me mudé', 'I moved'], ['te mudaste', 'you moved'], ['se mudó', 's/he moved'],
+        ['nos mudamos', 'we moved'], ['se mudaron', 'they moved'],
+    ], [
+        ['me mudaba', 'I used to move'], ['te mudabas', 'you used to move'], ['se mudaba', 's/he used to move'],
+        ['nos mudábamos', 'we used to move'], ['se mudaban', 'they used to move'],
+    ]),
+    simpleVerb('colgar', 'to hang, to hang up', [
+        ['colgar', 'to hang'], ['colgado', 'hung'], ['colgando', 'hanging'],
+    ], [
+        ['cuelgo', 'I hang', true], ['cuelgas', 'you hang', true], ['cuelga', 's/he hangs', true],
+        ['colgamos', 'we hang'], ['cuelgan', 'they hang', true],
+    ], [
+        ['colgué', 'I hung', true], ['colgaste', 'you hung'], ['colgó', 's/he hung'],
+        ['colgamos', 'we hung'], ['colgaron', 'they hung'],
+    ], [
+        ['colgaba', 'I used to hang'], ['colgabas', 'you used to hang'], ['colgaba', 's/he used to hang'],
+        ['colgábamos', 'we used to hang'], ['colgaban', 'they used to hang'],
+    ]),
+    simpleVerb('amueblar', 'to furnish', [
+        ['amueblar', 'to furnish'], ['amueblado', 'furnished'], ['amueblando', 'furnishing'],
+    ], [
+        ['amueblo', 'I furnish'], ['amueblas', 'you furnish'], ['amuebla', 's/he furnishes'],
+        ['amueblamos', 'we furnish'], ['amueblan', 'they furnish'],
+    ], [
+        ['amueblé', 'I furnished'], ['amueblaste', 'you furnished'], ['amuebló', 's/he furnished'],
+        ['amueblamos', 'we furnished'], ['amueblaron', 'they furnished'],
+    ], [
+        ['amueblaba', 'I used to furnish'], ['amueblabas', 'you used to furnish'], ['amueblaba', 's/he used to furnish'],
+        ['amueblábamos', 'we used to furnish'], ['amueblaban', 'they used to furnish'],
     ]),]

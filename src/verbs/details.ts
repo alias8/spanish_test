@@ -1160,4 +1160,34 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed download at a specific moment.', example: { spanish: 'descargué la aplicación ayer', english: 'I downloaded the app yesterday' } },
         imperfect: { description: 'Used for what someone used to download regularly, or a download in progress.', example: { spanish: 'descargaba películas todas las semanas', english: 'I used to download movies every week' } },
     },
+    copiar: {
+        summary: 'Copiar means "to copy" — copying a file or text, copying someone\'s work, or cheating on a test (copiar en un examen). It is a completely regular -ar verb.',
+        present: { description: 'Used for copying something right now or habitually.', example: { spanish: 'copio el texto en un documento nuevo', english: 'I copy the text into a new document' } },
+        preterite: { description: 'Used for a completed act of copying at a specific moment.', example: { spanish: 'copié los archivos ayer', english: 'I copied the files yesterday' } },
+        imperfect: { description: 'Used for what someone used to copy regularly, or copying in progress.', example: { spanish: 'mi hermano copiaba mis deberes', english: 'my brother used to copy my homework' } },
+    },
+    soler: {
+        summary: 'Soler means "to tend to" or "to usually (do)" and is always followed by an infinitive (suelo levantarme temprano, I usually get up early). It is o→ue stem-changing in the present (suelo, sueles, suele, suelen). It is mostly used in the present and imperfect; the preterite is rare.',
+        present: { description: 'Used for what someone usually or habitually does.', example: { spanish: 'suelo tomar café por la mañana', english: 'I usually drink coffee in the morning' } },
+        preterite: { description: 'Rarely used, since habits are not completed single events — the imperfect is almost always preferred.', example: { spanish: 'aquel verano solió llover por la tarde', english: 'that summer it tended to rain in the afternoon' } },
+        imperfect: { description: 'The most common past form, meaning "used to (do)" for past habits.', example: { spanish: 'solíamos ir a la playa los domingos', english: 'we used to go to the beach on Sundays' } },
+    },
+    mudarse: {
+        summary: 'Mudarse means "to move" in the sense of moving house or relocating (me mudé a Boston, I moved to Boston). It is reflexive and completely regular. Without the pronoun, mudar means "to change" or "to shed" (skin, feathers), so don\'t use moverse for moving house — that means physically moving your body.',
+        present: { description: 'Used for moving house now or in the near future.', example: { spanish: 'nos mudamos el mes que viene', english: 'we are moving next month' } },
+        preterite: { description: 'Used for a completed move at a specific time.', example: { spanish: 'me mudé a otra ciudad el año pasado', english: 'I moved to another city last year' } },
+        imperfect: { description: 'Used for moves that happened repeatedly in the past, or a move in progress.', example: { spanish: 'de niño me mudaba cada dos años', english: 'as a child I used to move every two years' } },
+    },
+    colgar: {
+        summary: 'Colgar means "to hang" (a picture, clothes) and "to hang up" (the phone). It is o→ue stem-changing in the present (cuelgo, cuelgas, cuelga, cuelgan) and has a spelling change (g→gu) in the yo preterite (colgué), needed to keep the hard "g" sound before an "e".',
+        present: { description: 'Used for hanging something up right now or habitually.', example: { spanish: 'cuelgo la chaqueta en la puerta', english: 'I hang my jacket on the door' } },
+        preterite: { description: 'Used for a completed act of hanging, or hanging up the phone at a specific moment.', example: { spanish: 'me colgó el teléfono', english: 's/he hung up on me' } },
+        imperfect: { description: 'Used for what someone used to hang regularly, or hanging in progress.', example: { spanish: 'mi abuela colgaba la ropa al sol', english: 'my grandmother used to hang the clothes in the sun' } },
+    },
+    amueblar: {
+        summary: 'Amueblar means "to furnish" (a room, house or apartment), from muebles (furniture). It is a completely regular -ar verb: the "ue" appears in every form, so it is not a stem change. The participle amueblado is common as an adjective (un piso amueblado, a furnished apartment).',
+        present: { description: 'Used for furnishing a place right now or habitually.', example: { spanish: 'amueblamos el salón poco a poco', english: 'we are furnishing the living room little by little' } },
+        preterite: { description: 'Used for a completed furnishing at a specific time.', example: { spanish: 'amueblé mi apartamento en una semana', english: 'I furnished my apartment in a week' } },
+        imperfect: { description: 'Used for furnishing that used to happen regularly, or was in progress.', example: { spanish: 'mis padres amueblaban cada casa con antigüedades', english: 'my parents used to furnish every house with antiques' } },
+    },
 }
