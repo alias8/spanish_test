@@ -1190,4 +1190,28 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed furnishing at a specific time.', example: { spanish: 'amueblé mi apartamento en una semana', english: 'I furnished my apartment in a week' } },
         imperfect: { description: 'Used for furnishing that used to happen regularly, or was in progress.', example: { spanish: 'mis padres amueblaban cada casa con antigüedades', english: 'my parents used to furnish every house with antiques' } },
     },
+    mostrar: {
+        summary: 'Mostrar means "to show" — showing someone a thing, a place, or how to do something (mostrar a alguien cómo...). It is o→ue stem-changing (muestro, muestras, muestra, muestran).',
+        present: { description: 'Used for showing something right now or habitually.', example: { spanish: 'te muestro mi casa', english: 'I\'ll show you my house' } },
+        preterite: { description: 'Used for a completed act of showing at a specific moment.', example: { spanish: 'me mostró las fotos del viaje', english: 's/he showed me the photos from the trip' } },
+        imperfect: { description: 'Used for what someone used to show regularly, or was showing over time.', example: { spanish: 'mi abuelo nos mostraba su jardín cada verano', english: 'my grandfather used to show us his garden every summer' } },
+    },
+    contratar: {
+        summary: 'Contratar means "to hire" (an employee) or "to contract" a service (contratar un seguro, to take out insurance). It is fully regular.',
+        present: { description: 'Used for hiring someone right now or habitually.', example: { spanish: 'la empresa contrata a muchos ingenieros', english: 'the company hires a lot of engineers' } },
+        preterite: { description: 'Used for a completed hiring at a specific moment.', example: { spanish: 'me contrataron el mes pasado', english: 'they hired me last month' } },
+        imperfect: { description: 'Used for hiring that used to happen regularly.', example: { spanish: 'cada verano contrataban a estudiantes', english: 'every summer they used to hire students' } },
+    },
+    vender: {
+        summary: 'Vender means "to sell". It is a fully regular -er verb, and a good model for the regular -er endings. The sign "se vende" means "for sale".',
+        present: { description: 'Used for selling something right now or habitually.', example: { spanish: 'vendo mi coche', english: 'I am selling my car' } },
+        preterite: { description: 'Used for a completed sale at a specific moment.', example: { spanish: 'vendimos la casa en junio', english: 'we sold the house in June' } },
+        imperfect: { description: 'Used for what someone used to sell regularly.', example: { spanish: 'mi abuela vendía flores en el mercado', english: 'my grandmother used to sell flowers at the market' } },
+    },
+    decorar: {
+        summary: 'Decorar means "to decorate" — a room, a house, a cake, or a tree for a holiday. It is fully regular.',
+        present: { description: 'Used for decorating something right now or habitually.', example: { spanish: 'decoramos el árbol de Navidad', english: 'we decorate the Christmas tree' } },
+        preterite: { description: 'Used for a completed act of decorating at a specific moment.', example: { spanish: 'decoré la habitación el fin de semana', english: 'I decorated the room on the weekend' } },
+        imperfect: { description: 'Used for decorating that used to happen regularly, or was in progress.', example: { spanish: 'mi madre decoraba la casa cada diciembre', english: 'my mother used to decorate the house every December' } },
+    },
 }

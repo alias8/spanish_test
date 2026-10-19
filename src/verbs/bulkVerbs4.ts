@@ -649,4 +649,52 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['amueblaba', 'I used to furnish'], ['amueblabas', 'you used to furnish'], ['amueblaba', 's/he used to furnish'],
         ['amueblábamos', 'we used to furnish'], ['amueblaban', 'they used to furnish'],
+    ]),
+    simpleVerb('mostrar', 'to show', [
+        ['mostrar', 'to show'], ['mostrado', 'shown'], ['mostrando', 'showing'],
+    ], [
+        ['muestro', 'I show', true], ['muestras', 'you show', true], ['muestra', 's/he shows', true],
+        ['mostramos', 'we show'], ['muestran', 'they show', true],
+    ], [
+        ['mostré', 'I showed'], ['mostraste', 'you showed'], ['mostró', 's/he showed'],
+        ['mostramos', 'we showed'], ['mostraron', 'they showed'],
+    ], [
+        ['mostraba', 'I used to show'], ['mostrabas', 'you used to show'], ['mostraba', 's/he used to show'],
+        ['mostrábamos', 'we used to show'], ['mostraban', 'they used to show'],
+    ]),
+    simpleVerb('contratar', 'to hire, to contract', [
+        ['contratar', 'to hire'], ['contratado', 'hired'], ['contratando', 'hiring'],
+    ], [
+        ['contrato', 'I hire'], ['contratas', 'you hire'], ['contrata', 's/he hires'],
+        ['contratamos', 'we hire'], ['contratan', 'they hire'],
+    ], [
+        ['contraté', 'I hired'], ['contrataste', 'you hired'], ['contrató', 's/he hired'],
+        ['contratamos', 'we hired'], ['contrataron', 'they hired'],
+    ], [
+        ['contrataba', 'I used to hire'], ['contratabas', 'you used to hire'], ['contrataba', 's/he used to hire'],
+        ['contratábamos', 'we used to hire'], ['contrataban', 'they used to hire'],
+    ]),
+    simpleVerb('vender', 'to sell', [
+        ['vender', 'to sell'], ['vendido', 'sold'], ['vendiendo', 'selling'],
+    ], [
+        ['vendo', 'I sell'], ['vendes', 'you sell'], ['vende', 's/he sells'],
+        ['vendemos', 'we sell'], ['venden', 'they sell'],
+    ], [
+        ['vendí', 'I sold'], ['vendiste', 'you sold'], ['vendió', 's/he sold'],
+        ['vendimos', 'we sold'], ['vendieron', 'they sold'],
+    ], [
+        ['vendía', 'I used to sell'], ['vendías', 'you used to sell'], ['vendía', 's/he used to sell'],
+        ['vendíamos', 'we used to sell'], ['vendían', 'they used to sell'],
+    ]),
+    simpleVerb('decorar', 'to decorate', [
+        ['decorar', 'to decorate'], ['decorado', 'decorated'], ['decorando', 'decorating'],
+    ], [
+        ['decoro', 'I decorate'], ['decoras', 'you decorate'], ['decora', 's/he decorates'],
+        ['decoramos', 'we decorate'], ['decoran', 'they decorate'],
+    ], [
+        ['decoré', 'I decorated'], ['decoraste', 'you decorated'], ['decoró', 's/he decorated'],
+        ['decoramos', 'we decorated'], ['decoraron', 'they decorated'],
+    ], [
+        ['decoraba', 'I used to decorate'], ['decorabas', 'you used to decorate'], ['decoraba', 's/he used to decorate'],
+        ['decorábamos', 'we used to decorate'], ['decoraban', 'they used to decorate'],
     ]),]
