@@ -17,7 +17,7 @@ const FREQUENCY_ORDER = [
     'repetir', 'copiar', 'apagar', 'descargar', 'encender', 'llorar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'manejar', 'caminar', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
     'completar', 'reunir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'acompañar', 'conversar',
-    'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'elegir', 'descansar', 'relajarse', 'doler', 'costar',
+    'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'elegir', 'descansar', 'estresar', 'relajarse', 'doler', 'costar',
     'llover', 'nevar', 'esquiar', 'hacer snowboard', 'acampar',
 ] as const
 

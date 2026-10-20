@@ -1214,4 +1214,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed act of decorating at a specific moment.', example: { spanish: 'decoré la habitación el fin de semana', english: 'I decorated the room on the weekend' } },
         imperfect: { description: 'Used for decorating that used to happen regularly, or was in progress.', example: { spanish: 'mi madre decoraba la casa cada diciembre', english: 'my mother used to decorate the house every December' } },
     },
+    estresar: {
+        summary: 'Estresar means "to stress (someone) out" — usually with an object pronoun (el trabajo me estresa, work stresses me out). The reflexive estresarse means "to get stressed", and estresado/a means "stressed". It is fully regular.',
+        present: { description: 'Used for something that stresses someone right now or habitually.', example: { spanish: 'el tráfico me estresa mucho', english: 'traffic stresses me out a lot' } },
+        preterite: { description: 'Used for a completed instance of stressing someone at a specific moment.', example: { spanish: 'el examen me estresó la semana pasada', english: 'the exam stressed me out last week' } },
+        imperfect: { description: 'Used for something that used to stress someone regularly.', example: { spanish: 'mi antiguo jefe me estresaba todos los días', english: 'my old boss used to stress me out every day' } },
+    },
 }

@@ -697,4 +697,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['decoraba', 'I used to decorate'], ['decorabas', 'you used to decorate'], ['decoraba', 's/he used to decorate'],
         ['decorábamos', 'we used to decorate'], ['decoraban', 'they used to decorate'],
+    ]),
+    simpleVerb('estresar', 'to stress (out)', [
+        ['estresar', 'to stress'], ['estresado', 'stressed'], ['estresando', 'stressing'],
+    ], [
+        ['estreso', 'I stress'], ['estresas', 'you stress'], ['estresa', 's/he stresses'],
+        ['estresamos', 'we stress'], ['estresan', 'they stress'],
+    ], [
+        ['estresé', 'I stressed'], ['estresaste', 'you stressed'], ['estresó', 's/he stressed'],
+        ['estresamos', 'we stressed'], ['estresaron', 'they stressed'],
+    ], [
+        ['estresaba', 'I used to stress'], ['estresabas', 'you used to stress'], ['estresaba', 's/he used to stress'],
+        ['estresábamos', 'we used to stress'], ['estresaban', 'they used to stress'],
     ]),]
