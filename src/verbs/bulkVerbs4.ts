@@ -757,4 +757,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['cedía', 'I used to yield'], ['cedías', 'you used to yield'], ['cedía', 's/he used to yield'],
         ['cedíamos', 'we used to yield'], ['cedían', 'they used to yield'],
+    ]),
+    simpleVerb('pesarse', 'to weigh (oneself)', [
+        ['pesarse', 'to weigh oneself'], ['pesado', 'weighed'], ['pesando', 'weighing'],
+    ], [
+        ['me peso', 'I weigh myself'], ['te pesas', 'you weigh yourself'], ['se pesa', 's/he weighs her/himself'],
+        ['nos pesamos', 'we weigh ourselves'], ['se pesan', 'they weigh themselves'],
+    ], [
+        ['me pesé', 'I weighed myself'], ['te pesaste', 'you weighed yourself'], ['se pesó', 's/he weighed her/himself'],
+        ['nos pesamos', 'we weighed ourselves'], ['se pesaron', 'they weighed themselves'],
+    ], [
+        ['me pesaba', 'I used to weigh myself'], ['te pesabas', 'you used to weigh yourself'], ['se pesaba', 's/he used to weigh her/himself'],
+        ['nos pesábamos', 'we used to weigh ourselves'], ['se pesaban', 'they used to weigh themselves'],
     ]),]

@@ -1244,4 +1244,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed act of giving in or transferring at a specific moment.', example: { spanish: 'al final, mi padre cedió y me dejó ir', english: 'in the end, my father gave in and let me go' } },
         imperfect: { description: 'Used for yielding that used to happen regularly, or was in progress.', example: { spanish: 'el gobierno no cedía ante las protestas', english: 'the government would not give in to the protests' } },
     },
+    pesarse: {
+        summary: 'Pesarse means "to weigh oneself" — stepping on the scale (la báscula). Its non-reflexive form, pesar, means to weigh something else (pesar la fruta) or simply "to weigh" a certain amount (peso 70 kilos, I weigh 70 kilos). The noun el peso means "weight". It is fully regular.',
+        present: { description: 'Used for weighing yourself right now or habitually.', example: { spanish: 'me peso todos los lunes', english: 'I weigh myself every Monday' } },
+        preterite: { description: 'Used for a completed weigh-in at a specific moment.', example: { spanish: 'se pesó en el médico ayer', english: 's/he weighed her/himself at the doctor\'s yesterday' } },
+        imperfect: { description: 'Used for weighing yourself regularly in the past.', example: { spanish: 'antes me pesaba cada mañana', english: 'I used to weigh myself every morning' } },
+    },
 }
