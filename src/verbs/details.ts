@@ -1220,4 +1220,28 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed instance of stressing someone at a specific moment.', example: { spanish: 'el examen me estresó la semana pasada', english: 'the exam stressed me out last week' } },
         imperfect: { description: 'Used for something that used to stress someone regularly.', example: { spanish: 'mi antiguo jefe me estresaba todos los días', english: 'my old boss used to stress me out every day' } },
     },
+    vaciar: {
+        summary: 'Vaciar means "to empty" — a bin, a glass, a room, or a drawer. It is the opposite of llenar. Like enviar, it has an accent shift: the "i" carries a written accent and takes the stress in most present-tense forms (vacío, vacías, vacía, vacían) except nosotros/vosotros. The adjective vacío/a means "empty".',
+        present: { description: 'Used for emptying something right now or habitually.', example: { spanish: 'vacío la basura cada noche', english: 'I empty the trash every night' } },
+        preterite: { description: 'Used for a completed emptying at a specific moment.', example: { spanish: 'vaciamos el armario antes de mudarnos', english: 'we emptied the closet before moving' } },
+        imperfect: { description: 'Used for emptying that used to happen regularly, or was in progress.', example: { spanish: 'mi hermano vaciaba el lavavajillas todas las mañanas', english: 'my brother used to empty the dishwasher every morning' } },
+    },
+    repartir: {
+        summary: 'Repartir means "to distribute" or "to hand out" — splitting something among people (repartir la pizza), dealing cards, or delivering (repartir el correo, to deliver the mail). A repartidor is a delivery person. It is a fully regular -ir verb.',
+        present: { description: 'Used for distributing something right now or habitually.', example: { spanish: 'la profesora reparte los exámenes', english: 'the teacher hands out the exams' } },
+        preterite: { description: 'Used for a completed act of distributing at a specific moment.', example: { spanish: 'repartimos la comida entre todos', english: 'we split the food among everyone' } },
+        imperfect: { description: 'Used for distributing that used to happen regularly, or was in progress.', example: { spanish: 'de joven, repartía periódicos en bicicleta', english: 'when I was young, I used to deliver newspapers by bike' } },
+    },
+    requerir: {
+        summary: 'Requerir means "to require" — more formal than necesitar, common in rules, job ads, and instructions (se requiere experiencia, experience required). It stem-changes like preferir: e→ie in the present (requiero, requieres, requiere, requieren) and e→i in the third-person preterite (requirió, requirieron) and the gerund (requiriendo).',
+        present: { description: 'Used for what something requires right now or in general.', example: { spanish: 'este trabajo requiere mucha paciencia', english: 'this job requires a lot of patience' } },
+        preterite: { description: 'Used for a completed requirement at a specific moment.', example: { spanish: 'el proyecto requirió más tiempo de lo esperado', english: 'the project required more time than expected' } },
+        imperfect: { description: 'Used for what used to be required regularly, or over a period of time.', example: { spanish: 'antes la visa requería una entrevista', english: 'the visa used to require an interview' } },
+    },
+    ceder: {
+        summary: 'Ceder means "to yield" or "to give in" (to pressure, in an argument), and also "to give up / hand over" something to someone — ceder el asiento (to give up your seat), ceder el paso (to yield / give way, as on road signs), or ceder derechos (to assign / transfer rights). It is a fully regular -er verb.',
+        present: { description: 'Used for yielding or handing something over right now or habitually.', example: { spanish: 'siempre cedo el asiento a las personas mayores', english: 'I always give up my seat to elderly people' } },
+        preterite: { description: 'Used for a completed act of giving in or transferring at a specific moment.', example: { spanish: 'al final, mi padre cedió y me dejó ir', english: 'in the end, my father gave in and let me go' } },
+        imperfect: { description: 'Used for yielding that used to happen regularly, or was in progress.', example: { spanish: 'el gobierno no cedía ante las protestas', english: 'the government would not give in to the protests' } },
+    },
 }

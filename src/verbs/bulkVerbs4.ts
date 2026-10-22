@@ -709,4 +709,52 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['estresaba', 'I used to stress'], ['estresabas', 'you used to stress'], ['estresaba', 's/he used to stress'],
         ['estresábamos', 'we used to stress'], ['estresaban', 'they used to stress'],
+    ]),
+    simpleVerb('vaciar', 'to empty', [
+        ['vaciar', 'to empty'], ['vaciado', 'emptied'], ['vaciando', 'emptying'],
+    ], [
+        ['vacío', 'I empty', true], ['vacías', 'you empty', true], ['vacía', 's/he empties', true],
+        ['vaciamos', 'we empty'], ['vacían', 'they empty', true],
+    ], [
+        ['vacié', 'I emptied'], ['vaciaste', 'you emptied'], ['vació', 's/he emptied'],
+        ['vaciamos', 'we emptied'], ['vaciaron', 'they emptied'],
+    ], [
+        ['vaciaba', 'I used to empty'], ['vaciabas', 'you used to empty'], ['vaciaba', 's/he used to empty'],
+        ['vaciábamos', 'we used to empty'], ['vaciaban', 'they used to empty'],
+    ]),
+    simpleVerb('repartir', 'to distribute, to hand out', [
+        ['repartir', 'to distribute'], ['repartido', 'distributed'], ['repartiendo', 'distributing'],
+    ], [
+        ['reparto', 'I distribute'], ['repartes', 'you distribute'], ['reparte', 's/he distributes'],
+        ['repartimos', 'we distribute'], ['reparten', 'they distribute'],
+    ], [
+        ['repartí', 'I distributed'], ['repartiste', 'you distributed'], ['repartió', 's/he distributed'],
+        ['repartimos', 'we distributed'], ['repartieron', 'they distributed'],
+    ], [
+        ['repartía', 'I used to distribute'], ['repartías', 'you used to distribute'], ['repartía', 's/he used to distribute'],
+        ['repartíamos', 'we used to distribute'], ['repartían', 'they used to distribute'],
+    ]),
+    simpleVerb('requerir', 'to require', [
+        ['requerir', 'to require'], ['requerido', 'required'], ['requiriendo', 'requiring'],
+    ], [
+        ['requiero', 'I require', true], ['requieres', 'you require', true], ['requiere', 's/he requires', true],
+        ['requerimos', 'we require'], ['requieren', 'they require', true],
+    ], [
+        ['requerí', 'I required'], ['requeriste', 'you required'], ['requirió', 's/he required', true],
+        ['requerimos', 'we required'], ['requirieron', 'they required', true],
+    ], [
+        ['requería', 'I used to require'], ['requerías', 'you used to require'], ['requería', 's/he used to require'],
+        ['requeríamos', 'we used to require'], ['requerían', 'they used to require'],
+    ]),
+    simpleVerb('ceder', 'to yield, to give in, to assign, to transfer', [
+        ['ceder', 'to yield'], ['cedido', 'yielded'], ['cediendo', 'yielding'],
+    ], [
+        ['cedo', 'I yield'], ['cedes', 'you yield'], ['cede', 's/he yields'],
+        ['cedemos', 'we yield'], ['ceden', 'they yield'],
+    ], [
+        ['cedí', 'I yielded'], ['cediste', 'you yielded'], ['cedió', 's/he yielded'],
+        ['cedimos', 'we yielded'], ['cedieron', 'they yielded'],
+    ], [
+        ['cedía', 'I used to yield'], ['cedías', 'you used to yield'], ['cedía', 's/he used to yield'],
+        ['cedíamos', 'we used to yield'], ['cedían', 'they used to yield'],
     ]),]
