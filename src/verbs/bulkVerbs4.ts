@@ -769,4 +769,100 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['me pesaba', 'I used to weigh myself'], ['te pesabas', 'you used to weigh yourself'], ['se pesaba', 's/he used to weigh her/himself'],
         ['nos pesábamos', 'we used to weigh ourselves'], ['se pesaban', 'they used to weigh themselves'],
+    ]),
+    simpleVerb('respetar', 'to respect', [
+        ['respetar', 'to respect'], ['respetado', 'respected'], ['respetando', 'respecting'],
+    ], [
+        ['respeto', 'I respect'], ['respetas', 'you respect'], ['respeta', 's/he respects'],
+        ['respetamos', 'we respect'], ['respetan', 'they respect'],
+    ], [
+        ['respeté', 'I respected'], ['respetaste', 'you respected'], ['respetó', 's/he respected'],
+        ['respetamos', 'we respected'], ['respetaron', 'they respected'],
+    ], [
+        ['respetaba', 'I used to respect'], ['respetabas', 'you used to respect'], ['respetaba', 's/he used to respect'],
+        ['respetábamos', 'we used to respect'], ['respetaban', 'they used to respect'],
+    ]),
+    simpleVerb('arreglar', 'to fix, to mend, to arrange, to repair', [
+        ['arreglar', 'to fix'], ['arreglado', 'fixed'], ['arreglando', 'fixing'],
+    ], [
+        ['arreglo', 'I fix'], ['arreglas', 'you fix'], ['arregla', 's/he fixes'],
+        ['arreglamos', 'we fix'], ['arreglan', 'they fix'],
+    ], [
+        ['arreglé', 'I fixed'], ['arreglaste', 'you fixed'], ['arregló', 's/he fixed'],
+        ['arreglamos', 'we fixed'], ['arreglaron', 'they fixed'],
+    ], [
+        ['arreglaba', 'I used to fix'], ['arreglabas', 'you used to fix'], ['arreglaba', 's/he used to fix'],
+        ['arreglábamos', 'we used to fix'], ['arreglaban', 'they used to fix'],
+    ]),
+    simpleVerb('acercarse', 'to approach, to come closer, to get closer', [
+        ['acercarse', 'to approach'], ['acercado', 'approached'], ['acercando', 'approaching'],
+    ], [
+        ['me acerco', 'I approach'], ['te acercas', 'you approach'], ['se acerca', 's/he approaches'],
+        ['nos acercamos', 'we approach'], ['se acercan', 'they approach'],
+    ], [
+        ['me acerqué', 'I approached', true], ['te acercaste', 'you approached'], ['se acercó', 's/he approached'],
+        ['nos acercamos', 'we approached'], ['se acercaron', 'they approached'],
+    ], [
+        ['me acercaba', 'I used to approach'], ['te acercabas', 'you used to approach'], ['se acercaba', 's/he used to approach'],
+        ['nos acercábamos', 'we used to approach'], ['se acercaban', 'they used to approach'],
+    ]),
+    simpleVerb('esconder', 'to hide', [
+        ['esconder', 'to hide'], ['escondido', 'hidden'], ['escondiendo', 'hiding'],
+    ], [
+        ['escondo', 'I hide'], ['escondes', 'you hide'], ['esconde', 's/he hides'],
+        ['escondemos', 'we hide'], ['esconden', 'they hide'],
+    ], [
+        ['escondí', 'I hid'], ['escondiste', 'you hid'], ['escondió', 's/he hid'],
+        ['escondimos', 'we hid'], ['escondieron', 'they hid'],
+    ], [
+        ['escondía', 'I used to hide'], ['escondías', 'you used to hide'], ['escondía', 's/he used to hide'],
+        ['escondíamos', 'we used to hide'], ['escondían', 'they used to hide'],
+    ]),
+    simpleVerb('convenir', 'to suit, to be advisable, to be in one\'s interest, to agree', [
+        ['convenir', 'to suit'], ['convenido', 'agreed'], ['conviniendo', 'suiting'],
+    ], [
+        ['convengo', 'I suit', true], ['convienes', 'you suit', true], ['conviene', 'it suits', true],
+        ['convenimos', 'we agree'], ['convienen', 'they suit', true],
+    ], [
+        ['convine', 'I agreed', true], ['conviniste', 'you agreed', true], ['convino', 'it suited', true],
+        ['convinimos', 'we agreed', true], ['convinieron', 'they agreed', true],
+    ], [
+        ['convenía', 'I used to suit'], ['convenías', 'you used to suit'], ['convenía', 'it used to suit'],
+        ['conveníamos', 'we used to agree'], ['convenían', 'they used to suit'],
+    ]),
+    simpleVerb('depositar', 'to deposit', [
+        ['depositar', 'to deposit'], ['depositado', 'deposited'], ['depositando', 'depositing'],
+    ], [
+        ['deposito', 'I deposit'], ['depositas', 'you deposit'], ['deposita', 's/he deposits'],
+        ['depositamos', 'we deposit'], ['depositan', 'they deposit'],
+    ], [
+        ['deposité', 'I deposited'], ['depositaste', 'you deposited'], ['depositó', 's/he deposited'],
+        ['depositamos', 'we deposited'], ['depositaron', 'they deposited'],
+    ], [
+        ['depositaba', 'I used to deposit'], ['depositabas', 'you used to deposit'], ['depositaba', 's/he used to deposit'],
+        ['depositábamos', 'we used to deposit'], ['depositaban', 'they used to deposit'],
+    ]),
+    simpleVerb('patinar', 'to skate', [
+        ['patinar', 'to skate'], ['patinado', 'skated'], ['patinando', 'skating'],
+    ], [
+        ['patino', 'I skate'], ['patinas', 'you skate'], ['patina', 's/he skates'],
+        ['patinamos', 'we skate'], ['patinan', 'they skate'],
+    ], [
+        ['patiné', 'I skated'], ['patinaste', 'you skated'], ['patinó', 's/he skated'],
+        ['patinamos', 'we skated'], ['patinaron', 'they skated'],
+    ], [
+        ['patinaba', 'I used to skate'], ['patinabas', 'you used to skate'], ['patinaba', 's/he used to skate'],
+        ['patinábamos', 'we used to skate'], ['patinaban', 'they used to skate'],
+    ]),
+    simpleVerb('nadar', 'to swim', [
+        ['nadar', 'to swim'], ['nadado', 'swum'], ['nadando', 'swimming'],
+    ], [
+        ['nado', 'I swim'], ['nadas', 'you swim'], ['nada', 's/he swims'],
+        ['nadamos', 'we swim'], ['nadan', 'they swim'],
+    ], [
+        ['nadé', 'I swam'], ['nadaste', 'you swam'], ['nadó', 's/he swam'],
+        ['nadamos', 'we swam'], ['nadaron', 'they swam'],
+    ], [
+        ['nadaba', 'I used to swim'], ['nadabas', 'you used to swim'], ['nadaba', 's/he used to swim'],
+        ['nadábamos', 'we used to swim'], ['nadaban', 'they used to swim'],
     ]),]
