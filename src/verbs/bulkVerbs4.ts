@@ -865,4 +865,76 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['nadaba', 'I used to swim'], ['nadabas', 'you used to swim'], ['nadaba', 's/he used to swim'],
         ['nadábamos', 'we used to swim'], ['nadaban', 'they used to swim'],
+    ]),
+    simpleVerb('intentar', 'to try, to attempt', [
+        ['intentar', 'to try'], ['intentado', 'tried'], ['intentando', 'trying'],
+    ], [
+        ['intento', 'I try'], ['intentas', 'you try'], ['intenta', 's/he tries'],
+        ['intentamos', 'we try'], ['intentan', 'they try'],
+    ], [
+        ['intenté', 'I tried'], ['intentaste', 'you tried'], ['intentó', 's/he tried'],
+        ['intentamos', 'we tried'], ['intentaron', 'they tried'],
+    ], [
+        ['intentaba', 'I used to try'], ['intentabas', 'you used to try'], ['intentaba', 's/he used to try'],
+        ['intentábamos', 'we used to try'], ['intentaban', 'they used to try'],
+    ]),
+    simpleVerb('entrenar', 'to train, to work out', [
+        ['entrenar', 'to train'], ['entrenado', 'trained'], ['entrenando', 'training'],
+    ], [
+        ['entreno', 'I train'], ['entrenas', 'you train'], ['entrena', 's/he trains'],
+        ['entrenamos', 'we train'], ['entrenan', 'they train'],
+    ], [
+        ['entrené', 'I trained'], ['entrenaste', 'you trained'], ['entrenó', 's/he trained'],
+        ['entrenamos', 'we trained'], ['entrenaron', 'they trained'],
+    ], [
+        ['entrenaba', 'I used to train'], ['entrenabas', 'you used to train'], ['entrenaba', 's/he used to train'],
+        ['entrenábamos', 'we used to train'], ['entrenaban', 'they used to train'],
+    ]),
+    simpleVerb('congelar', 'to freeze', [
+        ['congelar', 'to freeze'], ['congelado', 'frozen'], ['congelando', 'freezing'],
+    ], [
+        ['congelo', 'I freeze'], ['congelas', 'you freeze'], ['congela', 's/he freezes'],
+        ['congelamos', 'we freeze'], ['congelan', 'they freeze'],
+    ], [
+        ['congelé', 'I froze'], ['congelaste', 'you froze'], ['congeló', 's/he froze'],
+        ['congelamos', 'we froze'], ['congelaron', 'they froze'],
+    ], [
+        ['congelaba', 'I used to freeze'], ['congelabas', 'you used to freeze'], ['congelaba', 's/he used to freeze'],
+        ['congelábamos', 'we used to freeze'], ['congelaban', 'they used to freeze'],
+    ]),
+    simpleVerb('confundirse', 'to get confused, to mix things up', [
+        ['confundirse', 'to get confused'], ['confundido', 'confused'], ['confundiendo', 'confusing'],
+    ], [
+        ['me confundo', 'I get confused'], ['te confundes', 'you get confused'], ['se confunde', 's/he gets confused'],
+        ['nos confundimos', 'we get confused'], ['se confunden', 'they get confused'],
+    ], [
+        ['me confundí', 'I got confused'], ['te confundiste', 'you got confused'], ['se confundió', 's/he got confused'],
+        ['nos confundimos', 'we got confused'], ['se confundieron', 'they got confused'],
+    ], [
+        ['me confundía', 'I used to get confused'], ['te confundías', 'you used to get confused'], ['se confundía', 's/he used to get confused'],
+        ['nos confundíamos', 'we used to get confused'], ['se confundían', 'they used to get confused'],
+    ]),
+    simpleVerb('apurar', 'to hurry, to finish, to rush', [
+        ['apurar', 'to hurry'], ['apurado', 'hurried'], ['apurando', 'hurrying'],
+    ], [
+        ['apuro', 'I hurry'], ['apuras', 'you hurry'], ['apura', 's/he hurries'],
+        ['apuramos', 'we hurry'], ['apuran', 'they hurry'],
+    ], [
+        ['apuré', 'I hurried'], ['apuraste', 'you hurried'], ['apuró', 's/he hurried'],
+        ['apuramos', 'we hurried'], ['apuraron', 'they hurried'],
+    ], [
+        ['apuraba', 'I used to hurry'], ['apurabas', 'you used to hurry'], ['apuraba', 's/he used to hurry'],
+        ['apurábamos', 'we used to hurry'], ['apuraban', 'they used to hurry'],
+    ]),
+    simpleVerb('dañar', 'to damage', [
+        ['dañar', 'to damage'], ['dañado', 'damaged'], ['dañando', 'damaging'],
+    ], [
+        ['daño', 'I damage'], ['dañas', 'you damage'], ['daña', 's/he damages'],
+        ['dañamos', 'we damage'], ['dañan', 'they damage'],
+    ], [
+        ['dañé', 'I damaged'], ['dañaste', 'you damaged'], ['dañó', 's/he damaged'],
+        ['dañamos', 'we damaged'], ['dañaron', 'they damaged'],
+    ], [
+        ['dañaba', 'I used to damage'], ['dañabas', 'you used to damage'], ['dañaba', 's/he used to damage'],
+        ['dañábamos', 'we used to damage'], ['dañaban', 'they used to damage'],
     ]),]

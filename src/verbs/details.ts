@@ -1298,4 +1298,40 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed swim at a specific moment.', example: { spanish: 'nadamos en el lago ayer', english: 'we swam in the lake yesterday' } },
         imperfect: { description: 'Used for swimming that used to happen regularly, or was in progress.', example: { spanish: 'de pequeño, nadaba en el río con mis primos', english: 'as a kid, I used to swim in the river with my cousins' } },
     },
+    intentar: {
+        summary: 'Intentar means "to try" or "to attempt", usually followed directly by an infinitive with no preposition (intento dormir, I try to sleep). It is a close synonym of tratar de (trato de dormir), but intentar can also take a noun (intentarlo, to give it a try; ¡inténtalo otra vez!, try again!). It does not mean "to intend" — that is tener la intención de. The noun el intento means "attempt". It is fully regular.',
+        present: { description: 'Used for trying something right now or habitually.', example: { spanish: 'intento hablar español todos los días', english: 'I try to speak Spanish every day' } },
+        preterite: { description: 'Used for a completed attempt at a specific moment, often one that failed.', example: { spanish: 'intenté llamarte, pero no contestaste', english: 'I tried to call you, but you didn\'t answer' } },
+        imperfect: { description: 'Used for trying that was in progress, or used to happen regularly.', example: { spanish: 'intentaba estudiar cuando sonó el teléfono', english: 'I was trying to study when the phone rang' } },
+    },
+    entrenar: {
+        summary: 'Entrenar means "to train" or "to work out" — exercising at the gym (entrenar en el gimnasio) or practicing a sport. It can also take an object: a coach trains a team (entrenar al equipo), and you can train a dog. Entrenarse is also used for training yourself. El entrenamiento means "training / workout", and el entrenador is a coach or trainer. Don\'t confuse it with entrar (to enter). It is fully regular.',
+        present: { description: 'Used for training or working out right now or habitually.', example: { spanish: 'entreno cuatro días a la semana', english: 'I work out four days a week' } },
+        preterite: { description: 'Used for a completed training session at a specific moment.', example: { spanish: 'ayer entrené las piernas', english: 'I trained legs yesterday' } },
+        imperfect: { description: 'Used for training that used to happen regularly, or was in progress.', example: { spanish: 'antes entrenaba para maratones', english: 'I used to train for marathons' } },
+    },
+    congelar: {
+        summary: 'Congelar means "to freeze" something — food (congelar la carne), but also prices, salaries, or bank accounts. For things freezing by themselves, use congelarse (el lago se congeló, the lake froze), and me estoy congelando means "I\'m freezing". El congelador is the freezer and congelado means "frozen" (comida congelada, frozen food). Unlike helar, it does not stem-change: it is fully regular.',
+        present: { description: 'Used for freezing something right now or habitually.', example: { spanish: 'congelo el pan para que dure más', english: 'I freeze the bread so it lasts longer' } },
+        preterite: { description: 'Used for a completed act of freezing at a specific moment.', example: { spanish: 'congelamos las sobras de la fiesta', english: 'we froze the leftovers from the party' } },
+        imperfect: { description: 'Used for freezing that used to happen regularly, or was in progress.', example: { spanish: 'mi madre congelaba sopa para todo el invierno', english: 'my mother used to freeze soup for the whole winter' } },
+    },
+    confundirse: {
+        summary: 'Confundirse means "to get confused" or "to mix things up", and often just "to make a mistake" (me confundí de número, I got the wrong number). Use de + noun for picking the wrong thing (confundirse de calle, to take the wrong street). The non-reflexive confundir means to confuse someone or to mistake one thing for another (confundir a alguien con otra persona, to mistake someone for someone else). Estar confundido means "to be confused". It is fully regular.',
+        present: { description: 'Used for getting confused right now or habitually.', example: { spanish: 'siempre me confundo con los verbos irregulares', english: 'I always get mixed up with irregular verbs' } },
+        preterite: { description: 'Used for a completed mix-up or mistake at a specific moment.', example: { spanish: 'perdón, me confundí de persona', english: 'sorry, I mistook you for someone else' } },
+        imperfect: { description: 'Used for getting confused regularly in the past.', example: { spanish: 'de niño, me confundía con la izquierda y la derecha', english: 'as a kid, I used to mix up left and right' } },
+    },
+    apurar: {
+        summary: 'Apurar means "to hurry" or "to rush" someone (no me apures, don\'t rush me), and also "to finish off" or "to use up" something completely (apurar la copa, to drain your glass; apurar el plazo, to use the deadline right up). The reflexive apurarse means "to hurry up", and ¡apúrate! (hurry up!) is very common in Latin America, where Spain would say ¡date prisa!. Estar apurado means "to be in a hurry", and un apuro is a tight spot. It is fully regular.',
+        present: { description: 'Used for hurrying someone or finishing something off right now or habitually.', example: { spanish: 'mi jefe siempre me apura', english: 'my boss always rushes me' } },
+        preterite: { description: 'Used for a completed act of rushing or finishing off at a specific moment.', example: { spanish: 'apuró el café y salió corriendo', english: 's/he finished off the coffee and ran out' } },
+        imperfect: { description: 'Used for hurrying that used to happen regularly, or was in progress.', example: { spanish: 'mi madre nos apuraba cada mañana para ir al colegio', english: 'my mother used to hurry us every morning to get to school' } },
+    },
+    dañar: {
+        summary: 'Dañar means "to damage" or "to harm" — things (la tormenta dañó el techo, the storm damaged the roof), health (fumar daña los pulmones), or a reputation. In parts of Latin America, dañarse also means "to break down" (se dañó la lavadora, the washing machine broke). The noun el daño means "damage" or "harm", and hacerse daño means "to hurt yourself". It is fully regular.',
+        present: { description: 'Used for damaging something right now or in general.', example: { spanish: 'el sol daña la piel', english: 'the sun damages your skin' } },
+        preterite: { description: 'Used for a completed act of damage at a specific moment.', example: { spanish: 'el granizo dañó mi coche', english: 'the hail damaged my car' } },
+        imperfect: { description: 'Used for damage that used to happen regularly, or was ongoing.', example: { spanish: 'la humedad dañaba las paredes poco a poco', english: 'the damp was slowly damaging the walls' } },
+    },
 }
