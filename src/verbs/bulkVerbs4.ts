@@ -937,4 +937,52 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['dañaba', 'I used to damage'], ['dañabas', 'you used to damage'], ['dañaba', 's/he used to damage'],
         ['dañábamos', 'we used to damage'], ['dañaban', 'they used to damage'],
+    ]),
+    simpleVerb('sonreír', 'to smile', [
+        ['sonreír', 'to smile'], ['sonreído', 'smiled'], ['sonriendo', 'smiling'],
+    ], [
+        ['sonrío', 'I smile', true], ['sonríes', 'you smile', true], ['sonríe', 's/he smiles', true],
+        ['sonreímos', 'we smile'], ['sonríen', 'they smile', true],
+    ], [
+        ['sonreí', 'I smiled'], ['sonreíste', 'you smiled'], ['sonrió', 's/he smiled', true],
+        ['sonreímos', 'we smiled'], ['sonrieron', 'they smiled', true],
+    ], [
+        ['sonreía', 'I used to smile'], ['sonreías', 'you used to smile'], ['sonreía', 's/he used to smile'],
+        ['sonreíamos', 'we used to smile'], ['sonreían', 'they used to smile'],
+    ]),
+    simpleVerb('quitar', 'to take away, to remove, to take from', [
+        ['quitar', 'to remove'], ['quitado', 'removed'], ['quitando', 'removing'],
+    ], [
+        ['quito', 'I remove'], ['quitas', 'you remove'], ['quita', 's/he removes'],
+        ['quitamos', 'we remove'], ['quitan', 'they remove'],
+    ], [
+        ['quité', 'I removed'], ['quitaste', 'you removed'], ['quitó', 's/he removed'],
+        ['quitamos', 'we removed'], ['quitaron', 'they removed'],
+    ], [
+        ['quitaba', 'I used to remove'], ['quitabas', 'you used to remove'], ['quitaba', 's/he used to remove'],
+        ['quitábamos', 'we used to remove'], ['quitaban', 'they used to remove'],
+    ]),
+    simpleVerb('tirar', 'to throw, to throw away, to drop, to shoot, to pull', [
+        ['tirar', 'to throw'], ['tirado', 'thrown'], ['tirando', 'throwing'],
+    ], [
+        ['tiro', 'I throw'], ['tiras', 'you throw'], ['tira', 's/he throws'],
+        ['tiramos', 'we throw'], ['tiran', 'they throw'],
+    ], [
+        ['tiré', 'I threw'], ['tiraste', 'you threw'], ['tiró', 's/he threw'],
+        ['tiramos', 'we threw'], ['tiraron', 'they threw'],
+    ], [
+        ['tiraba', 'I used to throw'], ['tirabas', 'you used to throw'], ['tiraba', 's/he used to throw'],
+        ['tirábamos', 'we used to throw'], ['tiraban', 'they used to throw'],
+    ]),
+    simpleVerb('alquilar', 'to rent, to hire', [
+        ['alquilar', 'to rent'], ['alquilado', 'rented'], ['alquilando', 'renting'],
+    ], [
+        ['alquilo', 'I rent'], ['alquilas', 'you rent'], ['alquila', 's/he rents'],
+        ['alquilamos', 'we rent'], ['alquilan', 'they rent'],
+    ], [
+        ['alquilé', 'I rented'], ['alquilaste', 'you rented'], ['alquiló', 's/he rented'],
+        ['alquilamos', 'we rented'], ['alquilaron', 'they rented'],
+    ], [
+        ['alquilaba', 'I used to rent'], ['alquilabas', 'you used to rent'], ['alquilaba', 's/he used to rent'],
+        ['alquilábamos', 'we used to rent'], ['alquilaban', 'they used to rent'],
     ]),]

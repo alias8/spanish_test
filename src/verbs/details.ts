@@ -1334,4 +1334,28 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed act of damage at a specific moment.', example: { spanish: 'el granizo dañó mi coche', english: 'the hail damaged my car' } },
         imperfect: { description: 'Used for damage that used to happen regularly, or was ongoing.', example: { spanish: 'la humedad dañaba las paredes poco a poco', english: 'the damp was slowly damaging the walls' } },
     },
+    sonreír: {
+        summary: 'Sonreír means "to smile" — it is son- + reír (to laugh) and conjugates exactly like reír. The e becomes a stressed í in most present forms (sonrío, sonríes, sonríe, sonríen), drops to i in the third-person preterite (sonrió, sonrieron) and the gerund (sonriendo), and keeps written accents elsewhere (sonreímos, sonreía). Smile at someone is sonreír a alguien (me sonrió, s/he smiled at me), and the noun is la sonrisa.',
+        present: { description: 'Used for smiling right now or habitually.', example: { spanish: 'mi hija siempre sonríe en las fotos', english: 'my daughter always smiles in photos' } },
+        preterite: { description: 'Used for a completed smile at a specific moment.', example: { spanish: 'me sonrió desde el otro lado de la sala', english: 's/he smiled at me from across the room' } },
+        imperfect: { description: 'Used for smiling that was in progress, or used to happen regularly.', example: { spanish: 'mi abuelo sonreía cada vez que nos veía', english: 'my grandfather used to smile every time he saw us' } },
+    },
+    quitar: {
+        summary: 'Quitar means "to remove" or "to take away / off" — clearing something away (quitar la mesa, to clear the table), removing a stain, or taking something from someone, which uses an indirect object (me quitó el móvil, s/he took my phone from me). The reflexive quitarse means taking off clothing (quitarse los zapatos), the opposite of ponerse. Quitar also means "to take up" time (me quita mucho tiempo). It is fully regular.',
+        present: { description: 'Used for removing something right now or habitually.', example: { spanish: 'siempre quito la piel del pollo', english: 'I always remove the skin from the chicken' } },
+        preterite: { description: 'Used for a completed removal at a specific moment.', example: { spanish: 'el profesor me quitó el móvil en clase', english: 'the teacher took my phone away in class' } },
+        imperfect: { description: 'Used for removing that used to happen regularly, or was in progress.', example: { spanish: 'mi hermano mayor me quitaba los juguetes', english: 'my older brother used to take my toys from me' } },
+    },
+    tirar: {
+        summary: 'Tirar has many meanings: "to throw" (tirar la pelota), "to throw away" (tirar la basura), "to drop" or "knock over" (tiré el vaso, I knocked over the glass), "to shoot" (tirar a puerta, to shoot at goal), and "to pull" — tire on a door means PULL, the opposite of empuje (PUSH). Colloquially, tirando means "getting by" (¿qué tal? — tirando, so-so). Tirarse means "to jump / throw yourself" (tirarse a la piscina). It is fully regular.',
+        present: { description: 'Used for throwing, throwing away, or pulling right now or habitually.', example: { spanish: 'tiro la basura todas las noches', english: 'I throw out the trash every night' } },
+        preterite: { description: 'Used for a completed throw, drop, or shot at a specific moment.', example: { spanish: 'tiré mis zapatos viejos', english: 'I threw away my old shoes' } },
+        imperfect: { description: 'Used for throwing that used to happen regularly, or was in progress.', example: { spanish: 'de niños, tirábamos piedras al río', english: 'as kids, we used to throw stones into the river' } },
+    },
+    alquilar: {
+        summary: 'Alquilar means "to rent" or "to hire" — and it works in both directions: renting from someone (alquilé un coche, I rented a car) or renting out to someone (alquilo mi piso a estudiantes, I rent my flat out to students). Se alquila on a sign means "for rent". The noun el alquiler means "rent" (pagar el alquiler) or "rental". In Mexico rentar is also common. It is fully regular.',
+        present: { description: 'Used for renting something right now or habitually.', example: { spanish: 'alquilamos un apartamento cerca del centro', english: 'we rent an apartment near downtown' } },
+        preterite: { description: 'Used for a completed rental at a specific moment.', example: { spanish: 'alquilé unas bicis para recorrer la ciudad', english: 'I rented some bikes to get around the city' } },
+        imperfect: { description: 'Used for renting that used to happen regularly, or was ongoing.', example: { spanish: 'cada verano alquilábamos una casa en la playa', english: 'every summer we used to rent a house at the beach' } },
+    },
 }
