@@ -985,4 +985,40 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['alquilaba', 'I used to rent'], ['alquilabas', 'you used to rent'], ['alquilaba', 's/he used to rent'],
         ['alquilábamos', 'we used to rent'], ['alquilaban', 'they used to rent'],
+    ]),
+    simpleVerb('diseñar', 'to design', [
+        ['diseñar', 'to design'], ['diseñado', 'designed'], ['diseñando', 'designing'],
+    ], [
+        ['diseño', 'I design'], ['diseñas', 'you design'], ['diseña', 's/he designs'],
+        ['diseñamos', 'we design'], ['diseñan', 'they design'],
+    ], [
+        ['diseñé', 'I designed'], ['diseñaste', 'you designed'], ['diseñó', 's/he designed'],
+        ['diseñamos', 'we designed'], ['diseñaron', 'they designed'],
+    ], [
+        ['diseñaba', 'I used to design'], ['diseñabas', 'you used to design'], ['diseñaba', 's/he used to design'],
+        ['diseñábamos', 'we used to design'], ['diseñaban', 'they used to design'],
+    ]),
+    simpleVerb('recoger', 'to collect, to pick up, to gather', [
+        ['recoger', 'to collect'], ['recogido', 'collected'], ['recogiendo', 'collecting'],
+    ], [
+        ['recojo', 'I collect', true], ['recoges', 'you collect'], ['recoge', 's/he collects'],
+        ['recogemos', 'we collect'], ['recogen', 'they collect'],
+    ], [
+        ['recogí', 'I collected'], ['recogiste', 'you collected'], ['recogió', 's/he collected'],
+        ['recogimos', 'we collected'], ['recogieron', 'they collected'],
+    ], [
+        ['recogía', 'I used to collect'], ['recogías', 'you used to collect'], ['recogía', 's/he used to collect'],
+        ['recogíamos', 'we used to collect'], ['recogían', 'they used to collect'],
+    ]),
+    simpleVerb('molestar', 'to bother, to disturb, to annoy', [
+        ['molestar', 'to bother'], ['molestado', 'bothered'], ['molestando', 'bothering'],
+    ], [
+        ['molesto', 'I bother'], ['molestas', 'you bother'], ['molesta', 's/he bothers'],
+        ['molestamos', 'we bother'], ['molestan', 'they bother'],
+    ], [
+        ['molesté', 'I bothered'], ['molestaste', 'you bothered'], ['molestó', 's/he bothered'],
+        ['molestamos', 'we bothered'], ['molestaron', 'they bothered'],
+    ], [
+        ['molestaba', 'I used to bother'], ['molestabas', 'you used to bother'], ['molestaba', 's/he used to bother'],
+        ['molestábamos', 'we used to bother'], ['molestaban', 'they used to bother'],
     ]),]

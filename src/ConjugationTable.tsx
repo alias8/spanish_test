@@ -2,6 +2,8 @@ import { memo, useRef, useState } from 'react'
 import type { ConjugationScreen } from './verbs'
 import { normalizeStrict } from './utils'
 
+const ALLOWED_CHAR = /^[a-záéíóúüñ]$/i
+
 const ConjCell = memo(({ id, stem, ending, isRevealed, onReveal, registerRef, onComplete }: {
   id: string
   stem: string
@@ -21,6 +23,13 @@ const ConjCell = memo(({ id, stem, ending, isRevealed, onReveal, registerRef, on
     }
   }
 
+  // Only letters (incl. Spanish accented ones) can be typed, so stray punctuation/digit/space keys are ignored
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key.length === 1 && !e.metaKey && !e.ctrlKey && !ALLOWED_CHAR.test(e.key)) {
+      e.preventDefault()
+    }
+  }
+
   return (
     <span className={`conj-cell ${isRevealed ? 'revealed' : ''}`}>
       <span className="stem">{stem}</span>
@@ -32,6 +41,7 @@ const ConjCell = memo(({ id, stem, ending, isRevealed, onReveal, registerRef, on
           className="ending-input"
           value={value}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           size={Math.max(ending.length, 2)}
           autoComplete="off"
           spellCheck={false}

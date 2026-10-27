@@ -1358,4 +1358,22 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed rental at a specific moment.', example: { spanish: 'alquilé unas bicis para recorrer la ciudad', english: 'I rented some bikes to get around the city' } },
         imperfect: { description: 'Used for renting that used to happen regularly, or was ongoing.', example: { spanish: 'cada verano alquilábamos una casa en la playa', english: 'every summer we used to rent a house at the beach' } },
     },
+    diseñar: {
+        summary: 'Diseñar means "to design" — clothes, buildings, websites, plans or systems (diseñar una estrategia). It comes from el diseño (design), and a designer is un/una diseñador(a). Note diseño is both the noun "design" and "I design". It is fully regular.',
+        present: { description: 'Used for designing right now or habitually.', example: { spanish: 'mi hermana diseña ropa para una marca pequeña', english: 'my sister designs clothes for a small brand' } },
+        preterite: { description: 'Used for a completed design at a specific moment.', example: { spanish: 'diseñé la página web de la empresa', english: 'I designed the company website' } },
+        imperfect: { description: 'Used for designing that used to happen regularly, or was in progress.', example: { spanish: 'antes diseñaba casas, ahora enseño arquitectura', english: 'I used to design houses, now I teach architecture' } },
+    },
+    recoger: {
+        summary: 'Recoger means "to collect", "to pick up", or "to gather" — picking someone up (te recojo a las ocho, I\'ll pick you up at eight), picking something up off the floor, collecting a parcel or tickets, harvesting crops, and tidying up (recoger la mesa / la habitación, to clear the table / tidy the room). It is re- + coger, and unlike coger it is used everywhere in Latin America. Like coger, it has a spelling change (g→j) in the yo present form (recojo), needed to keep the soft "h" sound before "o".',
+        present: { description: 'Used for collecting or picking up right now or habitually.', example: { spanish: 'recojo a mis hijos del colegio todos los días', english: 'I pick my kids up from school every day' } },
+        preterite: { description: 'Used for a completed pick-up or collection at a specific moment.', example: { spanish: 'recogí el paquete en la oficina de correos', english: 'I picked up the package at the post office' } },
+        imperfect: { description: 'Used for collecting that used to happen regularly, or was in progress.', example: { spanish: 'de pequeños, recogíamos conchas en la playa', english: 'as kids, we used to collect shells on the beach' } },
+    },
+    molestar: {
+        summary: 'Molestar means "to bother", "to disturb", or "to annoy". It often works like gustar, with the thing that annoys as the subject and the person as an indirect object (me molesta el ruido, the noise bothers me; me molestan los mosquitos). Polite phrases: perdone que le moleste (sorry to bother you), ¿le molesta si…? (do you mind if…?), and no molestar (do not disturb). Molestarse means "to get annoyed" or "to take the trouble" (no te molestes, don\'t bother). Careful: it does not mean "to molest". It is fully regular.',
+        present: { description: 'Used for something that bothers someone right now or habitually.', example: { spanish: 'me molesta cuando la gente habla en el cine', english: 'it bothers me when people talk in the cinema' } },
+        preterite: { description: 'Used for a completed disturbance at a specific moment.', example: { spanish: 'perdona, ¿te molesté?', english: 'sorry, did I disturb you?' } },
+        imperfect: { description: 'Used for something that used to bother someone, or was ongoing.', example: { spanish: 'mi hermano siempre me molestaba cuando estudiaba', english: 'my brother always used to bother me when I was studying' } },
+    },
 }

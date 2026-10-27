@@ -10,7 +10,7 @@ const FREQUENCY_ORDER = [
     'mantener', 'resultar', 'presentar', 'mostrar', 'crear', 'abrir', 'considerar', 'oír', 'acabar', 'convertir', 'ganar',
     'formar', 'partir', 'aceptar', 'ceder', 'realizar', 'suponer', 'convenir', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'dirigir', 'correr', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'respetar', 'comer',
-    'usar', 'soler', 'parecer', 'decidir', 'producir', 'causar', 'ocurrir', 'probar', 'gustar', 'sentarse', 'ponerse', 'acercarse', 'amar',
+    'usar', 'recoger', 'soler', 'parecer', 'decidir', 'producir', 'diseñar', 'causar', 'ocurrir', 'probar', 'gustar', 'molestar', 'sentarse', 'ponerse', 'acercarse', 'amar',
     'encantar', 'invitar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertarse', 'levantarse',
     'subirse', 'bajarse', 'ducharse', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrirse', 'enojarse', 'enfadarse',
     'olvidarse', 'preocuparse', 'confundirse', 'dormirse', 'responder', 'cuidar', 'romper', 'dañar', 'arreglar', 'robar', 'esconder', 'gastar', 'depositar', 'preparar', 'parar', 'apurar', 'beber',
