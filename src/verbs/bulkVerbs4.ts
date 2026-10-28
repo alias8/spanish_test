@@ -1021,4 +1021,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['molestaba', 'I used to bother'], ['molestabas', 'you used to bother'], ['molestaba', 's/he used to bother'],
         ['molestábamos', 'we used to bother'], ['molestaban', 'they used to bother'],
+    ]),
+    simpleVerb('mover', 'to move (something)', [
+        ['mover', 'to move'], ['movido', 'moved'], ['moviendo', 'moving'],
+    ], [
+        ['muevo', 'I move', true], ['mueves', 'you move', true], ['mueve', 's/he moves', true],
+        ['movemos', 'we move'], ['mueven', 'they move', true],
+    ], [
+        ['moví', 'I moved'], ['moviste', 'you moved'], ['movió', 's/he moved'],
+        ['movimos', 'we moved'], ['movieron', 'they moved'],
+    ], [
+        ['movía', 'I used to move'], ['movías', 'you used to move'], ['movía', 's/he used to move'],
+        ['movíamos', 'we used to move'], ['movían', 'they used to move'],
+    ]),
+    simpleVerb('insistir', 'to insist', [
+        ['insistir', 'to insist'], ['insistido', 'insisted'], ['insistiendo', 'insisting'],
+    ], [
+        ['insisto', 'I insist'], ['insistes', 'you insist'], ['insiste', 's/he insists'],
+        ['insistimos', 'we insist'], ['insisten', 'they insist'],
+    ], [
+        ['insistí', 'I insisted'], ['insististe', 'you insisted'], ['insistió', 's/he insisted'],
+        ['insistimos', 'we insisted'], ['insistieron', 'they insisted'],
+    ], [
+        ['insistía', 'I used to insist'], ['insistías', 'you used to insist'], ['insistía', 's/he used to insist'],
+        ['insistíamos', 'we used to insist'], ['insistían', 'they used to insist'],
     ]),]

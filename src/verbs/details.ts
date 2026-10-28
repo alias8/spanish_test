@@ -1376,4 +1376,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed disturbance at a specific moment.', example: { spanish: 'perdona, ¿te molesté?', english: 'sorry, did I disturb you?' } },
         imperfect: { description: 'Used for something that used to bother someone, or was ongoing.', example: { spanish: 'mi hermano siempre me molestaba cuando estudiaba', english: 'my brother always used to bother me when I was studying' } },
     },
+    mover: {
+        summary: 'Mover means "to move (something)" — physically shifting an object (mover el sofá, mover la mesa) or moving a body part (mover la cabeza). Moverse is "to move (yourself)" or "to get moving" (¡muévete!, move it!). It is not used for moving house — that is mudarse (me mudé a Boston). It is an o→ue stem-changing verb: the o becomes ue in the stressed present forms (muevo, mueves, mueve, mueven) but not in nosotros (movemos), the preterite, or the imperfect.',
+        present: { description: 'Used for moving something right now or habitually.', example: { spanish: '¿me ayudas? muevo el sofá y tú limpias', english: 'will you help me? I move the sofa and you clean' } },
+        preterite: { description: 'Used for a completed move at a specific moment.', example: { spanish: 'alguien movió mis llaves y no las encuentro', english: 'someone moved my keys and I can\'t find them' } },
+        imperfect: { description: 'Used for moving that used to happen regularly, or was in progress.', example: { spanish: 'mi madre movía los muebles cada pocos meses', english: 'my mother used to move the furniture around every few months' } },
+    },
+    insistir: {
+        summary: 'Insistir means "to insist". Note the preposition: insistir en (not "on") — insistir en algo / en hacer algo (insiste en pagar, s/he insists on paying). Insisting that someone else does something takes the subjunctive: insistir en que + subjunctive (insisto en que vengas, I insist that you come). It can also mean "to keep trying" (si no contesta, insiste, if s/he doesn\'t answer, keep trying). ¡Insisto! on its own is a common polite way to say "I insist!". It is fully regular.',
+        present: { description: 'Used for insisting right now or habitually.', example: { spanish: 'mi abuela siempre insiste en que comamos más', english: 'my grandmother always insists that we eat more' } },
+        preterite: { description: 'Used for a completed act of insisting at a specific moment.', example: { spanish: 'insistió en pagar la cena', english: 's/he insisted on paying for dinner' } },
+        imperfect: { description: 'Used for insisting that used to happen regularly, or was ongoing.', example: { spanish: 'mis padres insistían en que hiciera los deberes primero', english: 'my parents used to insist that I do my homework first' } },
+    },
 }
