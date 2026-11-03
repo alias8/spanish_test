@@ -170,7 +170,7 @@ export const BULK_VERBS_3: VerbEntry[] = [
         ['explicaba', 'I used to explain'], ['explicabas', 'you used to explain'], ['explicaba', 's/he used to explain'],
         ['explicábamos', 'we used to explain'], ['explicaban', 'they used to explain'],
     ]),
-    simpleVerb('evitar', 'to avoid', [
+    simpleVerb('evitar', 'to avoid, to prevent', [
         ['evitar', 'to avoid'], ['evitado', 'avoided'], ['evitando', 'avoiding'],
     ], [
         ['evito', 'I avoid'], ['evitas', 'you avoid'], ['evita', 's/he avoids'],

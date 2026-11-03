@@ -1045,4 +1045,100 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['insistía', 'I used to insist'], ['insistías', 'you used to insist'], ['insistía', 's/he used to insist'],
         ['insistíamos', 'we used to insist'], ['insistían', 'they used to insist'],
+    ]),
+    simpleVerb('lamentar', 'to regret, to lament', [
+        ['lamentar', 'to regret'], ['lamentado', 'regretted'], ['lamentando', 'regretting'],
+    ], [
+        ['lamento', 'I regret'], ['lamentas', 'you regret'], ['lamenta', 's/he regrets'],
+        ['lamentamos', 'we regret'], ['lamentan', 'they regret'],
+    ], [
+        ['lamenté', 'I regretted'], ['lamentaste', 'you regretted'], ['lamentó', 's/he regretted'],
+        ['lamentamos', 'we regretted'], ['lamentaron', 'they regretted'],
+    ], [
+        ['lamentaba', 'I used to regret'], ['lamentabas', 'you used to regret'], ['lamentaba', 's/he used to regret'],
+        ['lamentábamos', 'we used to regret'], ['lamentaban', 'they used to regret'],
+    ]),
+    simpleVerb('perdonar', 'to forgive, to pardon, to excuse', [
+        ['perdonar', 'to forgive'], ['perdonado', 'forgiven'], ['perdonando', 'forgiving'],
+    ], [
+        ['perdono', 'I forgive'], ['perdonas', 'you forgive'], ['perdona', 's/he forgives'],
+        ['perdonamos', 'we forgive'], ['perdonan', 'they forgive'],
+    ], [
+        ['perdoné', 'I forgave'], ['perdonaste', 'you forgave'], ['perdonó', 's/he forgave'],
+        ['perdonamos', 'we forgave'], ['perdonaron', 'they forgave'],
+    ], [
+        ['perdonaba', 'I used to forgive'], ['perdonabas', 'you used to forgive'], ['perdonaba', 's/he used to forgive'],
+        ['perdonábamos', 'we used to forgive'], ['perdonaban', 'they used to forgive'],
+    ]),
+    simpleVerb('quejarse', 'to complain, to moan', [
+        ['quejarse', 'to complain'], ['quejado', 'complained'], ['quejando', 'complaining'],
+    ], [
+        ['me quejo', 'I complain'], ['te quejas', 'you complain'], ['se queja', 's/he complains'],
+        ['nos quejamos', 'we complain'], ['se quejan', 'they complain'],
+    ], [
+        ['me quejé', 'I complained'], ['te quejaste', 'you complained'], ['se quejó', 's/he complained'],
+        ['nos quejamos', 'we complained'], ['se quejaron', 'they complained'],
+    ], [
+        ['me quejaba', 'I used to complain'], ['te quejabas', 'you used to complain'], ['se quejaba', 's/he used to complain'],
+        ['nos quejábamos', 'we used to complain'], ['se quejaban', 'they used to complain'],
+    ]),
+    simpleVerb('imprimir', 'to print', [
+        ['imprimir', 'to print'], ['impreso', 'printed'], ['imprimiendo', 'printing'],
+    ], [
+        ['imprimo', 'I print'], ['imprimes', 'you print'], ['imprime', 's/he prints'],
+        ['imprimimos', 'we print'], ['imprimen', 'they print'],
+    ], [
+        ['imprimí', 'I printed'], ['imprimiste', 'you printed'], ['imprimió', 's/he printed'],
+        ['imprimimos', 'we printed'], ['imprimieron', 'they printed'],
+    ], [
+        ['imprimía', 'I used to print'], ['imprimías', 'you used to print'], ['imprimía', 's/he used to print'],
+        ['imprimíamos', 'we used to print'], ['imprimían', 'they used to print'],
+    ]),
+    simpleVerb('faltar', 'to lack, to be missing, to be lacking, to fall short (of)', [
+        ['faltar', 'to lack'], ['faltado', 'lacked'], ['faltando', 'lacking'],
+    ], [
+        ['falto', 'I am missing'], ['faltas', 'you are missing'], ['falta', 's/he is missing'],
+        ['faltamos', 'we are missing'], ['faltan', 'they are missing'],
+    ], [
+        ['falté', 'I was missing'], ['faltaste', 'you were missing'], ['faltó', 's/he was missing'],
+        ['faltamos', 'we were missing'], ['faltaron', 'they were missing'],
+    ], [
+        ['faltaba', 'I used to be missing'], ['faltabas', 'you used to be missing'], ['faltaba', 's/he used to be missing'],
+        ['faltábamos', 'we used to be missing'], ['faltaban', 'they used to be missing'],
+    ]),
+    simpleVerb('saltar', 'to jump, to leap', [
+        ['saltar', 'to jump'], ['saltado', 'jumped'], ['saltando', 'jumping'],
+    ], [
+        ['salto', 'I jump'], ['saltas', 'you jump'], ['salta', 's/he jumps'],
+        ['saltamos', 'we jump'], ['saltan', 'they jump'],
+    ], [
+        ['salté', 'I jumped'], ['saltaste', 'you jumped'], ['saltó', 's/he jumped'],
+        ['saltamos', 'we jumped'], ['saltaron', 'they jumped'],
+    ], [
+        ['saltaba', 'I used to jump'], ['saltabas', 'you used to jump'], ['saltaba', 's/he used to jump'],
+        ['saltábamos', 'we used to jump'], ['saltaban', 'they used to jump'],
+    ]),
+    simpleVerb('escuchar', 'to listen to', [
+        ['escuchar', 'to listen to'], ['escuchado', 'listened to'], ['escuchando', 'listening to'],
+    ], [
+        ['escucho', 'I listen to'], ['escuchas', 'you listen to'], ['escucha', 's/he listens to'],
+        ['escuchamos', 'we listen to'], ['escuchan', 'they listen to'],
+    ], [
+        ['escuché', 'I listened to'], ['escuchaste', 'you listened to'], ['escuchó', 's/he listened to'],
+        ['escuchamos', 'we listened to'], ['escucharon', 'they listened to'],
+    ], [
+        ['escuchaba', 'I used to listen to'], ['escuchabas', 'you used to listen to'], ['escuchaba', 's/he used to listen to'],
+        ['escuchábamos', 'we used to listen to'], ['escuchaban', 'they used to listen to'],
+    ]),
+    simpleVerb('cansar', 'to tire', [
+        ['cansar', 'to tire'], ['cansado', 'tired'], ['cansando', 'tiring'],
+    ], [
+        ['canso', 'I tire'], ['cansas', 'you tire'], ['cansa', 's/he tires'],
+        ['cansamos', 'we tire'], ['cansan', 'they tire'],
+    ], [
+        ['cansé', 'I tired'], ['cansaste', 'you tired'], ['cansó', 's/he tired'],
+        ['cansamos', 'we tired'], ['cansaron', 'they tired'],
+    ], [
+        ['cansaba', 'I used to tire'], ['cansabas', 'you used to tire'], ['cansaba', 's/he used to tire'],
+        ['cansábamos', 'we used to tire'], ['cansaban', 'they used to tire'],
     ]),]

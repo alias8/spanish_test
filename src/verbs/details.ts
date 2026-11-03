@@ -417,7 +417,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for what someone used to explain regularly.', example: { spanish: 'explicaba las lecciones', english: 's/he used to explain the lessons' } },
     },
     evitar: {
-        summary: 'Evitar means "to avoid" — a place, a person, or a situation, or followed by an infinitive to mean "to avoid doing" something. It is fully regular.',
+        summary: 'Evitar means "to avoid" — a place, a person, or a situation, or followed by an infinitive to mean "to avoid doing" something (evito comer tarde, I avoid eating late). It also means "to prevent" something from happening (evitar un accidente, to prevent an accident), and evitar que takes the subjunctive (para evitar que se caiga, to prevent it from falling). It is fully regular.',
         present: { description: 'Used for avoiding something right now or habitually.', example: { spanish: 'evito el tráfico', english: 'I avoid the traffic' } },
         preterite: { description: 'Used for a specific instance of avoiding something.', example: { spanish: 'evitó el problema', english: 's/he avoided the problem' } },
         imperfect: { description: 'Used for what someone used to avoid regularly.', example: { spanish: 'evitaba las multitudes', english: 'I used to avoid crowds' } },
@@ -1387,5 +1387,53 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for insisting right now or habitually.', example: { spanish: 'mi abuela siempre insiste en que comamos más', english: 'my grandmother always insists that we eat more' } },
         preterite: { description: 'Used for a completed act of insisting at a specific moment.', example: { spanish: 'insistió en pagar la cena', english: 's/he insisted on paying for dinner' } },
         imperfect: { description: 'Used for insisting that used to happen regularly, or was ongoing.', example: { spanish: 'mis padres insistían en que hiciera los deberes primero', english: 'my parents used to insist that I do my homework first' } },
+    },
+    lamentar: {
+        summary: 'Lamentar means "to regret", "to be sorry about", or "to lament / mourn". Lo lamento is a more formal or heartfelt "I\'m sorry" — common for condolences or bad news (lamento tu pérdida, I\'m sorry for your loss), whereas lo siento is the everyday version. Lamentar que takes the subjunctive (lamento que no puedas venir, I\'m sorry you can\'t come). Lamentarse de means "to complain / bemoan" (se lamenta de su mala suerte). It is fully regular.',
+        present: { description: 'Used for regretting something right now.', example: { spanish: 'lamento mucho lo que pasó', english: 'I really regret what happened' } },
+        preterite: { description: 'Used for a completed expression of regret at a specific moment.', example: { spanish: 'la empresa lamentó el error en un comunicado', english: 'the company expressed regret for the error in a statement' } },
+        imperfect: { description: 'Used for regret that was ongoing in the past.', example: { spanish: 'durante años lamentaba no haber estudiado más', english: 'for years I regretted not having studied more' } },
+    },
+    perdonar: {
+        summary: 'Perdonar means "to forgive", "to pardon", or "to excuse". The person forgiven is often an indirect object when the offence is named (te perdono la mentira, I forgive you for the lie) and a direct object otherwise (te perdono, I forgive you). Its commands are everyday ways to say "excuse me / sorry": perdona (tú) and perdone (usted) — to get attention, interrupt, or apologise for something small (perdona, ¿sabes dónde está la estación?). ¿Perdón? means "pardon?" when you didn\'t hear. It also means "to let off" a debt or punishment (le perdonaron la multa). It is fully regular.',
+        present: { description: 'Used for forgiving right now or habitually.', example: { spanish: 'mi madre siempre nos perdona', english: 'my mother always forgives us' } },
+        preterite: { description: 'Used for a completed act of forgiveness at a specific moment.', example: { spanish: 'al final me perdonó por olvidar su cumpleaños', english: 'in the end s/he forgave me for forgetting her/his birthday' } },
+        imperfect: { description: 'Used for forgiving that used to happen regularly, or was ongoing.', example: { spanish: 'de niño, mi abuelo me perdonaba todo', english: 'as a child, my grandfather used to forgive me everything' } },
+    },
+    quejarse: {
+        summary: 'Quejarse means "to complain" or "to moan", and it is always reflexive in this sense. What you complain about takes de (quejarse del ruido, to complain about the noise), and who you complain to takes a (me quejé al gerente, I complained to the manager). It can also mean to moan or groan in pain. The noun is la queja (a complaint). It is fully regular.',
+        present: { description: 'Used for complaining right now or habitually.', example: { spanish: 'mi jefe se queja de todo', english: 'my boss complains about everything' } },
+        preterite: { description: 'Used for a completed complaint at a specific moment.', example: { spanish: 'nos quejamos del servicio en el restaurante', english: 'we complained about the service at the restaurant' } },
+        imperfect: { description: 'Used for complaining that used to happen regularly, or was ongoing.', example: { spanish: 'de niño, me quejaba de tener que comer verduras', english: 'as a kid, I used to complain about having to eat vegetables' } },
+    },
+    imprimir: {
+        summary: 'Imprimir means "to print" — documents, photos, books or tickets (imprimir la tarjeta de embarque, to print the boarding pass). A printer is la impresora and printing is la impresión. It is regular in the present, preterite and imperfect, but it has two past participles: impreso (irregular, and the usual choice) and imprimido (he impreso / he imprimido, I have printed). Only impreso works as an adjective (un libro impreso, a printed book).',
+        present: { description: 'Used for printing right now or habitually.', example: { spanish: 'imprimo los informes todos los lunes', english: 'I print the reports every Monday' } },
+        preterite: { description: 'Used for a completed print job at a specific moment.', example: { spanish: 'imprimí las entradas antes de salir', english: 'I printed the tickets before leaving' } },
+        imperfect: { description: 'Used for printing that used to happen regularly, or was in progress.', example: { spanish: 'antes imprimíamos todas las fotos', english: 'we used to print all our photos' } },
+    },
+    faltar: {
+        summary: 'Faltar means "to lack", "to be missing", or "to fall short". It usually works like gustar: the missing thing is the subject and the person who lacks it is an indirect object (me falta dinero, I lack money; nos faltan dos sillas, we are two chairs short). It is also used for what remains: faltan tres días para Navidad (there are three days left until Christmas) and ¿cuánto falta? (how much longer?). With a person, it can mean being absent (faltó a clase, s/he missed class) or falling short of something (faltar a su palabra, to break one\'s word). Hacer falta means "to be needed" (me hace falta un coche, I need a car). It is fully regular.',
+        present: { description: 'Used for something that is missing or lacking right now.', example: { spanish: 'a esta sopa le falta sal', english: 'this soup needs salt' } },
+        preterite: { description: 'Used for something that was missing on a specific occasion, or a specific absence.', example: { spanish: 'ayer falté al trabajo porque estaba enfermo', english: 'I missed work yesterday because I was sick' } },
+        imperfect: { description: 'Used for something that was lacking in the past, or an absence that used to happen regularly.', example: { spanish: 'nos faltaba tiempo para terminar el proyecto', english: 'we didn\'t have enough time to finish the project' } },
+    },
+    saltar: {
+        summary: 'Saltar means "to jump" or "to leap" — over something (saltar la valla, to jump the fence), into water (saltar al agua), or jumping rope (saltar a la comba / a la cuerda). It also means "to skip" (saltar una página, saltarse una clase) and "to go off / blow" when an alarm or fuse trips (saltó la alarma, the alarm went off). Saltarse often means skipping something you should do (me salté el desayuno, I skipped breakfast) or running a red light (saltarse un semáforo). The noun is el salto (a jump). Don\'t confuse salto (I jump) with salgo (I leave, from salir). It is fully regular.',
+        present: { description: 'Used for jumping right now or habitually.', example: { spanish: 'mi perro salta cada vez que llego a casa', english: 'my dog jumps every time I get home' } },
+        preterite: { description: 'Used for a completed jump at a specific moment.', example: { spanish: 'saltó del trampolín más alto', english: 's/he jumped off the highest diving board' } },
+        imperfect: { description: 'Used for jumping that used to happen regularly, or was in progress.', example: { spanish: 'de niños, saltábamos en la cama', english: 'as kids, we used to jump on the bed' } },
+    },
+    escuchar: {
+        summary: 'Escuchar means "to listen to" — the "to" is built in, so there is no extra preposition (escucho música, I listen to music; escúchame, listen to me), though a person still takes the personal a (escucha a tu madre). Escuchar is deliberate listening, while oír is simply hearing (oigo un ruido, I hear a noise) — but in Latin America escuchar is also widely used for "to hear" (no te escucho, I can\'t hear you). It is fully regular.',
+        present: { description: 'Used for listening right now or habitually.', example: { spanish: 'escucho podcasts cuando voy al trabajo', english: 'I listen to podcasts on my way to work' } },
+        preterite: { description: 'Used for a completed act of listening at a specific moment.', example: { spanish: 'anoche escuchamos el nuevo disco', english: 'last night we listened to the new album' } },
+        imperfect: { description: 'Used for listening that used to happen regularly, or was in progress.', example: { spanish: 'mi padre siempre escuchaba la radio en el coche', english: 'my father always used to listen to the radio in the car' } },
+    },
+    cansar: {
+        summary: 'Cansar means "to tire" or "to wear out" — physically or by being tedious. It often works like gustar, with the tiring thing as the subject (me cansa conducir de noche, driving at night tires me out; este trabajo cansa mucho, this work is really tiring). The reflexive cansarse means "to get tired" (me canso fácilmente) and, with de, "to get tired of / fed up with" something (me cansé de esperar, I got tired of waiting). Estar cansado means "to be tired". It is fully regular.',
+        present: { description: 'Used for something that tires someone right now or habitually.', example: { spanish: 'me cansa mucho subir las escaleras', english: 'climbing the stairs really tires me out' } },
+        preterite: { description: 'Used for something that tired someone out on a specific occasion.', example: { spanish: 'la caminata nos cansó a todos', english: 'the hike wore us all out' } },
+        imperfect: { description: 'Used for something that used to tire someone, or was tiring over a period.', example: { spanish: 'antes me cansaba mucho el viaje al trabajo', english: 'the commute used to tire me out a lot' } },
     },
 }
