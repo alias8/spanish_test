@@ -43,7 +43,8 @@ for (const v of VERBS) {
 // owe, must" even though that phrase isn't the whole field.
 export const VERBS_BY_TRANSLATION = new Map<string, VerbEntry[]>()
 for (const v of VERBS) {
-    const glosses = new Set(v.translation.split(',').map(g => normalize(g)))
+    // also index each gloss without its leading "to ", so "tire" exact-matches "to tire"
+    const glosses = new Set(v.translation.split(',').map(g => normalize(g)).flatMap(g => g.startsWith('to ') ? [g, g.slice(3)] : [g]))
     for (const gloss of glosses) {
         const list = VERBS_BY_TRANSLATION.get(gloss)
         if (list) list.push(v)

@@ -39,12 +39,15 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     if (exact) return [exact]
     // checks if perfect match for spanish conjugations — collect every verb that shares this
     // form (e.g. "fue" is the preterite of both "ser" and "ir"), not just the first one found
-    const conjugated = VERBS_BY_FORM.get(q)
-    if (conjugated && conjugated.length > 0) return conjugated
+    const conjugated = VERBS_BY_FORM.get(q) ?? []
     // checks if perfect match for an english gloss (translation is comma-separated,
     // e.g. "to owe" exact-matches deber's "should, to owe, must")
-    const byTranslation = VERBS_BY_TRANSLATION.get(q)
-    if (byTranslation && byTranslation.length > 0) return byTranslation
+    const byTranslation = VERBS_BY_TRANSLATION.get(q) ?? []
+    // offer both kinds together, since accent-insensitive form matches can collide with
+    // english words (e.g. "tire" is both tiré from tirar and the translation of cansar)
+    if (conjugated.length > 0 || byTranslation.length > 0) {
+      return [...new Map([...conjugated, ...byTranslation].map(v => [v.infinitive, v])).values()]
+    }
     // check for partial match on spanish infinitive or english translation
     const direct = VERB_SEARCH_INDEX.filter(e => e.normInfinitive.includes(q) || e.normTranslation.includes(q)).map(e => e.verb)
     // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
