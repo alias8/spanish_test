@@ -1532,4 +1532,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed weighing at a specific moment.', example: { spanish: 'el médico pesó al bebé', english: 'the doctor weighed the baby' } },
         imperfect: { description: 'Used for how much something used to weigh, or ongoing weight.', example: { spanish: 'de joven pesaba mucho menos', english: 'when I was young I used to weigh a lot less' } },
     },
+    agarrar: {
+        summary: 'Agarrar means "to grab", "to grip", or "to catch" — taking hold of something (agarra mi mano, grab my hand) or catching something thrown (¡agárralo!, catch it!). In Latin America it is the everyday replacement for coger, which is vulgar in many countries there: agarrar el autobús (to catch the bus), agarrar un resfriado (to catch a cold), and agarrar is also used loosely for "to take" (agarra la primera calle a la derecha, take the first street on the right). Agarrarse means "to hold on" (agárrate fuerte, hold on tight). It is fully regular.',
+        present: { description: 'Used for grabbing or catching right now or habitually.', example: { spanish: 'siempre agarro el metro para ir al trabajo', english: 'I always catch the subway to work' } },
+        preterite: { description: 'Used for a completed grab or catch at a specific moment.', example: { spanish: 'el perro agarró la pelota en el aire', english: 'the dog caught the ball in mid-air' } },
+        imperfect: { description: 'Used for grabbing that used to happen regularly, or was in progress.', example: { spanish: 'mi hijo siempre me agarraba la mano al cruzar la calle', english: 'my son always used to grab my hand when crossing the street' } },
+    },
+    sorprender: {
+        summary: 'Sorprender means "to surprise". It often works like gustar, with the surprising thing as the subject (me sorprende que hables tan bien, it surprises me that you speak so well — note sorprender que takes the subjunctive). It can also mean "to catch someone in the act" (lo sorprendieron robando, they caught him stealing). Sorprenderse (de) is "to be surprised (at)" (me sorprendí al verte), estar sorprendido is "to be surprised", and the noun is la sorpresa (¡qué sorpresa!). It is fully regular.',
+        present: { description: 'Used for something that surprises someone right now or habitually.', example: { spanish: 'no me sorprende nada', english: 'it doesn\'t surprise me at all' } },
+        preterite: { description: 'Used for a surprise at a specific moment.', example: { spanish: 'sus amigos lo sorprendieron con una fiesta', english: 'his friends surprised him with a party' } },
+        imperfect: { description: 'Used for something that used to surprise someone, or was ongoing.', example: { spanish: 'de niño me sorprendía lo grande que era la ciudad', english: 'as a kid it used to surprise me how big the city was' } },
+    },
 }

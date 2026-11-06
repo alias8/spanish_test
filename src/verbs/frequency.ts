@@ -11,13 +11,13 @@ const FREQUENCY_ORDER = [
     'formar', 'partir', 'aceptar', 'acordar', 'ceder', 'realizar', 'suponer', 'convenir', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'perdonar', 'respetar', 'comer', 'dormir',
     'usar', 'recoger', 'soler', 'parecer', 'decidir', 'insistir', 'producir', 'diseñar', 'causar', 'ocurrir', 'probar', 'gustar', 'faltar', 'molestar', 'sentarse', 'ponerse', 'acercarse', 'amar',
-    'encantar', 'invitar', 'regalar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertar', 'despertarse', 'levantarse',
+    'encantar', 'sorprender', 'invitar', 'regalar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertar', 'despertarse', 'levantarse',
     'subirse', 'bajarse', 'ducharse', 'lavar', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrir', 'aburrirse', 'cansar', 'enojarse', 'enfadarse', 'quejarse',
     'olvidarse', 'preocupar', 'preocuparse', 'confundirse', 'dormirse', 'responder', 'cuidar', 'romper', 'dañar', 'arreglar', 'robar', 'esconder', 'gastar', 'depositar', 'preparar', 'parar', 'apurar', 'beber',
     'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'manejar', 'caminar', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
     'completar', 'reunir', 'repartir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'vaciar', 'acompañar', 'conversar',
-    'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'elegir', 'descansar', 'estresar', 'relajarse', 'pesar', 'pesarse', 'doler', 'costar',
+    'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'agarrar', 'elegir', 'descansar', 'estresar', 'relajarse', 'pesar', 'pesarse', 'doler', 'costar',
     'llover', 'nevar', 'congelar', 'entrenar', 'nadar', 'esquiar', 'patinar', 'hacer snowboard', 'acampar',
 ] as const
 

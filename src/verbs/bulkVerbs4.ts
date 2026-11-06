@@ -1333,4 +1333,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['pesaba', 'I used to weigh'], ['pesabas', 'you used to weigh'], ['pesaba', 's/he used to weigh'],
         ['pesábamos', 'we used to weigh'], ['pesaban', 'they used to weigh'],
+    ]),
+    simpleVerb('agarrar', 'to grab, to catch', [
+        ['agarrar', 'to grab'], ['agarrado', 'grabbed'], ['agarrando', 'grabbing'],
+    ], [
+        ['agarro', 'I grab'], ['agarras', 'you grab'], ['agarra', 's/he grabs'],
+        ['agarramos', 'we grab'], ['agarran', 'they grab'],
+    ], [
+        ['agarré', 'I grabbed'], ['agarraste', 'you grabbed'], ['agarró', 's/he grabbed'],
+        ['agarramos', 'we grabbed'], ['agarraron', 'they grabbed'],
+    ], [
+        ['agarraba', 'I used to grab'], ['agarrabas', 'you used to grab'], ['agarraba', 's/he used to grab'],
+        ['agarrábamos', 'we used to grab'], ['agarraban', 'they used to grab'],
+    ]),
+    simpleVerb('sorprender', 'to surprise', [
+        ['sorprender', 'to surprise'], ['sorprendido', 'surprised'], ['sorprendiendo', 'surprising'],
+    ], [
+        ['sorprendo', 'I surprise'], ['sorprendes', 'you surprise'], ['sorprende', 's/he surprises'],
+        ['sorprendemos', 'we surprise'], ['sorprenden', 'they surprise'],
+    ], [
+        ['sorprendí', 'I surprised'], ['sorprendiste', 'you surprised'], ['sorprendió', 's/he surprised'],
+        ['sorprendimos', 'we surprised'], ['sorprendieron', 'they surprised'],
+    ], [
+        ['sorprendía', 'I used to surprise'], ['sorprendías', 'you used to surprise'], ['sorprendía', 's/he used to surprise'],
+        ['sorprendíamos', 'we used to surprise'], ['sorprendían', 'they used to surprise'],
     ]),]
