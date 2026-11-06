@@ -1141,4 +1141,196 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['cansaba', 'I used to tire'], ['cansabas', 'you used to tire'], ['cansaba', 's/he used to tire'],
         ['cansábamos', 'we used to tire'], ['cansaban', 'they used to tire'],
+    ]),
+    simpleVerb('irse', 'to leave, to go away', [
+        ['irse', 'to leave'], ['ido', 'left'], ['yendo', 'leaving'],
+    ], [
+        ['me voy', 'I leave', true], ['te vas', 'you leave', true], ['se va', 's/he leaves', true],
+        ['nos vamos', 'we leave', true], ['se van', 'they leave', true],
+    ], [
+        ['me fui', 'I left', true], ['te fuiste', 'you left', true], ['se fue', 's/he left', true],
+        ['nos fuimos', 'we left', true], ['se fueron', 'they left', true],
+    ], [
+        ['me iba', 'I used to leave', true], ['te ibas', 'you used to leave', true], ['se iba', 's/he used to leave', true],
+        ['nos íbamos', 'we used to leave', true], ['se iban', 'they used to leave', true],
+    ]),
+    simpleVerb('regalar', 'to give away, to present, to give a present', [
+        ['regalar', 'to give as a present'], ['regalado', 'given as a present'], ['regalando', 'giving as a present'],
+    ], [
+        ['regalo', 'I give as a present'], ['regalas', 'you give as a present'], ['regala', 's/he gives as a present'],
+        ['regalamos', 'we give as a present'], ['regalan', 'they give as a present'],
+    ], [
+        ['regalé', 'I gave as a present'], ['regalaste', 'you gave as a present'], ['regaló', 's/he gave as a present'],
+        ['regalamos', 'we gave as a present'], ['regalaron', 'they gave as a present'],
+    ], [
+        ['regalaba', 'I used to give as a present'], ['regalabas', 'you used to give as a present'], ['regalaba', 's/he used to give as a present'],
+        ['regalábamos', 'we used to give as a present'], ['regalaban', 'they used to give as a present'],
+    ]),
+    simpleVerb('encontrar', 'to find', [
+        ['encontrar', 'to find'], ['encontrado', 'found'], ['encontrando', 'finding'],
+    ], [
+        ['encuentro', 'I find', true], ['encuentras', 'you find', true], ['encuentra', 's/he finds', true],
+        ['encontramos', 'we find'], ['encuentran', 'they find', true],
+    ], [
+        ['encontré', 'I found'], ['encontraste', 'you found'], ['encontró', 's/he found'],
+        ['encontramos', 'we found'], ['encontraron', 'they found'],
+    ], [
+        ['encontraba', 'I used to find'], ['encontrabas', 'you used to find'], ['encontraba', 's/he used to find'],
+        ['encontrábamos', 'we used to find'], ['encontraban', 'they used to find'],
+    ]),
+    simpleVerb('poner', 'to put, to place', [
+        ['poner', 'to put'], ['puesto', 'put'], ['poniendo', 'putting'],
+    ], [
+        ['pongo', 'I put', true], ['pones', 'you put'], ['pone', 's/he puts'],
+        ['ponemos', 'we put'], ['ponen', 'they put'],
+    ], [
+        ['puse', 'I put', true], ['pusiste', 'you put', true], ['puso', 's/he put', true],
+        ['pusimos', 'we put', true], ['pusieron', 'they put', true],
+    ], [
+        ['ponía', 'I used to put'], ['ponías', 'you used to put'], ['ponía', 's/he used to put'],
+        ['poníamos', 'we used to put'], ['ponían', 'they used to put'],
+    ]),
+    simpleVerb('sentir', 'to feel, to sense, to be sorry', [
+        ['sentir', 'to feel'], ['sentido', 'felt'], ['sintiendo', 'feeling'],
+    ], [
+        ['siento', 'I feel', true], ['sientes', 'you feel', true], ['siente', 's/he feels', true],
+        ['sentimos', 'we feel'], ['sienten', 'they feel', true],
+    ], [
+        ['sentí', 'I felt'], ['sentiste', 'you felt'], ['sintió', 's/he felt', true],
+        ['sentimos', 'we felt'], ['sintieron', 'they felt', true],
+    ], [
+        ['sentía', 'I used to feel'], ['sentías', 'you used to feel'], ['sentía', 's/he used to feel'],
+        ['sentíamos', 'we used to feel'], ['sentían', 'they used to feel'],
+    ]),
+    simpleVerb('dormir', 'to sleep', [
+        ['dormir', 'to sleep'], ['dormido', 'slept'], ['durmiendo', 'sleeping'],
+    ], [
+        ['duermo', 'I sleep', true], ['duermes', 'you sleep', true], ['duerme', 's/he sleeps', true],
+        ['dormimos', 'we sleep'], ['duermen', 'they sleep', true],
+    ], [
+        ['dormí', 'I slept'], ['dormiste', 'you slept'], ['durmió', 's/he slept', true],
+        ['dormimos', 'we slept'], ['durmieron', 'they slept', true],
+    ], [
+        ['dormía', 'I used to sleep'], ['dormías', 'you used to sleep'], ['dormía', 's/he used to sleep'],
+        ['dormíamos', 'we used to sleep'], ['dormían', 'they used to sleep'],
+    ]),
+    simpleVerb('subir', 'to go up, to climb, to raise, to take up', [
+        ['subir', 'to go up'], ['subido', 'gone up'], ['subiendo', 'going up'],
+    ], [
+        ['subo', 'I go up'], ['subes', 'you go up'], ['sube', 's/he goes up'],
+        ['subimos', 'we go up'], ['suben', 'they go up'],
+    ], [
+        ['subí', 'I went up'], ['subiste', 'you went up'], ['subió', 's/he went up'],
+        ['subimos', 'we went up'], ['subieron', 'they went up'],
+    ], [
+        ['subía', 'I used to go up'], ['subías', 'you used to go up'], ['subía', 's/he used to go up'],
+        ['subíamos', 'we used to go up'], ['subían', 'they used to go up'],
+    ]),
+    simpleVerb('bajar', 'to go down, to lower, to take down', [
+        ['bajar', 'to go down'], ['bajado', 'gone down'], ['bajando', 'going down'],
+    ], [
+        ['bajo', 'I go down'], ['bajas', 'you go down'], ['baja', 's/he goes down'],
+        ['bajamos', 'we go down'], ['bajan', 'they go down'],
+    ], [
+        ['bajé', 'I went down'], ['bajaste', 'you went down'], ['bajó', 's/he went down'],
+        ['bajamos', 'we went down'], ['bajaron', 'they went down'],
+    ], [
+        ['bajaba', 'I used to go down'], ['bajabas', 'you used to go down'], ['bajaba', 's/he used to go down'],
+        ['bajábamos', 'we used to go down'], ['bajaban', 'they used to go down'],
+    ]),
+    simpleVerb('olvidar', 'to forget', [
+        ['olvidar', 'to forget'], ['olvidado', 'forgotten'], ['olvidando', 'forgetting'],
+    ], [
+        ['olvido', 'I forget'], ['olvidas', 'you forget'], ['olvida', 's/he forgets'],
+        ['olvidamos', 'we forget'], ['olvidan', 'they forget'],
+    ], [
+        ['olvidé', 'I forgot'], ['olvidaste', 'you forgot'], ['olvidó', 's/he forgot'],
+        ['olvidamos', 'we forgot'], ['olvidaron', 'they forgot'],
+    ], [
+        ['olvidaba', 'I used to forget'], ['olvidabas', 'you used to forget'], ['olvidaba', 's/he used to forget'],
+        ['olvidábamos', 'we used to forget'], ['olvidaban', 'they used to forget'],
+    ]),
+    simpleVerb('levantar', 'to lift, to raise', [
+        ['levantar', 'to lift'], ['levantado', 'lifted'], ['levantando', 'lifting'],
+    ], [
+        ['levanto', 'I lift'], ['levantas', 'you lift'], ['levanta', 's/he lifts'],
+        ['levantamos', 'we lift'], ['levantan', 'they lift'],
+    ], [
+        ['levanté', 'I lifted'], ['levantaste', 'you lifted'], ['levantó', 's/he lifted'],
+        ['levantamos', 'we lifted'], ['levantaron', 'they lifted'],
+    ], [
+        ['levantaba', 'I used to lift'], ['levantabas', 'you used to lift'], ['levantaba', 's/he used to lift'],
+        ['levantábamos', 'we used to lift'], ['levantaban', 'they used to lift'],
+    ]),
+    simpleVerb('despertar', 'to wake (someone) up', [
+        ['despertar', 'to wake'], ['despertado', 'woken'], ['despertando', 'waking'],
+    ], [
+        ['despierto', 'I wake', true], ['despiertas', 'you wake', true], ['despierta', 's/he wakes', true],
+        ['despertamos', 'we wake'], ['despiertan', 'they wake', true],
+    ], [
+        ['desperté', 'I woke'], ['despertaste', 'you woke'], ['despertó', 's/he woke'],
+        ['despertamos', 'we woke'], ['despertaron', 'they woke'],
+    ], [
+        ['despertaba', 'I used to wake'], ['despertabas', 'you used to wake'], ['despertaba', 's/he used to wake'],
+        ['despertábamos', 'we used to wake'], ['despertaban', 'they used to wake'],
+    ]),
+    simpleVerb('acordar', 'to agree, to decide on', [
+        ['acordar', 'to agree'], ['acordado', 'agreed'], ['acordando', 'agreeing'],
+    ], [
+        ['acuerdo', 'I agree', true], ['acuerdas', 'you agree', true], ['acuerda', 's/he agrees', true],
+        ['acordamos', 'we agree'], ['acuerdan', 'they agree', true],
+    ], [
+        ['acordé', 'I agreed'], ['acordaste', 'you agreed'], ['acordó', 's/he agreed'],
+        ['acordamos', 'we agreed'], ['acordaron', 'they agreed'],
+    ], [
+        ['acordaba', 'I used to agree'], ['acordabas', 'you used to agree'], ['acordaba', 's/he used to agree'],
+        ['acordábamos', 'we used to agree'], ['acordaban', 'they used to agree'],
+    ]),
+    simpleVerb('preocupar', 'to worry (someone), to concern', [
+        ['preocupar', 'to worry'], ['preocupado', 'worried'], ['preocupando', 'worrying'],
+    ], [
+        ['preocupo', 'I worry'], ['preocupas', 'you worry'], ['preocupa', 's/he worries'],
+        ['preocupamos', 'we worry'], ['preocupan', 'they worry'],
+    ], [
+        ['preocupé', 'I worried'], ['preocupaste', 'you worried'], ['preocupó', 's/he worried'],
+        ['preocupamos', 'we worried'], ['preocuparon', 'they worried'],
+    ], [
+        ['preocupaba', 'I used to worry'], ['preocupabas', 'you used to worry'], ['preocupaba', 's/he used to worry'],
+        ['preocupábamos', 'we used to worry'], ['preocupaban', 'they used to worry'],
+    ]),
+    simpleVerb('aburrir', 'to bore', [
+        ['aburrir', 'to bore'], ['aburrido', 'bored'], ['aburriendo', 'boring'],
+    ], [
+        ['aburro', 'I bore'], ['aburres', 'you bore'], ['aburre', 's/he bores'],
+        ['aburrimos', 'we bore'], ['aburren', 'they bore'],
+    ], [
+        ['aburrí', 'I bored'], ['aburriste', 'you bored'], ['aburrió', 's/he bored'],
+        ['aburrimos', 'we bored'], ['aburrieron', 'they bored'],
+    ], [
+        ['aburría', 'I used to bore'], ['aburrías', 'you used to bore'], ['aburría', 's/he used to bore'],
+        ['aburríamos', 'we used to bore'], ['aburrían', 'they used to bore'],
+    ]),
+    simpleVerb('lavar', 'to wash', [
+        ['lavar', 'to wash'], ['lavado', 'washed'], ['lavando', 'washing'],
+    ], [
+        ['lavo', 'I wash'], ['lavas', 'you wash'], ['lava', 's/he washes'],
+        ['lavamos', 'we wash'], ['lavan', 'they wash'],
+    ], [
+        ['lavé', 'I washed'], ['lavaste', 'you washed'], ['lavó', 's/he washed'],
+        ['lavamos', 'we washed'], ['lavaron', 'they washed'],
+    ], [
+        ['lavaba', 'I used to wash'], ['lavabas', 'you used to wash'], ['lavaba', 's/he used to wash'],
+        ['lavábamos', 'we used to wash'], ['lavaban', 'they used to wash'],
+    ]),
+    simpleVerb('pesar', 'to weigh', [
+        ['pesar', 'to weigh'], ['pesado', 'weighed'], ['pesando', 'weighing'],
+    ], [
+        ['peso', 'I weigh'], ['pesas', 'you weigh'], ['pesa', 's/he weighs'],
+        ['pesamos', 'we weigh'], ['pesan', 'they weigh'],
+    ], [
+        ['pesé', 'I weighed'], ['pesaste', 'you weighed'], ['pesó', 's/he weighed'],
+        ['pesamos', 'we weighed'], ['pesaron', 'they weighed'],
+    ], [
+        ['pesaba', 'I used to weigh'], ['pesabas', 'you used to weigh'], ['pesaba', 's/he used to weigh'],
+        ['pesábamos', 'we used to weigh'], ['pesaban', 'they used to weigh'],
     ]),]
