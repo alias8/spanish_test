@@ -1357,4 +1357,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['sorprendía', 'I used to surprise'], ['sorprendías', 'you used to surprise'], ['sorprendía', 's/he used to surprise'],
         ['sorprendíamos', 'we used to surprise'], ['sorprendían', 'they used to surprise'],
+    ]),
+    simpleVerb('amanecer', 'to dawn, to get light, to wake up', [
+        ['amanecer', 'to dawn'], ['amanecido', 'dawned'], ['amaneciendo', 'dawning'],
+    ], [
+        ['amanezco', 'I wake up', true], ['amaneces', 'you wake up'], ['amanece', 'it dawns, s/he wakes up'],
+        ['amanecemos', 'we wake up'], ['amanecen', 'they wake up'],
+    ], [
+        ['amanecí', 'I woke up'], ['amaneciste', 'you woke up'], ['amaneció', 'it dawned, s/he woke up'],
+        ['amanecimos', 'we woke up'], ['amanecieron', 'they woke up'],
+    ], [
+        ['amanecía', 'I used to wake up'], ['amanecías', 'you used to wake up'], ['amanecía', 'it used to dawn, s/he used to wake up'],
+        ['amanecíamos', 'we used to wake up'], ['amanecían', 'they used to wake up'],
+    ]),
+    simpleVerb('anochecer', 'to get dark, to become night', [
+        ['anochecer', 'to get dark'], ['anochecido', 'gotten dark'], ['anocheciendo', 'getting dark'],
+    ], [
+        ['anochezco', 'I end the day', true], ['anocheces', 'you end the day'], ['anochece', 'it gets dark, s/he ends the day'],
+        ['anochecemos', 'we end the day'], ['anochecen', 'they end the day'],
+    ], [
+        ['anochecí', 'I ended the day'], ['anocheciste', 'you ended the day'], ['anocheció', 'it got dark, s/he ended the day'],
+        ['anochecimos', 'we ended the day'], ['anochecieron', 'they ended the day'],
+    ], [
+        ['anochecía', 'I used to end the day'], ['anochecías', 'you used to end the day'], ['anochecía', 'it used to get dark, s/he used to end the day'],
+        ['anochecíamos', 'we used to end the day'], ['anochecían', 'they used to end the day'],
     ]),]

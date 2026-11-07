@@ -1544,4 +1544,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a surprise at a specific moment.', example: { spanish: 'sus amigos lo sorprendieron con una fiesta', english: 'his friends surprised him with a party' } },
         imperfect: { description: 'Used for something that used to surprise someone, or was ongoing.', example: { spanish: 'de niño me sorprendía lo grande que era la ciudad', english: 'as a kid it used to surprise me how big the city was' } },
     },
+    amanecer: {
+        summary: 'Amanecer means "to dawn" or "to get light", and in that sense it is impersonal — only the third-person singular is used (amanece a las siete, it gets light at seven; ya está amaneciendo, it\'s getting light). With a person as subject it means "to wake up / start the day" in a certain state or place (amanecí con fiebre, I woke up with a fever; ¿cómo amaneciste?, how did you wake up? — a common Latin American "good morning"). As a noun, el amanecer is "dawn / sunrise" (al amanecer, at dawn); its opposite is anochecer (to get dark). Like crecer and nacer, it has a c→zc spelling change in the yo present form (amanezco).',
+        present: { description: 'Used for dawn breaking now or habitually, or how someone wakes up.', example: { spanish: 'en verano amanece muy temprano', english: 'in summer it gets light very early' } },
+        preterite: { description: 'Used for a specific dawn, or how someone woke up on a specific day.', example: { spanish: 'hoy amanecí con dolor de cabeza', english: 'today I woke up with a headache' } },
+        imperfect: { description: 'Used for dawn that was breaking (background), or how someone used to wake up.', example: { spanish: 'amanecía cuando salimos de la fiesta', english: 'it was getting light when we left the party' } },
+    },
+    anochecer: {
+        summary: 'Anochecer means "to get dark" or "to become night" — the opposite of amanecer. In this sense it is impersonal, so in practice you only use the third-person singular (en invierno anochece a las cinco, in winter it gets dark at five; está anocheciendo, it\'s getting dark). With a person as subject it means "to be somewhere / in a state when night falls" (anochecimos en Madrid, we were in Madrid by nightfall), but that is rare. As a noun, el anochecer is "dusk / nightfall" (al anochecer, at dusk), and la noche is "night". Like amanecer, it has a c→zc spelling change in the yo present form (anochezco).',
+        present: { description: 'Used for darkness falling now or habitually.', example: { spanish: 'en invierno anochece muy pronto', english: 'in winter it gets dark very early' } },
+        preterite: { description: 'Used for nightfall on a specific occasion.', example: { spanish: 'anocheció antes de que llegáramos al hotel', english: 'it got dark before we reached the hotel' } },
+        imperfect: { description: 'Used for darkness that was falling (background), or used to fall at a certain time.', example: { spanish: 'ya anochecía cuando terminamos la caminata', english: 'it was already getting dark when we finished the hike' } },
+    },
 }
