@@ -1,5 +1,5 @@
 export type TenseDetail = { description: string; example: { spanish: string; english: string } }
-export type VerbDetail = { summary: string; present: TenseDetail; preterite: TenseDetail; imperfect: TenseDetail }
+export type VerbDetail = { summary: string; present: TenseDetail; preterite: TenseDetail; imperfect: TenseDetail; imperative?: TenseDetail }
 
 export const VERB_DETAILS: Record<string, VerbDetail> = {
     querer: {
@@ -475,6 +475,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'The Indicative Present of ser is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'soy estudiante', english: 'I am a student' } },
         preterite: { description: 'The Indicative Preterite of ser is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'fui estudiante', english: 'I was a student' } },
         imperfect: { description: 'The Indicative Imperfect of ser is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'era estudiante', english: 'I used to be a student' } },
+        imperative: { description: 'The Affirmative Imperative of ser is used to tell someone to be a certain way, usually with an adjective. Sé (tú) carries an accent to tell it apart from se, and has the same spelling as sé (I know) from saber.', example: { spanish: 'sé paciente con tu hermano', english: 'be patient with your brother' } },
     },
     estar: {
         summary: 'Estar is another Spanish verb which means "to be". In contrast to Ser, Estar is generally used to portray more temporary feelings or situations. For example: I am not at home, you are angry, she is at the concert, this cake is delicious, we are singing a song, this restaurant is very popular. This is an important and versatile verb that you will use in everyday life. Estar is also irregular in most cases, meaning you will need to learn the conjugations off by heart.',
@@ -1555,5 +1556,23 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         present: { description: 'Used for darkness falling now or habitually.', example: { spanish: 'en invierno anochece muy pronto', english: 'in winter it gets dark very early' } },
         preterite: { description: 'Used for nightfall on a specific occasion.', example: { spanish: 'anocheció antes de que llegáramos al hotel', english: 'it got dark before we reached the hotel' } },
         imperfect: { description: 'Used for darkness that was falling (background), or used to fall at a certain time.', example: { spanish: 'ya anochecía cuando terminamos la caminata', english: 'it was already getting dark when we finished the hike' } },
+    },
+    exigir: {
+        summary: 'Exigir means "to demand" or "to require" — stronger than pedir (to ask for). A person demands something (exijo una explicación, I demand an explanation; exigir tus derechos, to demand your rights), and a job, law or situation requires it (el puesto exige experiencia, the job requires experience). Exigir que takes the subjunctive (exijo que me devuelvan el dinero, I demand that they give me my money back). The adjective exigente means "demanding" (un jefe muy exigente). Like elegir and coger, it has a g→j spelling change in the yo present form (exijo), needed to keep the soft "h" sound before "o".',
+        present: { description: 'Used for demanding or requiring something right now or habitually.', example: { spanish: 'este trabajo exige mucha paciencia', english: 'this job requires a lot of patience' } },
+        preterite: { description: 'Used for a completed demand at a specific moment.', example: { spanish: 'el cliente exigió hablar con el gerente', english: 'the customer demanded to speak to the manager' } },
+        imperfect: { description: 'Used for demands that used to be made regularly, or were ongoing.', example: { spanish: 'mis padres exigían buenas notas', english: 'my parents used to demand good grades' } },
+    },
+    criticar: {
+        summary: 'Criticar means "to criticise" — finding fault with someone or something (siempre critica mi forma de conducir, s/he always criticises my driving), reviewing a film or book, and also "to gossip about / badmouth" people behind their backs (les encanta criticar a los vecinos, they love gossiping about the neighbours). The noun la crítica means "criticism" or "a review", el/la crítico/a is "a critic", and crítico is also the adjective "critical". Watch the stress: critico (I criticise) vs crítico (critic). Like buscar and sacar, it has a c→qu spelling change in the yo preterite (critiqué), needed to keep the hard "k" sound before "e".',
+        present: { description: 'Used for criticising right now or habitually.', example: { spanish: 'mi suegra critica todo lo que cocino', english: 'my mother-in-law criticises everything I cook' } },
+        preterite: { description: 'Used for a completed criticism at a specific moment.', example: { spanish: 'la prensa criticó la decisión del gobierno', english: 'the press criticised the government\'s decision' } },
+        imperfect: { description: 'Used for criticising that used to happen regularly, or was ongoing.', example: { spanish: 'mi jefe anterior me criticaba delante de todos', english: 'my old boss used to criticise me in front of everyone' } },
+    },
+    apoyar: {
+        summary: 'Apoyar means "to support" — backing a person, idea or decision (te apoyo en todo, I support you in everything; apoyar una propuesta), and physically "to lean / rest" something on something (apoya la bici contra la pared, lean the bike against the wall). Apoyarse means "to lean on" (apóyate en mí, lean on me) — literally or emotionally. The noun is el apoyo (support), which is also "I support". Note that for a sports team, Spanish usually says ser de or animar a, not apoyar. It is fully regular.',
+        present: { description: 'Used for supporting someone or something right now or habitually.', example: { spanish: 'mis padres me apoyan en todo', english: 'my parents support me in everything' } },
+        preterite: { description: 'Used for support given at a specific moment.', example: { spanish: 'la mayoría apoyó la propuesta', english: 'the majority supported the proposal' } },
+        imperfect: { description: 'Used for support that was ongoing, or used to be given regularly.', example: { spanish: 'mi hermano siempre me apoyaba cuando tenía problemas', english: 'my brother always used to support me when I had problems' } },
     },
 }

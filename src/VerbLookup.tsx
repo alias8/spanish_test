@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { INFINITIVE_ITEMS, VERB_PRONOUNS, TENSE_META, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, VERB_SEARCH_INDEX, type VerbEntry } from './verbs'
+import { INFINITIVE_ITEMS, TENSE_META, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, VERB_SEARCH_INDEX, type VerbEntry } from './verbs'
 import { normalize } from './utils'
 
 type MatchReason = 'conjugated' | 'translation' | 'partial'
@@ -183,8 +183,8 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
               </thead>
               <tbody>
                 {tense.forms.map((form, j) => (
-                  <tr key={VERB_PRONOUNS[j]}>
-                    <td>{VERB_PRONOUNS[j]}</td>
+                  <tr key={meta.pronouns[j]}>
+                    <td>{meta.pronouns[j]}</td>
                     <td>
                       {highlightMatches(form.spanish, highlight)}
                       {form.irregular && <span className="irregular-dot" />}

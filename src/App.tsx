@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback, useLayoutEffect } from 'react'
+import { useState, useRef, useMemo, useCallback } from 'react'
 import './App.css'
 import { type NumberEntry, SCREENS } from './data'
 import { FREQUENCY_RANK, VERBS } from './verbs'
@@ -16,10 +16,9 @@ export default function App() {
   const [verbQuery, setVerbQuery] = useState('ser')
   const [resolvedVerb, setResolvedVerb] = useState<string | null>(null)
   const [verbSort, setVerbSort] = useState<'alpha' | 'frequency'>('frequency')
-  const [appOffset, setAppOffset] = useState(0)
+  const [verbPanelOpen, setVerbPanelOpen] = useState(false)
+  const [screenPanelOpen, setScreenPanelOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const verbNavRef = useRef<HTMLElement>(null)
-  const screenNavRef = useRef<HTMLElement>(null)
 
   const screen = SCREENS[screenIndex]
   const sortedVerbs = useMemo(() => {
@@ -35,34 +34,6 @@ export default function App() {
     if (screen.kind !== 'numbers') return null
     return new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n]))
   }, [screen])
-
-  // The verb-nav and screen-nav sidebars are position:absolute (so they don't
-  // affect .app's centering) but differ in width, which leaves .app off-center
-  // between them. Measure both and nudge .app so its margin to each is equal.
-  useLayoutEffect(() => {
-    if (screen.kind !== 'verbs') {
-      setAppOffset(0)
-      return
-    }
-    function recompute() {
-      const rightEl = screenNavRef.current
-      const leftEl = verbNavRef.current
-      if (!rightEl || !leftEl) return
-      const leftEdge = leftEl.getBoundingClientRect().right
-      const rightEdge = rightEl.getBoundingClientRect().left
-      const desiredCenter = (leftEdge + rightEdge) / 2
-      setAppOffset(desiredCenter - window.innerWidth / 2)
-    }
-    recompute()
-    const observer = new ResizeObserver(recompute)
-    if (verbNavRef.current) observer.observe(verbNavRef.current)
-    if (screenNavRef.current) observer.observe(screenNavRef.current)
-    window.addEventListener('resize', recompute)
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', recompute)
-    }
-  }, [screen.kind, verbSort, sortedVerbs])
 
   const revealed = revealedByScreen[screenIndex]
   const totalCount = screen.kind === 'numbers'
@@ -119,7 +90,7 @@ export default function App() {
 
   return (
     <div className="layout">
-      <div className="app" style={appOffset ? { transform: `translateX(${appOffset}px)` } : undefined}>
+      <div className="app">
         <h1>{screen.kind === 'numbers' ? 'Spanish Numbers' : screen.label}</h1>
         {screen.kind !== 'verbs' && (
           <p className="subtitle">
@@ -169,7 +140,17 @@ export default function App() {
       </div>
 
       {screen.kind === 'verbs' && (
-        <nav className="verb-nav" ref={verbNavRef}>
+        <button
+          className={`panel-toggle left ${verbPanelOpen ? 'open' : ''}`}
+          onClick={() => setVerbPanelOpen(prev => !prev)}
+          aria-expanded={verbPanelOpen}
+        >
+          {verbPanelOpen ? '✕ Close verbs' : '☰ All verbs'}
+        </button>
+      )}
+
+      {screen.kind === 'verbs' && verbPanelOpen && (
+        <nav className="verb-nav">
           <button
             className="verb-sort-toggle"
             onClick={() => setVerbSort(prev => prev === 'alpha' ? 'frequency' : 'alpha')}
@@ -189,7 +170,15 @@ export default function App() {
         </nav>
       )}
 
-      <nav className="screen-nav" ref={screenNavRef}>
+      <button
+        className={`panel-toggle right ${screenPanelOpen ? 'open' : ''}`}
+        onClick={() => setScreenPanelOpen(prev => !prev)}
+        aria-expanded={screenPanelOpen}
+      >
+        {screenPanelOpen ? '✕ Close menu' : '☰ Menu'}
+      </button>
+
+      {screenPanelOpen && <nav className="screen-nav">
         {SCREENS.map((s, index) => (
           <button
             key={s.label}
@@ -199,7 +188,7 @@ export default function App() {
             {s.label}
           </button>
         ))}
-      </nav>
+      </nav>}
     </div>
   )
 }

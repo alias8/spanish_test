@@ -1381,4 +1381,40 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['anochecía', 'I used to end the day'], ['anochecías', 'you used to end the day'], ['anochecía', 'it used to get dark, s/he used to end the day'],
         ['anochecíamos', 'we used to end the day'], ['anochecían', 'they used to end the day'],
+    ]),
+    simpleVerb('exigir', 'to require, to demand', [
+        ['exigir', 'to demand'], ['exigido', 'demanded'], ['exigiendo', 'demanding'],
+    ], [
+        ['exijo', 'I demand', true], ['exiges', 'you demand'], ['exige', 's/he demands'],
+        ['exigimos', 'we demand'], ['exigen', 'they demand'],
+    ], [
+        ['exigí', 'I demanded'], ['exigiste', 'you demanded'], ['exigió', 's/he demanded'],
+        ['exigimos', 'we demanded'], ['exigieron', 'they demanded'],
+    ], [
+        ['exigía', 'I used to demand'], ['exigías', 'you used to demand'], ['exigía', 's/he used to demand'],
+        ['exigíamos', 'we used to demand'], ['exigían', 'they used to demand'],
+    ]),
+    simpleVerb('criticar', 'to criticise', [
+        ['criticar', 'to criticise'], ['criticado', 'criticised'], ['criticando', 'criticising'],
+    ], [
+        ['critico', 'I criticise'], ['criticas', 'you criticise'], ['critica', 's/he criticises'],
+        ['criticamos', 'we criticise'], ['critican', 'they criticise'],
+    ], [
+        ['critiqué', 'I criticised', true], ['criticaste', 'you criticised'], ['criticó', 's/he criticised'],
+        ['criticamos', 'we criticised'], ['criticaron', 'they criticised'],
+    ], [
+        ['criticaba', 'I used to criticise'], ['criticabas', 'you used to criticise'], ['criticaba', 's/he used to criticise'],
+        ['criticábamos', 'we used to criticise'], ['criticaban', 'they used to criticise'],
+    ]),
+    simpleVerb('apoyar', 'to support', [
+        ['apoyar', 'to support'], ['apoyado', 'supported'], ['apoyando', 'supporting'],
+    ], [
+        ['apoyo', 'I support'], ['apoyas', 'you support'], ['apoya', 's/he supports'],
+        ['apoyamos', 'we support'], ['apoyan', 'they support'],
+    ], [
+        ['apoyé', 'I supported'], ['apoyaste', 'you supported'], ['apoyó', 's/he supported'],
+        ['apoyamos', 'we supported'], ['apoyaron', 'they supported'],
+    ], [
+        ['apoyaba', 'I used to support'], ['apoyabas', 'you used to support'], ['apoyaba', 's/he used to support'],
+        ['apoyábamos', 'we used to support'], ['apoyaban', 'they used to support'],
     ]),]

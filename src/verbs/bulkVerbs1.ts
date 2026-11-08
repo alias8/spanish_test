@@ -10,6 +10,8 @@ export const BULK_VERBS_1: VerbEntry[] = [
         ['fui', 'I was', true], ['fuiste', 'you were', true], ['fue', 's/he was', true], ['fuimos', 'we were', true], ['fueron', 'they were', true],
     ], [
         ['era', 'I used to be', true], ['eras', 'you used to be', true], ['era', 's/he used to be', true], ['éramos', 'we used to be', true], ['eran', 'they used to be', true],
+    ], [
+        ['sé', 'be! (you, informal)', true], ['sea', 'be! (you, formal)', true], ['sean', 'be! (you all)', true],
     ]),
     simpleVerb('estar', 'to be', [
         ['estar', 'to be (temporary)'], ['estado', 'been'], ['estando', 'being'],

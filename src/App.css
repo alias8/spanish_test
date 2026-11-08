@@ -17,6 +17,11 @@
   box-sizing: border-box;
 }
 
+/* The side menus are hidden overlays, so the verb page can use the full width. */
+.app:has(.verb-lookup) {
+  width: 100%;
+}
+
 h1 {
   font-size: 2.2rem;
   margin: 0 0 6px;
@@ -281,7 +286,6 @@ h1 {
 
 .verb-results {
   width: 100%;
-  max-width: 1300px;
   box-sizing: border-box;
   min-height: 0;
   height: calc(100svh - 190px);
@@ -329,7 +333,7 @@ h1 {
 
 .verb-detail {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 16px;
   width: 100%;
@@ -505,27 +509,71 @@ h1 {
   }
 }
 
+/* Like .verb-nav, the screen menu is hidden by default and opens as an
+   overlay, toggled by .panel-toggle.right. */
 .screen-nav {
   position: absolute;
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 20px;
+  top: 60px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-height: calc(100svh - 80px);
+  overflow-y: auto;
+  padding: 10px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
+/* The verb list is hidden by default and opens as an overlay over the verb
+   page (it doesn't push the content), toggled by .panel-toggle.left. */
 .verb-nav {
   position: absolute;
   left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 60px;
+  z-index: 10;
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 4px 6px;
-  max-height: calc(100svh - 40px);
+  max-height: calc(100svh - 80px);
   overflow-y: auto;
-  padding: 4px;
+  padding: 10px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.panel-toggle {
+  position: absolute;
+  top: 16px;
+  z-index: 11;
+  font-size: 0.8rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover,
+  &.open {
+    background: var(--accent-border);
+  }
+
+  &.left {
+    left: 20px;
+  }
+
+  &.right {
+    right: 20px;
+  }
 }
 
 /* Only two screen sizes are supported: 1792x968 (2 columns, default above)

@@ -15,10 +15,11 @@ for (const verb of VERBS) {
     const details = VERB_DETAILS[verb.infinitive]
     if (!details) continue
     verb.summary = details.summary
-    const [present, preterite, imperfect] = verb.tenses
+    const [present, preterite, imperfect, imperative] = verb.tenses
     Object.assign(present, details.present)
     Object.assign(preterite, details.preterite)
     Object.assign(imperfect, details.imperfect)
+    if (imperative && details.imperative) Object.assign(imperative, details.imperative)
 }
 
 // Indices built once from VERBS, so exact-match lookups (infinitive or any conjugated
