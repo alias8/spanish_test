@@ -4,9 +4,18 @@ import { BULK_VERBS_2 } from './bulkVerbs2'
 import { BULK_VERBS_3 } from './bulkVerbs3'
 import { BULK_VERBS_4 } from './bulkVerbs4'
 import { VERB_DETAILS } from './details'
+import { buildImperative } from './imperative'
 import { normalize } from '../utils'
 
 export const VERBS: VerbEntry[] = [...BULK_VERBS_1, ...BULK_VERBS_2, ...BULK_VERBS_3, ...BULK_VERBS_4]
+
+// The imperative is generated rather than hand-written (see imperative.ts). The length check
+// keeps this idempotent, since dev hot-reload can re-run this module on the same verb objects.
+for (const verb of VERBS) {
+    if (verb.tenses.length > 3) continue
+    const imperative = buildImperative(verb)
+    if (imperative) verb.tenses.push(imperative)
+}
 
 // Original summaries and tense descriptions (not copied from any external source),
 // merged onto matching entries above by infinitive. Only a subset of verbs have

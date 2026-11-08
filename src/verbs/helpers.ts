@@ -17,12 +17,11 @@ export function simpleVerb(
     present: SimpleForm[],
     preterite: SimpleForm[],
     imperfect: SimpleForm[],
-    imperative?: SimpleForm[], // tú, usted, ustedes
 ): VerbEntry {
     return {
         infinitive,
         translation,
         infinitiveForms: infinitiveForms.map(([spanish, english]) => ({ spanish, english })),
-        tenses: [buildTense(present), buildTense(preterite), buildTense(imperfect), ...(imperative ? [buildTense(imperative)] : [])],
+        tenses: [buildTense(present), buildTense(preterite), buildTense(imperfect)],
     }
 }
