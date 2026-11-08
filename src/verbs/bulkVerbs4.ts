@@ -1417,4 +1417,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['apoyaba', 'I used to support'], ['apoyabas', 'you used to support'], ['apoyaba', 's/he used to support'],
         ['apoyábamos', 'we used to support'], ['apoyaban', 'they used to support'],
+    ]),
+    simpleVerb('ofrecer', 'to offer, to provide (a service)', [
+        ['ofrecer', 'to offer'], ['ofrecido', 'offered'], ['ofreciendo', 'offering'],
+    ], [
+        ['ofrezco', 'I offer', true], ['ofreces', 'you offer'], ['ofrece', 's/he offers'],
+        ['ofrecemos', 'we offer'], ['ofrecen', 'they offer'],
+    ], [
+        ['ofrecí', 'I offered'], ['ofreciste', 'you offered'], ['ofreció', 's/he offered'],
+        ['ofrecimos', 'we offered'], ['ofrecieron', 'they offered'],
+    ], [
+        ['ofrecía', 'I used to offer'], ['ofrecías', 'you used to offer'], ['ofrecía', 's/he used to offer'],
+        ['ofrecíamos', 'we used to offer'], ['ofrecían', 'they used to offer'],
     ]),]

@@ -7,7 +7,7 @@ const FREQUENCY_ORDER = [
     'entender', 'buscar', 'encontrar', 'encontrarse', 'trabajar', 'escribir', 'empezar', 'continuar', 'esperar', 'perder', 'pedir', 'prestar', 'pedir prestado', 'recibir',
     'recordar', 'olvidar', 'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'quitar', 'tirar', 'necesitar', 'requerir', 'exigir', 'jugar', 'cerrar',
     'contar', 'mirar', 'tratar', 'intentar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'subir', 'bajar', 'existir', 'durar',
-    'mantener', 'resultar', 'presentar', 'mostrar', 'mover', 'levantar', 'crear', 'abrir', 'considerar', 'oír', 'escuchar', 'acabar', 'convertir', 'ganar',
+    'mantener', 'resultar', 'presentar', 'ofrecer', 'mostrar', 'mover', 'levantar', 'crear', 'abrir', 'considerar', 'oír', 'escuchar', 'acabar', 'convertir', 'ganar',
     'formar', 'partir', 'aceptar', 'acordar', 'ceder', 'realizar', 'suponer', 'convenir', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'amanecer', 'anochecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'apoyar', 'perdonar', 'respetar', 'comer', 'dormir',
     'usar', 'recoger', 'soler', 'parecer', 'decidir', 'insistir', 'producir', 'diseñar', 'causar', 'ocurrir', 'probar', 'gustar', 'faltar', 'molestar', 'sentarse', 'ponerse', 'acercarse', 'amar',

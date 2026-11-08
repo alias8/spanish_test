@@ -1575,4 +1575,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for support given at a specific moment.', example: { spanish: 'la mayoría apoyó la propuesta', english: 'the majority supported the proposal' } },
         imperfect: { description: 'Used for support that was ongoing, or used to be given regularly.', example: { spanish: 'mi hermano siempre me apoyaba cuando tenía problemas', english: 'my brother always used to support me when I had problems' } },
     },
+    ofrecer: {
+        summary: 'Ofrecer means "to offer" — offering something to someone (te ofrezco un café, I\'ll offer you a coffee; me ofrecieron el trabajo, they offered me the job) — and "to provide" a service (el hotel ofrece desayuno, the hotel provides breakfast). The person receiving the offer is an indirect object. Ofrecerse (a) means "to volunteer" (me ofrecí a ayudar, I offered to help). The noun is la oferta, which also means a special offer or sale (está de oferta, it\'s on sale). Like conocer and crecer, it has a c→zc spelling change in the yo present form (ofrezco).',
+        present: { description: 'Used for offering or providing something right now or habitually.', example: { spanish: 'esta empresa ofrece clases de español gratis', english: 'this company offers free Spanish classes' } },
+        preterite: { description: 'Used for a completed offer at a specific moment.', example: { spanish: 'mi vecino me ofreció ayuda con la mudanza', english: 'my neighbour offered me help with the move' } },
+        imperfect: { description: 'Used for offers that used to be made regularly, or were ongoing.', example: { spanish: 'mi abuela siempre nos ofrecía galletas', english: 'my grandmother always used to offer us biscuits' } },
+    },
 }

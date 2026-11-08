@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback } from 'react'
+import { useState, useRef, useMemo, useCallback, useEffect, type RefObject } from 'react'
 import './App.css'
 import { type NumberEntry, SCREENS } from './data'
 import { FREQUENCY_RANK, VERBS } from './verbs'
@@ -6,6 +6,21 @@ import Card from './Card'
 import ConjugationTable from './ConjugationTable'
 import VerbLookup from './VerbLookup'
 import { normalize } from './utils'
+
+// Closes a side panel when clicking anywhere outside it. The toggle button is excluded
+// so its own onClick handles closing (otherwise it would close here and reopen there).
+function useCloseOnOutsideClick(open: boolean, setOpen: (open: boolean) => void, panelRef: RefObject<HTMLElement | null>, toggleRef: RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    if (!open) return
+    function handlePointerDown(e: PointerEvent) {
+      const target = e.target as Node
+      if (panelRef.current?.contains(target) || toggleRef.current?.contains(target)) return
+      setOpen(false)
+    }
+    document.addEventListener('pointerdown', handlePointerDown)
+    return () => document.removeEventListener('pointerdown', handlePointerDown)
+  }, [open, setOpen, panelRef, toggleRef])
+}
 
 export default function App() {
   const [screenIndex, setScreenIndex] = useState(() => SCREENS.findIndex(s => s.kind === 'verbs'))
@@ -19,6 +34,13 @@ export default function App() {
   const [verbPanelOpen, setVerbPanelOpen] = useState(false)
   const [screenPanelOpen, setScreenPanelOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const verbNavRef = useRef<HTMLElement>(null)
+  const verbToggleRef = useRef<HTMLButtonElement>(null)
+  const screenNavRef = useRef<HTMLElement>(null)
+  const screenToggleRef = useRef<HTMLButtonElement>(null)
+
+  useCloseOnOutsideClick(verbPanelOpen, setVerbPanelOpen, verbNavRef, verbToggleRef)
+  useCloseOnOutsideClick(screenPanelOpen, setScreenPanelOpen, screenNavRef, screenToggleRef)
 
   const screen = SCREENS[screenIndex]
   const sortedVerbs = useMemo(() => {
@@ -141,6 +163,7 @@ export default function App() {
 
       {screen.kind === 'verbs' && (
         <button
+          ref={verbToggleRef}
           className={`panel-toggle left ${verbPanelOpen ? 'open' : ''}`}
           onClick={() => setVerbPanelOpen(prev => !prev)}
           aria-expanded={verbPanelOpen}
@@ -150,7 +173,7 @@ export default function App() {
       )}
 
       {screen.kind === 'verbs' && verbPanelOpen && (
-        <nav className="verb-nav">
+        <nav className="verb-nav" ref={verbNavRef}>
           <button
             className="verb-sort-toggle"
             onClick={() => setVerbSort(prev => prev === 'alpha' ? 'frequency' : 'alpha')}
@@ -171,6 +194,7 @@ export default function App() {
       )}
 
       <button
+        ref={screenToggleRef}
         className={`panel-toggle right ${screenPanelOpen ? 'open' : ''}`}
         onClick={() => setScreenPanelOpen(prev => !prev)}
         aria-expanded={screenPanelOpen}
@@ -178,7 +202,7 @@ export default function App() {
         {screenPanelOpen ? '✕ Close menu' : '☰ Menu'}
       </button>
 
-      {screenPanelOpen && <nav className="screen-nav">
+      {screenPanelOpen && <nav className="screen-nav" ref={screenNavRef}>
         {SCREENS.map((s, index) => (
           <button
             key={s.label}
