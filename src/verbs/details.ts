@@ -1,5 +1,5 @@
 export type TenseDetail = { description: string; example: { spanish: string; english: string } }
-export type VerbDetail = { summary: string; present: TenseDetail; preterite: TenseDetail; imperfect: TenseDetail; imperative?: TenseDetail }
+export type VerbDetail = { summary: string; present: TenseDetail; preterite: TenseDetail; imperfect: TenseDetail; presentPerfect?: TenseDetail; imperative?: TenseDetail }
 
 export const VERB_DETAILS: Record<string, VerbDetail> = {
     querer: {

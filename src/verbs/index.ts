@@ -5,14 +5,17 @@ import { BULK_VERBS_3 } from './bulkVerbs3'
 import { BULK_VERBS_4 } from './bulkVerbs4'
 import { VERB_DETAILS } from './details'
 import { buildImperative } from './imperative'
+import { buildPresentPerfect } from './presentPerfect'
 import { normalize } from '../utils'
 
 export const VERBS: VerbEntry[] = [...BULK_VERBS_1, ...BULK_VERBS_2, ...BULK_VERBS_3, ...BULK_VERBS_4]
 
-// The imperative is generated rather than hand-written (see imperative.ts). The length check
-// keeps this idempotent, since dev hot-reload can re-run this module on the same verb objects.
+// The present perfect and imperative are generated rather than hand-written (see
+// presentPerfect.ts and imperative.ts). The length check keeps this idempotent, since dev
+// hot-reload can re-run this module on the same verb objects.
 for (const verb of VERBS) {
     if (verb.tenses.length > 3) continue
+    verb.tenses.push(buildPresentPerfect(verb))
     const imperative = buildImperative(verb)
     if (imperative) verb.tenses.push(imperative)
 }
@@ -24,10 +27,11 @@ for (const verb of VERBS) {
     const details = VERB_DETAILS[verb.infinitive]
     if (!details) continue
     verb.summary = details.summary
-    const [present, preterite, imperfect, imperative] = verb.tenses
+    const [present, preterite, imperfect, presentPerfect, imperative] = verb.tenses
     Object.assign(present, details.present)
     Object.assign(preterite, details.preterite)
     Object.assign(imperfect, details.imperfect)
+    if (details.presentPerfect) Object.assign(presentPerfect, details.presentPerfect)
     if (imperative && details.imperative) Object.assign(imperative, details.imperative)
 }
 

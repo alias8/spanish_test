@@ -9,6 +9,7 @@ export const TENSE_META = [
     { name: 'Indicative Present', spanishName: 'El Presente', pronouns: VERB_PRONOUNS },
     { name: 'Indicative Preterite', spanishName: 'El Pretérito Indefinido', pronouns: VERB_PRONOUNS },
     { name: 'Indicative Imperfect', spanishName: 'El Pretérito Imperfecto', pronouns: VERB_PRONOUNS },
+    { name: 'Indicative Present Perfect', spanishName: 'El Pretérito Perfecto', pronouns: VERB_PRONOUNS },
     { name: 'Affirmative Imperative', spanishName: 'El Imperativo Afirmativo', pronouns: IMPERATIVE_PRONOUNS },
 ] as const
 
@@ -24,6 +25,6 @@ export type VerbEntry = {
     translation: string
     summary?: string
     infinitiveForms: VerbInfoRow[] // aligned with INFINITIVE_ITEMS by index
-    tenses: VerbTense[] // aligned with TENSE_META by index; the imperative (index 3) is optional
+    tenses: VerbTense[] // aligned with TENSE_META by index; the imperative (index 4, last) is optional
 }
 export type VerbLookupScreen = { kind: 'verbs'; label: string }
