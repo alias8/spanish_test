@@ -1441,4 +1441,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['asustaba', 'I used to scare'], ['asustabas', 'you used to scare'], ['asustaba', 's/he used to scare'],
         ['asustábamos', 'we used to scare'], ['asustaban', 'they used to scare'],
+    ]),
+    simpleVerb('temer', 'to fear, to be afraid of', [
+        ['temer', 'to fear'], ['temido', 'feared'], ['temiendo', 'fearing'],
+    ], [
+        ['temo', 'I fear'], ['temes', 'you fear'], ['teme', 's/he fears'],
+        ['tememos', 'we fear'], ['temen', 'they fear'],
+    ], [
+        ['temí', 'I feared'], ['temiste', 'you feared'], ['temió', 's/he feared'],
+        ['temimos', 'we feared'], ['temieron', 'they feared'],
+    ], [
+        ['temía', 'I used to fear'], ['temías', 'you used to fear'], ['temía', 's/he used to fear'],
+        ['temíamos', 'we used to fear'], ['temían', 'they used to fear'],
     ]),]

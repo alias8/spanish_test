@@ -1587,4 +1587,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a scare at a specific moment.', example: { spanish: 'el perro asustó a los niños', english: 'the dog frightened the children' } },
         imperfect: { description: 'Used for something that used to scare someone, or was ongoing.', example: { spanish: 'de pequeño me asustaban las tormentas', english: 'storms used to scare me when I was little' } },
     },
+    temer: {
+        summary: 'Temer means "to fear" or "to be afraid of" (temo a los perros, I\'m afraid of dogs; temen lo peor, they fear the worst). It is more formal than tener miedo (de), which is what people usually say in conversation (tengo miedo de las arañas). A very common everyday use is the polite "me temo que..." for "I\'m afraid that..." when giving bad news (me temo que no puedo ir, I\'m afraid I can\'t go). The noun is el temor (fear), and temerse is used like "me temo". It is fully regular.',
+        present: { description: 'Used for a fear someone has right now or habitually, and for the polite "me temo que...".', example: { spanish: 'me temo que el restaurante ya está cerrado', english: 'I\'m afraid the restaurant is already closed' } },
+        preterite: { description: 'Used for a fear felt at a specific moment.', example: { spanish: 'cuando oí el ruido, temí lo peor', english: 'when I heard the noise, I feared the worst' } },
+        imperfect: { description: 'Used for a fear that was ongoing, or used to be felt.', example: { spanish: 'de niño temía a la oscuridad', english: 'as a child I used to be afraid of the dark' } },
+    },
 }
