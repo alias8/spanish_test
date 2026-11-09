@@ -1453,4 +1453,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['temía', 'I used to fear'], ['temías', 'you used to fear'], ['temía', 's/he used to fear'],
         ['temíamos', 'we used to fear'], ['temían', 'they used to fear'],
+    ]),
+    simpleVerb('pasear', 'to go for a walk, to stroll, to walk (a dog)', [
+        ['pasear', 'to go for a walk'], ['paseado', 'walked'], ['paseando', 'walking'],
+    ], [
+        ['paseo', 'I go for a walk'], ['paseas', 'you go for a walk'], ['pasea', 's/he goes for a walk'],
+        ['paseamos', 'we go for a walk'], ['pasean', 'they go for a walk'],
+    ], [
+        ['paseé', 'I went for a walk'], ['paseaste', 'you went for a walk'], ['paseó', 's/he went for a walk'],
+        ['paseamos', 'we went for a walk'], ['pasearon', 'they went for a walk'],
+    ], [
+        ['paseaba', 'I used to go for walks'], ['paseabas', 'you used to go for walks'], ['paseaba', 's/he used to go for walks'],
+        ['paseábamos', 'we used to go for walks'], ['paseaban', 'they used to go for walks'],
     ]),]

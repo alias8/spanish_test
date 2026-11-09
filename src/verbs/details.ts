@@ -1593,4 +1593,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a fear felt at a specific moment.', example: { spanish: 'cuando oí el ruido, temí lo peor', english: 'when I heard the noise, I feared the worst' } },
         imperfect: { description: 'Used for a fear that was ongoing, or used to be felt.', example: { spanish: 'de niño temía a la oscuridad', english: 'as a child I used to be afraid of the dark' } },
     },
+    pasear: {
+        summary: 'Pasear means "to go for a walk" or "to stroll", walking for pleasure rather than to get somewhere (caminar is the general "to walk"). It also means "to walk" an animal (paseo al perro todas las mañanas, I walk the dog every morning), and pasear en bici / en barco means to go for a ride. Dar un paseo is a very common way to say "to go for a walk" (vamos a dar un paseo, let\'s go for a walk), and el paseo is also a promenade or boulevard. It is fully regular. Be careful with the double e in paseé (I went for a walk).',
+        present: { description: 'Used for walks taken right now or habitually.', example: { spanish: 'los domingos paseamos por el parque', english: 'on Sundays we go for a walk in the park' } },
+        preterite: { description: 'Used for a completed walk at a specific time.', example: { spanish: 'ayer paseé por la playa al atardecer', english: 'yesterday I went for a walk on the beach at sunset' } },
+        imperfect: { description: 'Used for walks that used to happen regularly, or were in progress.', example: { spanish: 'mis abuelos paseaban juntos cada tarde', english: 'my grandparents used to go for a walk together every afternoon' } },
+    },
 }
