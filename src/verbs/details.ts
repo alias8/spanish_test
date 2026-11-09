@@ -1581,4 +1581,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed offer at a specific moment.', example: { spanish: 'mi vecino me ofreció ayuda con la mudanza', english: 'my neighbour offered me help with the move' } },
         imperfect: { description: 'Used for offers that used to be made regularly, or were ongoing.', example: { spanish: 'mi abuela siempre nos ofrecía galletas', english: 'my grandmother always used to offer us biscuits' } },
     },
+    asustar: {
+        summary: 'Asustar means "to frighten" or "to scare". It is often used like gustar, with the scary thing as the subject and the frightened person as an object (me asusta la oscuridad, the dark scares me; me asustan las arañas, spiders scare me), and it is common for a sudden scare (¡me asustaste!, you scared me!). Asustarse is the reflexive "to get scared" (me asusté mucho, I got really scared; ¡no te asustes!, don\'t be scared!). Estar asustado means "to be scared", and the noun is el susto (¡qué susto!, what a fright!). It is fully regular.',
+        present: { description: 'Used for something that scares someone right now or habitually.', example: { spanish: 'me asusta conducir de noche', english: 'driving at night scares me' } },
+        preterite: { description: 'Used for a scare at a specific moment.', example: { spanish: 'el perro asustó a los niños', english: 'the dog frightened the children' } },
+        imperfect: { description: 'Used for something that used to scare someone, or was ongoing.', example: { spanish: 'de pequeño me asustaban las tormentas', english: 'storms used to scare me when I was little' } },
+    },
 }

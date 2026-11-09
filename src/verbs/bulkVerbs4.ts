@@ -1429,4 +1429,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['ofrecía', 'I used to offer'], ['ofrecías', 'you used to offer'], ['ofrecía', 's/he used to offer'],
         ['ofrecíamos', 'we used to offer'], ['ofrecían', 'they used to offer'],
+    ]),
+    simpleVerb('asustar', 'to frighten, to scare', [
+        ['asustar', 'to scare'], ['asustado', 'scared'], ['asustando', 'scaring'],
+    ], [
+        ['asusto', 'I scare'], ['asustas', 'you scare'], ['asusta', 's/he scares'],
+        ['asustamos', 'we scare'], ['asustan', 'they scare'],
+    ], [
+        ['asusté', 'I scared'], ['asustaste', 'you scared'], ['asustó', 's/he scared'],
+        ['asustamos', 'we scared'], ['asustaron', 'they scared'],
+    ], [
+        ['asustaba', 'I used to scare'], ['asustabas', 'you used to scare'], ['asustaba', 's/he used to scare'],
+        ['asustábamos', 'we used to scare'], ['asustaban', 'they used to scare'],
     ]),]
