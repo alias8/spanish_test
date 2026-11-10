@@ -1605,4 +1605,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed instance of guiding someone.', example: { spanish: 'mi padre me guio en la decisión', english: 'my father guided me in the decision' } },
         imperfect: { description: 'Used for guiding that happened regularly, or was in progress.', example: { spanish: 'el pastor guiaba las ovejas al río', english: 'the shepherd used to lead the sheep to the river' } },
     },
+    lastimar: {
+        summary: 'Lastimar means "to hurt" or "to injure", physically (me lastimas el brazo, you\'re hurting my arm) or emotionally (sus palabras me lastimaron, his/her words hurt me). The reflexive lastimarse means "to hurt yourself" (me lastimé la rodilla, I hurt my knee). Compare doler, which works like gustar for something that aches (me duele la rodilla, my knee hurts). The noun lástima means "pity" (¡qué lástima!, what a shame!). It is fully regular.',
+        present: { description: 'Used for hurting someone right now or habitually.', example: { spanish: 'esos zapatos me lastiman los pies', english: 'those shoes hurt my feet' } },
+        preterite: { description: 'Used for a completed injury or hurt at a specific time.', example: { spanish: 'me lastimé la espalda en el gimnasio', english: 'I hurt my back at the gym' } },
+        imperfect: { description: 'Used for hurt that happened regularly, or was ongoing.', example: { spanish: 'sus críticas siempre me lastimaban', english: 'his/her criticism always used to hurt me' } },
+    },
 }

@@ -1477,4 +1477,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['guiaba', 'I used to guide'], ['guiabas', 'you used to guide'], ['guiaba', 's/he used to guide'],
         ['guiábamos', 'we used to guide'], ['guiaban', 'they used to guide'],
+    ]),
+    simpleVerb('lastimar', 'to hurt, to injure', [
+        ['lastimar', 'to hurt'], ['lastimado', 'hurt'], ['lastimando', 'hurting'],
+    ], [
+        ['lastimo', 'I hurt'], ['lastimas', 'you hurt'], ['lastima', 's/he hurts'],
+        ['lastimamos', 'we hurt'], ['lastiman', 'they hurt'],
+    ], [
+        ['lastimé', 'I hurt'], ['lastimaste', 'you hurt'], ['lastimó', 's/he hurt'],
+        ['lastimamos', 'we hurt'], ['lastimaron', 'they hurt'],
+    ], [
+        ['lastimaba', 'I used to hurt'], ['lastimabas', 'you used to hurt'], ['lastimaba', 's/he used to hurt'],
+        ['lastimábamos', 'we used to hurt'], ['lastimaban', 'they used to hurt'],
     ]),]
