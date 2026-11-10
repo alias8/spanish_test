@@ -1489,4 +1489,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['lastimaba', 'I used to hurt'], ['lastimabas', 'you used to hurt'], ['lastimaba', 's/he used to hurt'],
         ['lastimábamos', 'we used to hurt'], ['lastimaban', 'they used to hurt'],
+    ]),
+    simpleVerb('lastimarse', 'to hurt yourself, to get hurt', [
+        ['lastimarse', 'to hurt yourself'], ['lastimado', 'hurt'], ['lastimando', 'hurting'],
+    ], [
+        ['me lastimo', 'I hurt myself'], ['te lastimas', 'you hurt yourself'], ['se lastima', 's/he hurts herself/himself'],
+        ['nos lastimamos', 'we hurt ourselves'], ['se lastiman', 'they hurt themselves'],
+    ], [
+        ['me lastimé', 'I hurt myself'], ['te lastimaste', 'you hurt yourself'], ['se lastimó', 's/he hurt herself/himself'],
+        ['nos lastimamos', 'we hurt ourselves'], ['se lastimaron', 'they hurt themselves'],
+    ], [
+        ['me lastimaba', 'I used to hurt myself'], ['te lastimabas', 'you used to hurt yourself'], ['se lastimaba', 's/he used to hurt herself/himself'],
+        ['nos lastimábamos', 'we used to hurt ourselves'], ['se lastimaban', 'they used to hurt themselves'],
     ]),]

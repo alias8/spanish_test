@@ -1611,4 +1611,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed injury or hurt at a specific time.', example: { spanish: 'me lastimé la espalda en el gimnasio', english: 'I hurt my back at the gym' } },
         imperfect: { description: 'Used for hurt that happened regularly, or was ongoing.', example: { spanish: 'sus críticas siempre me lastimaban', english: 'his/her criticism always used to hurt me' } },
     },
+    lastimarse: {
+        summary: 'Lastimarse means "to hurt yourself" or "to get hurt" (¿cuándo se lastimaron?, when did they get hurt?). The body part takes el/la, not a possessive (me lastimé la mano, I hurt my hand, not mi mano). In the plural, se can also mean "each other" (se lastimaron, they hurt each other). Its non-reflexive form, lastimar, means hurting someone or something else (lastimaron a mi hermano, they hurt my brother). It is fully regular.',
+        present: { description: 'Used for getting hurt right now or habitually.', example: { spanish: 'siempre me lastimo cuando juego al fútbol', english: 'I always hurt myself when I play soccer' } },
+        preterite: { description: 'Used for an injury at a specific time.', example: { spanish: 'se lastimó el tobillo corriendo', english: 's/he hurt her/his ankle running' } },
+        imperfect: { description: 'Used for injuries that used to happen regularly, or for background.', example: { spanish: 'de niño me lastimaba mucho', english: 'as a child I used to hurt myself a lot' } },
+    },
 }
