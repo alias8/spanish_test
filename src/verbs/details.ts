@@ -1641,4 +1641,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a fracture at a specific time.', example: { spanish: 'me fracturé el brazo ayer', english: 'I broke my arm yesterday' } },
         imperfect: { description: 'Used for background, or fractures that used to happen.', example: { spanish: 'el jugador se fracturaba los dedos a menudo', english: 'the player used to fracture his fingers often' } },
     },
+    socorrer: {
+        summary: 'Socorrer means "to help" someone in danger or an emergency, "to come to their aid" or "to rescue" them. It is more formal than ayudar, and is mostly heard in news reports and emergencies. Its best-known form is the shout ¡socorro! (help!), which is the noun el socorro (help, aid) and looks just like the yo present (socorro, I help). Related words are el/la socorrista (lifeguard, first-aider) and los equipos de socorro (rescue teams). It is fully regular.',
+        present: { description: 'Used for coming to someone\'s aid right now or habitually.', example: { spanish: 'la Cruz Roja socorre a las víctimas', english: 'the Red Cross helps the victims' } },
+        preterite: { description: 'Used for a rescue or act of help at a specific time.', example: { spanish: 'un turista socorrió al niño en la playa', english: 'a tourist came to the boy\'s aid on the beach' } },
+        imperfect: { description: 'Used for help that was ongoing, or used to be given.', example: { spanish: 'los vecinos socorrían a los heridos mientras llegaba la ambulancia', english: 'the neighbors were helping the injured while the ambulance was on its way' } },
+    },
 }

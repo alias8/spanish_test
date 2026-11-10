@@ -1549,4 +1549,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['me fracturaba', 'I used to fracture'], ['te fracturabas', 'you used to fracture'], ['se fracturaba', 's/he used to fracture'],
         ['nos fracturábamos', 'we used to fracture'], ['se fracturaban', 'they used to fracture'],
+    ]),
+    simpleVerb('socorrer', 'to help, to come to someone\'s aid, to rescue', [
+        ['socorrer', 'to help'], ['socorrido', 'helped'], ['socorriendo', 'helping'],
+    ], [
+        ['socorro', 'I help'], ['socorres', 'you help'], ['socorre', 's/he helps'],
+        ['socorremos', 'we help'], ['socorren', 'they help'],
+    ], [
+        ['socorrí', 'I helped'], ['socorriste', 'you helped'], ['socorrió', 's/he helped'],
+        ['socorrimos', 'we helped'], ['socorrieron', 'they helped'],
+    ], [
+        ['socorría', 'I used to help'], ['socorrías', 'you used to help'], ['socorría', 's/he used to help'],
+        ['socorríamos', 'we used to help'], ['socorrían', 'they used to help'],
     ]),]

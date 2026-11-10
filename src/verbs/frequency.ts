@@ -9,7 +9,7 @@ const FREQUENCY_ORDER = [
     'contar', 'mirar', 'tratar', 'intentar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'subir', 'bajar', 'existir', 'durar',
     'mantener', 'resultar', 'presentar', 'ofrecer', 'mostrar', 'mover', 'levantar', 'crear', 'abrir', 'considerar', 'oír', 'escuchar', 'acabar', 'convertir', 'ganar',
     'formar', 'partir', 'aceptar', 'acordar', 'ceder', 'realizar', 'suponer', 'convenir', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
-    'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'amanecer', 'anochecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'apoyar', 'perdonar', 'respetar', 'comer', 'dormir',
+    'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'amanecer', 'anochecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'socorrer', 'apoyar', 'perdonar', 'respetar', 'comer', 'dormir',
     'usar', 'recoger', 'soler', 'parecer', 'decidir', 'insistir', 'producir', 'diseñar', 'causar', 'ocurrir', 'probar', 'gustar', 'faltar', 'molestar', 'sentarse', 'ponerse', 'acercarse', 'amar',
     'encantar', 'sorprender', 'invitar', 'regalar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertar', 'despertarse', 'levantarse',
     'subirse', 'bajarse', 'ducharse', 'lavar', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrir', 'aburrirse', 'cansar', 'enojarse', 'enfadarse', 'quejarse', 'criticar',
