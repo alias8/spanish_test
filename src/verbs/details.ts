@@ -1629,4 +1629,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a crash or collision at a specific time.', example: { spanish: 'ayer choqué con el coche de mi vecino', english: 'yesterday I crashed into my neighbor\'s car' } },
         imperfect: { description: 'Used for clashes that used to happen, or background to a crash.', example: { spanish: 'mis hermanos chocaban por todo', english: 'my brothers used to clash over everything' } },
     },
+    romperse: {
+        summary: 'Romperse means "to break" a part of your own body (me rompí el brazo, I broke my arm), taking el/la rather than a possessive. It is also used for things that break by themselves (se rompió la ventana, the window broke), and with an indirect object for accidents, taking the blame off the person (se me rompió el vaso, the glass broke on me / I accidentally broke the glass). It is the everyday alternative to fracturarse. It is regular in these three tenses, though its past participle is irregular (roto).',
+        present: { description: 'Used for things that break, or bones you break, habitually.', example: { spanish: 'esta silla se rompe si te sientas mal', english: 'this chair breaks if you sit on it wrong' } },
+        preterite: { description: 'Used for a break at a specific time.', example: { spanish: 'me rompí la pierna esquiando', english: 'I broke my leg skiing' } },
+        imperfect: { description: 'Used for things that used to break, or were breaking.', example: { spanish: 'de niño siempre se me rompían los juguetes', english: 'as a child my toys were always breaking' } },
+    },
+    fracturarse: {
+        summary: 'Fracturarse means "to fracture" or "to break" a bone (me fracturé el brazo ayer, I broke my arm yesterday). Like lastimarse, the body part takes el/la, not a possessive. It sounds a little more formal or medical than romperse, which is what most people say day to day. The noun is la fractura (a fracture). It is fully regular.',
+        present: { description: 'Used for fractures that happen habitually or in general.', example: { spanish: 'los ancianos se fracturan la cadera con facilidad', english: 'elderly people fracture their hips easily' } },
+        preterite: { description: 'Used for a fracture at a specific time.', example: { spanish: 'me fracturé el brazo ayer', english: 'I broke my arm yesterday' } },
+        imperfect: { description: 'Used for background, or fractures that used to happen.', example: { spanish: 'el jugador se fracturaba los dedos a menudo', english: 'the player used to fracture his fingers often' } },
+    },
 }

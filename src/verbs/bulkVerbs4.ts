@@ -1525,4 +1525,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['chocaba', 'I used to crash'], ['chocabas', 'you used to crash'], ['chocaba', 's/he used to crash'],
         ['chocábamos', 'we used to crash'], ['chocaban', 'they used to crash'],
+    ]),
+    simpleVerb('romperse', 'to break (a bone), to get broken', [
+        ['romperse', 'to break'], ['roto', 'broken'], ['rompiendo', 'breaking'],
+    ], [
+        ['me rompo', 'I break'], ['te rompes', 'you break'], ['se rompe', 's/he breaks / it breaks'],
+        ['nos rompemos', 'we break'], ['se rompen', 'they break'],
+    ], [
+        ['me rompí', 'I broke'], ['te rompiste', 'you broke'], ['se rompió', 's/he broke / it broke'],
+        ['nos rompimos', 'we broke'], ['se rompieron', 'they broke'],
+    ], [
+        ['me rompía', 'I used to break'], ['te rompías', 'you used to break'], ['se rompía', 's/he used to break / it used to break'],
+        ['nos rompíamos', 'we used to break'], ['se rompían', 'they used to break'],
+    ]),
+    simpleVerb('fracturarse', 'to fracture, to break (a bone)', [
+        ['fracturarse', 'to fracture'], ['fracturado', 'fractured'], ['fracturando', 'fracturing'],
+    ], [
+        ['me fracturo', 'I fracture'], ['te fracturas', 'you fracture'], ['se fractura', 's/he fractures'],
+        ['nos fracturamos', 'we fracture'], ['se fracturan', 'they fracture'],
+    ], [
+        ['me fracturé', 'I fractured'], ['te fracturaste', 'you fractured'], ['se fracturó', 's/he fractured'],
+        ['nos fracturamos', 'we fractured'], ['se fracturaron', 'they fractured'],
+    ], [
+        ['me fracturaba', 'I used to fracture'], ['te fracturabas', 'you used to fracture'], ['se fracturaba', 's/he used to fracture'],
+        ['nos fracturábamos', 'we used to fracture'], ['se fracturaban', 'they used to fracture'],
     ]),]
