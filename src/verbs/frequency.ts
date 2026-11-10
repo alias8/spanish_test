@@ -16,7 +16,7 @@ const FREQUENCY_ORDER = [
     'olvidarse', 'temer', 'preocupar', 'preocuparse', 'asustar', 'confundirse', 'dormirse', 'responder', 'cuidar', 'romper', 'dañar', 'arreglar', 'robar', 'esconder', 'gastar', 'depositar', 'preparar', 'parar', 'apurar', 'beber',
     'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'manejar', 'caminar', 'pasear', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
-    'completar', 'reunir', 'repartir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'vaciar', 'acompañar', 'conversar',
+    'completar', 'reunir', 'repartir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'vaciar', 'acompañar', 'guiar', 'conversar',
     'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'agarrar', 'elegir', 'descansar', 'estresar', 'relajarse', 'pesar', 'pesarse', 'doler', 'costar',
     'llover', 'nevar', 'congelar', 'entrenar', 'nadar', 'esquiar', 'patinar', 'hacer snowboard', 'acampar',
 ] as const

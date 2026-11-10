@@ -1599,4 +1599,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed walk at a specific time.', example: { spanish: 'ayer paseé por la playa al atardecer', english: 'yesterday I went for a walk on the beach at sunset' } },
         imperfect: { description: 'Used for walks that used to happen regularly, or were in progress.', example: { spanish: 'mis abuelos paseaban juntos cada tarde', english: 'my grandparents used to go for a walk together every afternoon' } },
     },
+    guiar: {
+        summary: 'Guiar means "to guide" or "to lead", whether showing someone the way (el guía nos guio por la ciudad, the guide led us around the city) or guiding someone\'s decisions. Guiarse por means "to go by" or "to be guided by" something (me guío por el mapa, I go by the map). Like enviar, the "i" carries a written accent and takes the stress in most present-tense forms (guío, guías, guía, guían) except nosotros/vosotros. In the preterite, guie and guio are written without an accent because they count as one syllable (older texts write guié, guió). The noun el/la guía is a guide (person), and la guía is also a guidebook.',
+        present: { description: 'Used for guiding someone right now or habitually.', example: { spanish: 'guío a los turistas por el museo', english: 'I guide the tourists through the museum' } },
+        preterite: { description: 'Used for a completed instance of guiding someone.', example: { spanish: 'mi padre me guio en la decisión', english: 'my father guided me in the decision' } },
+        imperfect: { description: 'Used for guiding that happened regularly, or was in progress.', example: { spanish: 'el pastor guiaba las ovejas al río', english: 'the shepherd used to lead the sheep to the river' } },
+    },
 }

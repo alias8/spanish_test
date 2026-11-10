@@ -1465,4 +1465,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['paseaba', 'I used to go for walks'], ['paseabas', 'you used to go for walks'], ['paseaba', 's/he used to go for walks'],
         ['paseábamos', 'we used to go for walks'], ['paseaban', 'they used to go for walks'],
+    ]),
+    simpleVerb('guiar', 'to guide, to lead, to steer', [
+        ['guiar', 'to guide'], ['guiado', 'guided'], ['guiando', 'guiding'],
+    ], [
+        ['guío', 'I guide', true], ['guías', 'you guide', true], ['guía', 's/he guides', true],
+        ['guiamos', 'we guide'], ['guían', 'they guide', true],
+    ], [
+        ['guie', 'I guided', true], ['guiaste', 'you guided'], ['guio', 's/he guided', true],
+        ['guiamos', 'we guided'], ['guiaron', 'they guided'],
+    ], [
+        ['guiaba', 'I used to guide'], ['guiabas', 'you used to guide'], ['guiaba', 's/he used to guide'],
+        ['guiábamos', 'we used to guide'], ['guiaban', 'they used to guide'],
     ]),]
