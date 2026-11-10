@@ -1617,4 +1617,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for an injury at a specific time.', example: { spanish: 'se lastimó el tobillo corriendo', english: 's/he hurt her/his ankle running' } },
         imperfect: { description: 'Used for injuries that used to happen regularly, or for background.', example: { spanish: 'de niño me lastimaba mucho', english: 'as a child I used to hurt myself a lot' } },
     },
+    respirar: {
+        summary: 'Respirar means "to breathe" (respira hondo, take a deep breath). Respirar aire fresco is "to get some fresh air", and it is also used figuratively for relief (por fin puedo respirar, I can finally breathe). The noun la respiración is "breathing", and un respiro is "a breather" or a break. It is fully regular.',
+        present: { description: 'Used for breathing right now or habitually.', example: { spanish: 'respiro mejor en la montaña', english: 'I breathe better in the mountains' } },
+        preterite: { description: 'Used for a completed breath or moment of breathing.', example: { spanish: 'respiró hondo antes de hablar', english: 's/he took a deep breath before speaking' } },
+        imperfect: { description: 'Used for breathing that was ongoing, or used to happen.', example: { spanish: 'el bebé respiraba tranquilo mientras dormía', english: 'the baby was breathing calmly while sleeping' } },
+    },
 }

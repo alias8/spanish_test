@@ -1501,4 +1501,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['me lastimaba', 'I used to hurt myself'], ['te lastimabas', 'you used to hurt yourself'], ['se lastimaba', 's/he used to hurt herself/himself'],
         ['nos lastimábamos', 'we used to hurt ourselves'], ['se lastimaban', 'they used to hurt themselves'],
+    ]),
+    simpleVerb('respirar', 'to breathe', [
+        ['respirar', 'to breathe'], ['respirado', 'breathed'], ['respirando', 'breathing'],
+    ], [
+        ['respiro', 'I breathe'], ['respiras', 'you breathe'], ['respira', 's/he breathes'],
+        ['respiramos', 'we breathe'], ['respiran', 'they breathe'],
+    ], [
+        ['respiré', 'I breathed'], ['respiraste', 'you breathed'], ['respiró', 's/he breathed'],
+        ['respiramos', 'we breathed'], ['respiraron', 'they breathed'],
+    ], [
+        ['respiraba', 'I used to breathe'], ['respirabas', 'you used to breathe'], ['respiraba', 's/he used to breathe'],
+        ['respirábamos', 'we used to breathe'], ['respiraban', 'they used to breathe'],
     ]),]
