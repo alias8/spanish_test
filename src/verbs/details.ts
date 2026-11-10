@@ -1623,4 +1623,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a completed breath or moment of breathing.', example: { spanish: 'respiró hondo antes de hablar', english: 's/he took a deep breath before speaking' } },
         imperfect: { description: 'Used for breathing that was ongoing, or used to happen.', example: { spanish: 'el bebé respiraba tranquilo mientras dormía', english: 'the baby was breathing calmly while sleeping' } },
     },
+    chocar: {
+        summary: 'Chocar means "to crash" or "to collide", usually with con or contra (chocó con un árbol, s/he crashed into a tree). It also means "to clash" (sus ideas chocan, their ideas clash), and "to shock" or "to annoy", which works like gustar (me choca su actitud, his/her attitude annoys me). ¡Choca esos cinco! means "high five!", and el choque is a crash or collision. It is regular apart from a spelling change: the c becomes qu before e to keep the hard k sound, so the yo preterite is choqué.',
+        present: { description: 'Used for crashing or clashing right now, or for what annoys someone.', example: { spanish: 'me choca la gente que no saluda', english: 'people who don\'t say hello annoy me' } },
+        preterite: { description: 'Used for a crash or collision at a specific time.', example: { spanish: 'ayer choqué con el coche de mi vecino', english: 'yesterday I crashed into my neighbor\'s car' } },
+        imperfect: { description: 'Used for clashes that used to happen, or background to a crash.', example: { spanish: 'mis hermanos chocaban por todo', english: 'my brothers used to clash over everything' } },
+    },
 }

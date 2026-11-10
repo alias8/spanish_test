@@ -1513,4 +1513,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['respiraba', 'I used to breathe'], ['respirabas', 'you used to breathe'], ['respiraba', 's/he used to breathe'],
         ['respirábamos', 'we used to breathe'], ['respiraban', 'they used to breathe'],
+    ]),
+    simpleVerb('chocar', 'to crash, to collide, to annoy', [
+        ['chocar', 'to crash'], ['chocado', 'crashed'], ['chocando', 'crashing'],
+    ], [
+        ['choco', 'I crash'], ['chocas', 'you crash'], ['choca', 's/he crashes'],
+        ['chocamos', 'we crash'], ['chocan', 'they crash'],
+    ], [
+        ['choqué', 'I crashed', true], ['chocaste', 'you crashed'], ['chocó', 's/he crashed'],
+        ['chocamos', 'we crashed'], ['chocaron', 'they crashed'],
+    ], [
+        ['chocaba', 'I used to crash'], ['chocabas', 'you used to crash'], ['chocaba', 's/he used to crash'],
+        ['chocábamos', 'we used to crash'], ['chocaban', 'they used to crash'],
     ]),]
