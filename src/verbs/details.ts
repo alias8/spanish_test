@@ -1647,4 +1647,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a rescue or act of help at a specific time.', example: { spanish: 'un turista socorrió al niño en la playa', english: 'a tourist came to the boy\'s aid on the beach' } },
         imperfect: { description: 'Used for help that was ongoing, or used to be given.', example: { spanish: 'los vecinos socorrían a los heridos mientras llegaba la ambulancia', english: 'the neighbors were helping the injured while the ambulance was on its way' } },
     },
+    asustarse: {
+        summary: 'Asustarse means "to get frightened" or "to get scared", with the frightened person as the subject (me asusté mucho, I got really scared). Use de or con for what scares you (se asusta de los perros, s/he gets scared of dogs; nos asustamos con el ruido, we got scared by the noise). Compare asustar, which works like gustar with the scary thing as the subject (me asustan los perros, dogs scare me). ¡No te asustes! means "don\'t be scared!", and estar asustado/a means "to be scared". It is fully regular.',
+        present: { description: 'Used for getting scared right now or habitually.', example: { spanish: 'me asusto cuando suena el teléfono de noche', english: 'I get scared when the phone rings at night' } },
+        preterite: { description: 'Used for a scare at a specific moment.', example: { spanish: 'nos asustamos con el trueno', english: 'we got scared by the thunder' } },
+        imperfect: { description: 'Used for getting scared regularly in the past, or for background.', example: { spanish: 'de niño me asustaba de la oscuridad', english: 'as a child I used to get scared of the dark' } },
+    },
 }

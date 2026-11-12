@@ -1561,4 +1561,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['socorría', 'I used to help'], ['socorrías', 'you used to help'], ['socorría', 's/he used to help'],
         ['socorríamos', 'we used to help'], ['socorrían', 'they used to help'],
+    ]),
+    simpleVerb('asustarse', 'to get frightened, to get scared', [
+        ['asustarse', 'to get scared'], ['asustado', 'scared'], ['asustando', 'getting scared'],
+    ], [
+        ['me asusto', 'I get scared'], ['te asustas', 'you get scared'], ['se asusta', 's/he gets scared'],
+        ['nos asustamos', 'we get scared'], ['se asustan', 'they get scared'],
+    ], [
+        ['me asusté', 'I got scared'], ['te asustaste', 'you got scared'], ['se asustó', 's/he got scared'],
+        ['nos asustamos', 'we got scared'], ['se asustaron', 'they got scared'],
+    ], [
+        ['me asustaba', 'I used to get scared'], ['te asustabas', 'you used to get scared'], ['se asustaba', 's/he used to get scared'],
+        ['nos asustábamos', 'we used to get scared'], ['se asustaban', 'they used to get scared'],
     ]),]
