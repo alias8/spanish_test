@@ -1677,4 +1677,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for getting wet at a specific time.', example: { spanish: 'nos mojamos de camino a casa', english: 'we got wet on the way home' } },
         imperfect: { description: 'Used for getting wet regularly in the past, or for background.', example: { spanish: 'de niños nos mojábamos en la fuente', english: 'as kids we used to get wet in the fountain' } },
     },
+    herir: {
+        summary: 'Herir means "to wound" or "to injure" someone, usually seriously or on purpose, and is the word in news reports about accidents and attacks (el accidente hirió a tres personas, the accident injured three people). It also means "to hurt" someone\'s feelings (sus palabras me hirieron, his/her words hurt me). Compare lastimar, which is more everyday and less serious. The participle herido/a also means "injured" or "an injured person" (los heridos, the injured). Like sentir, the e becomes ie in most present forms (hiero, hieres, hiere, hieren) and i in the third-person preterite (hirió, hirieron) and the gerund (hiriendo).',
+        present: { description: 'Used for wounding or hurting right now or habitually.', example: { spanish: 'la verdad a veces hiere', english: 'the truth sometimes hurts' } },
+        preterite: { description: 'Used for an injury at a specific time.', example: { spanish: 'la explosión hirió a varios trabajadores', english: 'the explosion injured several workers' } },
+        imperfect: { description: 'Used for hurt that used to happen, or was ongoing.', example: { spanish: 'sus comentarios me herían mucho', english: 'his/her comments used to hurt me a lot' } },
+    },
+    herirse: {
+        summary: 'Herirse means "to get hurt" or "to injure oneself" (se hirió en el accidente, s/he was injured in the accident). With a body part it takes el/la, not a possessive (me herí la mano, I hurt my hand). It sounds more serious than lastimarse, which is what you would say for everyday bumps and scrapes. It has the same stem changes as herir (me hiero, se hirió, se hirieron).',
+        present: { description: 'Used for getting hurt habitually or in general.', example: { spanish: 'mucha gente se hiere en la cocina', english: 'a lot of people get hurt in the kitchen' } },
+        preterite: { description: 'Used for an injury at a specific time.', example: { spanish: 'el ciclista se hirió en la caída', english: 'the cyclist got hurt in the fall' } },
+        imperfect: { description: 'Used for injuries that used to happen, or for background.', example: { spanish: 'el jugador se hería con frecuencia', english: 'the player used to get hurt often' } },
+    },
 }

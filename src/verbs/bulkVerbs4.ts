@@ -1621,4 +1621,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me mojaba', 'I used to get wet'], ['te mojabas', 'you used to get wet'], ['se mojaba', 's/he used to get wet / it used to get wet'],
         ['nos mojábamos', 'we used to get wet'], ['se mojaban', 'they used to get wet'],
     ]),
+    simpleVerb('herir', 'to wound, to injure, to hurt (feelings)', [
+        ['herir', 'to wound'], ['herido', 'wounded'], ['hiriendo', 'wounding'],
+    ], [
+        ['hiero', 'I wound', true], ['hieres', 'you wound', true], ['hiere', 's/he wounds', true],
+        ['herimos', 'we wound'], ['hieren', 'they wound', true],
+    ], [
+        ['herí', 'I wounded'], ['heriste', 'you wounded'], ['hirió', 's/he wounded', true],
+        ['herimos', 'we wounded'], ['hirieron', 'they wounded', true],
+    ], [
+        ['hería', 'I used to wound'], ['herías', 'you used to wound'], ['hería', 's/he used to wound'],
+        ['heríamos', 'we used to wound'], ['herían', 'they used to wound'],
+    ]),
+    simpleVerb('herirse', 'to get hurt, to injure oneself', [
+        ['herirse', 'to get hurt'], ['herido', 'hurt'], ['hiriendo', 'getting hurt'],
+    ], [
+        ['me hiero', 'I get hurt', true], ['te hieres', 'you get hurt', true], ['se hiere', 's/he gets hurt', true],
+        ['nos herimos', 'we get hurt'], ['se hieren', 'they get hurt', true],
+    ], [
+        ['me herí', 'I got hurt'], ['te heriste', 'you got hurt'], ['se hirió', 's/he got hurt', true],
+        ['nos herimos', 'we got hurt'], ['se hirieron', 'they got hurt', true],
+    ], [
+        ['me hería', 'I used to get hurt'], ['te herías', 'you used to get hurt'], ['se hería', 's/he used to get hurt'],
+        ['nos heríamos', 'we used to get hurt'], ['se herían', 'they used to get hurt'],
+    ]),
 ]
