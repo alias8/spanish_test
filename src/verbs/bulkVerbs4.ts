@@ -1573,4 +1573,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ], [
         ['me asustaba', 'I used to get scared'], ['te asustabas', 'you used to get scared'], ['se asustaba', 's/he used to get scared'],
         ['nos asustábamos', 'we used to get scared'], ['se asustaban', 'they used to get scared'],
-    ]),]
+    ]),    simpleVerb('conducir', 'to drive, to lead, to conduct', [
+        ['conducir', 'to drive'], ['conducido', 'driven'], ['conduciendo', 'driving'],
+    ], [
+        ['conduzco', 'I drive', true], ['conduces', 'you drive'], ['conduce', 's/he drives'],
+        ['conducimos', 'we drive'], ['conducen', 'they drive'],
+    ], [
+        ['conduje', 'I drove', true], ['condujiste', 'you drove', true], ['condujo', 's/he drove', true],
+        ['condujimos', 'we drove', true], ['condujeron', 'they drove', true],
+    ], [
+        ['conducía', 'I used to drive'], ['conducías', 'you used to drive'], ['conducía', 's/he used to drive'],
+        ['conducíamos', 'we used to drive'], ['conducían', 'they used to drive'],
+    ]),
+]

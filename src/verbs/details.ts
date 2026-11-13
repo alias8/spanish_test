@@ -1653,4 +1653,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a scare at a specific moment.', example: { spanish: 'nos asustamos con el trueno', english: 'we got scared by the thunder' } },
         imperfect: { description: 'Used for getting scared regularly in the past, or for background.', example: { spanish: 'de niño me asustaba de la oscuridad', english: 'as a child I used to get scared of the dark' } },
     },
+    conducir: {
+        summary: 'Conducir means "to drive" a vehicle (conduzco al trabajo, I drive to work). It is the usual word in Spain, while most of Latin America says manejar. It also means "to lead" somewhere (este camino conduce al pueblo, this road leads to the town) and "to conduct" or "to host" (conducir un programa, to host a show). Related words are el conductor / la conductora (driver) and el carné / la licencia de conducir (driver\'s license). Like producir and traducir, it has an irregular yo form (conduzco) and an irregular preterite stem (conduj-), with no i in condujeron.',
+        present: { description: 'Used for driving right now or habitually.', example: { spanish: 'conduzco al trabajo todos los días', english: 'I drive to work every day' } },
+        preterite: { description: 'Used for a drive at a specific time.', example: { spanish: 'condujimos toda la noche', english: 'we drove all night' } },
+        imperfect: { description: 'Used for driving that used to happen, or was in progress.', example: { spanish: 'mi padre conducía un taxi', english: 'my father used to drive a taxi' } },
+    },
 }
