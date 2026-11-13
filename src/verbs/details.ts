@@ -1665,4 +1665,16 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for laughing at a specific moment.', example: { spanish: 'todos rieron con el chiste', english: 'everyone laughed at the joke' } },
         imperfect: { description: 'Used for laughing that used to happen, or was going on.', example: { spanish: 'de niños reíamos por cualquier cosa', english: 'as kids we used to laugh at anything' } },
     },
+    mojar: {
+        summary: 'Mojar means "to wet" or "to get something wet" (no mojes el suelo, don\'t get the floor wet). It also means "to dip" food into a drink or sauce (mojo el pan en la sopa, I dip the bread in the soup). Compare mojarse, which is getting wet yourself. The adjective mojado/a means "wet", and its opposite is secar (to dry). It is fully regular.',
+        present: { description: 'Used for wetting or dipping something right now or habitually.', example: { spanish: 'siempre mojo las galletas en la leche', english: 'I always dip my cookies in milk' } },
+        preterite: { description: 'Used for getting something wet at a specific time.', example: { spanish: 'el perro mojó toda la alfombra', english: 'the dog got the whole rug wet' } },
+        imperfect: { description: 'Used for something that used to get wet, or background.', example: { spanish: 'la lluvia mojaba las calles', english: 'the rain was wetting the streets' } },
+    },
+    mojarse: {
+        summary: 'Mojarse means "to get wet" yourself (me mojé con la lluvia, I got wet in the rain). With a body part it takes el/la, not a possessive (me mojé los pies, I got my feet wet). Compare mojar, which is getting something else wet. Informally, mojarse also means "to take a stand" or "to commit" on a touchy question (no quiere mojarse, s/he doesn\'t want to commit). It is fully regular.',
+        present: { description: 'Used for getting wet right now or habitually.', example: { spanish: 'si no llevas paraguas, te mojas', english: 'if you don\'t take an umbrella, you get wet' } },
+        preterite: { description: 'Used for getting wet at a specific time.', example: { spanish: 'nos mojamos de camino a casa', english: 'we got wet on the way home' } },
+        imperfect: { description: 'Used for getting wet regularly in the past, or for background.', example: { spanish: 'de niños nos mojábamos en la fuente', english: 'as kids we used to get wet in the fountain' } },
+    },
 }

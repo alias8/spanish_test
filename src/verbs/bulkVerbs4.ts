@@ -1597,4 +1597,28 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['reía', 'I used to laugh'], ['reías', 'you used to laugh'], ['reía', 's/he used to laugh'],
         ['reíamos', 'we used to laugh'], ['reían', 'they used to laugh'],
     ]),
+    simpleVerb('mojar', 'to wet, to get (something) wet, to dip', [
+        ['mojar', 'to wet'], ['mojado', 'wet'], ['mojando', 'wetting'],
+    ], [
+        ['mojo', 'I wet'], ['mojas', 'you wet'], ['moja', 's/he wets'],
+        ['mojamos', 'we wet'], ['mojan', 'they wet'],
+    ], [
+        ['mojé', 'I wet'], ['mojaste', 'you wet'], ['mojó', 's/he wet'],
+        ['mojamos', 'we wet'], ['mojaron', 'they wet'],
+    ], [
+        ['mojaba', 'I used to wet'], ['mojabas', 'you used to wet'], ['mojaba', 's/he used to wet'],
+        ['mojábamos', 'we used to wet'], ['mojaban', 'they used to wet'],
+    ]),
+    simpleVerb('mojarse', 'to get wet', [
+        ['mojarse', 'to get wet'], ['mojado', 'wet'], ['mojando', 'getting wet'],
+    ], [
+        ['me mojo', 'I get wet'], ['te mojas', 'you get wet'], ['se moja', 's/he gets wet / it gets wet'],
+        ['nos mojamos', 'we get wet'], ['se mojan', 'they get wet'],
+    ], [
+        ['me mojé', 'I got wet'], ['te mojaste', 'you got wet'], ['se mojó', 's/he got wet / it got wet'],
+        ['nos mojamos', 'we got wet'], ['se mojaron', 'they got wet'],
+    ], [
+        ['me mojaba', 'I used to get wet'], ['te mojabas', 'you used to get wet'], ['se mojaba', 's/he used to get wet / it used to get wet'],
+        ['nos mojábamos', 'we used to get wet'], ['se mojaban', 'they used to get wet'],
+    ]),
 ]

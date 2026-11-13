@@ -12,7 +12,7 @@ const FREQUENCY_ORDER = [
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'amanecer', 'anochecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'socorrer', 'apoyar', 'perdonar', 'respetar', 'comer', 'dormir',
     'usar', 'recoger', 'soler', 'parecer', 'decidir', 'insistir', 'producir', 'diseñar', 'causar', 'ocurrir', 'probar', 'gustar', 'faltar', 'molestar', 'sentarse', 'ponerse', 'acercarse', 'amar',
     'encantar', 'sorprender', 'invitar', 'regalar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertar', 'despertarse', 'levantarse',
-    'subirse', 'bajarse', 'ducharse', 'lavar', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrir', 'aburrirse', 'cansar', 'enojarse', 'enfadarse', 'quejarse', 'criticar',
+    'subirse', 'bajarse', 'ducharse', 'lavar', 'lavarse', 'mojar', 'mojarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrir', 'aburrirse', 'cansar', 'enojarse', 'enfadarse', 'quejarse', 'criticar',
     'olvidarse', 'temer', 'preocupar', 'preocuparse', 'asustar', 'asustarse', 'confundirse', 'dormirse', 'responder', 'cuidar', 'romper', 'romperse', 'dañar', 'lastimar', 'lastimarse', 'fracturarse', 'arreglar', 'robar', 'esconder', 'gastar', 'depositar', 'preparar', 'parar', 'apurar', 'beber',
     'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'reír', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'conducir', 'manejar', 'chocar', 'caminar', 'pasear', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
