@@ -14,7 +14,7 @@ const FREQUENCY_ORDER = [
     'encantar', 'sorprender', 'invitar', 'regalar', 'enseñar', 'aprender', 'practicar', 'quedarse', 'mudarse', 'acordarse', 'almorzar', 'acostarse', 'despertar', 'despertarse', 'levantarse',
     'subirse', 'bajarse', 'ducharse', 'lavar', 'lavarse', 'vestirse', 'cepillarse', 'casarse', 'cuidarse', 'divertirse', 'aburrir', 'aburrirse', 'cansar', 'enojarse', 'enfadarse', 'quejarse', 'criticar',
     'olvidarse', 'temer', 'preocupar', 'preocuparse', 'asustar', 'asustarse', 'confundirse', 'dormirse', 'responder', 'cuidar', 'romper', 'romperse', 'dañar', 'lastimar', 'lastimarse', 'fracturarse', 'arreglar', 'robar', 'esconder', 'gastar', 'depositar', 'preparar', 'parar', 'apurar', 'beber',
-    'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
+    'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'reír', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'visitar', 'explorar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'cocinar', 'conducir', 'manejar', 'chocar', 'caminar', 'pasear', 'girar', 'comprar', 'dibujar', 'coleccionar', 'planear',
     'completar', 'reunir', 'repartir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'vaciar', 'acompañar', 'guiar', 'conversar',
     'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'agarrar', 'elegir', 'descansar', 'estresar', 'relajarse', 'respirar', 'pesar', 'pesarse', 'doler', 'costar',

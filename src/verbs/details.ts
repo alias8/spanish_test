@@ -1659,4 +1659,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a drive at a specific time.', example: { spanish: 'condujimos toda la noche', english: 'we drove all night' } },
         imperfect: { description: 'Used for driving that used to happen, or was in progress.', example: { spanish: 'mi padre conducía un taxi', english: 'my father used to drive a taxi' } },
     },
+    reír: {
+        summary: 'Reír means "to laugh". In everyday speech it is very often used as reírse, especially with de for what or who you laugh at (nos reímos mucho, we laughed a lot; no te rías de mí, don\'t laugh at me). The e becomes a stressed í in most present forms (río, ríes, ríe, ríen), and the e drops out in the third-person preterite (rio, rieron) and the gerund (riendo). Under current spelling rules rio has no accent, though you will still see rió. Sonreír (to smile) conjugates the same way. Related words are la risa (laughter) and ¡qué risa! (how funny!).',
+        present: { description: 'Used for laughing right now or habitually.', example: { spanish: 'el bebé ríe cuando ve a su perro', english: 'the baby laughs when he sees his dog' } },
+        preterite: { description: 'Used for laughing at a specific moment.', example: { spanish: 'todos rieron con el chiste', english: 'everyone laughed at the joke' } },
+        imperfect: { description: 'Used for laughing that used to happen, or was going on.', example: { spanish: 'de niños reíamos por cualquier cosa', english: 'as kids we used to laugh at anything' } },
+    },
 }

@@ -1585,4 +1585,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['conducía', 'I used to drive'], ['conducías', 'you used to drive'], ['conducía', 's/he used to drive'],
         ['conducíamos', 'we used to drive'], ['conducían', 'they used to drive'],
     ]),
+    simpleVerb('reír', 'to laugh', [
+        ['reír', 'to laugh'], ['reído', 'laughed'], ['riendo', 'laughing'],
+    ], [
+        ['río', 'I laugh', true], ['ríes', 'you laugh', true], ['ríe', 's/he laughs', true],
+        ['reímos', 'we laugh'], ['ríen', 'they laugh', true],
+    ], [
+        ['reí', 'I laughed'], ['reíste', 'you laughed'], ['rio', 's/he laughed', true],
+        ['reímos', 'we laughed'], ['rieron', 'they laughed', true],
+    ], [
+        ['reía', 'I used to laugh'], ['reías', 'you used to laugh'], ['reía', 's/he used to laugh'],
+        ['reíamos', 'we used to laugh'], ['reían', 'they used to laugh'],
+    ]),
 ]
