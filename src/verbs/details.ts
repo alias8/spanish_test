@@ -1689,4 +1689,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for an injury at a specific time.', example: { spanish: 'el ciclista se hirió en la caída', english: 'the cyclist got hurt in the fall' } },
         imperfect: { description: 'Used for injuries that used to happen, or for background.', example: { spanish: 'el jugador se hería con frecuencia', english: 'the player used to get hurt often' } },
     },
+    caerse: {
+        summary: 'Caerse means "to fall" or "to fall down", usually by accident (me caí en la calle, I fell down in the street). Plain caer is more for things falling in general (la lluvia cae, the rain falls), while caerse is what you use when a person trips or something drops. With an indirect object it expresses accidentally dropping something (se me cayó el vaso, I dropped the glass, literally "the glass fell on me"). It has an irregular yo form (me caigo) and the i becomes y in the third-person preterite (se cayó, se cayeron) and the gerund (cayendo).',
+        present: { description: 'Used for falling down right now or habitually.', example: { spanish: 'siempre me caigo en el hielo', english: 'I always fall down on the ice' } },
+        preterite: { description: 'Used for a specific fall.', example: { spanish: 'el niño se cayó de la bicicleta', english: 'the boy fell off the bike' } },
+        imperfect: { description: 'Used for falls that used to happen, or for background.', example: { spanish: 'de pequeño me caía mucho', english: 'as a child I used to fall down a lot' } },
+    },
 }

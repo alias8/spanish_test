@@ -6,7 +6,7 @@ const FREQUENCY_ORDER = [
     'seguir', 'llamar', 'venir', 'pensar', 'salir', 'irse', 'volver', 'tomar', 'conocer', 'vivir', 'sentir', 'sentirse',
     'entender', 'buscar', 'encontrar', 'encontrarse', 'trabajar', 'escribir', 'empezar', 'continuar', 'esperar', 'perder', 'pedir', 'prestar', 'pedir prestado', 'recibir',
     'recordar', 'olvidar', 'terminar', 'permitir', 'conseguir', 'comenzar', 'servir', 'sacar', 'quitar', 'tirar', 'necesitar', 'requerir', 'exigir', 'jugar', 'cerrar',
-    'contar', 'mirar', 'tratar', 'intentar', 'cambiar', 'leer', 'caer', 'traer', 'morir', 'entrar', 'subir', 'bajar', 'existir', 'durar',
+    'contar', 'mirar', 'tratar', 'intentar', 'cambiar', 'leer', 'caer', 'caerse', 'traer', 'morir', 'entrar', 'subir', 'bajar', 'existir', 'durar',
     'mantener', 'resultar', 'presentar', 'ofrecer', 'mostrar', 'mover', 'levantar', 'crear', 'abrir', 'considerar', 'oír', 'escuchar', 'acabar', 'convertir', 'ganar',
     'formar', 'partir', 'aceptar', 'acordar', 'ceder', 'realizar', 'suponer', 'convenir', 'comprender', 'lograr', 'explicar', 'evitar', 'resolver', 'preguntar', 'tocar',
     'reconocer', 'estudiar', 'alcanzar', 'nacer', 'crecer', 'amanecer', 'anochecer', 'dirigir', 'correr', 'saltar', 'utilizar', 'pagar', 'vender', 'contratar', 'alquilar', 'ayudar', 'socorrer', 'apoyar', 'perdonar', 'respetar', 'comer', 'dormir',

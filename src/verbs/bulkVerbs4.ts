@@ -1645,4 +1645,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me hería', 'I used to get hurt'], ['te herías', 'you used to get hurt'], ['se hería', 's/he used to get hurt'],
         ['nos heríamos', 'we used to get hurt'], ['se herían', 'they used to get hurt'],
     ]),
+    simpleVerb('caerse', 'to fall, to fall down', [
+        ['caerse', 'to fall down'], ['caído', 'fallen'], ['cayendo', 'falling'],
+    ], [
+        ['me caigo', 'I fall down', true], ['te caes', 'you fall down'], ['se cae', 's/he falls down'],
+        ['nos caemos', 'we fall down'], ['se caen', 'they fall down'],
+    ], [
+        ['me caí', 'I fell down'], ['te caíste', 'you fell down'], ['se cayó', 's/he fell down', true],
+        ['nos caímos', 'we fell down'], ['se cayeron', 'they fell down', true],
+    ], [
+        ['me caía', 'I used to fall down'], ['te caías', 'you used to fall down'], ['se caía', 's/he used to fall down'],
+        ['nos caíamos', 'we used to fall down'], ['se caían', 'they used to fall down'],
+    ]),
 ]
