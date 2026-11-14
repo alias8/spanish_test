@@ -1657,4 +1657,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me caía', 'I used to fall down'], ['te caías', 'you used to fall down'], ['se caía', 's/he used to fall down'],
         ['nos caíamos', 'we used to fall down'], ['se caían', 'they used to fall down'],
     ]),
+    simpleVerb('revisar', 'to check, to review, to inspect', [
+        ['revisar', 'to check'], ['revisado', 'checked'], ['revisando', 'checking'],
+    ], [
+        ['reviso', 'I check'], ['revisas', 'you check'], ['revisa', 's/he checks'],
+        ['revisamos', 'we check'], ['revisan', 'they check'],
+    ], [
+        ['revisé', 'I checked'], ['revisaste', 'you checked'], ['revisó', 's/he checked'],
+        ['revisamos', 'we checked'], ['revisaron', 'they checked'],
+    ], [
+        ['revisaba', 'I used to check'], ['revisabas', 'you used to check'], ['revisaba', 's/he used to check'],
+        ['revisábamos', 'we used to check'], ['revisaban', 'they used to check'],
+    ]),
 ]

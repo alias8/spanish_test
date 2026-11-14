@@ -1695,4 +1695,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a specific fall.', example: { spanish: 'el niño se cayó de la bicicleta', english: 'the boy fell off the bike' } },
         imperfect: { description: 'Used for falls that used to happen, or for background.', example: { spanish: 'de pequeño me caía mucho', english: 'as a child I used to fall down a lot' } },
     },
+    revisar: {
+        summary: 'Revisar means "to check", "to review" or "to inspect" something carefully, looking it over for problems (revisar el correo, to check your email; revisar el coche, to have the car inspected/serviced). It is not "to revise" in the sense of rewriting; for that, use corregir or modificar. The noun is la revisión (a check-up, review or inspection). It is a regular -ar verb.',
+        present: { description: 'Used for checking something now or habitually.', example: { spanish: 'reviso el correo cada mañana', english: 'I check my email every morning' } },
+        preterite: { description: 'Used for a check or review that was done and finished.', example: { spanish: 'el mecánico revisó los frenos', english: 'the mechanic checked the brakes' } },
+        imperfect: { description: 'Used for checking that used to happen regularly, or was ongoing.', example: { spanish: 'mi padre revisaba mis deberes', english: 'my father used to check my homework' } },
+    },
 }
