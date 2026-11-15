@@ -1713,4 +1713,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for relief at a specific time.', example: { spanish: 'la noticia me alivió mucho', english: 'the news relieved me a lot' } },
         imperfect: { description: 'Used for something that used to bring relief regularly.', example: { spanish: 'caminar le aliviaba el estrés', english: 'walking used to relieve his/her stress' } },
     },
+    aconsejar: {
+        summary: 'Aconsejar means "to advise" or "to counsel" someone, giving them a recommendation about what to do. It comes from el consejo (a piece of advice), and is often followed by an infinitive (te aconsejo descansar, I advise you to rest) or by que plus the subjunctive (te aconsejo que descanses). The person being advised is an indirect object (le aconsejé a mi hermano, I advised my brother). It is a regular -ar verb.',
+        present: { description: 'Used for advising someone now or habitually.', example: { spanish: 'te aconsejo llevar un paraguas', english: 'I advise you to bring an umbrella' } },
+        preterite: { description: 'Used for advice given at a specific time.', example: { spanish: 'el médico me aconsejó dormir más', english: 'the doctor advised me to sleep more' } },
+        imperfect: { description: 'Used for advice that someone used to give regularly.', example: { spanish: 'mi abuela siempre nos aconsejaba', english: 'my grandmother always used to advise us' } },
+    },
 }

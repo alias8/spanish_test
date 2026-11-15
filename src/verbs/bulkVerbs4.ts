@@ -1693,4 +1693,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['aliviaba', 'I used to relieve'], ['aliviabas', 'you used to relieve'], ['aliviaba', 's/he used to relieve'],
         ['aliviábamos', 'we used to relieve'], ['aliviaban', 'they used to relieve'],
     ]),
+    simpleVerb('aconsejar', 'to advise, to suggest, to counsel', [
+        ['aconsejar', 'to advise'], ['aconsejado', 'advised'], ['aconsejando', 'advising'],
+    ], [
+        ['aconsejo', 'I advise'], ['aconsejas', 'you advise'], ['aconseja', 's/he advises'],
+        ['aconsejamos', 'we advise'], ['aconsejan', 'they advise'],
+    ], [
+        ['aconsejé', 'I advised'], ['aconsejaste', 'you advised'], ['aconsejó', 's/he advised'],
+        ['aconsejamos', 'we advised'], ['aconsejaron', 'they advised'],
+    ], [
+        ['aconsejaba', 'I used to advise'], ['aconsejabas', 'you used to advise'], ['aconsejaba', 's/he used to advise'],
+        ['aconsejábamos', 'we used to advise'], ['aconsejaban', 'they used to advise'],
+    ]),
 ]
