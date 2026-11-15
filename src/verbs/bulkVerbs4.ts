@@ -1669,4 +1669,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['revisaba', 'I used to check'], ['revisabas', 'you used to check'], ['revisaba', 's/he used to check'],
         ['revisábamos', 'we used to check'], ['revisaban', 'they used to check'],
     ]),
+    simpleVerb('desaparecer', 'to disappear, to vanish', [
+        ['desaparecer', 'to disappear'], ['desaparecido', 'disappeared'], ['desapareciendo', 'disappearing'],
+    ], [
+        ['desaparezco', 'I disappear', true], ['desapareces', 'you disappear'], ['desaparece', 's/he disappears'],
+        ['desaparecemos', 'we disappear'], ['desaparecen', 'they disappear'],
+    ], [
+        ['desaparecí', 'I disappeared'], ['desapareciste', 'you disappeared'], ['desapareció', 's/he disappeared'],
+        ['desaparecimos', 'we disappeared'], ['desaparecieron', 'they disappeared'],
+    ], [
+        ['desaparecía', 'I used to disappear'], ['desaparecías', 'you used to disappear'], ['desaparecía', 's/he used to disappear'],
+        ['desaparecíamos', 'we used to disappear'], ['desaparecían', 'they used to disappear'],
+    ]),
 ]
