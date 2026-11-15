@@ -1707,4 +1707,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something that disappeared at a specific time.', example: { spanish: 'el dinero desapareció de la mesa', english: 'the money disappeared from the table' } },
         imperfect: { description: 'Used for disappearing that used to happen, or was ongoing.', example: { spanish: 'la niebla desaparecía poco a poco', english: 'the fog was disappearing little by little' } },
     },
+    aliviar: {
+        summary: 'Aliviar means "to alleviate", "to relieve" or "to ease" pain, stress or a burden (este medicamento alivia el dolor, this medicine relieves the pain). The participle aliviado/a means "relieved" (me siento aliviado, I feel relieved), and the noun el alivio means "relief" (¡qué alivio!, what a relief!). Note that the yo present form alivio looks the same as that noun. It is a regular -ar verb.',
+        present: { description: 'Used for relieving something now or in general.', example: { spanish: 'el agua fría alivia las quemaduras', english: 'cold water relieves burns' } },
+        preterite: { description: 'Used for relief at a specific time.', example: { spanish: 'la noticia me alivió mucho', english: 'the news relieved me a lot' } },
+        imperfect: { description: 'Used for something that used to bring relief regularly.', example: { spanish: 'caminar le aliviaba el estrés', english: 'walking used to relieve his/her stress' } },
+    },
 }

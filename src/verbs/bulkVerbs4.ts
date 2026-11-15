@@ -1681,4 +1681,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['desaparecía', 'I used to disappear'], ['desaparecías', 'you used to disappear'], ['desaparecía', 's/he used to disappear'],
         ['desaparecíamos', 'we used to disappear'], ['desaparecían', 'they used to disappear'],
     ]),
+    simpleVerb('aliviar', 'to alleviate, to relieve', [
+        ['aliviar', 'to relieve'], ['aliviado', 'relieved'], ['aliviando', 'relieving'],
+    ], [
+        ['alivio', 'I relieve'], ['alivias', 'you relieve'], ['alivia', 's/he relieves'],
+        ['aliviamos', 'we relieve'], ['alivian', 'they relieve'],
+    ], [
+        ['alivié', 'I relieved'], ['aliviaste', 'you relieved'], ['alivió', 's/he relieved'],
+        ['aliviamos', 'we relieved'], ['aliviaron', 'they relieved'],
+    ], [
+        ['aliviaba', 'I used to relieve'], ['aliviabas', 'you used to relieve'], ['aliviaba', 's/he used to relieve'],
+        ['aliviábamos', 'we used to relieve'], ['aliviaban', 'they used to relieve'],
+    ]),
 ]
