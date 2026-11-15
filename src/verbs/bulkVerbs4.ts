@@ -1705,4 +1705,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['aconsejaba', 'I used to advise'], ['aconsejabas', 'you used to advise'], ['aconsejaba', 's/he used to advise'],
         ['aconsejábamos', 'we used to advise'], ['aconsejaban', 'they used to advise'],
     ]),
+    simpleVerb('contactar', 'to contact', [
+        ['contactar', 'to contact'], ['contactado', 'contacted'], ['contactando', 'contacting'],
+    ], [
+        ['contacto', 'I contact'], ['contactas', 'you contact'], ['contacta', 's/he contacts'],
+        ['contactamos', 'we contact'], ['contactan', 'they contact'],
+    ], [
+        ['contacté', 'I contacted'], ['contactaste', 'you contacted'], ['contactó', 's/he contacted'],
+        ['contactamos', 'we contacted'], ['contactaron', 'they contacted'],
+    ], [
+        ['contactaba', 'I used to contact'], ['contactabas', 'you used to contact'], ['contactaba', 's/he used to contact'],
+        ['contactábamos', 'we used to contact'], ['contactaban', 'they used to contact'],
+    ]),
 ]

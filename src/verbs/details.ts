@@ -1719,4 +1719,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for advice given at a specific time.', example: { spanish: 'el médico me aconsejó dormir más', english: 'the doctor advised me to sleep more' } },
         imperfect: { description: 'Used for advice that someone used to give regularly.', example: { spanish: 'mi abuela siempre nos aconsejaba', english: 'my grandmother always used to advise us' } },
     },
+    contactar: {
+        summary: 'Contactar means "to contact" someone, by phone, email or message. It can take a direct object (contacté al cliente, I contacted the client) or the preposition con (contactar con la empresa, to contact the company); both are correct. In everyday speech people often use ponerse en contacto con instead (me puse en contacto con ella, I got in touch with her). The noun el contacto means "contact" and also looks the same as the yo form (contacto). It is a regular -ar verb.',
+        present: { description: 'Used for contacting someone now or habitually.', example: { spanish: 'te contacto mañana', english: "I'll contact you tomorrow" } },
+        preterite: { description: 'Used for contact made at a specific time.', example: { spanish: 'la empresa me contactó ayer', english: 'the company contacted me yesterday' } },
+        imperfect: { description: 'Used for contact that used to happen regularly.', example: { spanish: 'antes nos contactaban por carta', english: 'they used to contact us by letter' } },
+    },
 }
