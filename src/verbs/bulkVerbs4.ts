@@ -926,6 +926,18 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['apuraba', 'I used to hurry'], ['apurabas', 'you used to hurry'], ['apuraba', 's/he used to hurry'],
         ['apurábamos', 'we used to hurry'], ['apuraban', 'they used to hurry'],
     ]),
+    simpleVerb('apurarse', 'to hurry up', [
+        ['apurarse', 'to hurry up'], ['apurado', 'hurried'], ['apurándose', 'hurrying up'],
+    ], [
+        ['me apuro', 'I hurry up'], ['te apuras', 'you hurry up'], ['se apura', 's/he hurries up'],
+        ['nos apuramos', 'we hurry up'], ['se apuran', 'they hurry up'],
+    ], [
+        ['me apuré', 'I hurried up'], ['te apuraste', 'you hurried up'], ['se apuró', 's/he hurried up'],
+        ['nos apuramos', 'we hurried up'], ['se apuraron', 'they hurried up'],
+    ], [
+        ['me apuraba', 'I used to hurry up'], ['te apurabas', 'you used to hurry up'], ['se apuraba', 's/he used to hurry up'],
+        ['nos apurábamos', 'we used to hurry up'], ['se apuraban', 'they used to hurry up'],
+    ]),
     simpleVerb('dañar', 'to damage', [
         ['dañar', 'to damage'], ['dañado', 'damaged'], ['dañando', 'damaging'],
     ], [
