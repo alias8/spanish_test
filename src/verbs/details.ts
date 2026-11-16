@@ -1330,7 +1330,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for hurrying that used to happen regularly, or was in progress.', example: { spanish: 'mi madre nos apuraba cada mañana para ir al colegio', english: 'my mother used to hurry us every morning to get to school' } },
     },
     apurarse: {
-        summary: 'Apurarse means "to hurry up" or "to get a move on" yourself, whereas apurar is for rushing someone else (no me apures, don\'t rush me). The command ¡apúrate! (hurry up!) is very common in Latin America, where Spain would say ¡date prisa! or ¡daos prisa!. In some countries (Mexico, Peru, Chile) it can also mean "to worry" (no te apures, don\'t worry). It is fully regular.',
+        summary: 'Apurarse means "to hurry up" or "to get a move on" yourself, whereas apurar is for rushing someone else (no me apures, don\'t rush me). The command ¡apúrate! (hurry up!) is very common in Latin America, where Spain would say ¡date prisa! or ¡daos prisa!. In Mexico it can also mean "to worry" (no te apures, don\'t worry). It is fully regular.',
         present: { description: 'Used for hurrying up now or habitually.', example: { spanish: 'si nos apuramos, llegamos a tiempo', english: 'if we hurry up, we will get there on time' } },
         preterite: { description: 'Used for hurrying at a specific moment.', example: { spanish: 'se apuró para no perder el tren', english: 's/he hurried so as not to miss the train' } },
         imperfect: { description: 'Used for hurrying that used to happen regularly, or was in progress.', example: { spanish: 'siempre me apuraba por las mañanas', english: 'I always used to rush in the mornings' } },
