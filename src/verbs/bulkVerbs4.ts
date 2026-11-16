@@ -1729,4 +1729,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['contactaba', 'I used to contact'], ['contactabas', 'you used to contact'], ['contactaba', 's/he used to contact'],
         ['contactábamos', 'we used to contact'], ['contactaban', 'they used to contact'],
     ]),
+    simpleVerb('guardar', 'to save (information), to keep, to guard, to hold', [
+        ['guardar', 'to save'], ['guardado', 'saved'], ['guardando', 'saving'],
+    ], [
+        ['guardo', 'I save'], ['guardas', 'you save'], ['guarda', 's/he saves'],
+        ['guardamos', 'we save'], ['guardan', 'they save'],
+    ], [
+        ['guardé', 'I saved'], ['guardaste', 'you saved'], ['guardó', 's/he saved'],
+        ['guardamos', 'we saved'], ['guardaron', 'they saved'],
+    ], [
+        ['guardaba', 'I used to save'], ['guardabas', 'you used to save'], ['guardaba', 's/he used to save'],
+        ['guardábamos', 'we used to save'], ['guardaban', 'they used to save'],
+    ]),
 ]

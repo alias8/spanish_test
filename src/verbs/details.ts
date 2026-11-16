@@ -1731,4 +1731,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for contact made at a specific time.', example: { spanish: 'la empresa me contactó ayer', english: 'the company contacted me yesterday' } },
         imperfect: { description: 'Used for contact that used to happen regularly.', example: { spanish: 'antes nos contactaban por carta', english: 'they used to contact us by letter' } },
     },
+    guardar: {
+        summary: 'Guardar means "to keep" or "to put away" something somewhere safe (guarda la leche en la nevera, put the milk away in the fridge), "to save" a file or information (guarda el documento, save the document), and "to keep" a secret or a place (guardar un secreto, to keep a secret; ¿me guardas el sitio?, will you save my seat?). It can also mean "to guard" or "to protect", and is where the noun el guardia (guard) comes from. Note that it does not mean saving money; for that, use ahorrar. It is a regular -ar verb.',
+        present: { description: 'Used for keeping or saving something now or habitually.', example: { spanish: 'guardo las fotos en la nube', english: 'I save the photos in the cloud' } },
+        preterite: { description: 'Used for something saved or put away at a specific time.', example: { spanish: '¿guardaste los cambios?', english: 'did you save the changes?' } },
+        imperfect: { description: 'Used for what someone used to keep, or for background.', example: { spanish: 'mi abuela guardaba todas las cartas', english: 'my grandmother used to keep all the letters' } },
+    },
 }
