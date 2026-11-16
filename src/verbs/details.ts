@@ -303,7 +303,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for something that used to exist.', example: { spanish: 'no existía internet', english: "the internet didn't used to exist" } },
     },
     durar: {
-        summary: 'Durar means "to last" — how long something continues or takes. It is fully regular.',
+        summary: 'Durar means "to last", "to endure" or "to continue", and is the normal way to say how long something takes or goes on (¿cuánto dura la película?, how long is the movie?). It is mostly used in the third person, with the event or thing as the subject rather than a person. It also describes how long things hold up (estos zapatos duran años, these shoes last for years), and the adjective duradero/a means "long-lasting". Spanish uses durar where English often says "to take" or "to be" (el vuelo dura seis horas, the flight is six hours). It is fully regular.',
         present: { description: 'Used for how long something lasts or takes, in general or right now.', example: { spanish: 'la reunión dura una hora', english: 'the meeting lasts an hour' } },
         preterite: { description: 'Used for how long a completed event or situation lasted.', example: { spanish: 'la película duró dos horas', english: 'the movie lasted two hours' } },
         imperfect: { description: 'Used for how long something used to last, or was lasting, in the past.', example: { spanish: 'el viaje duraba tres días', english: 'the trip used to take three days' } },

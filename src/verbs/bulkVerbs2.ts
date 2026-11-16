@@ -206,7 +206,7 @@ export const BULK_VERBS_2: VerbEntry[] = [
         ['existía', 'I used to exist'], ['existías', 'you used to exist'], ['existía', 's/he used to exist'],
         ['existíamos', 'we used to exist'], ['existían', 'they used to exist'],
     ]),
-    simpleVerb('durar', 'to last', [
+    simpleVerb('durar', 'to last, to endure, to continue', [
         ['durar', 'to last'], ['durado', 'lasted'], ['durando', 'lasting'],
     ], [
         ['duro', 'I last'], ['duras', 'you last'], ['dura', 's/he lasts'],
