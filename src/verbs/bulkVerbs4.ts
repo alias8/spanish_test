@@ -1741,4 +1741,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['guardaba', 'I used to save'], ['guardabas', 'you used to save'], ['guardaba', 's/he used to save'],
         ['guardábamos', 'we used to save'], ['guardaban', 'they used to save'],
     ]),
+    simpleVerb('barrer', 'to sweep', [
+        ['barrer', 'to sweep'], ['barrido', 'swept'], ['barriendo', 'sweeping'],
+    ], [
+        ['barro', 'I sweep'], ['barres', 'you sweep'], ['barre', 's/he sweeps'],
+        ['barremos', 'we sweep'], ['barren', 'they sweep'],
+    ], [
+        ['barrí', 'I swept'], ['barriste', 'you swept'], ['barrió', 's/he swept'],
+        ['barrimos', 'we swept'], ['barrieron', 'they swept'],
+    ], [
+        ['barría', 'I used to sweep'], ['barrías', 'you used to sweep'], ['barría', 's/he used to sweep'],
+        ['barríamos', 'we used to sweep'], ['barrían', 'they used to sweep'],
+    ]),
 ]

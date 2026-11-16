@@ -1737,4 +1737,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something saved or put away at a specific time.', example: { spanish: '¿guardaste los cambios?', english: 'did you save the changes?' } },
         imperfect: { description: 'Used for what someone used to keep, or for background.', example: { spanish: 'mi abuela guardaba todas las cartas', english: 'my grandmother used to keep all the letters' } },
     },
+    barrer: {
+        summary: 'Barrer means "to sweep" a floor or area with a broom (la escoba). Like English, it is also used figuratively for winning by a huge margin (el equipo barrió a su rival, the team swept/thrashed its rival). Watch out: the yo form barro looks the same as the noun el barro (mud). It is a regular -er verb.',
+        present: { description: 'Used for sweeping now or habitually.', example: { spanish: 'barro la cocina cada noche', english: 'I sweep the kitchen every night' } },
+        preterite: { description: 'Used for sweeping done at a specific time.', example: { spanish: 'ya barrí el patio', english: 'I already swept the patio' } },
+        imperfect: { description: 'Used for sweeping that used to happen regularly, or was in progress.', example: { spanish: 'mi madre barría mientras cantaba', english: 'my mother used to sweep while she sang' } },
+    },
 }
