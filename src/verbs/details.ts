@@ -1743,4 +1743,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for sweeping done at a specific time.', example: { spanish: 'ya barrí el patio', english: 'I already swept the patio' } },
         imperfect: { description: 'Used for sweeping that used to happen regularly, or was in progress.', example: { spanish: 'mi madre barría mientras cantaba', english: 'my mother used to sweep while she sang' } },
     },
+    vendar: {
+        summary: 'Vendar means "to bandage" or wrap a wound or injury, from the noun la venda (bandage). It also means "to blindfold" (le vendaron los ojos, they blindfolded him). Watch out: the yo form vendo looks exactly like vendo from vender (I sell), so context tells them apart. It is a regular -ar verb.',
+        present: { description: 'Used for bandaging now or habitually.', example: { spanish: 'el enfermero me venda la mano', english: 'the nurse is bandaging my hand' } },
+        preterite: { description: 'Used for bandaging done at a specific time.', example: { spanish: 'le vendé el tobillo después de la caída', english: 'I bandaged his ankle after the fall' } },
+        imperfect: { description: 'Used for bandaging that used to happen regularly, or was in progress.', example: { spanish: 'mi madre siempre nos vendaba las rodillas', english: 'my mother always used to bandage our knees' } },
+    },
 }

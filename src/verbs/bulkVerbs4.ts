@@ -1753,4 +1753,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['barría', 'I used to sweep'], ['barrías', 'you used to sweep'], ['barría', 's/he used to sweep'],
         ['barríamos', 'we used to sweep'], ['barrían', 'they used to sweep'],
     ]),
+    simpleVerb('vendar', 'to bandage', [
+        ['vendar', 'to bandage'], ['vendado', 'bandaged'], ['vendando', 'bandaging'],
+    ], [
+        ['vendo', 'I bandage'], ['vendas', 'you bandage'], ['venda', 's/he bandages'],
+        ['vendamos', 'we bandage'], ['vendan', 'they bandage'],
+    ], [
+        ['vendé', 'I bandaged'], ['vendaste', 'you bandaged'], ['vendó', 's/he bandaged'],
+        ['vendamos', 'we bandaged'], ['vendaron', 'they bandaged'],
+    ], [
+        ['vendaba', 'I used to bandage'], ['vendabas', 'you used to bandage'], ['vendaba', 's/he used to bandage'],
+        ['vendábamos', 'we used to bandage'], ['vendaban', 'they used to bandage'],
+    ]),
 ]
