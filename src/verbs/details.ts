@@ -1755,4 +1755,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something held or sustained at a specific time.', example: { spanish: 'sostuvo al bebé toda la noche', english: 's/he held the baby all night' } },
         imperfect: { description: 'Used for what someone used to hold or support, or for background.', example: { spanish: 'las columnas sostenían el techo', english: 'the columns held up the roof' } },
     },
+    golpear: {
+        summary: 'Golpear means "to hit", "to strike", "to beat" or "to pound", from the noun el golpe (a blow or knock). It covers hitting a person or thing, knocking on a door (golpear la puerta), waves pounding the shore, and figuratively a crisis hitting hard (la crisis golpeó al país, the crisis hit the country). It is a regular -ar verb, though the yo preterite golpeé has a double e.',
+        present: { description: 'Used for hitting or pounding now or habitually.', example: { spanish: 'alguien golpea la puerta', english: 'someone is knocking on the door' } },
+        preterite: { description: 'Used for a hit or blow at a specific time.', example: { spanish: 'se golpeó la cabeza con la mesa', english: 's/he hit his/her head on the table' } },
+        imperfect: { description: 'Used for repeated hitting, or for background.', example: { spanish: 'la lluvia golpeaba la ventana', english: 'the rain was pounding on the window' } },
+    },
 }

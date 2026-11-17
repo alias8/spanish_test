@@ -1777,4 +1777,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['sostenía', 'I used to hold'], ['sostenías', 'you used to hold'], ['sostenía', 's/he used to hold'],
         ['sosteníamos', 'we used to hold'], ['sostenían', 'they used to hold'],
     ]),
+    simpleVerb('golpear', 'to hit, to strike, to beat, to pound', [
+        ['golpear', 'to hit'], ['golpeado', 'hit'], ['golpeando', 'hitting'],
+    ], [
+        ['golpeo', 'I hit'], ['golpeas', 'you hit'], ['golpea', 's/he hits'],
+        ['golpeamos', 'we hit'], ['golpean', 'they hit'],
+    ], [
+        ['golpeé', 'I hit'], ['golpeaste', 'you hit'], ['golpeó', 's/he hit'],
+        ['golpeamos', 'we hit'], ['golpearon', 'they hit'],
+    ], [
+        ['golpeaba', 'I used to hit'], ['golpeabas', 'you used to hit'], ['golpeaba', 's/he used to hit'],
+        ['golpeábamos', 'we used to hit'], ['golpeaban', 'they used to hit'],
+    ]),
 ]
