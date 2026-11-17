@@ -1749,4 +1749,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for bandaging done at a specific time.', example: { spanish: 'le vendé el tobillo después de la caída', english: 'I bandaged his ankle after the fall' } },
         imperfect: { description: 'Used for bandaging that used to happen regularly, or was in progress.', example: { spanish: 'mi madre siempre nos vendaba las rodillas', english: 'my mother always used to bandage our knees' } },
     },
+    sostener: {
+        summary: 'Sostener means "to hold" or "to hold up" something physically (sostener al bebé, to hold the baby), and also "to sustain" or "to support" in a broader sense, like holding up a structure, supporting a family, or maintaining an argument (sostiene que tiene razón, s/he maintains s/he is right). It conjugates just like tener, with an irregular yo form, an e→ie stem change, and an irregular preterite stem (sostuv-).',
+        present: { description: 'Used for holding or supporting something now, or for a view someone maintains.', example: { spanish: 'sostengo la puerta para ti', english: 'I am holding the door for you' } },
+        preterite: { description: 'Used for something held or sustained at a specific time.', example: { spanish: 'sostuvo al bebé toda la noche', english: 's/he held the baby all night' } },
+        imperfect: { description: 'Used for what someone used to hold or support, or for background.', example: { spanish: 'las columnas sostenían el techo', english: 'the columns held up the roof' } },
+    },
 }

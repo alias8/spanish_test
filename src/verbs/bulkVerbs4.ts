@@ -1765,4 +1765,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['vendaba', 'I used to bandage'], ['vendabas', 'you used to bandage'], ['vendaba', 's/he used to bandage'],
         ['vendábamos', 'we used to bandage'], ['vendaban', 'they used to bandage'],
     ]),
+    simpleVerb('sostener', 'to sustain, to hold', [
+        ['sostener', 'to hold'], ['sostenido', 'held'], ['sosteniendo', 'holding'],
+    ], [
+        ['sostengo', 'I hold', true], ['sostienes', 'you hold', true], ['sostiene', 's/he holds', true],
+        ['sostenemos', 'we hold'], ['sostienen', 'they hold', true],
+    ], [
+        ['sostuve', 'I held', true], ['sostuviste', 'you held', true], ['sostuvo', 's/he held', true],
+        ['sostuvimos', 'we held', true], ['sostuvieron', 'they held', true],
+    ], [
+        ['sostenía', 'I used to hold'], ['sostenías', 'you used to hold'], ['sostenía', 's/he used to hold'],
+        ['sosteníamos', 'we used to hold'], ['sostenían', 'they used to hold'],
+    ]),
 ]
