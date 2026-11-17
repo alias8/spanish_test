@@ -1789,4 +1789,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['golpeaba', 'I used to hit'], ['golpeabas', 'you used to hit'], ['golpeaba', 's/he used to hit'],
         ['golpeábamos', 'we used to hit'], ['golpeaban', 'they used to hit'],
     ]),
+    simpleVerb('doblar', 'to bend, to flex, to double, to fold, to turn', [
+        ['doblar', 'to fold'], ['doblado', 'folded'], ['doblando', 'folding'],
+    ], [
+        ['doblo', 'I fold'], ['doblas', 'you fold'], ['dobla', 's/he folds'],
+        ['doblamos', 'we fold'], ['doblan', 'they fold'],
+    ], [
+        ['doblé', 'I folded'], ['doblaste', 'you folded'], ['dobló', 's/he folded'],
+        ['doblamos', 'we folded'], ['doblaron', 'they folded'],
+    ], [
+        ['doblaba', 'I used to fold'], ['doblabas', 'you used to fold'], ['doblaba', 's/he used to fold'],
+        ['doblábamos', 'we used to fold'], ['doblaban', 'they used to fold'],
+    ]),
 ]

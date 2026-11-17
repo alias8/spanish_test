@@ -1761,4 +1761,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a hit or blow at a specific time.', example: { spanish: 'se golpeó la cabeza con la mesa', english: 's/he hit his/her head on the table' } },
         imperfect: { description: 'Used for repeated hitting, or for background.', example: { spanish: 'la lluvia golpeaba la ventana', english: 'the rain was pounding on the window' } },
     },
+    doblar: {
+        summary: 'Doblar means "to fold" (doblar la ropa, to fold the clothes), "to bend" or "to flex" (doblar las rodillas, to bend your knees), and "to double" (doblar el precio). In directions it means "to turn" (dobla a la derecha, turn right), just like girar. It also means "to dub" a film (una película doblada, a dubbed movie). It is a regular -ar verb.',
+        present: { description: 'Used for folding, bending or turning now or habitually.', example: { spanish: 'doblo la ropa después de lavarla', english: 'I fold the clothes after washing them' } },
+        preterite: { description: 'Used for something folded, bent or turned at a specific time.', example: { spanish: 'doblamos a la izquierda en el semáforo', english: 'we turned left at the traffic light' } },
+        imperfect: { description: 'Used for what someone used to fold or bend, or for background.', example: { spanish: 'mi abuela doblaba las servilletas con cuidado', english: 'my grandmother used to fold the napkins carefully' } },
+    },
 }
