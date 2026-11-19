@@ -1767,4 +1767,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something folded, bent or turned at a specific time.', example: { spanish: 'doblamos a la izquierda en el semáforo', english: 'we turned left at the traffic light' } },
         imperfect: { description: 'Used for what someone used to fold or bend, or for background.', example: { spanish: 'mi abuela doblaba las servilletas con cuidado', english: 'my grandmother used to fold the napkins carefully' } },
     },
+    desear: {
+        summary: 'Desear means "to wish", "to want" or "to desire". It is more formal than querer, so you hear it a lot from waiters and shop staff (¿qué desea?, what would you like?), and in good wishes (te deseo un feliz cumpleaños, I wish you a happy birthday). The noun is el deseo (wish, desire), which looks the same as the yo form deseo. It is a regular -ar verb, though the yo preterite deseé has a double e.',
+        present: { description: 'Used for what someone wishes or wants now, and for polite requests and good wishes.', example: { spanish: 'te deseo mucha suerte', english: 'I wish you lots of luck' } },
+        preterite: { description: 'Used for a wish made or a desire felt at a specific time.', example: { spanish: 'deseó que todo saliera bien', english: 's/he wished that everything would go well' } },
+        imperfect: { description: 'Used for what someone used to want, or a longing in the background.', example: { spanish: 'de niño deseaba ser astronauta', english: 'as a child I wanted to be an astronaut' } },
+    },
 }

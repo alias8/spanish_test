@@ -1801,4 +1801,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['doblaba', 'I used to fold'], ['doblabas', 'you used to fold'], ['doblaba', 's/he used to fold'],
         ['doblábamos', 'we used to fold'], ['doblaban', 'they used to fold'],
     ]),
+    simpleVerb('desear', 'to wish, to want, to desire', [
+        ['desear', 'to wish'], ['deseado', 'wished'], ['deseando', 'wishing'],
+    ], [
+        ['deseo', 'I wish'], ['deseas', 'you wish'], ['desea', 's/he wishes'],
+        ['deseamos', 'we wish'], ['desean', 'they wish'],
+    ], [
+        ['deseé', 'I wished'], ['deseaste', 'you wished'], ['deseó', 's/he wished'],
+        ['deseamos', 'we wished'], ['desearon', 'they wished'],
+    ], [
+        ['deseaba', 'I used to wish'], ['deseabas', 'you used to wish'], ['deseaba', 's/he used to wish'],
+        ['deseábamos', 'we used to wish'], ['deseaban', 'they used to wish'],
+    ]),
 ]
