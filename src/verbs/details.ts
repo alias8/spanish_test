@@ -1773,4 +1773,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a wish made or a desire felt at a specific time.', example: { spanish: 'deseó que todo saliera bien', english: 's/he wished that everything would go well' } },
         imperfect: { description: 'Used for what someone used to want, or a longing in the background.', example: { spanish: 'de niño deseaba ser astronauta', english: 'as a child I wanted to be an astronaut' } },
     },
+    festejar: {
+        summary: 'Festejar means "to celebrate" an occasion like a birthday, a win or a holiday, from the noun la fiesta (party) and el festejo (celebration). It is a close synonym of celebrar and is especially common in Latin America (festejar el cumpleaños, to celebrate the birthday). It is a regular -ar verb.',
+        present: { description: 'Used for celebrating now or habitually.', example: { spanish: 'festejamos la Navidad con toda la familia', english: 'we celebrate Christmas with the whole family' } },
+        preterite: { description: 'Used for a celebration at a specific time.', example: { spanish: 'festejaron la victoria en la calle', english: 'they celebrated the victory in the street' } },
+        imperfect: { description: 'Used for how someone used to celebrate, or for background.', example: { spanish: 'de niños festejábamos en casa de mis abuelos', english: 'as kids we used to celebrate at my grandparents\' house' } },
+    },
 }

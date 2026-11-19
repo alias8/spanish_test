@@ -1813,4 +1813,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['deseaba', 'I used to wish'], ['deseabas', 'you used to wish'], ['deseaba', 's/he used to wish'],
         ['deseábamos', 'we used to wish'], ['deseaban', 'they used to wish'],
     ]),
+    simpleVerb('festejar', 'to celebrate', [
+        ['festejar', 'to celebrate'], ['festejado', 'celebrated'], ['festejando', 'celebrating'],
+    ], [
+        ['festejo', 'I celebrate'], ['festejas', 'you celebrate'], ['festeja', 's/he celebrates'],
+        ['festejamos', 'we celebrate'], ['festejan', 'they celebrate'],
+    ], [
+        ['festejé', 'I celebrated'], ['festejaste', 'you celebrated'], ['festejó', 's/he celebrated'],
+        ['festejamos', 'we celebrated'], ['festejaron', 'they celebrated'],
+    ], [
+        ['festejaba', 'I used to celebrate'], ['festejabas', 'you used to celebrate'], ['festejaba', 's/he used to celebrate'],
+        ['festejábamos', 'we used to celebrate'], ['festejaban', 'they used to celebrate'],
+    ]),
 ]
