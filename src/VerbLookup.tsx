@@ -32,8 +32,11 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     setSelected(null)
   }
 
+  // an empty box shows ser rather than nothing
+  const effectiveQuery = query || 'ser'
+
   const matches = useMemo(() => {
-    const q = normalize(query)
+    const q = normalize(effectiveQuery)
     if (!q) return []
     const exact = VERBS_BY_INFINITIVE.get(q) // checks if perfect match for spanish infinitive
     if (exact) return [exact]
@@ -55,20 +58,19 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     if (q.length < 4) return direct
     const viaForm = VERB_SEARCH_INDEX.filter(e => e.normForms.some(f => f.includes(q))).map(e => e.verb)
     return [...new Map([...direct, ...viaForm].map(v => [v.infinitive, v])).values()]
-  }, [query])
+  }, [effectiveQuery])
 
   const match = matches.length === 1 ? matches[0] : matches.find(v => v.infinitive === selected) ?? null
-  const matchReason = match !== null ? getMatchReason(match, normalize(query)) : null
-  const highlight = matchReason !== null ? normalize(query) : undefined
+  const matchReason = match !== null ? getMatchReason(match, normalize(effectiveQuery)) : null
+  const highlight = matchReason !== null ? normalize(effectiveQuery) : undefined
 
   useEffect(() => {
     onResolvedChange?.(match?.infinitive ?? null)
   }, [match, onResolvedChange])
 
   function renderResults() {
-    if (!query) return null
-    if (matches.length === 0) return <p className="verb-hint">No verb found for "{query}" yet.</p>
-    if (match) return <VerbDetail verb={match} matchedFrom={matchReason !== null ? query : undefined} matchReason={matchReason ?? undefined} highlight={highlight} />
+    if (matches.length === 0) return <p className="verb-hint">No verb found for "{effectiveQuery}" yet.</p>
+    if (match) return <VerbDetail verb={match} matchedFrom={matchReason !== null ? effectiveQuery : undefined} matchReason={matchReason ?? undefined} highlight={highlight} />
 
     return (
       <div className="verb-picker">
@@ -88,7 +90,7 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
         className="verb-search"
         type="text"
         value={query}
-        onChange={e => onQueryChange(e.target.value)}
+        onChange={e => onQueryChange(e.target.value.replace(/[^\p{L}]/gu, ''))} // letters only (accented ones included)
         placeholder="Search a verb, e.g. &quot;ser&quot; or &quot;to be&quot;..."
         autoFocus
         autoComplete="off"
