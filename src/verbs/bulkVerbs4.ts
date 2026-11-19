@@ -1825,4 +1825,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['festejaba', 'I used to celebrate'], ['festejabas', 'you used to celebrate'], ['festejaba', 's/he used to celebrate'],
         ['festejábamos', 'we used to celebrate'], ['festejaban', 'they used to celebrate'],
     ]),
+    simpleVerb('experimentar', 'to experiment, to experience', [
+        ['experimentar', 'to experience'], ['experimentado', 'experienced'], ['experimentando', 'experiencing'],
+    ], [
+        ['experimento', 'I experience'], ['experimentas', 'you experience'], ['experimenta', 's/he experiences'],
+        ['experimentamos', 'we experience'], ['experimentan', 'they experience'],
+    ], [
+        ['experimenté', 'I experienced'], ['experimentaste', 'you experienced'], ['experimentó', 's/he experienced'],
+        ['experimentamos', 'we experienced'], ['experimentaron', 'they experienced'],
+    ], [
+        ['experimentaba', 'I used to experience'], ['experimentabas', 'you used to experience'], ['experimentaba', 's/he used to experience'],
+        ['experimentábamos', 'we used to experience'], ['experimentaban', 'they used to experience'],
+    ]),
 ]

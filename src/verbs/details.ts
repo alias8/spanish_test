@@ -1779,4 +1779,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a celebration at a specific time.', example: { spanish: 'festejaron la victoria en la calle', english: 'they celebrated the victory in the street' } },
         imperfect: { description: 'Used for how someone used to celebrate, or for background.', example: { spanish: 'de niños festejábamos en casa de mis abuelos', english: 'as kids we used to celebrate at my grandparents\' house' } },
     },
+    experimentar: {
+        summary: 'Experimentar means "to experience" a feeling, change or situation (experimentar miedo, to feel fear; la economía experimentó un crecimiento, the economy saw growth), and also "to experiment" or try things out (experimentar con nuevas recetas, to experiment with new recipes). Watch out: the yo form experimento looks the same as the noun el experimento (experiment), while "an experience" is la experiencia. The adjective experimentado means "experienced" (un médico experimentado). It is a regular -ar verb.',
+        present: { description: 'Used for experiencing or experimenting now or habitually.', example: { spanish: 'experimento con colores nuevos en mis cuadros', english: 'I experiment with new colors in my paintings' } },
+        preterite: { description: 'Used for something experienced or tried at a specific time.', example: { spanish: 'experimentamos un cambio enorme ese año', english: 'we experienced a huge change that year' } },
+        imperfect: { description: 'Used for what someone used to experience or experiment with, or for background.', example: { spanish: 'de joven experimentaba con la música electrónica', english: 'when I was young I used to experiment with electronic music' } },
+    },
 }
