@@ -1785,4 +1785,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something experienced or tried at a specific time.', example: { spanish: 'experimentamos un cambio enorme ese año', english: 'we experienced a huge change that year' } },
         imperfect: { description: 'Used for what someone used to experience or experiment with, or for background.', example: { spanish: 'de joven experimentaba con la música electrónica', english: 'when I was young I used to experiment with electronic music' } },
     },
+    compartir: {
+        summary: 'Compartir means "to share" something with someone, like food, a room, an opinion or a post online (compartir una foto, to share a photo). It is built from partir (to split), so the idea is splitting something with others. The person you share with takes con (comparto el piso con dos amigos, I share the apartment with two friends). It is a regular -ir verb.',
+        present: { description: 'Used for sharing now or habitually.', example: { spanish: 'comparto la habitación con mi hermano', english: 'I share the room with my brother' } },
+        preterite: { description: 'Used for something shared at a specific time.', example: { spanish: 'compartimos una pizza anoche', english: 'we shared a pizza last night' } },
+        imperfect: { description: 'Used for what someone used to share, or for background.', example: { spanish: 'de niños compartíamos todos los juguetes', english: 'as kids we used to share all our toys' } },
+    },
 }

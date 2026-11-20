@@ -1837,4 +1837,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['experimentaba', 'I used to experience'], ['experimentabas', 'you used to experience'], ['experimentaba', 's/he used to experience'],
         ['experimentábamos', 'we used to experience'], ['experimentaban', 'they used to experience'],
     ]),
+    simpleVerb('compartir', 'to share', [
+        ['compartir', 'to share'], ['compartido', 'shared'], ['compartiendo', 'sharing'],
+    ], [
+        ['comparto', 'I share'], ['compartes', 'you share'], ['comparte', 's/he shares'],
+        ['compartimos', 'we share'], ['comparten', 'they share'],
+    ], [
+        ['compartí', 'I shared'], ['compartiste', 'you shared'], ['compartió', 's/he shared'],
+        ['compartimos', 'we shared'], ['compartieron', 'they shared'],
+    ], [
+        ['compartía', 'I used to share'], ['compartías', 'you used to share'], ['compartía', 's/he used to share'],
+        ['compartíamos', 'we used to share'], ['compartían', 'they used to share'],
+    ]),
 ]
