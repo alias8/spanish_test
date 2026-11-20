@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { INFINITIVE_ITEMS, TENSE_META, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, VERB_SEARCH_INDEX, type VerbEntry } from './verbs'
+import type { CharRange } from './verbs/types'
+import { verbClassOf } from './verbs/irregularity'
 import { normalize } from './utils'
 
 type MatchReason = 'conjugated' | 'translation' | 'partial'
@@ -122,6 +124,40 @@ function highlightMatches(text: string, query: string | undefined) {
   return parts
 }
 
+// Spanish text with its irregular letters in red, plus the search highlight on top. The two can
+// overlap, so each character gets both flags and runs of identical flags become one element.
+function renderSpanish(text: string, irregular: CharRange[] | undefined, query: string | undefined) {
+  if (!irregular) return highlightMatches(text, query)
+  const red = new Array<boolean>(text.length).fill(false)
+  for (const [start, end] of irregular) red.fill(true, start, end)
+  const hit = new Array<boolean>(text.length).fill(false)
+  if (query) {
+    const normText = normalize(text)
+    for (let idx = normText.indexOf(query); idx !== -1; idx = normText.indexOf(query, idx + query.length)) {
+      hit.fill(true, idx, idx + query.length)
+    }
+  }
+  const parts: ReactNode[] = []
+  for (let i = 0; i < text.length;) {
+    let j = i + 1
+    while (j < text.length && red[j] === red[i] && hit[j] === hit[i]) j++
+    let node: ReactNode = text.slice(i, j)
+    if (red[i]) node = <span className="irregular-letters">{node}</span>
+    if (hit[i]) node = <mark className="search-highlight">{node}</mark>
+    parts.push(<Fragment key={i}>{node}</Fragment>)
+    i = j
+  }
+  return parts
+}
+
+function IrregularFootnote({ infinitive }: { infinitive: string }) {
+  return (
+    <p className="verb-footnote">
+      Letters in <span className="irregular-letters">red</span> break the regular -{verbClassOf(infinitive)} pattern.
+    </p>
+  )
+}
+
 function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
   verb: VerbEntry
   matchedFrom?: string
@@ -153,12 +189,13 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
             {verb.infinitiveForms.map((row, i) => (
               <tr key={INFINITIVE_ITEMS[i]}>
                 <td>{INFINITIVE_ITEMS[i]}</td>
-                <td>{highlightMatches(row.spanish, highlight)}</td>
+                <td>{renderSpanish(row.spanish, row.irregular, highlight)}</td>
                 <td className="english">{highlightMatches(row.english, highlight)}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        {verb.infinitiveForms.some(f => f.irregular) && <IrregularFootnote infinitive={verb.infinitive} />}
       </div>
 
       {verb.tenses.map((tense, i) => {
@@ -187,20 +224,13 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
                 {tense.forms.map((form, j) => (
                   <tr key={meta.pronouns[j]}>
                     <td>{meta.pronouns[j]}</td>
-                    <td>
-                      {highlightMatches(form.spanish, highlight)}
-                      {form.irregular && <span className="irregular-dot" />}
-                    </td>
+                    <td>{renderSpanish(form.spanish, form.irregular, highlight)}</td>
                     <td className="english">{highlightMatches(form.english, highlight)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            {tense.forms.some(f => f.irregular) && (
-              <p className="verb-footnote">
-                The red dot (<span className="irregular-dot" />) above denotes an irregular conjugation.
-              </p>
-            )}
+            {tense.forms.some(f => f.irregular) && <IrregularFootnote infinitive={verb.infinitive} />}
           </div>
         )
       })}

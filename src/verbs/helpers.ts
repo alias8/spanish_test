@@ -1,12 +1,10 @@
 import type { VerbEntry, VerbTense } from './types'
 
-export type SimpleForm = [spanish: string, english: string, irregular?: boolean]
+export type SimpleForm = [spanish: string, english: string]
 
 export function buildTense(forms: SimpleForm[]): VerbTense {
     return {
-        forms: forms.map(([spanish, english, irregular]) => (
-            irregular ? { spanish, english, irregular: true } : { spanish, english }
-        )),
+        forms: forms.map(([spanish, english]) => ({ spanish, english })),
     }
 }
 

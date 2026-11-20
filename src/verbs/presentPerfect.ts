@@ -2,8 +2,8 @@ import type { VerbEntry, VerbForm, VerbTense } from './types'
 
 // Generates the present perfect (he hablado, has hablado…) for every verb: the present of
 // haber plus the past participle each verb already stores, with any reflexive or indirect
-// object pronoun in front (me he levantado, me ha gustado). All five forms are marked
-// irregular when the participle itself is irregular (hecho, puesto, vuelto…).
+// object pronoun in front (me he levantado, me ha gustado). Irregular letters in the
+// participle (hecho, puesto, vuelto…) are marked afterwards, in irregularity.ts.
 
 const HABER = ['he', 'has', 'ha', 'hemos', 'han']
 const ENGLISH_SUBJECTS = ['I have', 'you have', 's/he has', 'we have', 'they have']
@@ -27,7 +27,7 @@ export function buildPresentPerfect(verb: VerbEntry): VerbTense {
             const pronoun = firstWord.endsWith('se') ? present.spanish.split(' ')[0] + ' ' : ''
             spanish = `${pronoun}${HABER[i]} ${participle.spanish}`
         }
-        return irregular ? { spanish, english, irregular: true } : { spanish, english }
+        return { spanish, english }
     })
 
     const description = `The Present Perfect is used for things that have happened recently, or in a period of time that isn't over yet (hoy, esta semana, este año), and for experiences up to now (¿has estado en México?). It is formed with the present of haber plus the past participle, ${participle.spanish}${irregular ? ', which is irregular' : ''}.`

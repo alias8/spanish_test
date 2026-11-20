@@ -5,8 +5,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('llover', 'to rain', [
         ['llover', 'to rain'], ['llovido', 'rained'], ['lloviendo', 'raining'],
     ], [
-        ['lluevo', 'I rain', true], ['llueves', 'you rain', true], ['llueve', 's/he rains', true],
-        ['llovemos', 'we rain'], ['llueven', 'they rain', true],
+        ['lluevo', 'I rain'], ['llueves', 'you rain'], ['llueve', 's/he rains'],
+        ['llovemos', 'we rain'], ['llueven', 'they rain'],
     ], [
         ['lloví', 'I rained'], ['lloviste', 'you rained'], ['llovió', 's/he rained'],
         ['llovimos', 'we rained'], ['llovieron', 'they rained'],
@@ -17,8 +17,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('nevar', 'to snow', [
         ['nevar', 'to snow'], ['nevado', 'snowed'], ['nevando', 'snowing'],
     ], [
-        ['nievo', 'I snow', true], ['nievas', 'you snow', true], ['nieva', 's/he snows', true],
-        ['nevamos', 'we snow'], ['nievan', 'they snow', true],
+        ['nievo', 'I snow'], ['nievas', 'you snow'], ['nieva', 's/he snows'],
+        ['nevamos', 'we snow'], ['nievan', 'they snow'],
     ], [
         ['nevé', 'I snowed'], ['nevaste', 'you snowed'], ['nevó', 's/he snowed'],
         ['nevamos', 'we snowed'], ['nevaron', 'they snowed'],
@@ -29,8 +29,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('esquiar', 'to ski', [
         ['esquiar', 'to ski'], ['esquiado', 'skied'], ['esquiando', 'skiing'],
     ], [
-        ['esquío', 'I ski', true], ['esquías', 'you ski', true], ['esquía', 's/he skis', true],
-        ['esquiamos', 'we ski'], ['esquían', 'they ski', true],
+        ['esquío', 'I ski'], ['esquías', 'you ski'], ['esquía', 's/he skis'],
+        ['esquiamos', 'we ski'], ['esquían', 'they ski'],
     ], [
         ['esquié', 'I skied'], ['esquiaste', 'you skied'], ['esquió', 's/he skied'],
         ['esquiamos', 'we skied'], ['esquiaron', 'they skied'],
@@ -41,11 +41,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('hacer snowboard', 'to snowboard', [
         ['hacer snowboard', 'to snowboard'], ['hecho snowboard', 'snowboarded'], ['haciendo snowboard', 'snowboarding'],
     ], [
-        ['hago snowboard', 'I snowboard', true], ['haces snowboard', 'you snowboard', true], ['hace snowboard', 's/he snowboards', true],
-        ['hacemos snowboard', 'we snowboard'], ['hacen snowboard', 'they snowboard', true],
+        ['hago snowboard', 'I snowboard'], ['haces snowboard', 'you snowboard'], ['hace snowboard', 's/he snowboards'],
+        ['hacemos snowboard', 'we snowboard'], ['hacen snowboard', 'they snowboard'],
     ], [
-        ['hice snowboard', 'I snowboarded', true], ['hiciste snowboard', 'you snowboarded', true], ['hizo snowboard', 's/he snowboarded', true],
-        ['hicimos snowboard', 'we snowboarded', true], ['hicieron snowboard', 'they snowboarded', true],
+        ['hice snowboard', 'I snowboarded'], ['hiciste snowboard', 'you snowboarded'], ['hizo snowboard', 's/he snowboarded'],
+        ['hicimos snowboard', 'we snowboarded'], ['hicieron snowboard', 'they snowboarded'],
     ], [
         ['hacía snowboard', 'I used to snowboard'], ['hacías snowboard', 'you used to snowboard'], ['hacía snowboard', 's/he used to snowboard'],
         ['hacíamos snowboard', 'we used to snowboard'], ['hacían snowboard', 'they used to snowboard'],
@@ -125,11 +125,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('preferir', 'to prefer', [
         ['preferir', 'to prefer'], ['preferido', 'preferred'], ['prefiriendo', 'preferring'],
     ], [
-        ['prefiero', 'I prefer', true], ['prefieres', 'you prefer', true], ['prefiere', 's/he prefers', true],
-        ['preferimos', 'we prefer'], ['prefieren', 'they prefer', true],
+        ['prefiero', 'I prefer'], ['prefieres', 'you prefer'], ['prefiere', 's/he prefers'],
+        ['preferimos', 'we prefer'], ['prefieren', 'they prefer'],
     ], [
-        ['preferí', 'I preferred'], ['preferiste', 'you preferred'], ['prefirió', 's/he preferred', true],
-        ['preferimos', 'we preferred'], ['prefirieron', 'they preferred', true],
+        ['preferí', 'I preferred'], ['preferiste', 'you preferred'], ['prefirió', 's/he preferred'],
+        ['preferimos', 'we preferred'], ['prefirieron', 'they preferred'],
     ], [
         ['prefería', 'I used to prefer'], ['preferías', 'you used to prefer'], ['prefería', 's/he used to prefer'],
         ['preferíamos', 'we used to prefer'], ['preferían', 'they used to prefer'],
@@ -173,7 +173,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('parecer', 'to seem, to appear', [
         ['parecer', 'to seem'], ['parecido', 'seemed'], ['pareciendo', 'seeming'],
     ], [
-        ['parezco', 'I seem', true], ['pareces', 'you seem'], ['parece', 's/he seems'],
+        ['parezco', 'I seem'], ['pareces', 'you seem'], ['parece', 's/he seems'],
         ['parecemos', 'we seem'], ['parecen', 'they seem'],
     ], [
         ['parecí', 'I seemed'], ['pareciste', 'you seemed'], ['pareció', 's/he seemed'],
@@ -212,7 +212,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['apago', 'I turn off'], ['apagas', 'you turn off'], ['apaga', 's/he turns off'],
         ['apagamos', 'we turn off'], ['apagan', 'they turn off'],
     ], [
-        ['apagué', 'I turned off', true], ['apagaste', 'you turned off'], ['apagó', 's/he turned off'],
+        ['apagué', 'I turned off'], ['apagaste', 'you turned off'], ['apagó', 's/he turned off'],
         ['apagamos', 'we turned off'], ['apagaron', 'they turned off'],
     ], [
         ['apagaba', 'I used to turn off'], ['apagabas', 'you used to turn off'], ['apagaba', 's/he used to turn off'],
@@ -221,8 +221,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('encender', 'to turn on, to light', [
         ['encender', 'to turn on'], ['encendido', 'turned on'], ['encendiendo', 'turning on'],
     ], [
-        ['enciendo', 'I turn on', true], ['enciendes', 'you turn on', true], ['enciende', 's/he turns on', true],
-        ['encendemos', 'we turn on'], ['encienden', 'they turn on', true],
+        ['enciendo', 'I turn on'], ['enciendes', 'you turn on'], ['enciende', 's/he turns on'],
+        ['encendemos', 'we turn on'], ['encienden', 'they turn on'],
     ], [
         ['encendí', 'I turned on'], ['encendiste', 'you turned on'], ['encendió', 's/he turned on'],
         ['encendimos', 'we turned on'], ['encendieron', 'they turned on'],
@@ -293,8 +293,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('enviar', 'to send', [
         ['enviar', 'to send'], ['enviado', 'sent'], ['enviando', 'sending'],
     ], [
-        ['envío', 'I send', true], ['envías', 'you send', true], ['envía', 's/he sends', true],
-        ['enviamos', 'we send'], ['envían', 'they send', true],
+        ['envío', 'I send'], ['envías', 'you send'], ['envía', 's/he sends'],
+        ['enviamos', 'we send'], ['envían', 'they send'],
     ], [
         ['envié', 'I sent'], ['enviaste', 'you sent'], ['envió', 's/he sent'],
         ['enviamos', 'we sent'], ['enviaron', 'they sent'],
@@ -305,8 +305,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('aprobar', 'to pass (an exam), to approve', [
         ['aprobar', 'to pass'], ['aprobado', 'passed'], ['aprobando', 'passing'],
     ], [
-        ['apruebo', 'I pass', true], ['apruebas', 'you pass', true], ['aprueba', 's/he passes', true],
-        ['aprobamos', 'we pass'], ['aprueban', 'they pass', true],
+        ['apruebo', 'I pass'], ['apruebas', 'you pass'], ['aprueba', 's/he passes'],
+        ['aprobamos', 'we pass'], ['aprueban', 'they pass'],
     ], [
         ['aprobé', 'I passed'], ['aprobaste', 'you passed'], ['aprobó', 's/he passed'],
         ['aprobamos', 'we passed'], ['aprobaron', 'they passed'],
@@ -344,7 +344,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['rezo', 'I pray'], ['rezas', 'you pray'], ['reza', 's/he prays'],
         ['rezamos', 'we pray'], ['rezan', 'they pray'],
     ], [
-        ['recé', 'I prayed', true], ['rezaste', 'you prayed'], ['rezó', 's/he prayed'],
+        ['recé', 'I prayed'], ['rezaste', 'you prayed'], ['rezó', 's/he prayed'],
         ['rezamos', 'we prayed'], ['rezaron', 'they prayed'],
     ], [
         ['rezaba', 'I used to pray'], ['rezabas', 'you used to pray'], ['rezaba', 's/he used to pray'],
@@ -401,11 +401,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('satisfacer', 'to satisfy', [
         ['satisfacer', 'to satisfy'], ['satisfecho', 'satisfied'], ['satisfaciendo', 'satisfying'],
     ], [
-        ['satisfago', 'I satisfy', true], ['satisfaces', 'you satisfy', true], ['satisface', 's/he satisfies', true],
-        ['satisfacemos', 'we satisfy'], ['satisfacen', 'they satisfy', true],
+        ['satisfago', 'I satisfy'], ['satisfaces', 'you satisfy'], ['satisface', 's/he satisfies'],
+        ['satisfacemos', 'we satisfy'], ['satisfacen', 'they satisfy'],
     ], [
-        ['satisfice', 'I satisfied', true], ['satisficiste', 'you satisfied', true], ['satisfizo', 's/he satisfied', true],
-        ['satisficimos', 'we satisfied', true], ['satisficieron', 'they satisfied', true],
+        ['satisfice', 'I satisfied'], ['satisficiste', 'you satisfied'], ['satisfizo', 's/he satisfied'],
+        ['satisficimos', 'we satisfied'], ['satisficieron', 'they satisfied'],
     ], [
         ['satisfacía', 'I used to satisfy'], ['satisfacías', 'you used to satisfy'], ['satisfacía', 's/he used to satisfy'],
         ['satisfacíamos', 'we used to satisfy'], ['satisfacían', 'they used to satisfy'],
@@ -428,7 +428,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['pesco', 'I fish'], ['pescas', 'you fish'], ['pesca', 's/he fishes'],
         ['pescamos', 'we fish'], ['pescan', 'they fish'],
     ], [
-        ['pesqué', 'I fished', true], ['pescaste', 'you fished'], ['pescó', 's/he fished'],
+        ['pesqué', 'I fished'], ['pescaste', 'you fished'], ['pescó', 's/he fished'],
         ['pescamos', 'we fished'], ['pescaron', 'they fished'],
     ], [
         ['pescaba', 'I used to fish'], ['pescabas', 'you used to fish'], ['pescaba', 's/he used to fish'],
@@ -461,11 +461,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('repetir', 'to repeat', [
         ['repetir', 'to repeat'], ['repetido', 'repeated'], ['repitiendo', 'repeating'],
     ], [
-        ['repito', 'I repeat', true], ['repites', 'you repeat', true], ['repite', 's/he repeats', true],
-        ['repetimos', 'we repeat'], ['repiten', 'they repeat', true],
+        ['repito', 'I repeat'], ['repites', 'you repeat'], ['repite', 's/he repeats'],
+        ['repetimos', 'we repeat'], ['repiten', 'they repeat'],
     ], [
-        ['repetí', 'I repeated'], ['repetiste', 'you repeated'], ['repitió', 's/he repeated', true],
-        ['repetimos', 'we repeated'], ['repitieron', 'they repeated', true],
+        ['repetí', 'I repeated'], ['repetiste', 'you repeated'], ['repitió', 's/he repeated'],
+        ['repetimos', 'we repeated'], ['repitieron', 'they repeated'],
     ], [
         ['repetía', 'I used to repeat'], ['repetías', 'you used to repeat'], ['repetía', 's/he used to repeat'],
         ['repetíamos', 'we used to repeat'], ['repetían', 'they used to repeat'],
@@ -509,8 +509,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('reunir', 'to gather, to meet, to reunite', [
         ['reunir', 'to gather'], ['reunido', 'gathered'], ['reuniendo', 'gathering'],
     ], [
-        ['reúno', 'I gather', true], ['reúnes', 'you gather', true], ['reúne', 's/he gathers', true],
-        ['reunimos', 'we gather'], ['reúnen', 'they gather', true],
+        ['reúno', 'I gather'], ['reúnes', 'you gather'], ['reúne', 's/he gathers'],
+        ['reunimos', 'we gather'], ['reúnen', 'they gather'],
     ], [
         ['reuní', 'I gathered'], ['reuniste', 'you gathered'], ['reunió', 's/he gathered'],
         ['reunimos', 'we gathered'], ['reunieron', 'they gathered'],
@@ -536,7 +536,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['practico', 'I practice'], ['practicas', 'you practice'], ['practica', 's/he practices'],
         ['practicamos', 'we practice'], ['practican', 'they practice'],
     ], [
-        ['practiqué', 'I practiced', true], ['practicaste', 'you practiced'], ['practicó', 's/he practiced'],
+        ['practiqué', 'I practiced'], ['practicaste', 'you practiced'], ['practicó', 's/he practiced'],
         ['practicamos', 'we practiced'], ['practicaron', 'they practiced'],
     ], [
         ['practicaba', 'I used to practice'], ['practicabas', 'you used to practice'], ['practicaba', 's/he used to practice'],
@@ -557,7 +557,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('crecer', 'to grow, to grow up', [
         ['crecer', 'to grow'], ['crecido', 'grown'], ['creciendo', 'growing'],
     ], [
-        ['crezco', 'I grow', true], ['creces', 'you grow'], ['crece', 's/he grows'],
+        ['crezco', 'I grow'], ['creces', 'you grow'], ['crece', 's/he grows'],
         ['crecemos', 'we grow'], ['crecen', 'they grow'],
     ], [
         ['crecí', 'I grew'], ['creciste', 'you grew'], ['creció', 's/he grew'],
@@ -584,7 +584,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['descargo', 'I download'], ['descargas', 'you download'], ['descarga', 's/he downloads'],
         ['descargamos', 'we download'], ['descargan', 'they download'],
     ], [
-        ['descargué', 'I downloaded', true], ['descargaste', 'you downloaded'], ['descargó', 's/he downloaded'],
+        ['descargué', 'I downloaded'], ['descargaste', 'you downloaded'], ['descargó', 's/he downloaded'],
         ['descargamos', 'we downloaded'], ['descargaron', 'they downloaded'],
     ], [
         ['descargaba', 'I used to download'], ['descargabas', 'you used to download'], ['descargaba', 's/he used to download'],
@@ -605,8 +605,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('soler', 'to tend to (do), to usually (do)', [
         ['soler', 'to tend to'], ['solido', 'tended to'], ['soliendo', 'tending to'],
     ], [
-        ['suelo', 'I usually', true], ['sueles', 'you usually', true], ['suele', 's/he usually', true],
-        ['solemos', 'we usually'], ['suelen', 'they usually', true],
+        ['suelo', 'I usually'], ['sueles', 'you usually'], ['suele', 's/he usually'],
+        ['solemos', 'we usually'], ['suelen', 'they usually'],
     ], [
         ['solí', 'I tended to'], ['soliste', 'you tended to'], ['solió', 's/he tended to'],
         ['solimos', 'we tended to'], ['solieron', 'they tended to'],
@@ -629,10 +629,10 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('colgar', 'to hang, to hang up', [
         ['colgar', 'to hang'], ['colgado', 'hung'], ['colgando', 'hanging'],
     ], [
-        ['cuelgo', 'I hang', true], ['cuelgas', 'you hang', true], ['cuelga', 's/he hangs', true],
-        ['colgamos', 'we hang'], ['cuelgan', 'they hang', true],
+        ['cuelgo', 'I hang'], ['cuelgas', 'you hang'], ['cuelga', 's/he hangs'],
+        ['colgamos', 'we hang'], ['cuelgan', 'they hang'],
     ], [
-        ['colgué', 'I hung', true], ['colgaste', 'you hung'], ['colgó', 's/he hung'],
+        ['colgué', 'I hung'], ['colgaste', 'you hung'], ['colgó', 's/he hung'],
         ['colgamos', 'we hung'], ['colgaron', 'they hung'],
     ], [
         ['colgaba', 'I used to hang'], ['colgabas', 'you used to hang'], ['colgaba', 's/he used to hang'],
@@ -653,8 +653,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('mostrar', 'to show', [
         ['mostrar', 'to show'], ['mostrado', 'shown'], ['mostrando', 'showing'],
     ], [
-        ['muestro', 'I show', true], ['muestras', 'you show', true], ['muestra', 's/he shows', true],
-        ['mostramos', 'we show'], ['muestran', 'they show', true],
+        ['muestro', 'I show'], ['muestras', 'you show'], ['muestra', 's/he shows'],
+        ['mostramos', 'we show'], ['muestran', 'they show'],
     ], [
         ['mostré', 'I showed'], ['mostraste', 'you showed'], ['mostró', 's/he showed'],
         ['mostramos', 'we showed'], ['mostraron', 'they showed'],
@@ -713,8 +713,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('vaciar', 'to empty', [
         ['vaciar', 'to empty'], ['vaciado', 'emptied'], ['vaciando', 'emptying'],
     ], [
-        ['vacío', 'I empty', true], ['vacías', 'you empty', true], ['vacía', 's/he empties', true],
-        ['vaciamos', 'we empty'], ['vacían', 'they empty', true],
+        ['vacío', 'I empty'], ['vacías', 'you empty'], ['vacía', 's/he empties'],
+        ['vaciamos', 'we empty'], ['vacían', 'they empty'],
     ], [
         ['vacié', 'I emptied'], ['vaciaste', 'you emptied'], ['vació', 's/he emptied'],
         ['vaciamos', 'we emptied'], ['vaciaron', 'they emptied'],
@@ -737,11 +737,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('requerir', 'to require', [
         ['requerir', 'to require'], ['requerido', 'required'], ['requiriendo', 'requiring'],
     ], [
-        ['requiero', 'I require', true], ['requieres', 'you require', true], ['requiere', 's/he requires', true],
-        ['requerimos', 'we require'], ['requieren', 'they require', true],
+        ['requiero', 'I require'], ['requieres', 'you require'], ['requiere', 's/he requires'],
+        ['requerimos', 'we require'], ['requieren', 'they require'],
     ], [
-        ['requerí', 'I required'], ['requeriste', 'you required'], ['requirió', 's/he required', true],
-        ['requerimos', 'we required'], ['requirieron', 'they required', true],
+        ['requerí', 'I required'], ['requeriste', 'you required'], ['requirió', 's/he required'],
+        ['requerimos', 'we required'], ['requirieron', 'they required'],
     ], [
         ['requería', 'I used to require'], ['requerías', 'you used to require'], ['requería', 's/he used to require'],
         ['requeríamos', 'we used to require'], ['requerían', 'they used to require'],
@@ -800,7 +800,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me acerco', 'I approach'], ['te acercas', 'you approach'], ['se acerca', 's/he approaches'],
         ['nos acercamos', 'we approach'], ['se acercan', 'they approach'],
     ], [
-        ['me acerqué', 'I approached', true], ['te acercaste', 'you approached'], ['se acercó', 's/he approached'],
+        ['me acerqué', 'I approached'], ['te acercaste', 'you approached'], ['se acercó', 's/he approached'],
         ['nos acercamos', 'we approached'], ['se acercaron', 'they approached'],
     ], [
         ['me acercaba', 'I used to approach'], ['te acercabas', 'you used to approach'], ['se acercaba', 's/he used to approach'],
@@ -821,11 +821,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('convenir', 'to suit, to be advisable, to be in one\'s interest, to agree', [
         ['convenir', 'to suit'], ['convenido', 'agreed'], ['conviniendo', 'suiting'],
     ], [
-        ['convengo', 'I suit', true], ['convienes', 'you suit', true], ['conviene', 'it suits', true],
-        ['convenimos', 'we agree'], ['convienen', 'they suit', true],
+        ['convengo', 'I suit'], ['convienes', 'you suit'], ['conviene', 'it suits'],
+        ['convenimos', 'we agree'], ['convienen', 'they suit'],
     ], [
-        ['convine', 'I agreed', true], ['conviniste', 'you agreed', true], ['convino', 'it suited', true],
-        ['convinimos', 'we agreed', true], ['convinieron', 'they agreed', true],
+        ['convine', 'I agreed'], ['conviniste', 'you agreed'], ['convino', 'it suited'],
+        ['convinimos', 'we agreed'], ['convinieron', 'they agreed'],
     ], [
         ['convenía', 'I used to suit'], ['convenías', 'you used to suit'], ['convenía', 'it used to suit'],
         ['conveníamos', 'we used to agree'], ['convenían', 'they used to suit'],
@@ -953,11 +953,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('sonreír', 'to smile', [
         ['sonreír', 'to smile'], ['sonreído', 'smiled'], ['sonriendo', 'smiling'],
     ], [
-        ['sonrío', 'I smile', true], ['sonríes', 'you smile', true], ['sonríe', 's/he smiles', true],
-        ['sonreímos', 'we smile'], ['sonríen', 'they smile', true],
+        ['sonrío', 'I smile'], ['sonríes', 'you smile'], ['sonríe', 's/he smiles'],
+        ['sonreímos', 'we smile'], ['sonríen', 'they smile'],
     ], [
-        ['sonreí', 'I smiled'], ['sonreíste', 'you smiled'], ['sonrió', 's/he smiled', true],
-        ['sonreímos', 'we smiled'], ['sonrieron', 'they smiled', true],
+        ['sonreí', 'I smiled'], ['sonreíste', 'you smiled'], ['sonrió', 's/he smiled'],
+        ['sonreímos', 'we smiled'], ['sonrieron', 'they smiled'],
     ], [
         ['sonreía', 'I used to smile'], ['sonreías', 'you used to smile'], ['sonreía', 's/he used to smile'],
         ['sonreíamos', 'we used to smile'], ['sonreían', 'they used to smile'],
@@ -1013,7 +1013,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('recoger', 'to collect, to pick up, to gather', [
         ['recoger', 'to collect'], ['recogido', 'collected'], ['recogiendo', 'collecting'],
     ], [
-        ['recojo', 'I collect', true], ['recoges', 'you collect'], ['recoge', 's/he collects'],
+        ['recojo', 'I collect'], ['recoges', 'you collect'], ['recoge', 's/he collects'],
         ['recogemos', 'we collect'], ['recogen', 'they collect'],
     ], [
         ['recogí', 'I collected'], ['recogiste', 'you collected'], ['recogió', 's/he collected'],
@@ -1037,8 +1037,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('mover', 'to move (something)', [
         ['mover', 'to move'], ['movido', 'moved'], ['moviendo', 'moving'],
     ], [
-        ['muevo', 'I move', true], ['mueves', 'you move', true], ['mueve', 's/he moves', true],
-        ['movemos', 'we move'], ['mueven', 'they move', true],
+        ['muevo', 'I move'], ['mueves', 'you move'], ['mueve', 's/he moves'],
+        ['movemos', 'we move'], ['mueven', 'they move'],
     ], [
         ['moví', 'I moved'], ['moviste', 'you moved'], ['movió', 's/he moved'],
         ['movimos', 'we moved'], ['movieron', 'they moved'],
@@ -1157,14 +1157,14 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('irse', 'to leave, to go away', [
         ['irse', 'to leave'], ['ido', 'left'], ['yendo', 'leaving'],
     ], [
-        ['me voy', 'I leave', true], ['te vas', 'you leave', true], ['se va', 's/he leaves', true],
-        ['nos vamos', 'we leave', true], ['se van', 'they leave', true],
+        ['me voy', 'I leave'], ['te vas', 'you leave'], ['se va', 's/he leaves'],
+        ['nos vamos', 'we leave'], ['se van', 'they leave'],
     ], [
-        ['me fui', 'I left', true], ['te fuiste', 'you left', true], ['se fue', 's/he left', true],
-        ['nos fuimos', 'we left', true], ['se fueron', 'they left', true],
+        ['me fui', 'I left'], ['te fuiste', 'you left'], ['se fue', 's/he left'],
+        ['nos fuimos', 'we left'], ['se fueron', 'they left'],
     ], [
-        ['me iba', 'I used to leave', true], ['te ibas', 'you used to leave', true], ['se iba', 's/he used to leave', true],
-        ['nos íbamos', 'we used to leave', true], ['se iban', 'they used to leave', true],
+        ['me iba', 'I used to leave'], ['te ibas', 'you used to leave'], ['se iba', 's/he used to leave'],
+        ['nos íbamos', 'we used to leave'], ['se iban', 'they used to leave'],
     ]),
     simpleVerb('regalar', 'to give away, to present, to give a present', [
         ['regalar', 'to give as a present'], ['regalado', 'given as a present'], ['regalando', 'giving as a present'],
@@ -1181,8 +1181,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('encontrar', 'to find', [
         ['encontrar', 'to find'], ['encontrado', 'found'], ['encontrando', 'finding'],
     ], [
-        ['encuentro', 'I find', true], ['encuentras', 'you find', true], ['encuentra', 's/he finds', true],
-        ['encontramos', 'we find'], ['encuentran', 'they find', true],
+        ['encuentro', 'I find'], ['encuentras', 'you find'], ['encuentra', 's/he finds'],
+        ['encontramos', 'we find'], ['encuentran', 'they find'],
     ], [
         ['encontré', 'I found'], ['encontraste', 'you found'], ['encontró', 's/he found'],
         ['encontramos', 'we found'], ['encontraron', 'they found'],
@@ -1193,11 +1193,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('poner', 'to put, to place', [
         ['poner', 'to put'], ['puesto', 'put'], ['poniendo', 'putting'],
     ], [
-        ['pongo', 'I put', true], ['pones', 'you put'], ['pone', 's/he puts'],
+        ['pongo', 'I put'], ['pones', 'you put'], ['pone', 's/he puts'],
         ['ponemos', 'we put'], ['ponen', 'they put'],
     ], [
-        ['puse', 'I put', true], ['pusiste', 'you put', true], ['puso', 's/he put', true],
-        ['pusimos', 'we put', true], ['pusieron', 'they put', true],
+        ['puse', 'I put'], ['pusiste', 'you put'], ['puso', 's/he put'],
+        ['pusimos', 'we put'], ['pusieron', 'they put'],
     ], [
         ['ponía', 'I used to put'], ['ponías', 'you used to put'], ['ponía', 's/he used to put'],
         ['poníamos', 'we used to put'], ['ponían', 'they used to put'],
@@ -1205,11 +1205,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('sentir', 'to feel, to sense, to be sorry', [
         ['sentir', 'to feel'], ['sentido', 'felt'], ['sintiendo', 'feeling'],
     ], [
-        ['siento', 'I feel', true], ['sientes', 'you feel', true], ['siente', 's/he feels', true],
-        ['sentimos', 'we feel'], ['sienten', 'they feel', true],
+        ['siento', 'I feel'], ['sientes', 'you feel'], ['siente', 's/he feels'],
+        ['sentimos', 'we feel'], ['sienten', 'they feel'],
     ], [
-        ['sentí', 'I felt'], ['sentiste', 'you felt'], ['sintió', 's/he felt', true],
-        ['sentimos', 'we felt'], ['sintieron', 'they felt', true],
+        ['sentí', 'I felt'], ['sentiste', 'you felt'], ['sintió', 's/he felt'],
+        ['sentimos', 'we felt'], ['sintieron', 'they felt'],
     ], [
         ['sentía', 'I used to feel'], ['sentías', 'you used to feel'], ['sentía', 's/he used to feel'],
         ['sentíamos', 'we used to feel'], ['sentían', 'they used to feel'],
@@ -1217,11 +1217,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('dormir', 'to sleep', [
         ['dormir', 'to sleep'], ['dormido', 'slept'], ['durmiendo', 'sleeping'],
     ], [
-        ['duermo', 'I sleep', true], ['duermes', 'you sleep', true], ['duerme', 's/he sleeps', true],
-        ['dormimos', 'we sleep'], ['duermen', 'they sleep', true],
+        ['duermo', 'I sleep'], ['duermes', 'you sleep'], ['duerme', 's/he sleeps'],
+        ['dormimos', 'we sleep'], ['duermen', 'they sleep'],
     ], [
-        ['dormí', 'I slept'], ['dormiste', 'you slept'], ['durmió', 's/he slept', true],
-        ['dormimos', 'we slept'], ['durmieron', 'they slept', true],
+        ['dormí', 'I slept'], ['dormiste', 'you slept'], ['durmió', 's/he slept'],
+        ['dormimos', 'we slept'], ['durmieron', 'they slept'],
     ], [
         ['dormía', 'I used to sleep'], ['dormías', 'you used to sleep'], ['dormía', 's/he used to sleep'],
         ['dormíamos', 'we used to sleep'], ['dormían', 'they used to sleep'],
@@ -1277,8 +1277,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('despertar', 'to wake (someone) up', [
         ['despertar', 'to wake'], ['despertado', 'woken'], ['despertando', 'waking'],
     ], [
-        ['despierto', 'I wake', true], ['despiertas', 'you wake', true], ['despierta', 's/he wakes', true],
-        ['despertamos', 'we wake'], ['despiertan', 'they wake', true],
+        ['despierto', 'I wake'], ['despiertas', 'you wake'], ['despierta', 's/he wakes'],
+        ['despertamos', 'we wake'], ['despiertan', 'they wake'],
     ], [
         ['desperté', 'I woke'], ['despertaste', 'you woke'], ['despertó', 's/he woke'],
         ['despertamos', 'we woke'], ['despertaron', 'they woke'],
@@ -1289,8 +1289,8 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('acordar', 'to agree, to decide on', [
         ['acordar', 'to agree'], ['acordado', 'agreed'], ['acordando', 'agreeing'],
     ], [
-        ['acuerdo', 'I agree', true], ['acuerdas', 'you agree', true], ['acuerda', 's/he agrees', true],
-        ['acordamos', 'we agree'], ['acuerdan', 'they agree', true],
+        ['acuerdo', 'I agree'], ['acuerdas', 'you agree'], ['acuerda', 's/he agrees'],
+        ['acordamos', 'we agree'], ['acuerdan', 'they agree'],
     ], [
         ['acordé', 'I agreed'], ['acordaste', 'you agreed'], ['acordó', 's/he agreed'],
         ['acordamos', 'we agreed'], ['acordaron', 'they agreed'],
@@ -1373,7 +1373,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('amanecer', 'to dawn, to get light, to wake up', [
         ['amanecer', 'to dawn'], ['amanecido', 'dawned'], ['amaneciendo', 'dawning'],
     ], [
-        ['amanezco', 'I wake up', true], ['amaneces', 'you wake up'], ['amanece', 'it dawns, s/he wakes up'],
+        ['amanezco', 'I wake up'], ['amaneces', 'you wake up'], ['amanece', 'it dawns, s/he wakes up'],
         ['amanecemos', 'we wake up'], ['amanecen', 'they wake up'],
     ], [
         ['amanecí', 'I woke up'], ['amaneciste', 'you woke up'], ['amaneció', 'it dawned, s/he woke up'],
@@ -1385,7 +1385,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('anochecer', 'to get dark, to become night', [
         ['anochecer', 'to get dark'], ['anochecido', 'gotten dark'], ['anocheciendo', 'getting dark'],
     ], [
-        ['anochezco', 'I end the day', true], ['anocheces', 'you end the day'], ['anochece', 'it gets dark, s/he ends the day'],
+        ['anochezco', 'I end the day'], ['anocheces', 'you end the day'], ['anochece', 'it gets dark, s/he ends the day'],
         ['anochecemos', 'we end the day'], ['anochecen', 'they end the day'],
     ], [
         ['anochecí', 'I ended the day'], ['anocheciste', 'you ended the day'], ['anocheció', 'it got dark, s/he ended the day'],
@@ -1397,7 +1397,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('exigir', 'to require, to demand', [
         ['exigir', 'to demand'], ['exigido', 'demanded'], ['exigiendo', 'demanding'],
     ], [
-        ['exijo', 'I demand', true], ['exiges', 'you demand'], ['exige', 's/he demands'],
+        ['exijo', 'I demand'], ['exiges', 'you demand'], ['exige', 's/he demands'],
         ['exigimos', 'we demand'], ['exigen', 'they demand'],
     ], [
         ['exigí', 'I demanded'], ['exigiste', 'you demanded'], ['exigió', 's/he demanded'],
@@ -1412,7 +1412,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['critico', 'I criticise'], ['criticas', 'you criticise'], ['critica', 's/he criticises'],
         ['criticamos', 'we criticise'], ['critican', 'they criticise'],
     ], [
-        ['critiqué', 'I criticised', true], ['criticaste', 'you criticised'], ['criticó', 's/he criticised'],
+        ['critiqué', 'I criticised'], ['criticaste', 'you criticised'], ['criticó', 's/he criticised'],
         ['criticamos', 'we criticised'], ['criticaron', 'they criticised'],
     ], [
         ['criticaba', 'I used to criticise'], ['criticabas', 'you used to criticise'], ['criticaba', 's/he used to criticise'],
@@ -1433,7 +1433,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('ofrecer', 'to offer, to provide (a service)', [
         ['ofrecer', 'to offer'], ['ofrecido', 'offered'], ['ofreciendo', 'offering'],
     ], [
-        ['ofrezco', 'I offer', true], ['ofreces', 'you offer'], ['ofrece', 's/he offers'],
+        ['ofrezco', 'I offer'], ['ofreces', 'you offer'], ['ofrece', 's/he offers'],
         ['ofrecemos', 'we offer'], ['ofrecen', 'they offer'],
     ], [
         ['ofrecí', 'I offered'], ['ofreciste', 'you offered'], ['ofreció', 's/he offered'],
@@ -1481,10 +1481,10 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('guiar', 'to guide, to lead, to steer', [
         ['guiar', 'to guide'], ['guiado', 'guided'], ['guiando', 'guiding'],
     ], [
-        ['guío', 'I guide', true], ['guías', 'you guide', true], ['guía', 's/he guides', true],
-        ['guiamos', 'we guide'], ['guían', 'they guide', true],
+        ['guío', 'I guide'], ['guías', 'you guide'], ['guía', 's/he guides'],
+        ['guiamos', 'we guide'], ['guían', 'they guide'],
     ], [
-        ['guie', 'I guided', true], ['guiaste', 'you guided'], ['guio', 's/he guided', true],
+        ['guie', 'I guided'], ['guiaste', 'you guided'], ['guio', 's/he guided'],
         ['guiamos', 'we guided'], ['guiaron', 'they guided'],
     ], [
         ['guiaba', 'I used to guide'], ['guiabas', 'you used to guide'], ['guiaba', 's/he used to guide'],
@@ -1532,7 +1532,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['choco', 'I crash'], ['chocas', 'you crash'], ['choca', 's/he crashes'],
         ['chocamos', 'we crash'], ['chocan', 'they crash'],
     ], [
-        ['choqué', 'I crashed', true], ['chocaste', 'you crashed'], ['chocó', 's/he crashed'],
+        ['choqué', 'I crashed'], ['chocaste', 'you crashed'], ['chocó', 's/he crashed'],
         ['chocamos', 'we crashed'], ['chocaron', 'they crashed'],
     ], [
         ['chocaba', 'I used to crash'], ['chocabas', 'you used to crash'], ['chocaba', 's/he used to crash'],
@@ -1588,11 +1588,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     ]),    simpleVerb('conducir', 'to drive, to lead, to conduct', [
         ['conducir', 'to drive'], ['conducido', 'driven'], ['conduciendo', 'driving'],
     ], [
-        ['conduzco', 'I drive', true], ['conduces', 'you drive'], ['conduce', 's/he drives'],
+        ['conduzco', 'I drive'], ['conduces', 'you drive'], ['conduce', 's/he drives'],
         ['conducimos', 'we drive'], ['conducen', 'they drive'],
     ], [
-        ['conduje', 'I drove', true], ['condujiste', 'you drove', true], ['condujo', 's/he drove', true],
-        ['condujimos', 'we drove', true], ['condujeron', 'they drove', true],
+        ['conduje', 'I drove'], ['condujiste', 'you drove'], ['condujo', 's/he drove'],
+        ['condujimos', 'we drove'], ['condujeron', 'they drove'],
     ], [
         ['conducía', 'I used to drive'], ['conducías', 'you used to drive'], ['conducía', 's/he used to drive'],
         ['conducíamos', 'we used to drive'], ['conducían', 'they used to drive'],
@@ -1600,11 +1600,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('reír', 'to laugh', [
         ['reír', 'to laugh'], ['reído', 'laughed'], ['riendo', 'laughing'],
     ], [
-        ['río', 'I laugh', true], ['ríes', 'you laugh', true], ['ríe', 's/he laughs', true],
-        ['reímos', 'we laugh'], ['ríen', 'they laugh', true],
+        ['río', 'I laugh'], ['ríes', 'you laugh'], ['ríe', 's/he laughs'],
+        ['reímos', 'we laugh'], ['ríen', 'they laugh'],
     ], [
-        ['reí', 'I laughed'], ['reíste', 'you laughed'], ['rio', 's/he laughed', true],
-        ['reímos', 'we laughed'], ['rieron', 'they laughed', true],
+        ['reí', 'I laughed'], ['reíste', 'you laughed'], ['rio', 's/he laughed'],
+        ['reímos', 'we laughed'], ['rieron', 'they laughed'],
     ], [
         ['reía', 'I used to laugh'], ['reías', 'you used to laugh'], ['reía', 's/he used to laugh'],
         ['reíamos', 'we used to laugh'], ['reían', 'they used to laugh'],
@@ -1636,11 +1636,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('herir', 'to wound, to injure, to hurt (feelings)', [
         ['herir', 'to wound'], ['herido', 'wounded'], ['hiriendo', 'wounding'],
     ], [
-        ['hiero', 'I wound', true], ['hieres', 'you wound', true], ['hiere', 's/he wounds', true],
-        ['herimos', 'we wound'], ['hieren', 'they wound', true],
+        ['hiero', 'I wound'], ['hieres', 'you wound'], ['hiere', 's/he wounds'],
+        ['herimos', 'we wound'], ['hieren', 'they wound'],
     ], [
-        ['herí', 'I wounded'], ['heriste', 'you wounded'], ['hirió', 's/he wounded', true],
-        ['herimos', 'we wounded'], ['hirieron', 'they wounded', true],
+        ['herí', 'I wounded'], ['heriste', 'you wounded'], ['hirió', 's/he wounded'],
+        ['herimos', 'we wounded'], ['hirieron', 'they wounded'],
     ], [
         ['hería', 'I used to wound'], ['herías', 'you used to wound'], ['hería', 's/he used to wound'],
         ['heríamos', 'we used to wound'], ['herían', 'they used to wound'],
@@ -1648,11 +1648,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('herirse', 'to get hurt, to injure oneself', [
         ['herirse', 'to get hurt'], ['herido', 'hurt'], ['hiriendo', 'getting hurt'],
     ], [
-        ['me hiero', 'I get hurt', true], ['te hieres', 'you get hurt', true], ['se hiere', 's/he gets hurt', true],
-        ['nos herimos', 'we get hurt'], ['se hieren', 'they get hurt', true],
+        ['me hiero', 'I get hurt'], ['te hieres', 'you get hurt'], ['se hiere', 's/he gets hurt'],
+        ['nos herimos', 'we get hurt'], ['se hieren', 'they get hurt'],
     ], [
-        ['me herí', 'I got hurt'], ['te heriste', 'you got hurt'], ['se hirió', 's/he got hurt', true],
-        ['nos herimos', 'we got hurt'], ['se hirieron', 'they got hurt', true],
+        ['me herí', 'I got hurt'], ['te heriste', 'you got hurt'], ['se hirió', 's/he got hurt'],
+        ['nos herimos', 'we got hurt'], ['se hirieron', 'they got hurt'],
     ], [
         ['me hería', 'I used to get hurt'], ['te herías', 'you used to get hurt'], ['se hería', 's/he used to get hurt'],
         ['nos heríamos', 'we used to get hurt'], ['se herían', 'they used to get hurt'],
@@ -1660,11 +1660,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('caerse', 'to fall, to fall down', [
         ['caerse', 'to fall down'], ['caído', 'fallen'], ['cayendo', 'falling'],
     ], [
-        ['me caigo', 'I fall down', true], ['te caes', 'you fall down'], ['se cae', 's/he falls down'],
+        ['me caigo', 'I fall down'], ['te caes', 'you fall down'], ['se cae', 's/he falls down'],
         ['nos caemos', 'we fall down'], ['se caen', 'they fall down'],
     ], [
-        ['me caí', 'I fell down'], ['te caíste', 'you fell down'], ['se cayó', 's/he fell down', true],
-        ['nos caímos', 'we fell down'], ['se cayeron', 'they fell down', true],
+        ['me caí', 'I fell down'], ['te caíste', 'you fell down'], ['se cayó', 's/he fell down'],
+        ['nos caímos', 'we fell down'], ['se cayeron', 'they fell down'],
     ], [
         ['me caía', 'I used to fall down'], ['te caías', 'you used to fall down'], ['se caía', 's/he used to fall down'],
         ['nos caíamos', 'we used to fall down'], ['se caían', 'they used to fall down'],
@@ -1684,7 +1684,7 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('desaparecer', 'to disappear, to vanish', [
         ['desaparecer', 'to disappear'], ['desaparecido', 'disappeared'], ['desapareciendo', 'disappearing'],
     ], [
-        ['desaparezco', 'I disappear', true], ['desapareces', 'you disappear'], ['desaparece', 's/he disappears'],
+        ['desaparezco', 'I disappear'], ['desapareces', 'you disappear'], ['desaparece', 's/he disappears'],
         ['desaparecemos', 'we disappear'], ['desaparecen', 'they disappear'],
     ], [
         ['desaparecí', 'I disappeared'], ['desapareciste', 'you disappeared'], ['desapareció', 's/he disappeared'],
@@ -1768,11 +1768,11 @@ export const BULK_VERBS_4: VerbEntry[] = [
     simpleVerb('sostener', 'to sustain, to hold', [
         ['sostener', 'to hold'], ['sostenido', 'held'], ['sosteniendo', 'holding'],
     ], [
-        ['sostengo', 'I hold', true], ['sostienes', 'you hold', true], ['sostiene', 's/he holds', true],
-        ['sostenemos', 'we hold'], ['sostienen', 'they hold', true],
+        ['sostengo', 'I hold'], ['sostienes', 'you hold'], ['sostiene', 's/he holds'],
+        ['sostenemos', 'we hold'], ['sostienen', 'they hold'],
     ], [
-        ['sostuve', 'I held', true], ['sostuviste', 'you held', true], ['sostuvo', 's/he held', true],
-        ['sostuvimos', 'we held', true], ['sostuvieron', 'they held', true],
+        ['sostuve', 'I held'], ['sostuviste', 'you held'], ['sostuvo', 's/he held'],
+        ['sostuvimos', 'we held'], ['sostuvieron', 'they held'],
     ], [
         ['sostenía', 'I used to hold'], ['sostenías', 'you used to hold'], ['sostenía', 's/he used to hold'],
         ['sosteníamos', 'we used to hold'], ['sostenían', 'they used to hold'],

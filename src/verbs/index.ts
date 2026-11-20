@@ -6,6 +6,7 @@ import { BULK_VERBS_4 } from './bulkVerbs4'
 import { VERB_DETAILS } from './details'
 import { buildImperative } from './imperative'
 import { buildPresentPerfect } from './presentPerfect'
+import { markIrregularLetters } from './irregularity'
 import { normalize } from '../utils'
 
 export const VERBS: VerbEntry[] = [...BULK_VERBS_1, ...BULK_VERBS_2, ...BULK_VERBS_3, ...BULK_VERBS_4]
@@ -18,6 +19,7 @@ for (const verb of VERBS) {
     verb.tenses.push(buildPresentPerfect(verb))
     const imperative = buildImperative(verb)
     if (imperative) verb.tenses.push(imperative)
+    markIrregularLetters(verb)
 }
 
 // Original summaries and tense descriptions (not copied from any external source),

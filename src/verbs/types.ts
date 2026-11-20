@@ -13,13 +13,16 @@ export const TENSE_META = [
     { name: 'Affirmative Imperative', spanishName: 'El Imperativo Afirmativo', pronouns: IMPERATIVE_PRONOUNS },
 ] as const
 
-export type VerbForm = { spanish: string; english: string; irregular?: boolean }
+// [start, end) character offsets into `spanish` of letters that break the regular pattern,
+// computed in irregularity.ts (never hand-written)
+export type CharRange = [start: number, end: number]
+export type VerbForm = { spanish: string; english: string; irregular?: CharRange[] }
 export type VerbTense = {
     description?: string
     example?: { spanish: string; english: string }
     forms: VerbForm[] // aligned with the tense's TENSE_META pronouns by index
 }
-export type VerbInfoRow = { spanish: string; english: string }
+export type VerbInfoRow = { spanish: string; english: string; irregular?: CharRange[] }
 export type VerbEntry = {
     infinitive: string
     translation: string

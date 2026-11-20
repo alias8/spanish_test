@@ -424,14 +424,9 @@ h1 {
   padding: 0 1px;
 }
 
-.irregular-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #e5484d;
-  margin-left: 6px;
-  vertical-align: middle;
+.irregular-letters {
+  color: #e5484d;
+  font-weight: 600;
 }
 
 .verb-footnote {

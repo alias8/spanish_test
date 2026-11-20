@@ -6,7 +6,7 @@ import type { VerbEntry, VerbForm, VerbTense } from './types'
 //   - usted/ustedes are the present subjunctive: the yo form minus -o, with the vowel swapped
 //     (hablo → hable, tengo → tenga), plus the -car/-gar/-zar/-guar spelling changes
 //   - reflexive verbs attach the pronoun (levántate, levántese, levántense)
-// A form is marked irregular when it differs from the plain infinitive-stem pattern.
+// Irregular letters are marked afterwards, in irregularity.ts.
 
 // Verbs with no natural command form (impersonal, gustar-style, or modal) get no imperative box.
 const NO_IMPERATIVE = new Set([
@@ -29,7 +29,7 @@ const ACCENTED: Record<string, string> = { a: 'á', e: 'é', i: 'í', o: 'ó', u
 
 // Adds the written accent needed once an extra syllable is attached (levanta → levánta-te).
 // The base forms are all stressed on their second-to-last syllable, so that's where it goes.
-function addStressAccent(word: string): string {
+export function addStressAccent(word: string): string {
     if (/[áéíóú]/.test(word)) return word
     // vowel nuclei, splitting two adjacent strong vowels (pre-o-cu-pa) into separate syllables
     const nuclei: { start: number; end: number }[] = []
@@ -68,7 +68,6 @@ export function buildImperative(verb: VerbEntry): VerbTense | null {
     const reflexive = firstWord.endsWith('se')
     const base = reflexive ? firstWord.slice(0, -2) : firstWord
     const isAr = base.endsWith('ar')
-    const regularStem = base.slice(0, -2)
 
     // present forms without the reflexive pronoun or the tail (me levanto → levanto)
     const bare = (form: VerbForm) => {
@@ -84,7 +83,6 @@ export function buildImperative(verb: VerbEntry): VerbTense | null {
         const subj = presentSubjunctive(yo, isAr)
         return [subj, subj + 'n']
     })()
-    const regular = [regularStem + (isAr ? 'a' : 'e'), regularStem + (isAr ? 'e' : 'a'), regularStem + (isAr ? 'en' : 'an')]
 
     const gloss = verb.infinitiveForms[0].english.split(',')[0].replace(/^to /, '').replace(/\s*\(.*?\)/g, '').replace('oneself', 'yourself').trim()
     const english = [`${gloss}! (you, informal)`, `${gloss}! (you, formal)`, `${gloss}! (you all)`]
@@ -92,7 +90,7 @@ export function buildImperative(verb: VerbEntry): VerbTense | null {
 
     const forms = [tu, usted, ustedes].map((form, i): VerbForm => {
         const spanish = (reflexive ? addStressAccent(form) + pronouns[i] : form) + tail
-        return form !== regular[i] ? { spanish, english: english[i], irregular: true } : { spanish, english: english[i] }
+        return { spanish, english: english[i] }
     })
 
     const description = reflexive
