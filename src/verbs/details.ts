@@ -1791,4 +1791,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something shared at a specific time.', example: { spanish: 'compartimos una pizza anoche', english: 'we shared a pizza last night' } },
         imperfect: { description: 'Used for what someone used to share, or for background.', example: { spanish: 'de niños compartíamos todos los juguetes', english: 'as kids we used to share all our toys' } },
     },
+    bromear: {
+        summary: 'Bromear means "to joke" or "to kid around", and comes from broma (a joke). You joke with someone using con (siempre bromea con sus amigos, he always jokes with his friends), and about something using sobre or con. A very common phrase is ¡estoy bromeando!, "I\'m kidding!". It is a regular -ar verb, though the stem ends in e so you get two e\'s in a row in some forms (bromeé, bromee).',
+        present: { description: 'Used for joking now or habitually.', example: { spanish: 'no te enfades, solo bromeo', english: 'don\'t get angry, I\'m only joking' } },
+        preterite: { description: 'Used for a joke made at a specific time.', example: { spanish: 'bromeamos toda la noche en la cena', english: 'we joked all night at dinner' } },
+        imperfect: { description: 'Used for how someone used to joke, or for background.', example: { spanish: 'mi abuelo siempre bromeaba con los camareros', english: 'my grandfather always used to joke with the waiters' } },
+    },
 }

@@ -1849,4 +1849,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['compartía', 'I used to share'], ['compartías', 'you used to share'], ['compartía', 's/he used to share'],
         ['compartíamos', 'we used to share'], ['compartían', 'they used to share'],
     ]),
+    simpleVerb('bromear', 'to joke, to kid', [
+        ['bromear', 'to joke'], ['bromeado', 'joked'], ['bromeando', 'joking'],
+    ], [
+        ['bromeo', 'I joke'], ['bromeas', 'you joke'], ['bromea', 's/he jokes'],
+        ['bromeamos', 'we joke'], ['bromean', 'they joke'],
+    ], [
+        ['bromeé', 'I joked'], ['bromeaste', 'you joked'], ['bromeó', 's/he joked'],
+        ['bromeamos', 'we joked'], ['bromearon', 'they joked'],
+    ], [
+        ['bromeaba', 'I used to joke'], ['bromeabas', 'you used to joke'], ['bromeaba', 's/he used to joke'],
+        ['bromeábamos', 'we used to joke'], ['bromeaban', 'they used to joke'],
+    ]),
 ]

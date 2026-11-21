@@ -17,7 +17,7 @@ const FREQUENCY_ORDER = [
     'repetir', 'copiar', 'imprimir', 'apagar', 'descargar', 'encender', 'reír', 'sonreír', 'llorar', 'lamentar', 'colgar', 'mandar', 'rezar', 'enviar', 'contactar', 'visitar', 'explorar', 'experimentar', 'aprobar', 'regresar',
     'reservar', 'cantar', 'pintar', 'limpiar', 'barrer', 'cocinar', 'conducir', 'manejar', 'chocar', 'caminar', 'pasear', 'girar', 'doblar', 'comprar', 'dibujar', 'coleccionar', 'planear',
     'completar', 'reunir', 'repartir', 'satisfacer', 'montar', 'navegar', 'asar', 'pescar', 'reparar', 'amueblar', 'decorar', 'llenar', 'vaciar', 'acompañar', 'guiar', 'conversar',
-    'festejar', 'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'agarrar', 'elegir', 'descansar', 'estresar', 'relajarse', 'respirar', 'pesar', 'pesarse', 'doler', 'aliviar', 'costar',
+    'bromear', 'festejar', 'disfrutar', 'desayunar', 'fumar', 'odiar', 'preferir', 'coger', 'agarrar', 'elegir', 'descansar', 'estresar', 'relajarse', 'respirar', 'pesar', 'pesarse', 'doler', 'aliviar', 'costar',
     'llover', 'nevar', 'congelar', 'entrenar', 'nadar', 'esquiar', 'patinar', 'hacer snowboard', 'acampar',
 ] as const
 
