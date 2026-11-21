@@ -1406,17 +1406,17 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['exigía', 'I used to demand'], ['exigías', 'you used to demand'], ['exigía', 's/he used to demand'],
         ['exigíamos', 'we used to demand'], ['exigían', 'they used to demand'],
     ]),
-    simpleVerb('criticar', 'to criticise', [
-        ['criticar', 'to criticise'], ['criticado', 'criticised'], ['criticando', 'criticising'],
+    simpleVerb('criticar', 'to criticize', [
+        ['criticar', 'to criticize'], ['criticado', 'criticized'], ['criticando', 'criticizing'],
     ], [
-        ['critico', 'I criticise'], ['criticas', 'you criticise'], ['critica', 's/he criticises'],
-        ['criticamos', 'we criticise'], ['critican', 'they criticise'],
+        ['critico', 'I criticize'], ['criticas', 'you criticize'], ['critica', 's/he criticizes'],
+        ['criticamos', 'we criticize'], ['critican', 'they criticize'],
     ], [
-        ['critiqué', 'I criticised'], ['criticaste', 'you criticised'], ['criticó', 's/he criticised'],
-        ['criticamos', 'we criticised'], ['criticaron', 'they criticised'],
+        ['critiqué', 'I criticized'], ['criticaste', 'you criticized'], ['criticó', 's/he criticized'],
+        ['criticamos', 'we criticized'], ['criticaron', 'they criticized'],
     ], [
-        ['criticaba', 'I used to criticise'], ['criticabas', 'you used to criticise'], ['criticaba', 's/he used to criticise'],
-        ['criticábamos', 'we used to criticise'], ['criticaban', 'they used to criticise'],
+        ['criticaba', 'I used to criticize'], ['criticabas', 'you used to criticize'], ['criticaba', 's/he used to criticize'],
+        ['criticábamos', 'we used to criticize'], ['criticaban', 'they used to criticize'],
     ]),
     simpleVerb('apoyar', 'to support', [
         ['apoyar', 'to support'], ['apoyado', 'supported'], ['apoyando', 'supporting'],
