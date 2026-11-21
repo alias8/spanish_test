@@ -348,13 +348,13 @@ export const BULK_VERBS_1: VerbEntry[] = [
         ['comenzábamos', 'we used to start'], ['comenzaban', 'they used to start'],
     ]),
     simpleVerb('aprender', 'to learn', [
-        ['aprender', 'to learn'], ['aprendido', 'learnt'], ['aprendiendo', 'learning'],
+        ['aprender', 'to learn'], ['aprendido', 'learned'], ['aprendiendo', 'learning'],
     ], [
         ['aprendo', 'I learn'], ['aprendes', 'you learn'], ['aprende', 's/he learns'],
         ['aprendemos', 'we learn'], ['aprenden', 'they learn'],
     ], [
-        ['aprendí', 'I learnt'], ['aprendiste', 'you learnt'], ['aprendió', 's/he learnt'],
-        ['aprendimos', 'we learnt'], ['aprendieron', 'they learnt'],
+        ['aprendí', 'I learned'], ['aprendiste', 'you learned'], ['aprendió', 's/he learned'],
+        ['aprendimos', 'we learned'], ['aprendieron', 'they learned'],
     ], [
         ['aprendía', 'I used to learn'], ['aprendías', 'you used to learn'], ['aprendía', 's/he used to learn'],
         ['aprendíamos', 'we used to learn'], ['aprendían', 'they used to learn'],

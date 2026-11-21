@@ -161,7 +161,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     pedir: {
         summary: 'Pedir means "to ask for", "to request", or "to order" (in a restaurant) — note it takes no preposition, unlike English "ask for". It is e→i stem-changing.',
         present: { description: 'Used for asking for or ordering something now.', example: { spanish: 'pido ayuda', english: "I'm asking for help" } },
-        preterite: { description: 'Used for a completed request.', example: { spanish: 'pidió la cuenta', english: 's/he asked for the bill' } },
+        preterite: { description: 'Used for a completed request.', example: { spanish: 'pidió la cuenta', english: 's/he asked for the check' } },
         imperfect: { description: 'Used for what someone used to ask for or order regularly.', example: { spanish: 'pedía pizza los viernes', english: 'I used to order pizza on Fridays' } },
     },
     prestar: {
@@ -234,12 +234,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         summary: 'Jugar means "to play", whether a sport or a game — followed by "a" before the specific activity (jugar al fútbol). It is the only u→ue stem-changing verb in Spanish, with a spelling change (g→gu) in the yo preterite (jugué).',
         present: { description: 'Used for playing something now or regularly.', example: { spanish: 'juego al tenis', english: 'I play tennis' } },
         preterite: { description: 'Used for a completed instance of playing.', example: { spanish: 'jugué con mis amigos', english: 'I played with my friends' } },
-        imperfect: { description: 'Used for what someone used to play regularly.', example: { spanish: 'jugaba al fútbol de niño', english: 'I used to play football as a kid' } },
+        imperfect: { description: 'Used for what someone used to play regularly.', example: { spanish: 'jugaba al fútbol de niño', english: 'I used to play soccer as a kid' } },
     },
     cerrar: {
         summary: 'Cerrar means "to close", "to shut", or "to lock". It is e→ie stem-changing.',
         present: { description: 'Used for closing something right now or on a schedule.', example: { spanish: 'cierro la puerta', english: 'I close the door' } },
-        preterite: { description: 'Used for a completed act of closing something.', example: { spanish: 'cerró la tienda', english: 's/he closed the shop' } },
+        preterite: { description: 'Used for a completed act of closing something.', example: { spanish: 'cerró la tienda', english: 's/he closed the store' } },
         imperfect: { description: 'Used for when something used to close.', example: { spanish: 'cerraba a las diez', english: 'it used to close at ten' } },
     },
     contar: {
@@ -459,9 +459,9 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for describing the circumstances around a birth.', example: { spanish: 'cuando nacía el sol', english: 'as the sun was rising' } },
     },
     dirigir: {
-        summary: 'Dirigir means "to direct" or "to lead" — a team, a company, a film. It has an irregular yo form (dirijo), with a spelling change (g→j) to keep the soft sound.',
+        summary: 'Dirigir means "to direct" or "to lead" — a team, a company, a movie. It has an irregular yo form (dirijo), with a spelling change (g→j) to keep the soft sound.',
         present: { description: 'Used for directing or leading something right now.', example: { spanish: 'dirijo un equipo', english: 'I manage a team' } },
-        preterite: { description: 'Used for something that was directed or led at a specific time.', example: { spanish: 'dirigió la película', english: 's/he directed the film' } },
+        preterite: { description: 'Used for something that was directed or led at a specific time.', example: { spanish: 'dirigió la película', english: 's/he directed the movie' } },
         imperfect: { description: 'Used for what someone used to direct or lead.', example: { spanish: 'dirigía la empresa', english: 's/he used to run the company' } },
     },
     correr: {
@@ -485,12 +485,12 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     },
     tener: {
         summary: 'Tener is the Spanish verb "to have". It is an extremely useful verb and is largely irregular when conjugating. It is important to note that in Spanish, tener is used to portray a person\'s age; for example: "tengo 21 años". This literally translates to "I have 21 years". Another common use for Tener is to indicate an obligation, for example: "tengo que irme a casa" - "I have to go home". It is always followed by "que" to indicate this type of obligation or "must".',
-        present: { description: 'The Indicative Present of tener is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'tengo un gato gris', english: 'I have a grey cat' } },
-        preterite: { description: 'The Indicative Preterite of tener is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'tuve un gato gris', english: 'I had a grey cat' } },
-        imperfect: { description: 'The Indicative Imperfect of tener is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'tenía un gato gris', english: 'I used to have a grey cat' } },
+        present: { description: 'The Indicative Present of tener is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'tengo un gato gris', english: 'I have a gray cat' } },
+        preterite: { description: 'The Indicative Preterite of tener is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'tuve un gato gris', english: 'I had a gray cat' } },
+        imperfect: { description: 'The Indicative Imperfect of tener is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'tenía un gato gris', english: 'I used to have a gray cat' } },
     },
     ir: {
-        summary: 'Ir is the Spanish verb "to go", and is one of the most common irregular verbs in Spanish. It is used in various contexts like "I go to school", "you went to Mexico on holiday", "we are going to the concert on Saturday".',
+        summary: 'Ir is the Spanish verb "to go", and is one of the most common irregular verbs in Spanish. It is used in various contexts like "I go to school", "you went to Mexico on vacation", "we are going to the concert on Saturday".',
         present: { description: 'The Indicative Present of ir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'voy al supermercado todos los sábados', english: 'I go to the supermarket every Saturday' } },
         preterite: { description: 'The Indicative Preterite of ir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'fui al supermercado todos los sábados', english: 'I went to the supermarket every Saturday' } },
         imperfect: { description: 'The Indicative Imperfect of ir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'iba al supermercado todos los sábados', english: 'I used to go to the supermarket every Saturday' } },
@@ -538,7 +538,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'The Indicative Imperfect of saber is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'sabía español', english: 'I used to know Spanish' } },
     },
     decir: {
-        summary: 'Decir is the Spanish verb meaning "to say / to tell". For example: "What did you say?" or "I swear to tell the truth". In Spain, it is used when answering the phone - you will hear "¿Diga?" meaning "hello" or "¡Digame!", literally translating to "tell me". It can also be used to express rumours and opinions - "they say it\'s going to rain all next week" and "What do you say, will we go on holidays in June?"',
+        summary: 'Decir is the Spanish verb meaning "to say / to tell". For example: "What did you say?" or "I swear to tell the truth". In Spain, it is used when answering the phone - you will hear "¿Diga?" meaning "hello" or "¡Digame!", literally translating to "tell me". It can also be used to express rumors and opinions - "they say it\'s going to rain all next week" and "What do you say, will we go on vacation in June?"',
         present: { description: 'The Indicative Present of decir is used to talk about situations, events or thoughts that are happening now or in the near future. It is also used to talk about facts and truths.', example: { spanish: 'digo hola al profesor', english: 'I say hello to the teacher' } },
         preterite: { description: 'The Indicative Preterite of decir is used to talk about actions completed in the past, at a specific point in time.', example: { spanish: 'dije hola al profesor', english: 'I said hello to the teacher' } },
         imperfect: { description: 'The Indicative Imperfect of decir is used to describe regular and repeated actions that happened in the past and descriptions of things you used to do.', example: { spanish: 'decía hola al profesor', english: 'I used to say hello to the teacher' } },
@@ -607,7 +607,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         summary: 'Enseñar means "to teach" a subject and "to show" someone something (te enseño mi casa). It is fully regular.',
         present: { description: 'Used for teaching or showing something right now.', example: { spanish: 'enseño inglés', english: 'I teach English' } },
         preterite: { description: 'Used for a completed lesson or a moment of showing something.', example: { spanish: 'me enseñó a cocinar', english: 's/he taught me to cook' } },
-        imperfect: { description: 'Used for what someone used to teach.', example: { spanish: 'enseñaba matemáticas', english: 'I used to teach maths' } },
+        imperfect: { description: 'Used for what someone used to teach.', example: { spanish: 'enseñaba matemáticas', english: 'I used to teach math' } },
     },
     invitar: {
         summary: 'Invitar means "to invite" someone to something, and is also used for offering to pay (te invito, it\'s on me). It is fully regular.',
@@ -749,7 +749,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     },
     pagar: {
         summary: 'Pagar means "to pay" or "to pay for" something. It is regular apart from a spelling change (g→gu) in the yo preterite (pagué), needed to keep the hard "g" sound before an "e".',
-        present: { description: 'Used for paying for something right now or habitually.', example: { spanish: 'pago la cuenta', english: 'I pay the bill' } },
+        present: { description: 'Used for paying for something right now or habitually.', example: { spanish: 'pago la cuenta', english: 'I pay the check' } },
         preterite: { description: 'Used for a completed payment.', example: { spanish: 'pagué la cena', english: 'I paid for dinner' } },
         imperfect: { description: 'Used for how someone used to pay regularly.', example: { spanish: 'pagaba en efectivo', english: 'I used to pay in cash' } },
     },
@@ -829,7 +829,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         summary: 'Disfrutar (de) means "to enjoy" — often paired with "de" before a noun (disfruto de la playa), though it can also take a direct object. It is fully regular.',
         present: { description: 'Used for enjoying something right now or habitually.', example: { spanish: 'disfruto de la playa', english: 'I enjoy the beach' } },
         preterite: { description: 'Used for a completed instance of enjoying something.', example: { spanish: 'disfrutó del concierto', english: 's/he enjoyed the concert' } },
-        imperfect: { description: 'Used for what someone used to enjoy regularly.', example: { spanish: 'disfrutaba de las vacaciones', english: 'I used to enjoy the holidays' } },
+        imperfect: { description: 'Used for what someone used to enjoy regularly.', example: { spanish: 'disfrutaba de las vacaciones', english: 'I used to enjoy vacations' } },
     },
     pintar: {
         summary: 'Pintar means "to paint" — walls, pictures, or nails. It is fully regular.',
@@ -1222,7 +1222,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for something that used to stress someone regularly.', example: { spanish: 'mi antiguo jefe me estresaba todos los días', english: 'my old boss used to stress me out every day' } },
     },
     vaciar: {
-        summary: 'Vaciar means "to empty" — a bin, a glass, a room, or a drawer. It is the opposite of llenar. Like enviar, it has an accent shift: the "i" carries a written accent and takes the stress in most present-tense forms (vacío, vacías, vacía, vacían) except nosotros/vosotros. The adjective vacío/a means "empty".',
+        summary: 'Vaciar means "to empty" — a trash can, a glass, a room, or a drawer. It is the opposite of llenar. Like enviar, it has an accent shift: the "i" carries a written accent and takes the stress in most present-tense forms (vacío, vacías, vacía, vacían) except nosotros/vosotros. The adjective vacío/a means "empty".',
         present: { description: 'Used for emptying something right now or habitually.', example: { spanish: 'vacío la basura cada noche', english: 'I empty the trash every night' } },
         preterite: { description: 'Used for a completed emptying at a specific moment.', example: { spanish: 'vaciamos el armario antes de mudarnos', english: 'we emptied the closet before moving' } },
         imperfect: { description: 'Used for emptying that used to happen regularly, or was in progress.', example: { spanish: 'mi hermano vaciaba el lavavajillas todas las mañanas', english: 'my brother used to empty the dishwasher every morning' } },
@@ -1360,7 +1360,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for throwing that used to happen regularly, or was in progress.', example: { spanish: 'de niños, tirábamos piedras al río', english: 'as kids, we used to throw stones into the river' } },
     },
     alquilar: {
-        summary: 'Alquilar means "to rent" or "to hire" — and it works in both directions: renting from someone (alquilé un coche, I rented a car) or renting out to someone (alquilo mi piso a estudiantes, I rent my flat out to students). Se alquila on a sign means "for rent". The noun el alquiler means "rent" (pagar el alquiler) or "rental". In Mexico rentar is also common. It is fully regular.',
+        summary: 'Alquilar means "to rent" or "to hire" — and it works in both directions: renting from someone (alquilé un coche, I rented a car) or renting out to someone (alquilo mi piso a estudiantes, I rent my apartment out to students). Se alquila on a sign means "for rent". The noun el alquiler means "rent" (pagar el alquiler) or "rental". In Mexico rentar is also common. It is fully regular.',
         present: { description: 'Used for renting something right now or habitually.', example: { spanish: 'alquilamos un apartamento cerca del centro', english: 'we rent an apartment near downtown' } },
         preterite: { description: 'Used for a completed rental at a specific moment.', example: { spanish: 'alquilé unas bicis para recorrer la ciudad', english: 'I rented some bikes to get around the city' } },
         imperfect: { description: 'Used for renting that used to happen regularly, or was ongoing.', example: { spanish: 'cada verano alquilábamos una casa en la playa', english: 'every summer we used to rent a house at the beach' } },
@@ -1379,7 +1379,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     },
     molestar: {
         summary: 'Molestar means "to bother", "to disturb", or "to annoy". It often works like gustar, with the thing that annoys as the subject and the person as an indirect object (me molesta el ruido, the noise bothers me; me molestan los mosquitos). Polite phrases: perdone que le moleste (sorry to bother you), ¿le molesta si…? (do you mind if…?), and no molestar (do not disturb). Molestarse means "to get annoyed" or "to take the trouble" (no te molestes, don\'t bother). Careful: it does not mean "to molest". It is fully regular.',
-        present: { description: 'Used for something that bothers someone right now or habitually.', example: { spanish: 'me molesta cuando la gente habla en el cine', english: 'it bothers me when people talk in the cinema' } },
+        present: { description: 'Used for something that bothers someone right now or habitually.', example: { spanish: 'me molesta cuando la gente habla en el cine', english: 'it bothers me when people talk at the movies' } },
         preterite: { description: 'Used for a completed disturbance at a specific moment.', example: { spanish: 'perdona, ¿te molesté?', english: 'sorry, did I disturb you?' } },
         imperfect: { description: 'Used for something that used to bother someone, or was ongoing.', example: { spanish: 'mi hermano siempre me molestaba cuando estudiaba', english: 'my brother always used to bother me when I was studying' } },
     },
@@ -1402,7 +1402,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for regret that was ongoing in the past.', example: { spanish: 'durante años lamentaba no haber estudiado más', english: 'for years I regretted not having studied more' } },
     },
     perdonar: {
-        summary: 'Perdonar means "to forgive", "to pardon", or "to excuse". The person forgiven is often an indirect object when the offence is named (te perdono la mentira, I forgive you for the lie) and a direct object otherwise (te perdono, I forgive you). Its commands are everyday ways to say "excuse me / sorry": perdona (tú) and perdone (usted) — to get attention, interrupt, or apologise for something small (perdona, ¿sabes dónde está la estación?). ¿Perdón? means "pardon?" when you didn\'t hear. It also means "to let off" a debt or punishment (le perdonaron la multa). It is fully regular.',
+        summary: 'Perdonar means "to forgive", "to pardon", or "to excuse". The person forgiven is often an indirect object when the offense is named (te perdono la mentira, I forgive you for the lie) and a direct object otherwise (te perdono, I forgive you). Its commands are everyday ways to say "excuse me / sorry": perdona (tú) and perdone (usted) — to get attention, interrupt, or apologize for something small (perdona, ¿sabes dónde está la estación?). ¿Perdón? means "pardon?" when you didn\'t hear. It also means "to let off" a debt or punishment (le perdonaron la multa). It is fully regular.',
         present: { description: 'Used for forgiving right now or habitually.', example: { spanish: 'mi madre siempre nos perdona', english: 'my mother always forgives us' } },
         preterite: { description: 'Used for a completed act of forgiveness at a specific moment.', example: { spanish: 'al final me perdonó por olvidar su cumpleaños', english: 'in the end s/he forgave me for forgetting her/his birthday' } },
         imperfect: { description: 'Used for forgiving that used to happen regularly, or was ongoing.', example: { spanish: 'de niño, mi abuelo me perdonaba todo', english: 'as a child, my grandfather used to forgive me everything' } },
@@ -1469,7 +1469,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     },
     sentir: {
         summary: 'Sentir means "to feel" or "to sense" something — a pain, the cold, an emotion (siento frío, I feel cold) — and "to hear / notice" (sentí un ruido, I heard a noise). Its most famous use is lo siento ("I\'m sorry", literally "I feel it"), and sentir que + subjunctive means "to be sorry that" (siento que no puedas venir). Sentirse is for how you feel (me siento cansado, I feel tired): use sentir with a noun, sentirse with an adjective or adverb. It is e→ie stem-changing in the present (siento, sientes, siente, sienten), with an extra e→i shift in the third-person preterite (sintió, sintieron) and gerund (sintiendo).',
-        present: { description: 'Used for feeling or sensing something right now, or for apologising.', example: { spanish: 'lo siento mucho, no quería molestarte', english: 'I\'m really sorry, I didn\'t mean to bother you' } },
+        present: { description: 'Used for feeling or sensing something right now, or for apologizing.', example: { spanish: 'lo siento mucho, no quería molestarte', english: 'I\'m really sorry, I didn\'t mean to bother you' } },
         preterite: { description: 'Used for something felt or sensed at a specific moment.', example: { spanish: 'sentí un dolor fuerte en la espalda', english: 'I felt a sharp pain in my back' } },
         imperfect: { description: 'Used for something felt over a period, or that used to be felt regularly.', example: { spanish: 'sentía que algo no iba bien', english: 'I felt that something wasn\'t right' } },
     },
@@ -1482,11 +1482,11 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     subir: {
         summary: 'Subir means "to go up" or "to come up" (subo por las escaleras, I go up the stairs), "to climb" (subir una montaña), and "to raise / take up" something (subir el volumen, sube las maletas, take the suitcases up). It also means prices or temperatures going up (los precios subieron) and uploading (subir una foto). Subirse is "to get on" a bus, train, or car. The opposite is bajar. It is fully regular.',
         present: { description: 'Used for going up or raising something right now or habitually.', example: { spanish: 'cada mañana subo al quinto piso a pie', english: 'every morning I walk up to the fifth floor' } },
-        preterite: { description: 'Used for a completed rise or climb at a specific moment.', example: { spanish: 'el precio de la gasolina subió otra vez', english: 'the price of petrol went up again' } },
+        preterite: { description: 'Used for a completed rise or climb at a specific moment.', example: { spanish: 'el precio de la gasolina subió otra vez', english: 'the price of gas went up again' } },
         imperfect: { description: 'Used for going up that used to happen regularly, or was in progress.', example: { spanish: 'de niños subíamos a ese árbol', english: 'as kids we used to climb that tree' } },
     },
     bajar: {
-        summary: 'Bajar means "to go down" or "to come down" (bajo en un minuto, I\'ll be down in a minute), "to lower / take down" something (bajar el volumen, baja la basura, take the rubbish down), and prices or temperatures falling (la temperatura bajó). It is also "to download" (bajar una app), and bajar de peso is "to lose weight". Bajarse is "to get off" a bus, train, or car. The opposite is subir. It is fully regular.',
+        summary: 'Bajar means "to go down" or "to come down" (bajo en un minuto, I\'ll be down in a minute), "to lower / take down" something (bajar el volumen, baja la basura, take the trash down), and prices or temperatures falling (la temperatura bajó). It is also "to download" (bajar una app), and bajar de peso is "to lose weight". Bajarse is "to get off" a bus, train, or car. The opposite is subir. It is fully regular.',
         present: { description: 'Used for going down or lowering something right now or habitually.', example: { spanish: '¿puedes bajar la música, por favor?', english: 'can you turn the music down, please?' } },
         preterite: { description: 'Used for a completed descent or drop at a specific moment.', example: { spanish: 'bajé las escaleras corriendo', english: 'I ran down the stairs' } },
         imperfect: { description: 'Used for going down that used to happen regularly, or was in progress.', example: { spanish: 'cada verano bajábamos a la playa en bici', english: 'every summer we used to ride down to the beach' } },
@@ -1513,7 +1513,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         summary: 'Acordar means "to agree (on)" or "to decide" something together (acordamos el precio, we agreed on the price; acordaron reunirse el lunes, they agreed to meet on Monday). ¡De acuerdo! (agreed / OK) and el acuerdo (agreement) come from it. Don\'t confuse it with acordarse de, which means "to remember". It is o→ue stem-changing in the present (acuerdo, acuerdas, acuerda, acuerdan), but not in nosotros (acordamos), the preterite, or the imperfect.',
         present: { description: 'Used for agreeing on something right now.', example: { spanish: 'si acordamos una hora, te paso a buscar', english: 'if we agree on a time, I\'ll come and pick you up' } },
         preterite: { description: 'Used for a completed agreement at a specific moment.', example: { spanish: 'acordamos vernos el viernes', english: 'we agreed to meet on Friday' } },
-        imperfect: { description: 'Used for agreements that used to be made regularly, or were in progress.', example: { spanish: 'cada año acordaban las vacaciones con tiempo', english: 'every year they used to agree on the holidays well in advance' } },
+        imperfect: { description: 'Used for agreements that used to be made regularly, or were in progress.', example: { spanish: 'cada año acordaban las vacaciones con tiempo', english: 'every year they used to agree on their vacation well in advance' } },
     },
     preocupar: {
         summary: 'Preocupar means "to worry" or "to concern" someone, and it works like gustar: the worrying thing is the subject and the worried person is an indirect object (me preocupa el examen, the exam worries me; nos preocupan los precios). Preocuparse (por) is the reflexive "to worry (about)" (no te preocupes, don\'t worry). Estar preocupado means "to be worried". It is fully regular.',
@@ -1522,8 +1522,8 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for something that used to worry someone, or was ongoing.', example: { spanish: 'antes me preocupaba mucho el dinero', english: 'money used to worry me a lot' } },
     },
     aburrir: {
-        summary: 'Aburrir means "to bore" someone, and it often works like gustar (me aburre esta película, this film bores me; me aburren las reuniones). Aburrirse is "to get bored" (me aburro en clase). Watch the adjective: estar aburrido is "to be bored", but ser aburrido is "to be boring". It is fully regular.',
-        present: { description: 'Used for something that bores someone right now or habitually.', example: { spanish: 'me aburre muchísimo el fútbol', english: 'football bores me to death' } },
+        summary: 'Aburrir means "to bore" someone, and it often works like gustar (me aburre esta película, this movie bores me; me aburren las reuniones). Aburrirse is "to get bored" (me aburro en clase). Watch the adjective: estar aburrido is "to be bored", but ser aburrido is "to be boring". It is fully regular.',
+        present: { description: 'Used for something that bores someone right now or habitually.', example: { spanish: 'me aburre muchísimo el fútbol', english: 'soccer bores me to death' } },
         preterite: { description: 'Used for something that bored someone on a specific occasion.', example: { spanish: 'la conferencia aburrió a todo el mundo', english: 'the talk bored everyone' } },
         imperfect: { description: 'Used for something that used to bore someone.', example: { spanish: 'de niño me aburrían los museos', english: 'as a kid museums used to bore me' } },
     },
@@ -1570,7 +1570,7 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for demands that used to be made regularly, or were ongoing.', example: { spanish: 'mis padres exigían buenas notas', english: 'my parents used to demand good grades' } },
     },
     criticar: {
-        summary: 'Criticar means "to criticize" — finding fault with someone or something (siempre critica mi forma de conducir, s/he always criticizes my driving), reviewing a film or book, and also "to gossip about / badmouth" people behind their backs (les encanta criticar a los vecinos, they love gossiping about the neighbors). The noun la crítica means "criticism" or "a review", el/la crítico/a is "a critic", and crítico is also the adjective "critical". Watch the stress: critico (I criticize) vs crítico (critic). Like buscar and sacar, it has a c→qu spelling change in the yo preterite (critiqué), needed to keep the hard "k" sound before "e".',
+        summary: 'Criticar means "to criticize" — finding fault with someone or something (siempre critica mi forma de conducir, s/he always criticizes my driving), reviewing a movie or book, and also "to gossip about / badmouth" people behind their backs (les encanta criticar a los vecinos, they love gossiping about the neighbors). The noun la crítica means "criticism" or "a review", el/la crítico/a is "a critic", and crítico is also the adjective "critical". Watch the stress: critico (I criticize) vs crítico (critic). Like buscar and sacar, it has a c→qu spelling change in the yo preterite (critiqué), needed to keep the hard "k" sound before "e".',
         present: { description: 'Used for criticizing right now or habitually.', example: { spanish: 'mi suegra critica todo lo que cocino', english: 'my mother-in-law criticizes everything I cook' } },
         preterite: { description: 'Used for a completed criticism at a specific moment.', example: { spanish: 'la prensa criticó la decisión del gobierno', english: 'the press criticized the government\'s decision' } },
         imperfect: { description: 'Used for criticizing that used to happen regularly, or was ongoing.', example: { spanish: 'mi jefe anterior me criticaba delante de todos', english: 'my old boss used to criticize me in front of everyone' } },
@@ -1584,8 +1584,8 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
     ofrecer: {
         summary: 'Ofrecer means "to offer" — offering something to someone (te ofrezco un café, I\'ll offer you a coffee; me ofrecieron el trabajo, they offered me the job) — and "to provide" a service (el hotel ofrece desayuno, the hotel provides breakfast). The person receiving the offer is an indirect object. Ofrecerse (a) means "to volunteer" (me ofrecí a ayudar, I offered to help). The noun is la oferta, which also means a special offer or sale (está de oferta, it\'s on sale). Like conocer and crecer, it has a c→zc spelling change in the yo present form (ofrezco).',
         present: { description: 'Used for offering or providing something right now or habitually.', example: { spanish: 'esta empresa ofrece clases de español gratis', english: 'this company offers free Spanish classes' } },
-        preterite: { description: 'Used for a completed offer at a specific moment.', example: { spanish: 'mi vecino me ofreció ayuda con la mudanza', english: 'my neighbour offered me help with the move' } },
-        imperfect: { description: 'Used for offers that used to be made regularly, or were ongoing.', example: { spanish: 'mi abuela siempre nos ofrecía galletas', english: 'my grandmother always used to offer us biscuits' } },
+        preterite: { description: 'Used for a completed offer at a specific moment.', example: { spanish: 'mi vecino me ofreció ayuda con la mudanza', english: 'my neighbor offered me help with the move' } },
+        imperfect: { description: 'Used for offers that used to be made regularly, or were ongoing.', example: { spanish: 'mi abuela siempre nos ofrecía galletas', english: 'my grandmother always used to offer us cookies' } },
     },
     asustar: {
         summary: 'Asustar means "to frighten" or "to scare". It is often used like gustar, with the scary thing as the subject and the frightened person as an object (me asusta la oscuridad, the dark scares me; me asustan las arañas, spiders scare me), and it is common for a sudden scare (¡me asustaste!, you scared me!). Asustarse is the reflexive "to get scared" (me asusté mucho, I got really scared; ¡no te asustes!, don\'t be scared!). Estar asustado means "to be scared", and the noun is el susto (¡qué susto!, what a fright!). It is fully regular.',
@@ -1762,13 +1762,13 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         imperfect: { description: 'Used for repeated hitting, or for background.', example: { spanish: 'la lluvia golpeaba la ventana', english: 'the rain was pounding on the window' } },
     },
     doblar: {
-        summary: 'Doblar means "to fold" (doblar la ropa, to fold the clothes), "to bend" or "to flex" (doblar las rodillas, to bend your knees), and "to double" (doblar el precio). In directions it means "to turn" (dobla a la derecha, turn right), just like girar. It also means "to dub" a film (una película doblada, a dubbed movie). It is a regular -ar verb.',
+        summary: 'Doblar means "to fold" (doblar la ropa, to fold the clothes), "to bend" or "to flex" (doblar las rodillas, to bend your knees), and "to double" (doblar el precio). In directions it means "to turn" (dobla a la derecha, turn right), just like girar. It also means "to dub" a movie (una película doblada, a dubbed movie). It is a regular -ar verb.',
         present: { description: 'Used for folding, bending or turning now or habitually.', example: { spanish: 'doblo la ropa después de lavarla', english: 'I fold the clothes after washing them' } },
         preterite: { description: 'Used for something folded, bent or turned at a specific time.', example: { spanish: 'doblamos a la izquierda en el semáforo', english: 'we turned left at the traffic light' } },
         imperfect: { description: 'Used for what someone used to fold or bend, or for background.', example: { spanish: 'mi abuela doblaba las servilletas con cuidado', english: 'my grandmother used to fold the napkins carefully' } },
     },
     desear: {
-        summary: 'Desear means "to wish", "to want" or "to desire". It is more formal than querer, so you hear it a lot from waiters and shop staff (¿qué desea?, what would you like?), and in good wishes (te deseo un feliz cumpleaños, I wish you a happy birthday). The noun is el deseo (wish, desire), which looks the same as the yo form deseo. It is a regular -ar verb, though the yo preterite deseé has a double e.',
+        summary: 'Desear means "to wish", "to want" or "to desire". It is more formal than querer, so you hear it a lot from waiters and store staff (¿qué desea?, what would you like?), and in good wishes (te deseo un feliz cumpleaños, I wish you a happy birthday). The noun is el deseo (wish, desire), which looks the same as the yo form deseo. It is a regular -ar verb, though the yo preterite deseé has a double e.',
         present: { description: 'Used for what someone wishes or wants now, and for polite requests and good wishes.', example: { spanish: 'te deseo mucha suerte', english: 'I wish you lots of luck' } },
         preterite: { description: 'Used for a wish made or a desire felt at a specific time.', example: { spanish: 'deseó que todo saliera bien', english: 's/he wished that everything would go well' } },
         imperfect: { description: 'Used for what someone used to want, or a longing in the background.', example: { spanish: 'de niño deseaba ser astronauta', english: 'as a child I wanted to be an astronaut' } },

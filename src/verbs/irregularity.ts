@@ -10,7 +10,7 @@ import { addStressAccent } from './imperative'
 // The stem and the ending are diffed separately whenever the real form ends in a recognisable
 // ending, so a strong preterite's unaccented ending shows up (tuve vs tení → t[uve], not t[uv]e).
 // When the real form only *drops* letters (has vs habes, diré vs deciré, ten vs tiene) there's
-// nothing to colour, so the whole word is marked instead.
+// nothing to color, so the whole word is marked instead.
 
 type VerbClass = 'ar' | 'er' | 'ir'
 
