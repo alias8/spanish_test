@@ -55,10 +55,12 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     }
     // check for partial match on spanish infinitive or english translation
     const direct = VERB_SEARCH_INDEX.filter(e => e.normInfinitive.includes(q) || e.normTranslation.includes(q)).map(e => e.verb)
-    // for longer queries, also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar),
-    // gated by length so short queries like "en" don't match almost every verb via some conjugated form
-    if (q.length < 4) return direct
-    const viaForm = VERB_SEARCH_INDEX.filter(e => e.normForms.some(f => f.includes(q))).map(e => e.verb)
+    // also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar), gated by
+    // length so short queries like "en" don't match almost every verb via some conjugated form:
+    // 3 letters only match the start of a form (e.g. "dij" -> "dijeron" -> decir), 4+ match anywhere
+    if (q.length < 3) return direct
+    const formMatches = (f: string) => (q.length < 4 ? f.startsWith(q) : f.includes(q))
+    const viaForm = VERB_SEARCH_INDEX.filter(e => e.normForms.some(formMatches)).map(e => e.verb)
     return [...new Map([...direct, ...viaForm].map(v => [v.infinitive, v])).values()]
   }, [effectiveQuery])
 
