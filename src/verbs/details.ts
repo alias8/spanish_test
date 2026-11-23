@@ -1809,4 +1809,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a sound or ring at a specific moment.', example: { spanish: 'el despertador sonó a las seis', english: 'the alarm clock went off at six' } },
         imperfect: { description: 'Used for what used to sound, or for a sound in the background.', example: { spanish: 'cuando llegué, sonaba música en la cocina', english: 'when I arrived, music was playing in the kitchen' } },
     },
+    esforzarse: {
+        summary: 'Esforzarse means "to make an effort", "to try hard" or "to strive". What you are working toward takes por or en, usually with an infinitive: me esfuerzo por aprender español (I am working hard to learn Spanish), se esfuerza en su trabajo (s/he puts effort into his/her work). The noun is el esfuerzo (effort), as in hacer un esfuerzo (to make an effort). It is o→ue stem-changing in the present (me esfuerzo, te esfuerzas, se esfuerza, se esfuerzan), but not in the nosotros form (nos esforzamos), and the z becomes c before e in the yo preterite (me esforcé).',
+        present: { description: 'Used for trying hard now or as a habit.', example: { spanish: 'me esfuerzo mucho para hablar bien', english: 'I try really hard to speak well' } },
+        preterite: { description: 'Used for an effort made at a specific time.', example: { spanish: 'te esforzaste mucho en el examen', english: 'you worked really hard on the exam' } },
+        imperfect: { description: 'Used for effort that used to happen regularly, or was ongoing.', example: { spanish: 'de niña, se esforzaba siempre en la escuela', english: 'as a girl, she always used to work hard at school' } },
+    },
 }

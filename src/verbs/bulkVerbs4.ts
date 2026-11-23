@@ -1885,4 +1885,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['sonaba', 'I used to sound'], ['sonabas', 'you used to sound'], ['sonaba', 's/he used to sound'],
         ['sonábamos', 'we used to sound'], ['sonaban', 'they used to sound'],
     ]),
+    simpleVerb('esforzarse', 'to make an effort, to try hard, to strive', [
+        ['esforzarse', 'to make an effort'], ['esforzado', 'made an effort'], ['esforzando', 'making an effort'],
+    ], [
+        ['me esfuerzo', 'I make an effort'], ['te esfuerzas', 'you make an effort'], ['se esfuerza', 's/he makes an effort'],
+        ['nos esforzamos', 'we make an effort'], ['se esfuerzan', 'they make an effort'],
+    ], [
+        ['me esforcé', 'I made an effort'], ['te esforzaste', 'you made an effort'], ['se esforzó', 's/he made an effort'],
+        ['nos esforzamos', 'we made an effort'], ['se esforzaron', 'they made an effort'],
+    ], [
+        ['me esforzaba', 'I used to make an effort'], ['te esforzabas', 'you used to make an effort'], ['se esforzaba', 's/he used to make an effort'],
+        ['nos esforzábamos', 'we used to make an effort'], ['se esforzaban', 'they used to make an effort'],
+    ]),
 ]
