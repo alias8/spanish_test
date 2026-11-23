@@ -1803,4 +1803,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for an offer or a toast made at a specific time.', example: { spanish: 'brindamos por tu cumpleaños anoche', english: 'we toasted to your birthday last night' } },
         imperfect: { description: 'Used for what someone used to offer, or for background.', example: { spanish: 'mis vecinos siempre me brindaban su ayuda', english: 'my neighbors always used to offer me their help' } },
     },
+    sonar: {
+        summary: 'Sonar means "to sound" or "to ring": el teléfono suena (the phone is ringing), sonó la alarma (the alarm went off). It is also used for how something sounds (suena bien, it sounds good) and, with an indirect object, for something that sounds familiar: me suena tu cara (your face looks familiar). Don\'t confuse it with soñar (to dream), which has an ñ. It is o→ue stem-changing in the present (sueno, suenas, suena, suenan), but not in the nosotros form (sonamos).',
+        present: { description: 'Used for something ringing or sounding now, or for how something sounds.', example: { spanish: 'tu plan me suena bien', english: 'your plan sounds good to me' } },
+        preterite: { description: 'Used for a sound or ring at a specific moment.', example: { spanish: 'el despertador sonó a las seis', english: 'the alarm clock went off at six' } },
+        imperfect: { description: 'Used for what used to sound, or for a sound in the background.', example: { spanish: 'cuando llegué, sonaba música en la cocina', english: 'when I arrived, music was playing in the kitchen' } },
+    },
 }

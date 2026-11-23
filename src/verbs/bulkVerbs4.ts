@@ -1873,4 +1873,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['brindaba', 'I used to offer'], ['brindabas', 'you used to offer'], ['brindaba', 's/he used to offer'],
         ['brindábamos', 'we used to offer'], ['brindaban', 'they used to offer'],
     ]),
+    simpleVerb('sonar', 'to sound, to ring', [
+        ['sonar', 'to sound'], ['sonado', 'sounded'], ['sonando', 'sounding'],
+    ], [
+        ['sueno', 'I sound'], ['suenas', 'you sound'], ['suena', 's/he sounds'],
+        ['sonamos', 'we sound'], ['suenan', 'they sound'],
+    ], [
+        ['soné', 'I sounded'], ['sonaste', 'you sounded'], ['sonó', 's/he sounded'],
+        ['sonamos', 'we sounded'], ['sonaron', 'they sounded'],
+    ], [
+        ['sonaba', 'I used to sound'], ['sonabas', 'you used to sound'], ['sonaba', 's/he used to sound'],
+        ['sonábamos', 'we used to sound'], ['sonaban', 'they used to sound'],
+    ]),
 ]
