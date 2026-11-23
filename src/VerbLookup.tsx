@@ -2,14 +2,14 @@ import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { INFINITIVE_ITEMS, TENSE_META, VERBS_BY_INFINITIVE, VERBS_BY_FORM, VERBS_BY_TRANSLATION, VERB_SEARCH_INDEX, type VerbEntry } from './verbs'
 import type { CharRange } from './verbs/types'
 import { verbClassOf } from './verbs/irregularity'
-import { normalize } from './utils'
+import { findMatchIndexes, matchesWordStart, normalize } from './utils'
 
 type MatchReason = 'conjugated' | 'translation' | 'partial'
 
 // why a given verb showed up for a query — mirrors the branches in the matches useMemo below.
 // only an exact hit on a conjugated/inflected form gets called out specifically as that; any
-// other substring hit (in the infinitive, a conjugated form, or the translation) is just a
-// "partial match", except a translation hit, which is worth naming since it's easy to miss
+// other partial hit (in the infinitive or a conjugated form) is just a "partial match", except a
+// translation hit (a word in it starting with the query), which is worth naming since it's easy to miss
 function getMatchReason(verb: VerbEntry, q: string): MatchReason | null {
   if (normalize(verb.infinitive) === q) return null // exact infinitive match, nothing to explain
   // infinitiveForms[0] is the bare infinitive itself — only participle/gerund (the rest) count as "conjugated"
@@ -17,7 +17,7 @@ function getMatchReason(verb: VerbEntry, q: string): MatchReason | null {
     verb.infinitiveForms.slice(1).some(f => normalize(f.spanish) === q) ||
     verb.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
   if (isExactConjugatedForm) return 'conjugated'
-  if (normalize(verb.translation).includes(q)) return 'translation'
+  if (matchesWordStart(normalize(verb.translation), q)) return 'translation'
   return 'partial'
 }
 
@@ -53,8 +53,9 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
     if (conjugated.length > 0 || byTranslation.length > 0) {
       return [...new Map([...conjugated, ...byTranslation].map(v => [v.infinitive, v])).values()]
     }
-    // check for partial match on spanish infinitive or english translation
-    const direct = VERB_SEARCH_INDEX.filter(e => e.normInfinitive.includes(q) || e.normTranslation.includes(q)).map(e => e.verb)
+    // check for partial match on spanish infinitive, or a word in the english translation starting
+    // with the query (so "ring" doesn't pull in traer's "to bring")
+    const direct = VERB_SEARCH_INDEX.filter(e => e.normInfinitive.includes(q) || matchesWordStart(e.normTranslation, q)).map(e => e.verb)
     // also catch partial matches within conjugated forms (e.g. "estu" -> "estuvo" -> estar), gated by
     // length so short queries like "en" don't match almost every verb via some conjugated form:
     // 3 letters only match the start of a form (e.g. "dij" -> "dijeron" -> decir), 4+ match anywhere
@@ -108,19 +109,18 @@ export default function VerbLookup({ query, onQueryChange, onResolvedChange }: {
   )
 }
 
+// English text, so only highlight the query where it starts a word, matching how English is searched
 function highlightMatches(text: string, query: string | undefined) {
   if (!query) return text
-  const normText = normalize(text)
+  const indexes = findMatchIndexes(normalize(text), query, true)
+  if (indexes.length === 0) return text
   const parts: ReactNode[] = []
   let i = 0
-  let idx = normText.indexOf(query, i)
-  if (idx === -1) return text
   let key = 0
-  while (idx !== -1) {
+  for (const idx of indexes) {
     if (idx > i) parts.push(<Fragment key={key++}>{text.slice(i, idx)}</Fragment>)
     parts.push(<mark className="search-highlight" key={key++}>{text.slice(idx, idx + query.length)}</mark>)
     i = idx + query.length
-    idx = normText.indexOf(query, i)
   }
   if (i < text.length) parts.push(<Fragment key={key++}>{text.slice(i)}</Fragment>)
   return parts
@@ -134,10 +134,7 @@ function renderSpanish(text: string, irregular: CharRange[] | undefined, query: 
   for (const [start, end] of irregular) red.fill(true, start, end)
   const hit = new Array<boolean>(text.length).fill(false)
   if (query) {
-    const normText = normalize(text)
-    for (let idx = normText.indexOf(query); idx !== -1; idx = normText.indexOf(query, idx + query.length)) {
-      hit.fill(true, idx, idx + query.length)
-    }
+    for (const idx of findMatchIndexes(normalize(text), query)) hit.fill(true, idx, idx + query.length)
   }
   const parts: ReactNode[] = []
   for (let i = 0; i < text.length;) {
