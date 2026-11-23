@@ -1861,4 +1861,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['bromeaba', 'I used to joke'], ['bromeabas', 'you used to joke'], ['bromeaba', 's/he used to joke'],
         ['bromeábamos', 'we used to joke'], ['bromeaban', 'they used to joke'],
     ]),
+    simpleVerb('brindar', 'to offer, to toast (a speech)', [
+        ['brindar', 'to offer'], ['brindado', 'offered'], ['brindando', 'offering'],
+    ], [
+        ['brindo', 'I offer'], ['brindas', 'you offer'], ['brinda', 's/he offers'],
+        ['brindamos', 'we offer'], ['brindan', 'they offer'],
+    ], [
+        ['brindé', 'I offered'], ['brindaste', 'you offered'], ['brindó', 's/he offered'],
+        ['brindamos', 'we offered'], ['brindaron', 'they offered'],
+    ], [
+        ['brindaba', 'I used to offer'], ['brindabas', 'you used to offer'], ['brindaba', 's/he used to offer'],
+        ['brindábamos', 'we used to offer'], ['brindaban', 'they used to offer'],
+    ]),
 ]

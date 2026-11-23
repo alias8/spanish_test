@@ -1797,4 +1797,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a joke made at a specific time.', example: { spanish: 'bromeamos toda la noche en la cena', english: 'we joked all night at dinner' } },
         imperfect: { description: 'Used for how someone used to joke, or for background.', example: { spanish: 'mi abuelo siempre bromeaba con los camareros', english: 'my grandfather always used to joke with the waiters' } },
     },
+    brindar: {
+        summary: 'Brindar has two main uses. The first is "to offer" or "to provide", and is a bit more formal than ofrecer: brindar ayuda (to offer help), brindar una oportunidad (to give an opportunity), brindar apoyo (to provide support). The second is "to toast", raising your glass and often saying a few words: you toast to something with por (brindemos por los novios, let\'s toast to the bride and groom), and the noun is un brindis (a toast). It is a regular -ar verb.',
+        present: { description: 'Used for offering something now or habitually, or for toasting now.', example: { spanish: 'el hotel brinda desayuno gratis a todos', english: 'the hotel offers free breakfast to everyone' } },
+        preterite: { description: 'Used for an offer or a toast made at a specific time.', example: { spanish: 'brindamos por tu cumpleaños anoche', english: 'we toasted to your birthday last night' } },
+        imperfect: { description: 'Used for what someone used to offer, or for background.', example: { spanish: 'mis vecinos siempre me brindaban su ayuda', english: 'my neighbors always used to offer me their help' } },
+    },
 }
