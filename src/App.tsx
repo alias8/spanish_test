@@ -5,6 +5,8 @@ import { FREQUENCY_RANK, VERBS } from './verbs'
 import Card from './Card'
 import ConjugationTable from './ConjugationTable'
 import VerbLookup from './VerbLookup'
+import EnglishVerbLookup from './EnglishVerbLookup'
+import { ENGLISH_VERBS } from './englishVerbs'
 import { normalize } from './utils'
 
 // Closes a side panel when clicking anywhere outside it. The toggle button is excluded
@@ -43,15 +45,22 @@ export default function App() {
   useCloseOnOutsideClick(screenPanelOpen, setScreenPanelOpen, screenNavRef, screenToggleRef)
 
   const screen = SCREENS[screenIndex]
+  const isLookup = screen.kind === 'verbs' || screen.kind === 'englishVerbs'
+  // the left panel lists Spanish infinitives, or English base forms on the English screen
+  // (ENGLISH_VERBS is already in frequency order)
   const sortedVerbs = useMemo(() => {
-    const list = [...VERBS]
+    if (screen.kind === 'englishVerbs') {
+      const list = ENGLISH_VERBS.map(v => v.base)
+      return verbSort === 'alpha' ? list.sort((a, b) => a.localeCompare(b)) : list
+    }
+    const list = VERBS.map(v => v.infinitive)
     if (verbSort === 'frequency') {
-      list.sort((a, b) => (FREQUENCY_RANK.get(a.infinitive) ?? Infinity) - (FREQUENCY_RANK.get(b.infinitive) ?? Infinity))
+      list.sort((a, b) => (FREQUENCY_RANK.get(a) ?? Infinity) - (FREQUENCY_RANK.get(b) ?? Infinity))
     } else {
-      list.sort((a, b) => a.infinitive.localeCompare(b.infinitive))
+      list.sort((a, b) => a.localeCompare(b))
     }
     return list
-  }, [verbSort])
+  }, [verbSort, screen.kind])
   const numberScreenMap = useMemo(() => {
     if (screen.kind !== 'numbers') return null
     return new Map([...screen.col1, ...screen.col2].map(n => [normalize(n.spanish), n]))
@@ -63,12 +72,13 @@ export default function App() {
     : screen.kind === 'conjugation'
     ? screen.rows.reduce((sum, row) => sum + row.cells.length, 0)
     : 0
-  const complete = screen.kind !== 'verbs' && revealed.size === totalCount
+  const complete = !isLookup && revealed.size === totalCount
 
   function switchScreen(index: number) {
     setScreenIndex(index)
     setInput('')
-    setVerbQuery(SCREENS[index].kind === 'verbs' ? 'ser' : '')
+    const kind = SCREENS[index].kind
+    setVerbQuery(kind === 'verbs' ? 'ser' : kind === 'englishVerbs' ? 'be' : '')
     setTimeout(() => inputRef.current?.focus(), 0)
   }
 
@@ -114,7 +124,7 @@ export default function App() {
     <div className="layout">
       <div className="app">
         <h1>{screen.kind === 'numbers' ? 'Spanish Numbers' : screen.label}</h1>
-        {screen.kind !== 'verbs' && (
+        {!isLookup && (
           <p className="subtitle">
             {screen.kind === 'numbers'
               ? 'Type each number in Spanish to reveal it'
@@ -129,11 +139,13 @@ export default function App() {
           </div>
         ) : screen.kind === 'conjugation' ? (
           <ConjugationTable screen={screen} revealed={revealed} onReveal={handleReveal} />
+        ) : screen.kind === 'englishVerbs' ? (
+          <EnglishVerbLookup query={verbQuery} onQueryChange={setVerbQuery} onResolvedChange={setResolvedVerb} />
         ) : (
           <VerbLookup query={verbQuery} onQueryChange={setVerbQuery} onResolvedChange={setResolvedVerb} />
         )}
 
-        {screen.kind !== 'verbs' && (
+        {!isLookup && (
           <>
             <div className="bottom-area">
               {complete ? (
@@ -161,7 +173,7 @@ export default function App() {
         )}
       </div>
 
-      {screen.kind === 'verbs' && (
+      {isLookup && (
         <button
           ref={verbToggleRef}
           className={`panel-toggle left ${verbPanelOpen ? 'open' : ''}`}
@@ -172,7 +184,7 @@ export default function App() {
         </button>
       )}
 
-      {screen.kind === 'verbs' && verbPanelOpen && (
+      {isLookup && verbPanelOpen && (
         <nav className="verb-nav" ref={verbNavRef}>
           <button
             className="verb-sort-toggle"
@@ -182,11 +194,11 @@ export default function App() {
           </button>
           {sortedVerbs.map(v => (
             <button
-              key={v.infinitive}
-              className={`nav-btn verb-nav-btn ${resolvedVerb !== null && normalize(resolvedVerb) === normalize(v.infinitive) ? 'active' : ''}`}
-              onClick={() => setVerbQuery(v.infinitive)}
+              key={v}
+              className={`nav-btn verb-nav-btn ${resolvedVerb !== null && normalize(resolvedVerb) === normalize(v) ? 'active' : ''}`}
+              onClick={() => setVerbQuery(v)}
             >
-              {v.infinitive[0].toUpperCase() + v.infinitive.slice(1)}
+              {v[0].toUpperCase() + v.slice(1)}
             </button>
           ))}
           <p className="verb-count">{sortedVerbs.length} verbs</p>

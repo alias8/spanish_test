@@ -4,7 +4,9 @@ export type NumberEntry = { value: number; spanish: string }
 
 export type NumberScreen = { kind: 'numbers'; label: string; col1: NumberEntry[]; col2: NumberEntry[] }
 
-export type Screen = NumberScreen | ConjugationScreen | VerbLookupScreen
+export type EnglishVerbsScreen = { kind: 'englishVerbs'; label: string }
+
+export type Screen = NumberScreen | ConjugationScreen | VerbLookupScreen | EnglishVerbsScreen
 
 const ALL_NUMBERS: NumberEntry[] = [
   { value: 1,  spanish: 'uno' },
@@ -190,4 +192,5 @@ export const SCREENS: Screen[] = [
   { kind: 'numbers', label: 'Years',       col1: YEARS.slice(0, 10),        col2: YEARS.slice(10) },
   ...CONJUGATION_SCREENS,
   { kind: 'verbs', label: 'Verbs' },
+  { kind: 'englishVerbs', label: 'English Verbs' },
 ]
