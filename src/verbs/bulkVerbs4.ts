@@ -1909,4 +1909,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['cargaba', 'I used to load'], ['cargabas', 'you used to load'], ['cargaba', 's/he used to load'],
         ['cargábamos', 'we used to load'], ['cargaban', 'they used to load'],
     ]),
+    simpleVerb('organizar', 'to organize, to arrange', [
+        ['organizar', 'to organize'], ['organizado', 'organized'], ['organizando', 'organizing'],
+    ], [
+        ['organizo', 'I organize'], ['organizas', 'you organize'], ['organiza', 's/he organizes'],
+        ['organizamos', 'we organize'], ['organizan', 'they organize'],
+    ], [
+        ['organicé', 'I organized'], ['organizaste', 'you organized'], ['organizó', 's/he organized'],
+        ['organizamos', 'we organized'], ['organizaron', 'they organized'],
+    ], [
+        ['organizaba', 'I used to organize'], ['organizabas', 'you used to organize'], ['organizaba', 's/he used to organize'],
+        ['organizábamos', 'we used to organize'], ['organizaban', 'they used to organize'],
+    ]),
 ]

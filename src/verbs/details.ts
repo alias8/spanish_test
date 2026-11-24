@@ -1821,4 +1821,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for loading or charging something at a specific time.', example: { spanish: 'cargamos el coche antes de salir de vacaciones', english: 'we loaded the car before leaving on vacation' } },
         imperfect: { description: 'Used for what someone used to load or carry, or for background.', example: { spanish: 'la página cargaba muy despacio', english: 'the page was loading really slowly' } },
     },
+    organizar: {
+        summary: 'Organizar means "to organize" or "to arrange": organizar una fiesta (to organize a party), organizar el armario (to organize the closet), organizar un viaje (to plan a trip). The reflexive organizarse means "to get organized" or to manage your own time: me organizo bien (I\'m good at organizing myself). The noun is la organización, and the adjective organizado means "organized". It is regular apart from a spelling change (z→c) in the yo preterite (organicé), since Spanish doesn\'t write z before e.',
+        present: { description: 'Used for organizing now or habitually.', example: { spanish: 'cada domingo organizo la semana', english: 'every Sunday I plan out the week' } },
+        preterite: { description: 'Used for something organized at a specific time.', example: { spanish: 'mis amigos organizaron una fiesta sorpresa para mí', english: 'my friends organized a surprise party for me' } },
+        imperfect: { description: 'Used for what someone used to organize, or for background.', example: { spanish: 'mi madre siempre organizaba las vacaciones de la familia', english: 'my mother always used to organize the family vacations' } },
+    },
 }
