@@ -1921,4 +1921,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['organizaba', 'I used to organize'], ['organizabas', 'you used to organize'], ['organizaba', 's/he used to organize'],
         ['organizábamos', 'we used to organize'], ['organizaban', 'they used to organize'],
     ]),
+    simpleVerb('exhibir', 'to exhibit, to display, to show', [
+        ['exhibir', 'to exhibit'], ['exhibido', 'exhibited'], ['exhibiendo', 'exhibiting'],
+    ], [
+        ['exhibo', 'I exhibit'], ['exhibes', 'you exhibit'], ['exhibe', 's/he exhibits'],
+        ['exhibimos', 'we exhibit'], ['exhiben', 'they exhibit'],
+    ], [
+        ['exhibí', 'I exhibited'], ['exhibiste', 'you exhibited'], ['exhibió', 's/he exhibited'],
+        ['exhibimos', 'we exhibited'], ['exhibieron', 'they exhibited'],
+    ], [
+        ['exhibía', 'I used to exhibit'], ['exhibías', 'you used to exhibit'], ['exhibía', 's/he used to exhibit'],
+        ['exhibíamos', 'we used to exhibit'], ['exhibían', 'they used to exhibit'],
+    ]),
 ]

@@ -1827,4 +1827,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something organized at a specific time.', example: { spanish: 'mis amigos organizaron una fiesta sorpresa para mí', english: 'my friends organized a surprise party for me' } },
         imperfect: { description: 'Used for what someone used to organize, or for background.', example: { spanish: 'mi madre siempre organizaba las vacaciones de la familia', english: 'my mother always used to organize the family vacations' } },
     },
+    exhibir: {
+        summary: 'Exhibir means "to exhibit" or "to display", for art, products or films: el museo exhibe obras de Picasso (the museum exhibits works by Picasso), la tienda exhibe la ropa nueva en la vitrina (the store displays the new clothes in the window). In Latin America it is also used for showing a movie (exhibir una película). The reflexive exhibirse means "to show off". The noun is la exhibición (an exhibition or display), though for an art show la exposición is more common in Spain. The h is silent, so it sounds like "ek-si-BEER". It is a completely regular -ir verb.',
+        present: { description: 'Used for something on display now or habitually.', example: { spanish: 'la galería exhibe fotos de artistas locales', english: 'the gallery exhibits photos by local artists' } },
+        preterite: { description: 'Used for something exhibited at a specific time.', example: { spanish: 'el año pasado exhibieron sus cuadros en Madrid', english: 'last year they exhibited her paintings in Madrid' } },
+        imperfect: { description: 'Used for what used to be on display, or for background.', example: { spanish: 'el cine del barrio exhibía películas antiguas', english: 'the neighborhood movie theater used to show old movies' } },
+    },
 }
