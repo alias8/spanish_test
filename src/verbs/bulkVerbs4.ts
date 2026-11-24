@@ -1933,4 +1933,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['exhibía', 'I used to exhibit'], ['exhibías', 'you used to exhibit'], ['exhibía', 's/he used to exhibit'],
         ['exhibíamos', 'we used to exhibit'], ['exhibían', 'they used to exhibit'],
     ]),
+    simpleVerb('ofrecerse', 'to volunteer, to offer (to do something)', [
+        ['ofrecerse', 'to volunteer'], ['ofrecido', 'volunteered'], ['ofreciendo', 'volunteering'],
+    ], [
+        ['me ofrezco', 'I volunteer'], ['te ofreces', 'you volunteer'], ['se ofrece', 's/he volunteers'],
+        ['nos ofrecemos', 'we volunteer'], ['se ofrecen', 'they volunteer'],
+    ], [
+        ['me ofrecí', 'I volunteered'], ['te ofreciste', 'you volunteered'], ['se ofreció', 's/he volunteered'],
+        ['nos ofrecimos', 'we volunteered'], ['se ofrecieron', 'they volunteered'],
+    ], [
+        ['me ofrecía', 'I used to volunteer'], ['te ofrecías', 'you used to volunteer'], ['se ofrecía', 's/he used to volunteer'],
+        ['nos ofrecíamos', 'we used to volunteer'], ['se ofrecían', 'they used to volunteer'],
+    ]),
 ]

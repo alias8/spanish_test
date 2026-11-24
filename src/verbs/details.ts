@@ -1833,4 +1833,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for something exhibited at a specific time.', example: { spanish: 'el año pasado exhibieron sus cuadros en Madrid', english: 'last year they exhibited her paintings in Madrid' } },
         imperfect: { description: 'Used for what used to be on display, or for background.', example: { spanish: 'el cine del barrio exhibía películas antiguas', english: 'the neighborhood movie theater used to show old movies' } },
     },
+    ofrecerse: {
+        summary: 'Ofrecerse is the reflexive form of ofrecer (to offer), and literally means "to offer yourself". It is the usual way to say "to volunteer" for a task: me ofrecí para ayudar (I volunteered to help), ¿quién se ofrece? (who volunteers?). The task usually takes para or a with an infinitive, and you can add como voluntario to make it explicit: se ofreció como voluntaria en el hospital (she volunteered at the hospital). For ongoing volunteer work, ser voluntario or hacer voluntariado are more common. Like ofrecer, it adds a z before the c in the yo present (me ofrezco).',
+        present: { description: 'Used for volunteering now or habitually.', example: { spanish: 'siempre me ofrezco para lavar los platos', english: 'I always volunteer to wash the dishes' } },
+        preterite: { description: 'Used for volunteering at a specific time.', example: { spanish: 'nadie se ofreció a ayudarme con la mudanza', english: 'nobody volunteered to help me with the move' } },
+        imperfect: { description: 'Used for volunteering that used to happen regularly, or for background.', example: { spanish: 'mi padre siempre se ofrecía a llevarnos al aeropuerto', english: 'my father always used to offer to take us to the airport' } },
+    },
 }
