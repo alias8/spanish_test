@@ -1897,4 +1897,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me esforzaba', 'I used to make an effort'], ['te esforzabas', 'you used to make an effort'], ['se esforzaba', 's/he used to make an effort'],
         ['nos esforzábamos', 'we used to make an effort'], ['se esforzaban', 'they used to make an effort'],
     ]),
+    simpleVerb('cargar', 'to load, to charge (a battery, a phone)', [
+        ['cargar', 'to load'], ['cargado', 'loaded'], ['cargando', 'loading'],
+    ], [
+        ['cargo', 'I load'], ['cargas', 'you load'], ['carga', 's/he loads'],
+        ['cargamos', 'we load'], ['cargan', 'they load'],
+    ], [
+        ['cargué', 'I loaded'], ['cargaste', 'you loaded'], ['cargó', 's/he loaded'],
+        ['cargamos', 'we loaded'], ['cargaron', 'they loaded'],
+    ], [
+        ['cargaba', 'I used to load'], ['cargabas', 'you used to load'], ['cargaba', 's/he used to load'],
+        ['cargábamos', 'we used to load'], ['cargaban', 'they used to load'],
+    ]),
 ]

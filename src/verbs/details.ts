@@ -1815,4 +1815,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for an effort made at a specific time.', example: { spanish: 'te esforzaste mucho en el examen', english: 'you worked really hard on the exam' } },
         imperfect: { description: 'Used for effort that used to happen regularly, or was ongoing.', example: { spanish: 'de niña, se esforzaba siempre en la escuela', english: 'as a girl, she always used to work hard at school' } },
     },
+    cargar: {
+        summary: 'Cargar means "to load" (a truck, the car, a dishwasher) and "to charge" (a battery or a phone): tengo que cargar el celular (I have to charge my phone). It also means "to carry" something heavy: cargaba una mochila enorme (s/he was carrying a huge backpack). A page or app that is loading is cargando. The noun la carga means a load or cargo, and the cargador is the charger. Its opposite is descargar (to unload, to download). It is regular apart from a spelling change (g→gu) in the yo preterite (cargué), needed to keep the hard "g" sound before an "e".',
+        present: { description: 'Used for loading or charging now or habitually.', example: { spanish: 'cargo el teléfono todas las noches', english: 'I charge my phone every night' } },
+        preterite: { description: 'Used for loading or charging something at a specific time.', example: { spanish: 'cargamos el coche antes de salir de vacaciones', english: 'we loaded the car before leaving on vacation' } },
+        imperfect: { description: 'Used for what someone used to load or carry, or for background.', example: { spanish: 'la página cargaba muy despacio', english: 'the page was loading really slowly' } },
+    },
 }
