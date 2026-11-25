@@ -1839,4 +1839,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for volunteering at a specific time.', example: { spanish: 'nadie se ofreció a ayudarme con la mudanza', english: 'nobody volunteered to help me with the move' } },
         imperfect: { description: 'Used for volunteering that used to happen regularly, or for background.', example: { spanish: 'mi padre siempre se ofrecía a llevarnos al aeropuerto', english: 'my father always used to offer to take us to the airport' } },
     },
+    cortarse: {
+        summary: 'Cortarse is the reflexive form of cortar (to cut), and has two main uses. The first is "to cut yourself" by accident: me corté con un cuchillo (I cut myself with a knife). To say which body part, use the definite article rather than a possessive: me corté el dedo (I cut my finger). The second is "to get your hair cut": me corté el pelo ayer (I got my hair cut yesterday). In Spanish you say it as if you did it yourself, even when a hairdresser did it. It can also mean "to be cut off" (se cortó la llamada, the call got cut off) or for milk "to curdle". It is a completely regular -ar verb.',
+        present: { description: 'Used for cutting yourself or getting a haircut now or habitually.', example: { spanish: 'me corto el pelo cada mes', english: 'I get my hair cut every month' } },
+        preterite: { description: 'Used for a cut or a haircut at a specific time.', example: { spanish: 'mi hijo se cortó la mano jugando en el parque', english: 'my son cut his hand playing in the park' } },
+        imperfect: { description: 'Used for what used to happen regularly, or for background.', example: { spanish: 'de joven, me cortaba el pelo muy corto', english: 'when I was young, I used to wear my hair really short' } },
+    },
 }

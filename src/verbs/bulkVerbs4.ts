@@ -1945,4 +1945,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me ofrecía', 'I used to volunteer'], ['te ofrecías', 'you used to volunteer'], ['se ofrecía', 's/he used to volunteer'],
         ['nos ofrecíamos', 'we used to volunteer'], ['se ofrecían', 'they used to volunteer'],
     ]),
+    simpleVerb('cortarse', 'to cut (oneself), to get one\'s hair cut', [
+        ['cortarse', 'to cut oneself'], ['cortado', 'cut'], ['cortando', 'cutting'],
+    ], [
+        ['me corto', 'I cut myself'], ['te cortas', 'you cut yourself'], ['se corta', 's/he cuts him/herself'],
+        ['nos cortamos', 'we cut ourselves'], ['se cortan', 'they cut themselves'],
+    ], [
+        ['me corté', 'I cut myself'], ['te cortaste', 'you cut yourself'], ['se cortó', 's/he cut him/herself'],
+        ['nos cortamos', 'we cut ourselves'], ['se cortaron', 'they cut themselves'],
+    ], [
+        ['me cortaba', 'I used to cut myself'], ['te cortabas', 'you used to cut yourself'], ['se cortaba', 's/he used to cut him/herself'],
+        ['nos cortábamos', 'we used to cut ourselves'], ['se cortaban', 'they used to cut themselves'],
+    ]),
 ]
