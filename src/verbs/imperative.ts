@@ -18,7 +18,7 @@ const NO_IMPERATIVE = new Set([
 
 const TU_OVERRIDES: Record<string, string> = {
     decir: 'di', hacer: 'haz', ir: 've', poner: 'pon', salir: 'sal', ser: 'sé', tener: 'ten', venir: 'ven',
-    mantener: 'mantén', suponer: 'supón',
+    mantener: 'mantén', suponer: 'supón', sostener: 'sostén',
 }
 
 const USTED_OVERRIDES: Record<string, [usted: string, ustedes: string]> = {
