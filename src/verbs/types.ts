@@ -11,6 +11,7 @@ export const TENSE_META = [
     { name: 'Indicative Imperfect', spanishName: 'El Pretérito Imperfecto', pronouns: VERB_PRONOUNS },
     { name: 'Indicative Present Perfect', spanishName: 'El Pretérito Perfecto', pronouns: VERB_PRONOUNS },
     { name: 'Affirmative Imperative', spanishName: 'El Imperativo Afirmativo', pronouns: IMPERATIVE_PRONOUNS },
+    { name: 'Negative Imperative', spanishName: 'El Imperativo Negativo', pronouns: IMPERATIVE_PRONOUNS },
 ] as const
 
 // [start, end) character offsets into `spanish` of letters that break the regular pattern,
@@ -28,6 +29,6 @@ export type VerbEntry = {
     translation: string
     summary?: string
     infinitiveForms: VerbInfoRow[] // aligned with INFINITIVE_ITEMS by index
-    tenses: VerbTense[] // aligned with TENSE_META by index; the imperative (index 4, last) is optional
+    tenses: VerbTense[] // aligned with TENSE_META by index; the imperatives (4 affirmative, 5 negative) are optional, always both or neither
 }
 export type VerbLookupScreen = { kind: 'verbs'; label: string }

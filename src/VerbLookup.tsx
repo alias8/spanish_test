@@ -15,7 +15,7 @@ function getMatchReason(verb: VerbEntry, q: string): MatchReason | null {
   // infinitiveForms[0] is the bare infinitive itself — only participle/gerund (the rest) count as "conjugated"
   const isExactConjugatedForm =
     verb.infinitiveForms.slice(1).some(f => normalize(f.spanish) === q) ||
-    verb.tenses.some(t => t.forms.some(f => normalize(f.spanish) === q))
+    (VERBS_BY_FORM.get(q) ?? []).includes(verb)
   if (isExactConjugatedForm) return 'conjugated'
   if (matchesWordStart(normalize(verb.translation), q)) return 'translation'
   return 'partial'
@@ -165,6 +165,45 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
 }) {
   const label = verb.infinitive[0].toUpperCase() + verb.infinitive.slice(1)
 
+  function renderTense(i: number) {
+    const tense = verb.tenses[i]
+    const meta = TENSE_META[i]
+    return (
+      <>
+        <h3>{label} in the {meta.name}</h3>
+        {tense.description && (
+          <p className="verb-summary">
+            {tense.description}
+            {tense.example && (
+              <> For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".</>
+            )}
+            {' '}In Spanish, known as "{meta.spanishName}".
+          </p>
+        )}
+        <table className="verb-table">
+          {i !== 5 && (
+            <thead>
+              <tr>
+                <th>Pronoun</th>
+                <th>Spanish</th>
+                <th>English</th>
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {tense.forms.map((form, j) => (
+              <tr key={meta.pronouns[j]}>
+                <td>{meta.pronouns[j]}</td>
+                <td>{renderSpanish(form.spanish, form.irregular, highlight)}</td>
+                <td className="english">{highlightMatches(form.english, highlight)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    )
+  }
+
   return (
     <div className="verb-detail">
       <div className="verb-box">
@@ -197,42 +236,16 @@ function VerbDetail({ verb, matchedFrom, matchReason, highlight }: {
         {verb.infinitiveForms.some(f => f.irregular) && <IrregularFootnote infinitive={verb.infinitive} />}
       </div>
 
-      {verb.tenses.map((tense, i) => {
-        const meta = TENSE_META[i]
-        return (
-          <div className="verb-box" key={meta.name}>
-            <h3>{label} in the {meta.name}</h3>
-            {tense.description && (
-              <p className="verb-summary">
-                {tense.description}
-                {tense.example && (
-                  <> For example, "<em>{tense.example.spanish}</em>", meaning "<em>{tense.example.english}</em>".</>
-                )}
-                {' '}In Spanish, known as "{meta.spanishName}".
-              </p>
-            )}
-            <table className="verb-table">
-              <thead>
-                <tr>
-                  <th>Pronoun</th>
-                  <th>Spanish</th>
-                  <th>English</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tense.forms.map((form, j) => (
-                  <tr key={meta.pronouns[j]}>
-                    <td>{meta.pronouns[j]}</td>
-                    <td>{renderSpanish(form.spanish, form.irregular, highlight)}</td>
-                    <td className="english">{highlightMatches(form.english, highlight)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {tense.forms.some(f => f.irregular) && <IrregularFootnote infinitive={verb.infinitive} />}
-          </div>
-        )
-      })}
+      {/* the two imperatives share the last box (and its header row and footnote), so the grid stays 3 x 2 */}
+      {verb.tenses.slice(0, 5).map((_, i) => (
+        <div className={i === 4 ? 'verb-box verb-box-imperative' : 'verb-box'} key={TENSE_META[i].name}>
+          {renderTense(i)}
+          {i === 4 && renderTense(5)}
+          {(i === 4 ? verb.tenses.slice(4) : verb.tenses.slice(i, i + 1)).some(t => t.forms.some(f => f.irregular)) && (
+            <IrregularFootnote infinitive={verb.infinitive} />
+          )}
+        </div>
+      ))}
     </div>
   )
 }

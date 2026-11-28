@@ -636,3 +636,52 @@ h1 {
     background: var(--accent-border);
   }
 }
+
+/* The last verb box holds two tables (affirmative and negative imperative), so it's
+   tighter than the others. */
+.verb-box.verb-box-imperative {
+  padding: 8px 16px;
+
+  h3 {
+    margin: 0 0 2px;
+    font-size: 1rem;
+  }
+
+  .verb-table ~ h3 {
+    margin-top: 6px;
+  }
+
+  .verb-summary {
+    margin: 0 0 2px;
+    font-size: 0.8rem;
+    line-height: 130%;
+  }
+
+  .verb-table {
+    margin-top: 2px;
+    table-layout: fixed;
+  }
+
+  .verb-table th,
+  .verb-table td {
+    padding: 2px 8px;
+  }
+
+  /* fixed widths so the two tables' columns line up */
+  tr > :first-child {
+    width: 19%;
+  }
+
+  tr > :nth-child(2) {
+    width: 31%;
+  }
+
+  .verb-table td {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .verb-footnote {
+    margin-top: 2px;
+  }
+}

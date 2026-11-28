@@ -1,11 +1,13 @@
 import type { VerbEntry, VerbForm, VerbTense } from './types'
 
-// Generates the affirmative imperative (tú, usted, ustedes) for every verb from data it
+// Generates the affirmative and negative imperatives (tú, usted, ustedes) for every verb from data it
 // already has, rather than hand-writing ~270 tables:
 //   - tú is the present-tense él/ella form (habla, come, piensa), except a few irregulars
 //   - usted/ustedes are the present subjunctive: the yo form minus -o, with the vowel swapped
 //     (hablo → hable, tengo → tenga), plus the -car/-gar/-zar/-guar spelling changes
-//   - reflexive verbs attach the pronoun (levántate, levántese, levántense)
+//   - the negative is "no" + the present subjunctive for all three (no hables, no hable, no hablen)
+//   - reflexive verbs attach the pronoun (levántate, levántese, levántense), or put it in front
+//     of the verb in the negative (no te levantes)
 // Irregular letters are marked afterwards, in irregularity.ts.
 
 // Verbs with no natural command form (impersonal, gustar-style, or modal) get no imperative box.
@@ -61,7 +63,7 @@ function presentSubjunctive(yo: string, isAr: boolean): string {
     return stem + 'e'
 }
 
-export function buildImperative(verb: VerbEntry): VerbTense | null {
+export function buildImperatives(verb: VerbEntry): [affirmative: VerbTense, negative: VerbTense] | null {
     if (NO_IMPERATIVE.has(verb.infinitive)) return null
     const [firstWord, ...rest] = verb.infinitive.split(' ')
     const tail = rest.length ? ' ' + rest.join(' ') : '' // e.g. pedir prestado, hacer snowboard
@@ -94,7 +96,16 @@ export function buildImperative(verb: VerbEntry): VerbTense | null {
     })
 
     const description = reflexive
-        ? `The Affirmative Imperative is used to give commands, instructions or invitations — telling someone to ${gloss}. The reflexive pronoun is attached to the end (${forms[0].spanish}), which usually adds a written accent to keep the stress in the same place.`
-        : `The Affirmative Imperative is used to give commands, instructions or invitations — telling someone to ${gloss}. Use tú with friends and family, usted to be polite, and ustedes for more than one person.`
-    return { description, forms }
+        ? `The Affirmative Imperative is used to tell someone to ${gloss}. The reflexive pronoun is attached to the end (${forms[0].spanish}), usually adding a written accent to keep the stress.`
+        : `The Affirmative Imperative is used to tell someone to ${gloss}. Use tú with friends and family, usted to be polite, and ustedes for more than one person.`
+
+    // the subjunctive tú form is usted + s, dropping the accent only dé has (dé → des, but esté → estés)
+    const negativeTu = usted === 'dé' ? 'des' : usted + 's'
+    const negativeForms = [negativeTu, usted, ustedes].map((form, i): VerbForm => ({
+        spanish: `no ${reflexive ? pronouns[i] + ' ' : ''}${form}${tail}`,
+        english: `don't ${english[i]}`,
+    }))
+    const negativeDescription = `Used to tell someone not to do something. It uses the present subjunctive${reflexive ? ', with the reflexive pronoun before the verb' : ''}.`
+
+    return [{ description, forms }, { description: negativeDescription, forms: negativeForms }]
 }

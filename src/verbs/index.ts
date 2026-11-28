@@ -4,21 +4,21 @@ import { BULK_VERBS_2 } from './bulkVerbs2'
 import { BULK_VERBS_3 } from './bulkVerbs3'
 import { BULK_VERBS_4 } from './bulkVerbs4'
 import { VERB_DETAILS } from './details'
-import { buildImperative } from './imperative'
+import { buildImperatives } from './imperative'
 import { buildPresentPerfect } from './presentPerfect'
 import { markIrregularLetters } from './irregularity'
 import { normalize } from '../utils'
 
 export const VERBS: VerbEntry[] = [...BULK_VERBS_1, ...BULK_VERBS_2, ...BULK_VERBS_3, ...BULK_VERBS_4]
 
-// The present perfect and imperative are generated rather than hand-written (see
+// The present perfect and imperatives are generated rather than hand-written (see
 // presentPerfect.ts and imperative.ts). The length check keeps this idempotent, since dev
 // hot-reload can re-run this module on the same verb objects.
 for (const verb of VERBS) {
     if (verb.tenses.length > 3) continue
     verb.tenses.push(buildPresentPerfect(verb))
-    const imperative = buildImperative(verb)
-    if (imperative) verb.tenses.push(imperative)
+    const imperatives = buildImperatives(verb)
+    if (imperatives) verb.tenses.push(...imperatives)
     markIrregularLetters(verb)
 }
 
@@ -46,7 +46,12 @@ export const VERBS_BY_FORM = new Map<string, VerbEntry[]>()
 for (const v of VERBS) {
     const forms = new Set<string>()
     v.infinitiveForms.forEach(f => forms.add(normalize(f.spanish)))
-    v.tenses.forEach(t => t.forms.forEach(f => forms.add(normalize(f.spanish))))
+    v.tenses.forEach(t => t.forms.forEach(f => {
+        const form = normalize(f.spanish)
+        forms.add(form)
+        // index negative commands without their "no" too, so "mires" exact-matches "no mires"
+        if (form.startsWith('no ')) forms.add(form.slice(3))
+    }))
     for (const form of forms) {
         const list = VERBS_BY_FORM.get(form)
         if (list) list.push(v)

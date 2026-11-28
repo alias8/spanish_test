@@ -34,12 +34,14 @@ const ENDINGS: Record<VerbClass, string[][]> = {
 }
 // tú, usted, ustedes
 const IMPERATIVE_ENDINGS: Record<VerbClass, string[]> = { ar: ['a', 'e', 'en'], er: ['e', 'a', 'an'], ir: ['e', 'a', 'an'] }
+const NEGATIVE_IMPERATIVE_ENDINGS: Record<VerbClass, string[]> = { ar: ['es', 'e', 'en'], er: ['as', 'a', 'an'], ir: ['as', 'a', 'an'] }
 const IMPERATIVE_PRONOUNS = ['te', 'se', 'se']
 // endings of the strong preterites (tuve, hizo, dijeron), which replace the stem *and* the ending
 const STRONG_PRETERITE_ENDINGS = [['e'], ['iste'], ['o'], ['imos'], ['ieron', 'eron']]
 const PRETERITE = 1
 const PRESENT_PERFECT = 3
 const IMPERATIVE = 4
+const NEGATIVE_IMPERATIVE = 5
 
 type VerbShape = { stem: string; cls: VerbClass; reflexive: boolean; tail: string[] }
 
@@ -129,6 +131,8 @@ export function markIrregularLetters(verb: VerbEntry) {
             let regularFor: (part: number) => Regular
             if (t === PRESENT_PERFECT) {
                 regularFor = () => regularParticiple(shape)
+            } else if (t === NEGATIVE_IMPERATIVE) {
+                regularFor = () => ({ stem, ending: NEGATIVE_IMPERATIVE_ENDINGS[cls][person] })
             } else if (t === IMPERATIVE) {
                 const ending = IMPERATIVE_ENDINGS[cls][person]
                 // a reflexive command's written accent is regular (levántate), so it's part of the pattern
