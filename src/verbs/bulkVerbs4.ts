@@ -1957,4 +1957,16 @@ export const BULK_VERBS_4: VerbEntry[] = [
         ['me cortaba', 'I used to cut myself'], ['te cortabas', 'you used to cut yourself'], ['se cortaba', 's/he used to cut him/herself'],
         ['nos cortábamos', 'we used to cut ourselves'], ['se cortaban', 'they used to cut themselves'],
     ]),
+    simpleVerb('memorizar', 'to memorize, to learn by heart', [
+        ['memorizar', 'to memorize'], ['memorizado', 'memorized'], ['memorizando', 'memorizing'],
+    ], [
+        ['memorizo', 'I memorize'], ['memorizas', 'you memorize'], ['memoriza', 's/he memorizes'],
+        ['memorizamos', 'we memorize'], ['memorizan', 'they memorize'],
+    ], [
+        ['memoricé', 'I memorized'], ['memorizaste', 'you memorized'], ['memorizó', 's/he memorized'],
+        ['memorizamos', 'we memorized'], ['memorizaron', 'they memorized'],
+    ], [
+        ['memorizaba', 'I used to memorize'], ['memorizabas', 'you used to memorize'], ['memorizaba', 's/he used to memorize'],
+        ['memorizábamos', 'we used to memorize'], ['memorizaban', 'they used to memorize'],
+    ]),
 ]

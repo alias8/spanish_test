@@ -1845,4 +1845,10 @@ export const VERB_DETAILS: Record<string, VerbDetail> = {
         preterite: { description: 'Used for a cut or a haircut at a specific time.', example: { spanish: 'mi hijo se cortó la mano jugando en el parque', english: 'my son cut his hand playing in the park' } },
         imperfect: { description: 'Used for what used to happen regularly, or for background.', example: { spanish: 'de joven, me cortaba el pelo muy corto', english: 'when I was young, I used to wear my hair really short' } },
     },
+    memorizar: {
+        summary: 'Memorizar means "to memorize", to deliberately learn something so you can repeat it: memorizar un poema (to memorize a poem), memorizar las conjugaciones (to memorize the conjugations). A very common alternative is aprenderse algo de memoria (to learn something by heart), and saberse algo de memoria means to know it by heart. Don\'t confuse it with recordar or acordarse de, which mean to remember something. The noun is la memoria (memory). The only spelling change is z to c before e: memoricé (I memorized).',
+        present: { description: 'Used for what someone memorizes now or habitually.', example: { spanish: 'memorizo diez palabras nuevas cada día', english: 'I memorize ten new words every day' } },
+        preterite: { description: 'Used for something memorized at a specific time.', example: { spanish: 'anoche memoricé todo mi discurso', english: 'last night I memorized my whole speech' } },
+        imperfect: { description: 'Used for what someone used to memorize, or for background.', example: { spanish: 'en la escuela memorizábamos poemas', english: 'in school we used to memorize poems' } },
+    },
 }
